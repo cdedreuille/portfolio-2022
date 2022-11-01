@@ -1,5 +1,6 @@
 import { groq } from "next-sanity";
 import { getClient } from "../lib/sanity.server";
+import { ProjectProps } from "../types";
 
 async function getData() {
   const projects = await getClient().fetch(groq`*[_type == "project"]`);
@@ -7,7 +8,13 @@ async function getData() {
 }
 
 export default async function Home() {
-  const data = await getData();
-  console.log(data);
-  return <div className="bg-red h-screen">Hello</div>;
+  const data: ProjectProps[] = await getData();
+
+  return (
+    <div className="bg-red h-screen">
+      {data.map((project) => (
+        <div key={project._id}>{project.name}</div>
+      ))}
+    </div>
+  );
 }
