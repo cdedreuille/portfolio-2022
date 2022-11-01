@@ -8,6 +8,7 @@ module.exports = {
   theme: {
     colors: {
       red: "#FF482F",
+      cream: "#F3F2F3",
     },
   },
   plugins: [],

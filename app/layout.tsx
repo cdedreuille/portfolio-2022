@@ -1,4 +1,7 @@
 import "./globals.css";
+import { Inter } from "@next/font/google";
+
+const inter = Inter();
 
 export default function RootLayout({
   children,
@@ -6,7 +9,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.className}>
       <head>
         <title>Charles de Dreuille</title>
         <meta
@@ -15,7 +18,7 @@ export default function RootLayout({
         />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body>{children}</body>
+      <body className="bg-red">{children}</body>
     </html>
   );
 }
