@@ -7,8 +7,16 @@ module.exports = {
   ],
   theme: {
     colors: {
-      red: "#FF482F",
+      red: "#F52D11",
       cream: "#F3F2F3",
+      white: "#FFFFFF",
+      black: "#000000",
+    },
+    fontSize: {
+      sm: ["14px", "20px"],
+      base: ["17px", "32px"],
+      lg: ["20px", "32px"],
+      xl: ["32px", "40px"],
     },
   },
   plugins: [],

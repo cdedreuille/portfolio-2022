@@ -20,5 +20,17 @@ export default defineType({
       to: [{ type: "client" }],
       validation: (Rule) => Rule.required(),
     },
+    {
+      type: "string",
+      name: "type",
+      title: "Project Type",
+      options: {
+        list: [
+          { title: "Product", value: "product" },
+          { title: "Branding", value: "branding" },
+        ],
+      },
+      validation: (Rule) => Rule.required(),
+    },
   ],
 });

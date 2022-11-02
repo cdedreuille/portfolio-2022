@@ -1,7 +1,8 @@
 export interface ProjectProps {
   _id: string;
   name: string;
-  client: ClientProps;
+  client: string;
+  type: string;
 }
 
 export interface ClientProps {
