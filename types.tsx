@@ -3,6 +3,7 @@ export interface ProjectProps {
   name: string;
   client: string;
   type: string;
+  published_at: string;
 }
 
 export interface ClientProps {

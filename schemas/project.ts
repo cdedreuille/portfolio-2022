@@ -32,5 +32,14 @@ export default defineType({
       },
       validation: (Rule) => Rule.required(),
     },
+    {
+      type: "date",
+      name: "published_at",
+      title: "Published Date",
+      options: {
+        dateFormat: "DD MMMM YYYY",
+      },
+      validation: (Rule) => Rule.required(),
+    },
   ],
 });
