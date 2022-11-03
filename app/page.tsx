@@ -8,23 +8,26 @@ import { HomeMobile } from "./home-mobile";
 
 async function getData() {
   const projects = await getClient().fetch(
-    groq`*[_type == "project"]{
+    groq`*[_type == "projectList" && _id == "projectList"][0]{
       ...,
-      "client": client->name,
-      "blocks": blocks[]{
+      projects[]->{
         ...,
-        "assets": assets[]{
-          _type == 'image' => {
-            _key,
-            "type": 'image',
-            "url": @.asset->url,
-            "width": @.asset->metadata.dimensions.width,
-            "height": @.asset->metadata.dimensions.height
-          },
-          _type != 'image' => @,
+        "client": client->name,
+        "blocks": blocks[]{
+          ...,
+          "assets": assets[]{
+            _type == 'image' => {
+              _key,
+              "type": 'image',
+              "url": @.asset->url,
+              "width": @.asset->metadata.dimensions.width,
+              "height": @.asset->metadata.dimensions.height
+            },
+            _type != 'image' => @,
+          }
         }
       }
-    }`
+    }.projects`
   );
   return projects;
 }
