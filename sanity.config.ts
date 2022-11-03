@@ -5,6 +5,7 @@ import { createConfig } from "sanity";
 import project from "./schemas/project";
 import client from "./schemas/client";
 import projectList from "./schemas/projectList";
+import { UserIcon } from "@sanity/icons";
 
 export default createConfig({
   basePath: "/admin",
@@ -25,6 +26,7 @@ export default createConfig({
               .child(S.documentTypeList("project").title("Projects")),
             S.listItem()
               .title("Clients")
+              .icon(UserIcon)
               .child(S.documentTypeList("client").title("Clients")),
             S.listItem()
               .title("Project List")

@@ -1,10 +1,9 @@
-import { BookIcon, ImageIcon } from "@sanity/icons";
+import { DocumentIcon, DocumentVideoIcon } from "@sanity/icons";
 import { defineType } from "sanity";
 
 export default defineType({
   name: "project",
   title: "Projects",
-  icon: BookIcon,
   type: "document",
   fields: [
     {
@@ -50,7 +49,6 @@ export default defineType({
           type: "document",
           name: "asset",
           title: "Asset",
-          icon: ImageIcon,
           fields: [
             {
               type: "array",
@@ -65,11 +63,26 @@ export default defineType({
             },
             prepare(selection) {
               const { assets } = selection;
+              const first = assets[0];
+
+              const newTitle = () => {
+                if (assets.length === 1 && first._type === "mux.video")
+                  return "Single Video";
+                if (assets.length === 1 && first._type === "image")
+                  return "Single Image";
+                if (assets.length === 2) return "Two Media";
+                if (assets.length === 3) return "Three Media";
+                return `${assets.length} Assets`;
+              };
+
               return {
-                title:
+                title: newTitle(),
+                media:
                   assets && assets.length > 0
-                    ? `${assets.length} media`
-                    : "No image",
+                    ? first._type === "image"
+                      ? assets[0]
+                      : DocumentVideoIcon
+                    : null,
               };
             },
           },
@@ -86,6 +99,7 @@ export default defineType({
       return {
         title: name,
         subtitle: client,
+        media: DocumentIcon,
       };
     },
   },
