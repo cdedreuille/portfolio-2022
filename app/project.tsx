@@ -26,7 +26,7 @@ export const Project: FC<Props> = ({ project }) => {
                 <div key={asset._key}>
                   {asset.url && (
                     <Image
-                      src={asset.url}
+                      src={`${asset.url}?w=1800`}
                       width={asset.width}
                       height={asset.height}
                       alt="Image"

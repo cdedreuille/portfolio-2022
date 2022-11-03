@@ -27,6 +27,9 @@ export default defineType({
         list: [
           { title: "Product", value: "product" },
           { title: "Branding", value: "branding" },
+          { title: "Marketing", value: "marketing" },
+          { title: "Experiment", value: "experiment" },
+          { title: "Production", value: "production" },
         ],
       },
       validation: (Rule) => Rule.required(),
