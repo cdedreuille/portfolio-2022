@@ -1,7 +1,9 @@
 import { deskTool } from "sanity/desk";
+import { visionTool } from "@sanity/vision";
 import { createConfig } from "sanity";
 import project from "./schemas/project";
 import client from "./schemas/client";
+import projectList from "./schemas/projectList";
 
 export default createConfig({
   basePath: "/admin",
@@ -9,7 +11,28 @@ export default createConfig({
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "",
   title: process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || "Portfolio",
   schema: {
-    types: [project, client],
+    types: [project, client, projectList],
   },
-  plugins: [deskTool()],
+  plugins: [
+    deskTool({
+      structure: (S) => {
+        return S.list()
+          .title("Content")
+          .items([
+            S.listItem()
+              .title("Projects")
+              .child(S.documentTypeList("project").title("Projects")),
+            S.listItem()
+              .title("Clients")
+              .child(S.documentTypeList("client").title("Clients")),
+            S.listItem()
+              .title("Project List")
+              .child(
+                S.document().schemaType("projectList").documentId("projectList")
+              ),
+          ]);
+      },
+    }),
+    visionTool(),
+  ],
 });

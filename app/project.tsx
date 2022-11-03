@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { FC } from "react";
 import { ProjectProps } from "../types";
 
@@ -15,7 +16,28 @@ export const Project: FC<Props> = ({ project }) => {
       <div className="text-2xl mb-12">
         {project.client} - {project.name}
       </div>
-      <div className="w-full h-[800px] bg-white rounded-md" />
+      {project.blocks?.map((block) => (
+        <div key={block._key} className="mb-8 flex flex-row gap-8">
+          {block.assets?.map((asset) => {
+            if (asset.type === "image") {
+              return (
+                <div key={asset._key}>
+                  <Image
+                    src={asset.url}
+                    width={asset.width}
+                    height={asset.height}
+                    alt="Image"
+                  />
+                </div>
+              );
+            }
+            return null;
+          })}
+        </div>
+      ))}
+      {project.blocks === null && (
+        <div className="w-full h-[800px] bg-white rounded-md" />
+      )}
     </div>
   );
 };

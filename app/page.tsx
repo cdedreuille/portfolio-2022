@@ -8,7 +8,23 @@ import { HomeMobile } from "./home-mobile";
 
 async function getData() {
   const projects = await getClient().fetch(
-    groq`*[_type == "project"]{..., "client": client->name}`
+    groq`*[_type == "project"]{
+      ...,
+      "client": client->name,
+      "blocks": blocks[]{
+        ...,
+        "assets": assets[]{
+          _type == 'image' => {
+            _key,
+            "type": 'image',
+            "url": @.asset->url,
+            "width": @.asset->metadata.dimensions.width,
+            "height": @.asset->metadata.dimensions.height
+          },
+          _type != 'image' => @,
+        }
+      }
+    }`
   );
   return projects;
 }
