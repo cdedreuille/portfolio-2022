@@ -1,5 +1,6 @@
 import { deskTool } from "sanity/desk";
 import { visionTool } from "@sanity/vision";
+import { muxInput } from "sanity-plugin-mux-input";
 import { createConfig } from "sanity";
 import project from "./schemas/project";
 import client from "./schemas/client";
@@ -34,5 +35,6 @@ export default createConfig({
       },
     }),
     visionTool(),
+    muxInput({ mp4_support: "standard" }),
   ],
 });

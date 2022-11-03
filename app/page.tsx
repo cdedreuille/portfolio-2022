@@ -23,7 +23,11 @@ async function getData() {
               "width": @.asset->metadata.dimensions.width,
               "height": @.asset->metadata.dimensions.height
             },
-            _type != 'image' => @,
+            _type == 'mux.video' => {
+              _key,
+              "type": 'mux',
+              "playbackId": @.asset->playbackId
+            },
           }
         }
       }

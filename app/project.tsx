@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { FC } from "react";
 import { ProjectProps } from "../types";
+import MuxPlayer from "@mux/mux-player-react/lazy";
+import { Video } from "./video";
 
 interface Props {
   project: ProjectProps;
@@ -22,14 +24,19 @@ export const Project: FC<Props> = ({ project }) => {
             if (asset.type === "image") {
               return (
                 <div key={asset._key}>
-                  <Image
-                    src={asset.url}
-                    width={asset.width}
-                    height={asset.height}
-                    alt="Image"
-                  />
+                  {asset.url && (
+                    <Image
+                      src={asset.url}
+                      width={asset.width}
+                      height={asset.height}
+                      alt="Image"
+                    />
+                  )}
                 </div>
               );
+            }
+            if (asset.type === "mux") {
+              return <Video asset={asset} key={asset._key} />;
             }
             return null;
           })}

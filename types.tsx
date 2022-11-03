@@ -7,14 +7,17 @@ export interface ProjectProps {
   blocks?: {
     _key: string;
     _type: string;
-    assets?: {
-      _key: string;
-      type: string;
-      url: string;
-      width: number;
-      height: number;
-    }[];
+    assets?: AssetProps[];
   }[];
+}
+
+export interface AssetProps {
+  _key: string;
+  type: "image" | "mux";
+  url?: string;
+  width?: number;
+  height?: number;
+  playbackId?: string;
 }
 
 export interface ClientProps {
