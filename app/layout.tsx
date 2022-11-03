@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Inter } from "@next/font/google";
+import { AnalyticsWrapper } from "./components/analytics";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -43,7 +44,10 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
       </head>
-      <body className="bg-black sm:bg-red">{children}</body>
+      <body className="bg-black sm:bg-red">
+        {children}
+        <AnalyticsWrapper />
+      </body>
     </html>
   );
 }
