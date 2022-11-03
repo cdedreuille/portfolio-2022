@@ -3,7 +3,7 @@ import profilePic from "../public/charles.png";
 
 export const HomeMobile = () => {
   return (
-    <div className="bg-black w-full sm:hidden mb-20 sm:mb-0">
+    <div className="bg-black w-full sm:hidden">
       <Image src={profilePic} alt="Charles de Dreuille" priority />
       <div className="text-base font-medium text-gray p-6 -mt-40">
         <span className="text-white">Charles de Dreuille</span> is a digital

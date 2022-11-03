@@ -7,7 +7,7 @@ interface Props {
 
 export const ProjectLine: FC<Props> = ({ project }) => {
   return (
-    <div className="border-b border-black py-4 flex justify-between hover:bg-white hover:px-4 transition-all duration-300 cursor-pointer items-center">
+    <div className="border-b border-black py-4 flex justify-between sm:hover:bg-white sm:hover:px-4 sm:transition-all sm:duration-300 sm:cursor-pointer items-center">
       <div className="text-base">
         {project.client} - {project.name}
       </div>
