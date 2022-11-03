@@ -1,37 +1,28 @@
 import Image from "next/image";
 import profilePic from "../public/charles.png";
-import { Space } from "./space";
 
 export const HomeMobile = () => {
   return (
-    <div className="bg-black h-screen fixed z-0 top-0 left-0 w-full sm:hidden">
-      <div className="w-full max-w-4xl bg-cream relative">
-        <Image src={profilePic} alt="Charles de Dreuille" />
+    <div className="bg-black w-full sm:hidden mb-20 sm:mb-0">
+      <Image src={profilePic} alt="Charles de Dreuille" priority />
+      <div className="text-base font-medium text-gray p-6 -mt-40">
+        <span className="text-white">Charles de Dreuille</span> is a digital
+        product enthousiast from London — Connect design and engineering for
+        humans of this world. For the past 12 years I had the chance to work for
+        companies like Meta, Christian Louboutin, Deliveroo, Soho House and a
+        handful of entrepreneurs delivering delightful experiences for their
+        users.
       </div>
-      <div className="flex-1 p-12 flex flex-col justify-between">
-        <div className="max-w-xl text-base font-medium">
-          <span className="text-white">Charles de Dreuille</span> is a digital
-          product enthousiast from London — Connect design and engineering for
-          humans of this world. For the past 12 years I had the chance to work
-          for companies like Meta, Christian Louboutin, Deliveroo, Soho House
-          and a handful of entrepreneurs delivering delightful experiences for
-          their users. Don&apos;t ask me why there are <Space /> in my resume.
-          It&apos;s called life.
-        </div>
-        <div>
-          <div className="text-xl mb-8">Want to work together?</div>
-          <div className="flex gap-4">
-            <button className="border border-black px-8 py-2 rounded-full text-base">
-              Mail
-            </button>
-            <button className="border border-black px-8 py-2 rounded-full text-base">
-              LinkedIn
-            </button>
-            <button className="border border-black px-8 py-2 rounded-full text-base">
-              Instagram
-            </button>
-          </div>
-        </div>
+      <div className="flex gap-4 fixed bottom-8 z-20 left-1/2 -translate-x-1/2">
+        <button className="border border-white px-4 py-3 rounded-full text-sm text-white bg-black">
+          Mail
+        </button>
+        <button className="border border-white px-4 py-3 rounded-full text-sm text-white bg-black">
+          LinkedIn
+        </button>
+        <button className="border border-white px-4 py-3 rounded-full text-sm text-white bg-black">
+          Instagram
+        </button>
       </div>
     </div>
   );

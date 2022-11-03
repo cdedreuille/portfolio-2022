@@ -11,6 +11,7 @@ module.exports = {
       cream: "#F3F2F3",
       white: "#FFFFFF",
       black: "#000000",
+      gray: "#595959",
     },
     fontSize: {
       sm: ["14px", "20px"],

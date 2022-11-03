@@ -19,17 +19,15 @@ export default async function Portfolio() {
   const firstHalf = data.slice(0, half);
   const secondHalf = data.slice(half);
 
-  console.log(data);
-
   return (
     <>
       <HomeDesktop />
       <HomeMobile />
-      <div className="bg-cream z-10 relative top-[100vh] pt-24 pb-24">
-        <div className="p-12 mb-40">
+      <div className="bg-cream z-10 relative sm:top-[100vh] pt-24 pb-24">
+        <div className="p-4 sm:p-12 mb-40">
           <div className="text-lg">Selected work over the years</div>
-          <div className="w-40 h-px bg-black mt-4 mb-40" />
-          <div className="flex gap-16">
+          <div className="w-40 h-px bg-black mt-4 mb-16 sm:mb-40" />
+          <div className="flex sm:gap-16 flex-col sm:flex-row">
             <div className="flex-1">
               {firstHalf.map((project) => (
                 <ProjectLine key={project._id} project={project} />
@@ -42,7 +40,7 @@ export default async function Portfolio() {
             </div>
           </div>
         </div>
-        <div className="p-12">
+        <div className="p-4 sm:p-12">
           {data.map((project) => (
             <Project key={project._id} project={project} />
           ))}

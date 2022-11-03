@@ -1,6 +1,5 @@
 import Image from "next/image";
 import profilePic from "../public/charles.png";
-import { Space } from "./space";
 
 export const HomeDesktop = () => {
   return (
@@ -12,8 +11,7 @@ export const HomeDesktop = () => {
           humans of this world. For the past 12 years I had the chance to work
           for companies like Meta, Christian Louboutin, Deliveroo, Soho House
           and a handful of entrepreneurs delivering delightful experiences for
-          their users. Don&apos;t ask me why there are <Space /> in my resume.
-          It&apos;s called life.
+          their users.
         </div>
         <div>
           <div className="text-xl mb-8">Want to work together?</div>
@@ -35,7 +33,9 @@ export const HomeDesktop = () => {
           src={profilePic}
           alt="Charles de Dreuille"
           fill
-          objectFit="cover"
+          className="object-cover"
+          priority
+          sizes="(max-width: 896px) 448px, 400px"
         />
       </div>
     </div>
