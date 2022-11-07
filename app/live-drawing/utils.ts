@@ -1,24 +1,9 @@
-import {
-  Color,
-  Side,
-  EllipseLayer,
-  Layer,
-  LayerType,
-  Point,
-  XYWH,
-  PathLayer,
-  Camera,
-} from "../../types";
+import { Color, LayerType, Point, XYWH, PathLayer, Camera } from "../../types";
 
 export function colorToCss(color: Color) {
   return `#${color.r.toString(16).padStart(2, "0")}${color.g
     .toString(16)
     .padStart(2, "0")}${color.b.toString(16).padStart(2, "0")}`;
-}
-
-const COLORS = ["#DC2626", "#D97706", "#059669", "#7C3AED", "#DB2777"];
-export function connectionIdToColor(connectionId: number): string {
-  return COLORS[connectionId % COLORS.length];
 }
 
 export function getSvgPathFromStroke(stroke: number[][]) {

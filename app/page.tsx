@@ -46,7 +46,7 @@ export default async function Portfolio() {
     <>
       <HomeDesktop />
       <HomeMobile />
-      <div className="sm:bg-cream z-10 relative sm:top-[100vh] pt-24 pb-24">
+      <div className="sm:bg-cream z-50 absolute sm:top-[100vh] pt-24 pb-24">
         <div className="p-4 py-24 sm:p-12 sm:pb-48 bg-red sm:bg-cream">
           <div className="text-lg">Selected work over the years</div>
           <div className="w-40 h-px bg-black mt-4 mb-16 sm:mb-40" />

@@ -121,7 +121,7 @@ function Canvas() {
     <>
       <div className="fixed z-20 top-0 left-0 w-screen h-screen touch-none">
         <svg
-          className="w-screen h-screen"
+          className="w-full h-full"
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}
           onPointerLeave={onPointerLeave}
@@ -156,7 +156,7 @@ function Loading() {
 }
 
 export default function Room() {
-  const roomId = "portfolio-test-2";
+  const roomId = "portfolio-test-3";
 
   return (
     <RoomProvider
