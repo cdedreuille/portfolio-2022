@@ -26,40 +26,33 @@ function Canvas() {
 
   const pencilDraft = useSelf((me) => me.presence.pencilDraft);
   const [camera, setCamera] = useState<Camera>({ x: 0, y: 0 });
-  const [lastUsedColor] = useState<Color>({
-    r: 252,
-    g: 142,
-    b: 42,
-  });
+  const color = { r: 255, g: 255, b: 255 };
 
   /**
    * Transform the drawing of the current user in a layer and reset the presence to delete the draft.
    */
-  const insertPath = useMutation(
-    ({ storage, self, setMyPresence }) => {
-      const liveLayers = storage.get("layers");
-      const { pencilDraft } = self.presence;
-      if (
-        pencilDraft == null ||
-        pencilDraft.length < 2 ||
-        liveLayers.size >= 100
-      ) {
-        setMyPresence({ pencilDraft: null });
-        return;
-      }
-
-      const id = nanoid();
-      liveLayers.set(
-        id,
-        new LiveObject(penPointsToPathLayer(pencilDraft, lastUsedColor))
-      );
-
-      const liveLayerIds = storage.get("layerIds");
-      liveLayerIds.push(id);
+  const insertPath = useMutation(({ storage, self, setMyPresence }) => {
+    const liveLayers = storage.get("layers");
+    const { pencilDraft } = self.presence;
+    if (
+      pencilDraft == null ||
+      pencilDraft.length < 2 ||
+      liveLayers.size >= 100
+    ) {
       setMyPresence({ pencilDraft: null });
-    },
-    [lastUsedColor]
-  );
+      return;
+    }
+
+    const id = nanoid();
+    liveLayers.set(
+      id,
+      new LiveObject(penPointsToPathLayer(pencilDraft, color))
+    );
+
+    const liveLayerIds = storage.get("layerIds");
+    liveLayerIds.push(id);
+    setMyPresence({ pencilDraft: null });
+  }, []);
 
   /**
    * Insert the first path point and start drawing with the pencil
@@ -68,10 +61,10 @@ function Canvas() {
     ({ setMyPresence }, point: Point, pressure: number) => {
       setMyPresence({
         pencilDraft: [[point.x, point.y, pressure]],
-        penColor: lastUsedColor,
+        penColor: color,
       });
     },
-    [lastUsedColor]
+    []
   );
 
   /**
@@ -145,12 +138,7 @@ function Canvas() {
             <MultiplayerGuides />
             {/* Drawing in progress. Still not commited to the storage. */}
             {pencilDraft != null && pencilDraft.length > 0 && (
-              <Path
-                points={pencilDraft}
-                fill={colorToCss(lastUsedColor)}
-                x={0}
-                y={0}
-              />
+              <Path points={pencilDraft} fill={colorToCss(color)} x={0} y={0} />
             )}
           </g>
         </svg>
@@ -168,7 +156,7 @@ function Loading() {
 }
 
 export default function Room() {
-  const roomId = "nextjs-whiteboard-advanced";
+  const roomId = "portfolio-test-2";
 
   return (
     <RoomProvider
