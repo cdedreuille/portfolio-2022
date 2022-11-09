@@ -39,15 +39,7 @@ function Drafts() {
       {/* All the drawing of other users in the room that are currently in progress */}
       {others.map(([key, other]) => {
         if (other.pencilDraft) {
-          return (
-            <Path
-              key={key}
-              x={0}
-              y={0}
-              points={other.pencilDraft}
-              fill="#CCC"
-            />
-          );
+          return <Path key={key} points={other.pencilDraft} />;
         }
         return null;
       })}
