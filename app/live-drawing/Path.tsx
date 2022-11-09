@@ -3,24 +3,19 @@ import getStroke from "perfect-freehand";
 
 type Props = {
   points: number[][];
-  fill: string;
   onPointerDown?: (e: React.PointerEvent) => void;
-  stroke?: string;
 };
 
-export default function Path({ onPointerDown, stroke, fill, points }: Props) {
+export default function Path({ onPointerDown, points }: Props) {
   return (
     <path
       onPointerDown={onPointerDown}
       d={getSvgPathFromStroke(
         getStroke(points, {
-          size: 4,
-          streamline: 0,
+          size: 6,
         })
       )}
-      fill={fill}
-      stroke={stroke}
-      strokeWidth={1}
+      fill="#ffffff"
     />
   );
 }

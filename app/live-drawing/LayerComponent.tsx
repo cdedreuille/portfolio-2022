@@ -15,7 +15,7 @@ const LayerComponent = memo(({ id }: Props) => {
 
   switch (layer.type) {
     case LayerType.Path:
-      return <Path key={id} points={layer.points} x={0} y={0} fill="#ffffff" />;
+      return <Path key={id} points={layer.points} />;
     default:
       console.warn("Unknown layer type");
       return null;

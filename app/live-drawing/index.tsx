@@ -127,7 +127,7 @@ function Canvas() {
 
         {/* Drawing in progress. Still not commited to the storage. */}
         {pencilDraft != null && pencilDraft.length > 0 && (
-          <Path points={pencilDraft} fill="#ffffff" />
+          <Path points={pencilDraft} />
         )}
       </svg>
     </div>
