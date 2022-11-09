@@ -1,4 +1,4 @@
-import { LayerType, Point, PathLayer } from "../../types";
+import { Point, PathLayer } from "../../types";
 
 export function getSvgPathFromStroke(stroke: number[][]) {
   if (!stroke.length) return "";
@@ -22,7 +22,6 @@ export function penPointsToPathLayer(points: number[][]): PathLayer {
   }
 
   return {
-    type: LayerType.Path,
     points: points,
   };
 }
@@ -32,14 +31,8 @@ export function pointerEventToCanvasPoint(e: React.PointerEvent): Point {
   const halfScreen = window.innerWidth / 2;
   const imageLeftSpace = (halfScreen - imageWidth) / 2;
   const posInCanvas = halfScreen + imageLeftSpace;
-  const canvasXPos2 = e.clientX - posInCanvas;
-  const canvasXPosScale = (canvasXPos2 * 2048) / imageWidth;
-
-  const middleImage = (window.innerWidth / 4) * 3;
-  const leftXPosImage = middleImage - imageWidth / 2;
-  const mouseXPos = e.clientX;
-  const canvasXPos = mouseXPos - leftXPosImage;
-
+  const canvasXPos = e.clientX - posInCanvas;
+  const canvasXPosScale = (canvasXPos * 2048) / imageWidth;
   const canvasYPos = (e.clientY * 1366) / window.innerHeight;
 
   const point = {

@@ -39,7 +39,7 @@ export const HomeDesktop = () => {
             className="object-cover"
             priority
             quality={100}
-            // sizes="(max-width: 896px) 448px, 400px"
+            sizes="(max-width: 500px) 100vw, (max-width: 500px) 100vw, 100vw"
           />
         </div>
       </div>

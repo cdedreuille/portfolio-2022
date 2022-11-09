@@ -5,22 +5,23 @@ import {
   RoomProvider,
   useStorage,
   useSelf,
+  useHistory,
 } from "../../liveblocks.config";
 import { ClientSideSuspense } from "@liveblocks/react";
 import { LiveList, LiveMap, LiveObject } from "@liveblocks/client";
-import React, { useState } from "react";
-import { Layer, Camera, Point } from "../../types";
+import React from "react";
+import { Layer, Point } from "../../types";
 import { penPointsToPathLayer, pointerEventToCanvasPoint } from "./utils";
 import { nanoid } from "nanoid";
-import LayerComponent from "./LayerComponent";
 import MultiplayerGuides from "./MultiplayerGuides";
 import Path from "./Path";
+import { AnimatePresence } from "framer-motion";
 
 function Canvas() {
   const layerIds = useStorage((root) => root.layerIds);
-
+  const layers = useStorage((root) => root.layers);
   const pencilDraft = useSelf((me) => me.presence.pencilDraft);
-  const [camera, setCamera] = useState<Camera>({ x: 0, y: 0 });
+  const { undo } = useHistory();
 
   /**
    * Transform the drawing of the current user in a layer and reset the presence to delete the draft.
@@ -108,6 +109,7 @@ function Canvas() {
   // When the mouse is up
   const onPointerUp = useMutation(() => {
     insertPath();
+    setTimeout(() => undo(), 2000);
   }, [insertPath]);
 
   return (
@@ -120,9 +122,13 @@ function Canvas() {
         onPointerLeave={onPointerLeave}
         onPointerUp={onPointerUp}
       >
-        {layerIds.map((layerId) => (
-          <LayerComponent key={layerId} id={layerId} />
-        ))}
+        <AnimatePresence initial={false}>
+          {layerIds.map((layerId) => {
+            const layer = layers.get(layerId);
+            if (!layer) return null;
+            return <Path key={layerId} points={layer.points} />;
+          })}
+        </AnimatePresence>
         <MultiplayerGuides />
 
         {/* Drawing in progress. Still not commited to the storage. */}

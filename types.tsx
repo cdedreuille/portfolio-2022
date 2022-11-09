@@ -28,27 +28,13 @@ export interface ClientProps {
 // Liveblocks Types
 ////////////////////////////////////////////////////////////////////////////////////
 
-export type Color = {
-  r: number;
-  g: number;
-  b: number;
-};
-
 export enum LayerType {
-  Rectangle,
-  Ellipse,
   Path,
 }
-
-export type Camera = {
-  x: number;
-  y: number;
-};
 
 export type Layer = PathLayer;
 
 export type PathLayer = {
-  type: LayerType.Path;
   points: number[][];
 };
 

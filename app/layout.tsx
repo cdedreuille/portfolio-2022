@@ -46,7 +46,7 @@ export default function RootLayout({
       </head>
       <body className="bg-black sm:bg-red">
         {children}
-        <AnalyticsWrapper />
+        {process.env.NODE_ENV === "production" && <AnalyticsWrapper />}
       </body>
     </html>
   );
