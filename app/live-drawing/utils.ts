@@ -1,10 +1,4 @@
-import { Color, LayerType, Point, XYWH, PathLayer, Camera } from "../../types";
-
-export function colorToCss(color: Color) {
-  return `#${color.r.toString(16).padStart(2, "0")}${color.g
-    .toString(16)
-    .padStart(2, "0")}${color.b.toString(16).padStart(2, "0")}`;
-}
+import { LayerType, Point, PathLayer } from "../../types";
 
 export function getSvgPathFromStroke(stroke: number[][]) {
   if (!stroke.length) return "";
@@ -22,52 +16,36 @@ export function getSvgPathFromStroke(stroke: number[][]) {
   return d.join(" ");
 }
 
-export function penPointsToPathLayer(
-  points: number[][],
-  color: Color
-): PathLayer {
+export function penPointsToPathLayer(points: number[][]): PathLayer {
   if (points.length < 2) {
     throw new Error("Can't transform points with less than 2 points");
   }
 
-  let left = Number.POSITIVE_INFINITY;
-  let top = Number.POSITIVE_INFINITY;
-  let right = Number.NEGATIVE_INFINITY;
-  let bottom = Number.NEGATIVE_INFINITY;
-
-  for (const point of points) {
-    const [x, y] = point;
-    if (left > x) {
-      left = x;
-    }
-    if (top > y) {
-      top = y;
-    }
-    if (right < x) {
-      right = x;
-    }
-    if (bottom < y) {
-      bottom = y;
-    }
-  }
-
   return {
     type: LayerType.Path,
-    x: left,
-    y: top,
-    width: right - left,
-    height: bottom - top,
-    fill: color,
-    points: points.map(([x, y, pressure]) => [x - left, y - top, pressure]),
+    points: points,
   };
 }
 
-export function pointerEventToCanvasPoint(
-  e: React.PointerEvent,
-  camera: Camera
-): Point {
-  return {
-    x: Math.round(e.clientX) - camera.x,
-    y: Math.round(e.clientY) - camera.y,
+export function pointerEventToCanvasPoint(e: React.PointerEvent): Point {
+  const imageWidth = (window.innerHeight * 2048) / 1366;
+  const halfScreen = window.innerWidth / 2;
+  const imageLeftSpace = (halfScreen - imageWidth) / 2;
+  const posInCanvas = halfScreen + imageLeftSpace;
+  const canvasXPos2 = e.clientX - posInCanvas;
+  const canvasXPosScale = (canvasXPos2 * 2048) / imageWidth;
+
+  const middleImage = (window.innerWidth / 4) * 3;
+  const leftXPosImage = middleImage - imageWidth / 2;
+  const mouseXPos = e.clientX;
+  const canvasXPos = mouseXPos - leftXPosImage;
+
+  const canvasYPos = (e.clientY * 1366) / window.innerHeight;
+
+  const point = {
+    x: Math.round(canvasXPosScale),
+    y: Math.round(canvasYPos),
   };
+
+  return point;
 }

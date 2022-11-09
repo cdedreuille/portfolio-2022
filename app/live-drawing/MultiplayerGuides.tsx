@@ -4,7 +4,6 @@ import {
 } from "../../liveblocks.config";
 import { shallow } from "@liveblocks/client";
 import React from "react";
-import { colorToCss } from "./utils";
 import Cursor from "./Cursor";
 import Path from "./Path";
 
@@ -32,7 +31,6 @@ function Drafts() {
   const others = useOthersMapped(
     (other) => ({
       pencilDraft: other.presence.pencilDraft,
-      penColor: other.presence.penColor,
     }),
     shallow
   );
@@ -47,7 +45,7 @@ function Drafts() {
               x={0}
               y={0}
               points={other.pencilDraft}
-              fill={other.penColor ? colorToCss(other.penColor) : "#CCC"}
+              fill="#CCC"
             />
           );
         }

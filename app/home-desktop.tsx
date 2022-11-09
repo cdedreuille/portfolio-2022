@@ -5,7 +5,6 @@ import LiveDrawing from "./live-drawing";
 export const HomeDesktop = () => {
   return (
     <div>
-      <LiveDrawing />
       <div className="bg-red h-screen fixed z-0 top-0 left-0 w-full hidden sm:flex">
         <div className="flex-1 p-12 flex flex-col justify-between">
           <div className="max-w-xl text-base font-medium">
@@ -31,7 +30,8 @@ export const HomeDesktop = () => {
             </div>
           </div>
         </div>
-        <div className="w-[50%] max-w-4xl bg-cream relative">
+        <div className="w-[50%] bg-cream relative overflow-hidden">
+          <LiveDrawing />
           <Image
             src={profilePic}
             alt="Charles de Dreuille"

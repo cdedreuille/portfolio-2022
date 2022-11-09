@@ -10,11 +10,7 @@ import { ClientSideSuspense } from "@liveblocks/react";
 import { LiveList, LiveMap, LiveObject } from "@liveblocks/client";
 import React, { useState } from "react";
 import { Layer, Camera, Point } from "../../types";
-import {
-  colorToCss,
-  penPointsToPathLayer,
-  pointerEventToCanvasPoint,
-} from "./utils";
+import { penPointsToPathLayer, pointerEventToCanvasPoint } from "./utils";
 import { nanoid } from "nanoid";
 import LayerComponent from "./LayerComponent";
 import MultiplayerGuides from "./MultiplayerGuides";
@@ -25,7 +21,6 @@ function Canvas() {
 
   const pencilDraft = useSelf((me) => me.presence.pencilDraft);
   const [camera, setCamera] = useState<Camera>({ x: 0, y: 0 });
-  const color = { r: 255, g: 255, b: 255 };
 
   /**
    * Transform the drawing of the current user in a layer and reset the presence to delete the draft.
@@ -43,10 +38,7 @@ function Canvas() {
     }
 
     const id = nanoid();
-    liveLayers.set(
-      id,
-      new LiveObject(penPointsToPathLayer(pencilDraft, color))
-    );
+    liveLayers.set(id, new LiveObject(penPointsToPathLayer(pencilDraft)));
 
     const liveLayerIds = storage.get("layerIds");
     liveLayerIds.push(id);
@@ -60,7 +52,6 @@ function Canvas() {
     ({ setMyPresence }, point: Point, pressure: number) => {
       setMyPresence({
         pencilDraft: [[point.x, point.y, pressure]],
-        penColor: color,
       });
     },
     []
@@ -87,62 +78,59 @@ function Canvas() {
     []
   );
 
+  // When the mouse is down
   const onPointerDown = React.useCallback(
     (e: React.PointerEvent) => {
-      const point = pointerEventToCanvasPoint(e, camera);
-
-      startDrawing(point, e.pressure);
+      const current = pointerEventToCanvasPoint(e);
+      startDrawing(current, e.pressure);
       return;
     },
-    [camera, startDrawing]
+    [startDrawing]
   );
 
+  // When the mouse move
   const onPointerMove = useMutation(
     ({ setMyPresence }, e: React.PointerEvent) => {
       e.preventDefault();
-      const current = pointerEventToCanvasPoint(e, camera);
+      const current = pointerEventToCanvasPoint(e);
+
       continueDrawing(current, e);
       setMyPresence({ cursor: current });
     },
-    [camera, continueDrawing]
+    [continueDrawing]
   );
 
-  const onPointerLeave = useMutation(
-    ({ setMyPresence }) => setMyPresence({ cursor: null }),
-    []
-  );
+  // When the mouse is getting out of screen
+  const onPointerLeave = useMutation(({ setMyPresence }) => {
+    setMyPresence({ cursor: null });
+  }, []);
 
+  // When the mouse is up
   const onPointerUp = useMutation(() => {
     insertPath();
   }, [insertPath]);
 
   return (
-    <>
-      <div className="fixed z-20 top-0 left-0 w-screen h-screen touch-none">
-        <svg
-          className="w-full h-full"
-          onPointerDown={onPointerDown}
-          onPointerMove={onPointerMove}
-          onPointerLeave={onPointerLeave}
-          onPointerUp={onPointerUp}
-        >
-          <g
-            style={{
-              transform: `translate(${camera.x}px, ${camera.y}px)`,
-            }}
-          >
-            {layerIds.map((layerId) => (
-              <LayerComponent key={layerId} id={layerId} />
-            ))}
-            <MultiplayerGuides />
-            {/* Drawing in progress. Still not commited to the storage. */}
-            {pencilDraft != null && pencilDraft.length > 0 && (
-              <Path points={pencilDraft} fill={colorToCss(color)} x={0} y={0} />
-            )}
-          </g>
-        </svg>
-      </div>
-    </>
+    <div className="absolute z-20 top-0 left-1/2 -translate-x-1/2 w-[10000px] h-screen touch-none">
+      <svg
+        className="w-full h-full"
+        viewBox="0 0 2048 1366"
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerLeave={onPointerLeave}
+        onPointerUp={onPointerUp}
+      >
+        {layerIds.map((layerId) => (
+          <LayerComponent key={layerId} id={layerId} />
+        ))}
+        <MultiplayerGuides />
+
+        {/* Drawing in progress. Still not commited to the storage. */}
+        {pencilDraft != null && pencilDraft.length > 0 && (
+          <Path points={pencilDraft} fill="#ffffff" />
+        )}
+      </svg>
+    </div>
   );
 }
 
@@ -155,7 +143,7 @@ function Loading() {
 }
 
 export default function Room() {
-  const roomId = "portfolio-test-5";
+  const roomId = "portfolio-test-8";
 
   return (
     <RoomProvider
@@ -164,7 +152,6 @@ export default function Room() {
         selection: [],
         cursor: null,
         pencilDraft: null,
-        penColor: null,
       }}
       initialStorage={{
         layers: new LiveMap<string, LiveObject<Layer>>(),

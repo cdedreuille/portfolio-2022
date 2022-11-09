@@ -45,35 +45,10 @@ export type Camera = {
   y: number;
 };
 
-export type Layer = RectangleLayer | EllipseLayer | PathLayer;
-
-export type RectangleLayer = {
-  type: LayerType.Rectangle;
-  x: number;
-  y: number;
-  height: number;
-  width: number;
-  fill: Color;
-};
-
-export type EllipseLayer = {
-  type: LayerType.Ellipse;
-  x: number;
-  y: number;
-  height: number;
-  width: number;
-  fill: Color;
-};
+export type Layer = PathLayer;
 
 export type PathLayer = {
   type: LayerType.Path;
-  x: number;
-  y: number;
-  // Could be computed based on points
-  height: number;
-  // Could be computed based on points
-  width: number;
-  fill: Color;
   points: number[][];
 };
 
