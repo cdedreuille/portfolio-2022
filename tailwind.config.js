@@ -14,6 +14,7 @@ module.exports = {
       gray: "#595959",
     },
     fontSize: {
+      xs: ["12px", "16px"],
       sm: ["14px", "20px"],
       base: ["17px", "32px"],
       lg: ["20px", "32px"],

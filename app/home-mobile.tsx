@@ -1,28 +1,40 @@
 import Image from "next/image";
-import profilePic from "../public/charles.png";
+import { FC } from "react";
+import profilePic from "../public/charles-dedreuille.jpg";
+import { linkLinkedIn, linkMail, linkTwitter, name, text } from "./content";
+
+const Button: FC<{ children: string; href: string }> = ({ children, href }) => {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className="border border-white px-4 py-3 rounded-full text-sm text-white bg-black"
+    >
+      {children}
+    </a>
+  );
+};
 
 export const HomeMobile = () => {
   return (
     <div className="bg-black w-full sm:hidden">
-      <Image src={profilePic} alt="Charles de Dreuille" priority />
-      <div className="text-base font-medium text-gray p-6 -mt-40">
-        <span className="text-white">Charles de Dreuille</span> is a digital
-        product enthousiast from London — Connect design and engineering for
-        humans of this world. For the past 12 years I had the chance to work for
-        companies like Meta, Christian Louboutin, Deliveroo, Soho House and a
-        handful of entrepreneurs delivering delightful experiences for their
-        users.
+      <div className="relative h-[400px]">
+        <Image
+          src={profilePic}
+          fill
+          alt={name}
+          priority
+          className="object-cover"
+        />
       </div>
-      <div className="flex gap-4 fixed bottom-8 z-20 left-1/2 -translate-x-1/2">
-        <button className="border border-white px-4 py-3 rounded-full text-sm text-white bg-black">
-          Mail
-        </button>
-        <button className="border border-white px-4 py-3 rounded-full text-sm text-white bg-black">
-          LinkedIn
-        </button>
-        <button className="border border-white px-4 py-3 rounded-full text-sm text-white bg-black">
-          Instagram
-        </button>
+      <div className="text-base font-medium text-gray p-6 -mt-10 relative z-10">
+        <span className="text-white">{name}</span> {text}
+      </div>
+      <div className="flex gap-4 fixed bottom-8 z-[200] left-1/2 -translate-x-1/2">
+        <Button href={linkMail}>Mail</Button>
+        <Button href={linkLinkedIn}>LinkedIn</Button>
+        <Button href={linkTwitter}>Twitter</Button>
       </div>
     </div>
   );
