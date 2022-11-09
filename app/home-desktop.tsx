@@ -1,6 +1,23 @@
 import Image from "next/image";
+import { FC } from "react";
 import profilePic from "../public/charles-dedreuille.jpg";
 import LiveDrawing from "./live-drawing";
+
+const Button: FC<{ children: string; href: string }> = ({ children, href }) => {
+  return (
+    <div className="group relative">
+      <a
+        href={href}
+        target="_blank"
+        rel="noreferrer"
+        className="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 bg-red border border-black px-8 py-2 rounded-full text-base block cursor-pointer transition-transform"
+      >
+        {children}
+      </a>
+      <div className="bg-black w-full h-full absolute top-0 z-0 rounded-full" />
+    </div>
+  );
+};
 
 export const HomeDesktop = () => {
   return (
@@ -18,15 +35,13 @@ export const HomeDesktop = () => {
           <div>
             <div className="text-xl mb-8">Want to work together?</div>
             <div className="flex gap-4">
-              <button className="border border-black px-8 py-2 rounded-full text-base">
-                Mail
-              </button>
-              <button className="border border-black px-8 py-2 rounded-full text-base">
+              <Button href="mailto:hello@charlesdedreuille.com">Mail</Button>
+              <Button href="https://www.linkedin.com/in/cdedreuille/">
                 LinkedIn
-              </button>
-              <button className="border border-black px-8 py-2 rounded-full text-base">
+              </Button>
+              <Button href="https://www.instagram.com/cdedreuille/">
                 Instagram
-              </button>
+              </Button>
             </div>
           </div>
         </div>
