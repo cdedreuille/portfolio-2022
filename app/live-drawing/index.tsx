@@ -8,9 +8,8 @@ import {
 } from "../../liveblocks.config";
 import { ClientSideSuspense } from "@liveblocks/react";
 import { LiveList, LiveMap, LiveObject } from "@liveblocks/client";
-import React, { useCallback, useState } from "react";
-import { Color, Layer, Camera, Point } from "../../types";
-import styles from "./index.module.css";
+import React, { useState } from "react";
+import { Layer, Camera, Point } from "../../types";
 import {
   colorToCss,
   penPointsToPathLayer,
@@ -156,7 +155,7 @@ function Loading() {
 }
 
 export default function Room() {
-  const roomId = "portfolio-test-4";
+  const roomId = "portfolio-test-5";
 
   return (
     <RoomProvider
