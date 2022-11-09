@@ -109,7 +109,7 @@ function Canvas() {
   // When the mouse is up
   const onPointerUp = useMutation(() => {
     insertPath();
-    setTimeout(() => undo(), 2000);
+    setTimeout(() => undo(), 3000);
   }, [insertPath]);
 
   return (
