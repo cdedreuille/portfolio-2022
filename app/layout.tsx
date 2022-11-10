@@ -3,7 +3,11 @@ import { Inter } from "@next/font/google";
 import localFont from "@next/font/local";
 import { AnalyticsWrapper } from "./components/analytics";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  axes: ["slnt"],
+});
 const redaction = localFont({
   src: [
     { path: "./fonts/Redaction-Regular.woff2", weight: "100" },

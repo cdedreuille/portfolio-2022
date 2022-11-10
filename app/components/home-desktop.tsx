@@ -25,77 +25,42 @@ const Button: FC<{ children: string; href: string }> = ({ children, href }) => {
 };
 
 export const HomeDesktop = () => {
-  const [fontWeight, setFontWeight] = useState("font-bold");
+  const [fontWeight, setFontWeight] = useState(200);
+  const [fontSlant, setFontSlant] = useState(0);
   const { x, y } = useMousePosition();
+
+  const mapValue = (
+    value: number,
+    fromRange: { min: number; max: number },
+    toRange: { min: number; max: number }
+  ) => {
+    const { min: fromMin, max: fromMax } = fromRange;
+    const { min: toMin, max: toMax } = toRange;
+    // Determine how wide the ranges are
+    const fromSize = fromMax - fromMin;
+    const toSize = toMax - toMin;
+    // Get the percentage of the original range `value` represents, ignoring the minimum value
+    const fromPercent = (value - fromMin) / fromSize;
+    // Get the corresponding percentage of the new range, plus its minimum value
+    const result = fromPercent * toSize + toMin;
+    return Math.round(result);
+  };
 
   useEffect(() => {
     const posX = x || 0;
     const posY = y || 0;
-    const pX = (posX * 100) / window.innerWidth;
-    const pY = (posY * 100) / window.innerHeight;
-    if (pX >= 0 && pX < 14) {
-      if (pY >= 0 && pY < 14) setFontWeight("font-thin");
-      if (pY >= 14 && pY < 28) setFontWeight("font-extralight");
-      if (pY >= 28 && pY < 42) setFontWeight("font-light");
-      if (pY >= 42 && pY < 56) setFontWeight("font-normal");
-      if (pY >= 56 && pY < 60) setFontWeight("font-medium");
-      if (pY >= 60 && pY < 74) setFontWeight("font-semibold");
-      if (pY >= 74 && pY <= 100) setFontWeight("font-bold");
-    }
-    if (pX >= 14 && pX < 28) {
-      if (pY >= 0 && pY < 14) setFontWeight("font-extralight");
-      if (pY >= 14 && pY < 28) setFontWeight("font-extralight");
-      if (pY >= 28 && pY < 42) setFontWeight("font-light");
-      if (pY >= 42 && pY < 56) setFontWeight("font-normal");
-      if (pY >= 56 && pY < 60) setFontWeight("font-medium");
-      if (pY >= 60 && pY < 74) setFontWeight("font-semibold");
-      if (pY >= 74 && pY <= 100) setFontWeight("font-bold");
-    }
-    if (pX >= 28 && pX < 42) {
-      if (pY >= 0 && pY < 14) setFontWeight("font-light");
-      if (pY >= 14 && pY < 28) setFontWeight("font-light");
-      if (pY >= 28 && pY < 42) setFontWeight("font-light");
-      if (pY >= 42 && pY < 56) setFontWeight("font-normal");
-      if (pY >= 56 && pY < 60) setFontWeight("font-medium");
-      if (pY >= 60 && pY < 74) setFontWeight("font-semibold");
-      if (pY >= 74 && pY <= 100) setFontWeight("font-bold");
-    }
-    if (pX >= 42 && pX < 56) {
-      if (pY >= 0 && pY < 14) setFontWeight("font-normal");
-      if (pY >= 14 && pY < 28) setFontWeight("font-normal");
-      if (pY >= 28 && pY < 42) setFontWeight("font-normal");
-      if (pY >= 42 && pY < 56) setFontWeight("font-normal");
-      if (pY >= 56 && pY < 60) setFontWeight("font-medium");
-      if (pY >= 60 && pY < 74) setFontWeight("font-semibold");
-      if (pY >= 74 && pY <= 100) setFontWeight("font-bold");
-    }
-    if (pX >= 56 && pX < 60) {
-      if (pY >= 0 && pY < 14) setFontWeight("font-medium");
-      if (pY >= 14 && pY < 28) setFontWeight("font-medium");
-      if (pY >= 28 && pY < 42) setFontWeight("font-medium");
-      if (pY >= 42 && pY < 56) setFontWeight("font-medium");
-      if (pY >= 56 && pY < 60) setFontWeight("font-medium");
-      if (pY >= 60 && pY < 74) setFontWeight("font-semibold");
-      if (pY >= 74 && pY <= 100) setFontWeight("font-bold");
-    }
-    if (pX >= 60 && pX < 74) {
-      if (pY >= 0 && pY < 14) setFontWeight("font-semibold");
-      if (pY >= 14 && pY < 28) setFontWeight("font-semibold");
-      if (pY >= 28 && pY < 42) setFontWeight("font-semibold");
-      if (pY >= 42 && pY < 56) setFontWeight("font-semibold");
-      if (pY >= 56 && pY < 60) setFontWeight("font-semibold");
-      if (pY >= 60 && pY < 74) setFontWeight("font-semibold");
-      if (pY >= 74 && pY <= 100) setFontWeight("font-bold");
-    }
-    if (pX >= 74 && pX <= 100) {
-      if (pY >= 0 && pY < 14) setFontWeight("font-bold");
-      if (pY >= 14 && pY < 28) setFontWeight("font-bold");
-      if (pY >= 28 && pY < 42) setFontWeight("font-bold");
-      if (pY >= 42 && pY < 56) setFontWeight("font-bold");
-      if (pY >= 56 && pY < 60) setFontWeight("font-bold");
-      if (pY >= 60 && pY < 74) setFontWeight("font-bold");
-      if (pY >= 74 && pY <= 100) setFontWeight("font-bold");
-    }
+    const newFontWeight = mapValue(
+      posX,
+      { min: 0, max: window.innerWidth },
+      { min: 300, max: 600 }
+    );
+    const newFontSlant = mapValue(
+      posY,
+      { min: 0, max: window.innerHeight },
+      { min: 0, max: -10 }
+    );
+    setFontWeight(newFontWeight);
+    setFontSlant(newFontSlant);
   }, [x, y]);
 
   return (
@@ -105,7 +70,11 @@ export const HomeDesktop = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.4, ease: [0.16, 0.6, 0.4, 1], delay: 0.6 }}
-          className={`max-w-2xl text-2xl font-serif ${fontWeight}`}
+          className="max-w-2xl text-xl font-sans"
+          style={{
+            fontWeight: fontWeight,
+            fontVariationSettings: `'slnt' ${fontSlant}`,
+          }}
         >
           <span className="text-white">{name}</span> {text}
         </motion.div>
