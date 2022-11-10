@@ -69,8 +69,12 @@ export const HomeDesktop = () => {
 
   return (
     <div className="bg-red h-screen fixed z-0 top-0 left-0 w-full hidden sm:flex">
-      <div className="flex-1 p-12 flex flex-col justify-between">
+      <motion.div
+        className="flex-1 p-12 flex flex-col justify-between"
+        style={{ opacity: opacityText }}
+      >
         <motion.div
+          initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.4, ease: [0.16, 0.6, 0.4, 1], delay: 0.6 }}
           className="max-w-2xl text-xl font-sans"
@@ -78,7 +82,6 @@ export const HomeDesktop = () => {
             fontWeight: fontWeight,
             fontVariationSettings: `'slnt' ${fontSlant}`,
             y: positionText,
-            opacity: opacityText,
           }}
         >
           <span className="text-white">{name}</span> {text}
@@ -95,7 +98,7 @@ export const HomeDesktop = () => {
             <Button href={linkTwitter}>Twitter</Button>
           </div>
         </motion.div>
-      </div>
+      </motion.div>
       <motion.div
         initial={{ width: 0, opacity: 0 }}
         animate={{ width: "50%", opacity: 1 }}
