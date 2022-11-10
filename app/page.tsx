@@ -6,6 +6,7 @@ import { Project } from "./components/project";
 import { HomeDesktop } from "./components/home-desktop";
 import { HomeMobile } from "./components/home-mobile";
 import { Cursor } from "./components/cursor";
+import { ArrowUp } from "./components/arrowUp";
 
 async function getData() {
   const projects = await getClient().fetch(
@@ -45,8 +46,9 @@ export default async function Portfolio() {
   const secondHalf = data.slice(half);
 
   return (
-    <>
+    <div id="top">
       <Cursor />
+      <ArrowUp />
       <HomeDesktop />
       <HomeMobile />
       <div className="sm:bg-cream z-50 absolute sm:top-[100vh] pt-24 pb-24">
@@ -72,6 +74,6 @@ export default async function Portfolio() {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }
