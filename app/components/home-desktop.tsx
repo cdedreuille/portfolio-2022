@@ -6,7 +6,6 @@ import profilePic from "../../public/charles-dedreuille.jpg";
 import { linkLinkedIn, linkMail, linkTwitter, name, text } from "../content";
 import LiveDrawing from "./live-drawing";
 import useMousePosition from "../hooks/useMousePosition";
-import { redaction } from "../fonts";
 
 const Button: FC<{ children: string; href: string }> = ({ children, href }) => {
   return (
@@ -101,9 +100,7 @@ export const HomeDesktop = () => {
   return (
     <div className="bg-red h-screen fixed z-0 top-0 left-0 w-full hidden sm:flex">
       <div className="flex-1 p-12 flex flex-col justify-between">
-        <div
-          className={`max-w-2xl text-2xl ${redaction.className} ${fontWeight}`}
-        >
+        <div className={`max-w-2xl text-2xl font-serif ${fontWeight}`}>
           <span className="text-white">{name}</span> {text}
         </div>
         <div>

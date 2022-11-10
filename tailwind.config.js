@@ -1,3 +1,5 @@
+const { fontFamily } = require("tailwindcss/defaultTheme");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -30,6 +32,10 @@ module.exports = {
       medium: 500,
       semibold: 600,
       bold: 700,
+    },
+    fontFamily: {
+      sans: ["var(--font-inter)", ...fontFamily.sans],
+      serif: ["var(--font-redaction)", ...fontFamily.serif],
     },
   },
   plugins: [],

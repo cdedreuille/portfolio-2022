@@ -3,7 +3,7 @@ import { Inter } from "@next/font/google";
 import localFont from "@next/font/local";
 import { AnalyticsWrapper } from "./components/analytics";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const redaction = localFont({
   src: [
     { path: "./fonts/Redaction-Regular.woff2", weight: "100" },
@@ -15,6 +15,7 @@ const redaction = localFont({
     { path: "./fonts/Redaction_100-Regular.woff2", weight: "700" },
   ],
   weight: "100 200 300 400 500 600 700",
+  variable: "--font-redaction",
 });
 
 export default function RootLayout({
@@ -23,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${redaction.variable}`}>
       <head>
         <title>Charles de Dreuille</title>
         <meta
@@ -57,7 +58,7 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
       </head>
-      <body className="bg-black sm:bg-red cursor-none">
+      <body className="bg-black sm:bg-red cursor-none font-sans">
         {children}
         {process.env.NODE_ENV === "production" && <AnalyticsWrapper />}
       </body>
