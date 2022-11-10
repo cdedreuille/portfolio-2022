@@ -9,7 +9,7 @@ const Button: FC<{ children: string; href: string }> = ({ children, href }) => {
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="border border-white px-4 py-3 rounded-full text-sm text-white bg-black"
+      className="border border-white px-6 py-3 rounded-full text-sm text-white bg-black"
     >
       {children}
     </a>
@@ -32,8 +32,8 @@ export const HomeMobile = () => {
         <span className="text-white">{name}</span> {text}
       </div>
       <div className="flex gap-4 fixed bottom-8 z-[200] left-1/2 -translate-x-1/2">
-        <Button href={linkMail}>Mail</Button>
         <Button href={linkLinkedIn}>LinkedIn</Button>
+        <Button href={linkMail}>Mail</Button>
         <Button href={linkTwitter}>Twitter</Button>
       </div>
     </div>
