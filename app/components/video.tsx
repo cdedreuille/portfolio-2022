@@ -3,7 +3,7 @@
 import { FC } from "react";
 import { AssetProps } from "../../types";
 import MuxPlayer from "@mux/mux-player-react";
-import useIsMounted from "../../hooks/useIsMounted";
+import useIsMounted from "../hooks/useIsMounted";
 
 interface Props {
   asset: AssetProps;

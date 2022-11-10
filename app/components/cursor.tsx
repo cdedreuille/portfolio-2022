@@ -3,12 +3,15 @@
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import useMousePosition from "../hooks/useMousePosition";
+import { useWindowSize } from "../hooks/useWindowSize";
 
 export const Cursor = () => {
   const positionRef = useRef(null);
   const { x, y } = useMousePosition();
+  const { width } = useWindowSize();
 
   if (x === null || y === null) return null;
+  if (width === undefined || width < 768) return null;
 
   return (
     <>

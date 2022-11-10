@@ -1,12 +1,16 @@
 "use client";
 
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { useWindowSize } from "../hooks/useWindowSize";
 
 export const ArrowUp: FC = () => {
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0.025, 0.03], [0, 1]);
   const posY = useTransform(scrollYProgress, [0.025, 0.03], [40, 0]);
+  const { width } = useWindowSize();
+
+  if (width === undefined || width < 768) return null;
 
   return (
     <motion.a
