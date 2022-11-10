@@ -41,7 +41,7 @@ export const Project: FC<Props> = ({ project }) => {
           style={{ opacity: opacityLine }}
         />
         <div className="flex justify-between items-center py-2 bg-cream">
-          <div className="text-base">{project.published_at}</div>
+          <div className="text-base">{project.published_at.slice(0, 4)}</div>
           {width && width > 768 && (
             <motion.div
               initial={{ opacity: 0 }}
