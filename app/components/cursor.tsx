@@ -1,17 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import useMousePosition from "../hooks/useMousePosition";
 
 export const Cursor = () => {
   const positionRef = useRef(null);
   const { x, y } = useMousePosition();
-
-  useEffect(() => {
-    console.log("x", x);
-    console.log("y", y);
-  }, [x, y]);
 
   if (x === null || y === null) return null;
 

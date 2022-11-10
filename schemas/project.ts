@@ -92,6 +92,11 @@ export default defineType({
         },
       ],
     },
+    {
+      type: "string",
+      name: "description",
+      title: "Description",
+    },
   ],
   preview: {
     select: {
