@@ -77,7 +77,7 @@ export const HomeDesktop = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.4, ease: [0.16, 0.6, 0.4, 1], delay: 0.6 }}
-          className="max-w-2xl text-xl font-sans"
+          className="max-w-xl text-lg font-sans"
           style={{
             fontWeight: fontWeight,
             fontVariationSettings: `'slnt' ${fontSlant}`,
