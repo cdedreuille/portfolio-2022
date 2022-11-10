@@ -6,7 +6,7 @@ import profilePic from "../../public/charles-dedreuille.jpg";
 import { linkLinkedIn, linkMail, linkTwitter, name, text } from "../content";
 import LiveDrawing from "./live-drawing";
 import useMousePosition from "../hooks/useMousePosition";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const Button: FC<{ children: string; href: string }> = ({ children, href }) => {
   return (
@@ -28,6 +28,10 @@ export const HomeDesktop = () => {
   const [fontWeight, setFontWeight] = useState(200);
   const [fontSlant, setFontSlant] = useState(0);
   const { x, y } = useMousePosition();
+  const { scrollY } = useScroll();
+  const positionText = useTransform(scrollY, [0, 800], [0, -64]);
+  const opacityText = useTransform(scrollY, [0, 800], [1, 0]);
+  const opacityImage = useTransform(scrollY, [0, 600], [0, 1]);
 
   const mapValue = (
     value: number,
@@ -74,6 +78,8 @@ export const HomeDesktop = () => {
           style={{
             fontWeight: fontWeight,
             fontVariationSettings: `'slnt' ${fontSlant}`,
+            y: positionText,
+            opacity: opacityText,
           }}
         >
           <span className="text-white">{name}</span> {text}
@@ -97,6 +103,10 @@ export const HomeDesktop = () => {
         transition={{ duration: 0.8, ease: [0.16, 0.6, 0.4, 1] }}
         className="bg-cream relative overflow-hidden"
       >
+        <motion.div
+          className="absolute bg-red w-full h-full z-50 opacity-0 pointer-events-none"
+          style={{ opacity: opacityImage }}
+        />
         <LiveDrawing />
         <Image
           src={profilePic}
