@@ -11,9 +11,9 @@ export const Cursor = () => {
 
   return (
     <div
-      className="w-20 h-20 fixed bg-[#ff4500] z-[999] rounded-full mix-blend-difference"
+      className="w-10 h-10 fixed bg-[#ff4500] z-[999] rounded-full mix-blend-difference pointer-events-none"
       ref={positionRef}
-      style={{ left: `${posX - 40}px`, top: `${posY - 40}px` }}
+      style={{ left: `${posX - 20}px`, top: `${posY - 20}px` }}
     />
   );
 };
