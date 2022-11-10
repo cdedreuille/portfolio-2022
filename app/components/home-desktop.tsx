@@ -71,7 +71,6 @@ export const HomeDesktop = () => {
     <div className="bg-red h-screen fixed z-0 top-0 left-0 w-full hidden sm:flex">
       <div className="flex-1 p-12 flex flex-col justify-between">
         <motion.div
-          initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.4, ease: [0.16, 0.6, 0.4, 1], delay: 0.6 }}
           className="max-w-2xl text-xl font-sans"
