@@ -28,6 +28,7 @@ export const Project: FC<Props> = ({ project }) => {
 
   return (
     <div className="relative" ref={ref}>
+      <div id={project.slug} />
       <motion.div
         className="sticky top-0 bg-cream border-t border-black z-30"
         style={{ borderColor: colorBorder }}

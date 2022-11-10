@@ -91,11 +91,33 @@ export const HomeDesktop = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1.4, ease: [0.16, 0.6, 0.4, 1], delay: 1 }}
         >
-          <div className="text-2xl mb-8">Want to work together?</div>
-          <div className="flex gap-4">
-            <Button href={linkMail}>Mail</Button>
-            <Button href={linkLinkedIn}>LinkedIn</Button>
-            <Button href={linkTwitter}>Twitter</Button>
+          <motion.div
+            className="text-2xl mb-8"
+            style={{
+              fontWeight: fontWeight,
+              fontVariationSettings: `'slnt' ${fontSlant}`,
+              y: positionText,
+            }}
+          >
+            Want to work together?
+          </motion.div>
+          <div className="flex flex-row items-center justify-between gap-8">
+            <div className="flex gap-4">
+              <Button href={linkMail}>Mail</Button>
+              <Button href={linkLinkedIn}>LinkedIn</Button>
+              <Button href={linkTwitter}>Twitter</Button>
+            </div>
+            <div className="flex flex-row items-center gap-4">
+              Work
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="10"
+                fill="none"
+              >
+                <path fill="#000" d="M7 10 .072.25h13.856L7 10Z" />
+              </svg>
+            </div>
           </div>
         </motion.div>
       </motion.div>

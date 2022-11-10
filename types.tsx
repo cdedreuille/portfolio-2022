@@ -10,6 +10,7 @@ export interface ProjectProps {
     assets?: AssetProps[];
   }[];
   description?: string;
+  slug: string;
 }
 
 export interface AssetProps {

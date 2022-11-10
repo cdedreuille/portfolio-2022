@@ -13,6 +13,7 @@ async function getData() {
       ...,
       projects[]->{
         ...,
+        "slug": slug.current,
         "client": client->name,
         "blocks": blocks[]{
           ...,

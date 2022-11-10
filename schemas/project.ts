@@ -13,6 +13,12 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     },
     {
+      title: "Project Slug",
+      name: "slug",
+      type: "slug",
+      validation: (Rule) => Rule.required(),
+    },
+    {
       type: "reference",
       name: "client",
       title: "Reference to client",
