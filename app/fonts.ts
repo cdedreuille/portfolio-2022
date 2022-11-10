@@ -10,4 +10,5 @@ export const redaction = localFont({
     { path: "./fonts/Redaction_70-Regular.woff2", weight: "600" },
     { path: "./fonts/Redaction_100-Regular.woff2", weight: "700" },
   ],
+  weight: "100 200 300 400 500 600 700",
 });
