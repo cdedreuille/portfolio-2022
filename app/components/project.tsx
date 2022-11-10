@@ -4,6 +4,7 @@ import { useScroll, motion, useTransform } from "framer-motion";
 import Image from "next/image";
 import { FC, useRef } from "react";
 import { ProjectProps } from "../../types";
+import { useWindowSize } from "../hooks/useWindowSize";
 import { Video } from "./video";
 
 interface Props {
@@ -12,6 +13,7 @@ interface Props {
 
 export const Project: FC<Props> = ({ project }) => {
   const ref = useRef(null);
+  const { width } = useWindowSize();
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -40,17 +42,19 @@ export const Project: FC<Props> = ({ project }) => {
         />
         <div className="flex justify-between items-center py-2 bg-cream">
           <div className="text-base">{project.published_at}</div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            className="text-base"
-            style={{ opacity: opacityText }}
-          >
-            {project.client} - {project.name}
-          </motion.div>
+          {width && width > 768 && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              className="text-base"
+              style={{ opacity: opacityText }}
+            >
+              {project.client} - {project.name}
+            </motion.div>
+          )}
           <div className="uppercase text-sm">{project.type}</div>
         </div>
       </motion.div>
-      <div className="pb-8 origin-top-left text-3xl">
+      <div className="pb-8 origin-top-left text-2xl sm:text-3xl">
         {project.client} - {project.name}
       </div>
       <div className="max-w-6xl mb-12">{project.description}</div>
