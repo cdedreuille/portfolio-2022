@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { useOther } from "../../liveblocks.config";
+import { useOther } from "../../../liveblocks.config";
 
 type Props = {
   connectionId: number;

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { ProjectProps } from "../types";
+import { ProjectProps } from "../../types";
 
 interface Props {
   project: ProjectProps;

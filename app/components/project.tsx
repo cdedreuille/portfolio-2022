@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FC } from "react";
-import { ProjectProps } from "../types";
+import { ProjectProps } from "../../types";
 import MuxPlayer from "@mux/mux-player-react/lazy";
 import { Video } from "./video";
 
@@ -15,7 +15,7 @@ export const Project: FC<Props> = ({ project }) => {
         <div className="text-base">{project.published_at}</div>
         <div className="uppercase text-sm">{project.type}</div>
       </div>
-      <div className="text-2xl mb-12">
+      <div className="text-3xl mb-12">
         {project.client} - {project.name}
       </div>
       {project.blocks?.map((block) => (

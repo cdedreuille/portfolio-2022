@@ -1,7 +1,7 @@
 import {
   useOthersMapped,
   useOthersConnectionIds,
-} from "../../liveblocks.config";
+} from "../../../liveblocks.config";
 import { shallow } from "@liveblocks/client";
 import React from "react";
 import Cursor from "./Cursor";

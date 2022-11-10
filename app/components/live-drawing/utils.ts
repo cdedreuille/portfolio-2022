@@ -1,4 +1,4 @@
-import { Point, PathLayer } from "../../types";
+import { Point, PathLayer } from "../../../types";
 
 export function getSvgPathFromStroke(stroke: number[][]) {
   if (!stroke.length) return "";

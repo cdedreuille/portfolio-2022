@@ -1,10 +1,11 @@
 import { groq } from "next-sanity";
 import { getClient } from "../lib/sanity.server";
 import { ProjectProps } from "../types";
-import { ProjectLine } from "./project-line";
-import { Project } from "./project";
-import { HomeDesktop } from "./home-desktop";
-import { HomeMobile } from "./home-mobile";
+import { ProjectLine } from "./components/project-line";
+import { Project } from "./components/project";
+import { HomeDesktop } from "./components/home-desktop";
+import { HomeMobile } from "./components/home-mobile";
+import { Cursor } from "./components/cursor";
 
 async function getData() {
   const projects = await getClient().fetch(
@@ -44,6 +45,7 @@ export default async function Portfolio() {
 
   return (
     <>
+      <Cursor />
       <HomeDesktop />
       <HomeMobile />
       <div className="sm:bg-cream z-50 absolute sm:top-[100vh] pt-24 pb-24">

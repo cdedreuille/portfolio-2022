@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { FC } from "react";
-import profilePic from "../public/charles-dedreuille.jpg";
-import { linkLinkedIn, linkMail, linkTwitter, name, text } from "./content";
+import profilePic from "../../public/charles-dedreuille.jpg";
+import { linkLinkedIn, linkMail, linkTwitter, name, text } from "../content";
 
 const Button: FC<{ children: string; href: string }> = ({ children, href }) => {
   return (

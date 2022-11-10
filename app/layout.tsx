@@ -10,7 +10,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="en" className={`${inter.className}`}>
       <head>
         <title>Charles de Dreuille</title>
         <meta
@@ -44,7 +44,7 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
       </head>
-      <body className="bg-black sm:bg-red">
+      <body className="bg-black sm:bg-red cursor-none">
         {children}
         {process.env.NODE_ENV === "production" && <AnalyticsWrapper />}
       </body>

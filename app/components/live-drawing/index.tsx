@@ -6,11 +6,11 @@ import {
   useStorage,
   useSelf,
   useHistory,
-} from "../../liveblocks.config";
+} from "../../../liveblocks.config";
 import { ClientSideSuspense } from "@liveblocks/react";
 import { LiveList, LiveMap, LiveObject } from "@liveblocks/client";
 import React from "react";
-import { Layer, Point } from "../../types";
+import { Layer, Point } from "../../../types";
 import { penPointsToPathLayer, pointerEventToCanvasPoint } from "./utils";
 import { nanoid } from "nanoid";
 import MultiplayerGuides from "./MultiplayerGuides";
