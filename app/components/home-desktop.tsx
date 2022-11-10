@@ -6,6 +6,7 @@ import profilePic from "../../public/charles-dedreuille.jpg";
 import { linkLinkedIn, linkMail, linkTwitter, name, text } from "../content";
 import LiveDrawing from "./live-drawing";
 import useMousePosition from "../hooks/useMousePosition";
+import { motion } from "framer-motion";
 
 const Button: FC<{ children: string; href: string }> = ({ children, href }) => {
   return (
@@ -100,19 +101,33 @@ export const HomeDesktop = () => {
   return (
     <div className="bg-red h-screen fixed z-0 top-0 left-0 w-full hidden sm:flex">
       <div className="flex-1 p-12 flex flex-col justify-between">
-        <div className={`max-w-2xl text-2xl font-serif ${fontWeight}`}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.4, ease: [0.16, 0.6, 0.4, 1], delay: 0.6 }}
+          className={`max-w-2xl text-2xl font-serif ${fontWeight}`}
+        >
           <span className="text-white">{name}</span> {text}
-        </div>
-        <div>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.4, ease: [0.16, 0.6, 0.4, 1], delay: 1 }}
+        >
           <div className="text-2xl mb-8">Want to work together?</div>
           <div className="flex gap-4">
             <Button href={linkMail}>Mail</Button>
             <Button href={linkLinkedIn}>LinkedIn</Button>
             <Button href={linkTwitter}>Twitter</Button>
           </div>
-        </div>
+        </motion.div>
       </div>
-      <div className="w-[50%] bg-cream relative overflow-hidden">
+      <motion.div
+        initial={{ width: 0, opacity: 0 }}
+        animate={{ width: "50%", opacity: 1 }}
+        transition={{ duration: 0.8, ease: [0.16, 0.6, 0.4, 1] }}
+        className="bg-cream relative overflow-hidden"
+      >
         <LiveDrawing />
         <Image
           src={profilePic}
@@ -123,7 +138,7 @@ export const HomeDesktop = () => {
           quality={100}
           sizes="(max-width: 500px) 100vw, (max-width: 500px) 100vw, 100vw"
         />
-      </div>
+      </motion.div>
     </div>
   );
 };
