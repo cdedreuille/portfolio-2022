@@ -7,7 +7,7 @@ import { HomeDesktop } from "./components/home-desktop";
 import { HomeMobile } from "./components/home-mobile";
 import { Cursor } from "./components/cursor";
 import { ArrowUp } from "./components/arrowUp";
-import { useWindowSize } from "./hooks/useWindowSize";
+import { useWindowSize } from "../hooks/useWindowSize";
 
 async function getData() {
   const projects = await getClient().fetch(

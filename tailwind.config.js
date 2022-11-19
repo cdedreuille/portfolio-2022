@@ -21,7 +21,7 @@ module.exports = {
       base: ["17px", "32px"],
       lg: ["20px", "32px"],
       xl: ["24px", "36px"],
-      "2xl": ["32px", "40px"],
+      "2xl": ["32px", "44px"],
       "3xl": ["48px", "56px"],
     },
     fontWeight: {
