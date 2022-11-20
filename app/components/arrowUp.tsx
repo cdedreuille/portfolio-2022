@@ -15,20 +15,18 @@ export const ArrowUp: FC = () => {
   return (
     <motion.a
       href="#top"
-      className="fixed bottom-8 right-8 z-[888]"
+      className="fixed bottom-8 right-8 z-[888] w-[100px] h-[100px] bg-white flex items-center justify-center rounded-full border-2 border-gray2"
       style={{ opacity: opacity, y: posY }}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="98"
-        height="64"
+        width="38"
+        height="19"
         fill="none"
       >
         <path
-          fill="#F52D11"
-          stroke="#000"
-          strokeWidth="4"
-          d="M53.184 3.876 95.17 57.143c1.551 1.968.15 4.857-2.356 4.857H5.493c-2.558 0-3.943-2.996-2.285-4.944L48.543 3.789a3 3 0 0 1 4.64.087Z"
+          fill="#000"
+          d="M.94 15.94a1.5 1.5 0 0 0 2.12 2.12L.94 15.94Zm34 2.12a1.5 1.5 0 0 0 2.12-2.12l-2.12 2.12ZM21.827 2.829l-1.06 1.061 1.06-1.06ZM3.061 18.061 17.232 3.889l-2.121-2.121L.939 15.939l2.122 2.122ZM20.768 3.889l14.171 14.172 2.122-2.122L22.889 1.768l-2.121 2.121Zm-3.536 0a2.5 2.5 0 0 1 3.536 0l2.121-2.121a5.5 5.5 0 0 0-7.778 0l2.121 2.121Z"
         />
       </svg>
     </motion.a>
