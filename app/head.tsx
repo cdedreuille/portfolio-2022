@@ -32,11 +32,16 @@ export default async function Head() {
         href="/favicon/safari-pinned-tab.svg"
         color="#5bbad5"
       />
+
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" content="#000000" />
-      <meta property="og:image" content={image} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
+      <meta name="title" property="og:title" content={title} />
+      <meta
+        name="description"
+        property="og:description"
+        content={description}
+      />
+      <meta name="image" property="og:image" content={image} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
