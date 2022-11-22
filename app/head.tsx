@@ -35,13 +35,13 @@ export default async function Head() {
 
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" content="#000000" />
-      <meta name="title" property="og:title" content={title} />
+      <meta name="title" property="og:title" content={title}></meta>
       <meta
         name="description"
         property="og:description"
         content={description}
-      />
-      <meta name="image" property="og:image" content={image} />
+      ></meta>
+      <meta name="image" property="og:image" content={image}></meta>
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
