@@ -1,7 +1,7 @@
 export default async function Head() {
   const title = "Charles de Dreuille";
   const description =
-    "Digital product enthousiast from London — Connect design and engineering for humans of this world. For the past 12 years I had the chance to work for companies like Meta, Christian Louboutin, Deliveroo, Soho House and a handful of entrepreneurs delivering delightful experiences for their users.";
+    "Product + Design + Engineering == 🖤 Connect design and engineering for humans of this world. For the past 12 years I had the chance to work for companies like Meta, Christian Louboutin, Deliveroo, Soho House and a handful of entrepreneurs delivering delightful experiences for their users.";
   const image = "https://charlesdedreuille.com/preview.jpg";
 
   return (
