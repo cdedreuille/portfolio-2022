@@ -1,7 +1,7 @@
 export default async function Head() {
   const title = "Charles de Dreuille";
   const description =
-    "Product + Design + Engineering == 🖤 Connect design and engineering for humans of this world. For the past 12 years I had the chance to work for companies like Meta, Christian Louboutin, Deliveroo, Soho House and a handful of entrepreneurs delivering delightful experiences for their users.";
+    "Product + Design + Engineering == 🖤 Connect design and engineering for humans of this world. Ex Meta, Christian Louboutin, Deliveroo, Soho House and a handful of entrepreneurs.";
   const image = "https://charlesdedreuille.com/preview.jpg";
 
   return (
@@ -41,10 +41,7 @@ export default async function Head() {
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
-      <meta
-        name="twitter:description"
-        content="Product + Design + Engineering == 🖤 Connect design and engineering for humans of this world. Ex Meta, Christian Louboutin, Deliveroo, Soho House and a handful of entrepreneurs."
-      />
+      <meta name="twitter:description" content={description} />
       <meta name="twitter:site" content="@cdedreuille" />
       <meta name="twitter:image" content={image} />
     </>
