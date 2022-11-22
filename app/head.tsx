@@ -41,7 +41,10 @@ export default async function Head() {
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
+      <meta
+        name="twitter:description"
+        content="Product + Design + Engineering == 🖤 Connect design and engineering for humans of this world. Ex Meta, Christian Louboutin, Deliveroo, Soho House and a handful of entrepreneurs."
+      />
       <meta name="twitter:site" content="@cdedreuille" />
       <meta name="twitter:image" content={image} />
     </>
