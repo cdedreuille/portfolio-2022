@@ -7,24 +7,16 @@ import { linkLinkedIn, linkMail, linkTwitter, name, text } from "../content";
 import { motion, useScroll, useTransform } from "framer-motion";
 import AnimatedName from "./animate-name";
 import AnimatedDescription from "./animated-description";
+import { ProjectProps } from "../../types";
+import { Button } from "./button";
+import { ProjectLine } from "./project-line";
+import { Project } from "./project";
 
-const Button: FC<{ children: string; href: string }> = ({ children, href }) => {
-  return (
-    <div className="group relative">
-      <a
-        href={href}
-        target="_blank"
-        rel="noreferrer"
-        className="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 bg-red border border-black px-8 py-2 rounded-full text-base block cursor-pointer transition-transform"
-      >
-        {children}
-      </a>
-      <div className="bg-black w-full h-full absolute top-0 z-0 rounded-full" />
-    </div>
-  );
-};
+interface Props {
+  data: ProjectProps[];
+}
 
-export const HomeDesktop = () => {
+export const HomeDesktop: FC<Props> = ({ data }) => {
   const { scrollY } = useScroll();
   const opacityText = useTransform(scrollY, [0, 800], [1, 0]);
   const opacityImage = useTransform(scrollY, [0, 600], [0, 1]);
@@ -32,7 +24,7 @@ export const HomeDesktop = () => {
   return (
     <div className="bg-red h-screen fixed z-0 top-0 left-0 w-full hidden sm:flex">
       <motion.div
-        className="flex-1 p-12 flex flex-col justify-between"
+        className="flex-1 p-12 h-screen overflow-scroll"
         style={{ opacity: opacityText }}
       >
         <motion.div
@@ -42,9 +34,8 @@ export const HomeDesktop = () => {
           className="font-sans text-2xl"
         >
           <AnimatedName>{name}</AnimatedName>
-          <AnimatedDescription>{text}</AnimatedDescription>
         </motion.div>
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.4, ease: [0.16, 0.6, 0.4, 1], delay: 1 }}
@@ -70,7 +61,14 @@ export const HomeDesktop = () => {
               </svg>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
+        <div className="pt-[50vh] pb-24">
+          <div className="flex-1">
+            {data.map((project) => (
+              <ProjectLine key={project._id} project={project} />
+            ))}
+          </div>
+        </div>
       </motion.div>
       <motion.div
         initial={{ width: 0, opacity: 0 }}

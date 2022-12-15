@@ -1,13 +1,10 @@
 import { groq } from "next-sanity";
 import { getClient } from "../lib/sanity.server";
 import { ProjectProps } from "../types";
-import { ProjectLine } from "./components/project-line";
-import { Project } from "./components/project";
 import { HomeDesktop } from "./components/home-desktop";
 import { HomeMobile } from "./components/home-mobile";
 import { Cursor } from "./components/cursor";
 import { ArrowUp } from "./components/arrowUp";
-import { useWindowSize } from "../hooks/useWindowSize";
 
 async function getData() {
   const projects = await getClient().fetch(
@@ -42,17 +39,13 @@ async function getData() {
 
 export default async function Portfolio() {
   const data: ProjectProps[] = await getData();
-  const half = Math.ceil(data.length / 2);
-  const firstHalf = data.slice(0, half);
-  const secondHalf = data.slice(half);
 
   return (
     <div id="top">
       <Cursor />
-      <ArrowUp />
-      <HomeDesktop />
-      <HomeMobile />
-      <div className="sm:bg-cream z-50 absolute sm:top-[100vh] pt-24 pb-24">
+      <HomeDesktop data={data} />
+      <HomeMobile data={data} />
+      {/* <div className="sm:bg-cream z-50 absolute sm:top-[100vh] pt-24 pb-24">
         <div className="p-4 py-24 sm:p-12 sm:pb-48 bg-red sm:bg-cream">
           <div className="text-lg">Selected work over the years</div>
           <div className="w-40 h-px bg-black mt-4 mb-16 sm:mb-40" />
@@ -74,7 +67,7 @@ export default async function Portfolio() {
             <Project key={project._id} project={project} />
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
