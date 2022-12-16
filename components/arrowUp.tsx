@@ -2,7 +2,7 @@
 
 import { FC } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useWindowSize } from "../../hooks/useWindowSize";
+import { useWindowSize } from "../hooks/useWindowSize";
 
 export const ArrowUp: FC = () => {
   const { scrollYProgress } = useScroll();

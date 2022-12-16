@@ -3,8 +3,8 @@
 import { useScroll, motion, useTransform } from "framer-motion";
 import Image from "next/image";
 import { FC, useRef } from "react";
-import { ProjectProps } from "../../types";
-import { useWindowSize } from "../../hooks/useWindowSize";
+import { ProjectProps } from "../types";
+import { useWindowSize } from "../hooks/useWindowSize";
 import { Video } from "./video";
 
 interface Props {
