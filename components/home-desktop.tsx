@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import AnimatedName from "./animate-name";
 import { ProjectProps } from "../types";
@@ -16,7 +16,12 @@ interface Props {
 export const HomeDesktop: FC<Props> = ({ data }) => {
   const router = useRouter();
   const [projectHover, setProjectHover] = useState<null | string>(null);
-  const isActive = !!router.query.project;
+  const [projectActive, setProjectActive] = useState<null | string>(null);
+  const isActive = useMemo(() => !!projectActive, [projectActive]);
+
+  useEffect(() => {
+    if (router.asPath === "/") setProjectActive(null);
+  }, [router.asPath]);
 
   return (
     <div className="bg-red h-screen fixed z-0 top-0 left-0 w-full hidden sm:flex">
@@ -49,6 +54,7 @@ export const HomeDesktop: FC<Props> = ({ data }) => {
                   key={project._id}
                   project={project}
                   setProjectHover={setProjectHover}
+                  setProjectActive={setProjectActive}
                   isActive={isActive}
                 />
               ))}
@@ -58,12 +64,13 @@ export const HomeDesktop: FC<Props> = ({ data }) => {
       </div>
 
       {/* Right Panel */}
-      <Charlie isActive={isActive} zIndex={data.length + 1} />
+      <Charlie isActive={isActive} />
       {data.map((project, index) => (
         <Project
           key={project._id}
           project={project}
           isActive={isActive}
+          projectActive={projectActive}
           isHover={projectHover === project._id}
           zIndex={data.length - index}
         />

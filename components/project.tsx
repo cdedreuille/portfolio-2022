@@ -11,9 +11,16 @@ interface Props {
   isActive: boolean;
   isHover: boolean;
   zIndex: number;
+  projectActive: string | null;
 }
 
-export const Project: FC<Props> = ({ project, isActive, isHover, zIndex }) => {
+export const Project: FC<Props> = ({
+  project,
+  isActive,
+  isHover,
+  zIndex,
+  projectActive,
+}) => {
   const [slide, setSlide] = useState(0);
 
   return (
@@ -22,7 +29,7 @@ export const Project: FC<Props> = ({ project, isActive, isHover, zIndex }) => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 0.6, 0.4, 1] }}
       className={classNames(
-        "fixed h-screen top-0 transition-all duration-1000 bg-cream",
+        "fixed h-screen top-0 transition-[left,width] duration-1000 bg-cream",
         {
           "left-0": isActive,
           "left-[50vw]": !isActive,
@@ -43,6 +50,7 @@ export const Project: FC<Props> = ({ project, isActive, isHover, zIndex }) => {
           "z-[2]": !isHover && zIndex === 2,
           "z-[1]": !isHover && zIndex === 1,
           "z-[200]": isHover,
+          "z-[300]": projectActive === project._id,
         }
       )}
     >

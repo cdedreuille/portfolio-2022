@@ -5,18 +5,21 @@ import { ProjectProps } from "../types";
 interface Props {
   project: ProjectProps;
   setProjectHover: (id: string | null) => void;
+  setProjectActive: (id: string | null) => void;
   isActive: boolean;
 }
 
 export const ProjectLine: FC<Props> = ({
   project,
   setProjectHover,
+  setProjectActive,
   isActive,
 }) => {
   return (
     <div
-      onMouseEnter={() => setProjectHover(project._id)}
-      // onMouseLeave={() => !isActive && setProjectHover(null)}
+      onMouseEnter={() => !isActive && setProjectHover(project._id)}
+      onMouseLeave={() => !isActive && setProjectHover(null)}
+      onClick={() => setProjectActive(project._id)}
     >
       <Link
         href={`/?project=${project.slug}`}

@@ -8,10 +8,9 @@ import { linkLinkedIn, linkMail, linkTwitter, name, text } from "../content";
 
 interface Props {
   isActive: boolean;
-  zIndex: number;
 }
 
-export const Charlie: FC<Props> = ({ isActive, zIndex }) => {
+export const Charlie: FC<Props> = ({ isActive }) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
