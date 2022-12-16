@@ -25,7 +25,7 @@ export const Charlie: FC<Props> = ({ isActive, zIndex }) => {
           "w-full": isActive,
           "w-1/2": !isActive,
         },
-        `z-[${zIndex}]`
+        `z-[100]`
       )}
     >
       <div

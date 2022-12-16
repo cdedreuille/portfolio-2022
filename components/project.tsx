@@ -1,4 +1,4 @@
-import { useScroll, motion, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { FC, useRef, useState } from "react";
 import { ProjectProps } from "../types";
@@ -29,6 +29,19 @@ export const Project: FC<Props> = ({ project, isActive, isHover, zIndex }) => {
           "w-full": isActive,
           "w-1/2": !isActive,
           [`z-[${zIndex}]`]: !isHover,
+          "z-[13]": !isHover && zIndex === 13,
+          "z-[12]": !isHover && zIndex === 12,
+          "z-[11]": !isHover && zIndex === 11,
+          "z-[10]": !isHover && zIndex === 10,
+          "z-[9]": !isHover && zIndex === 9,
+          "z-[8]": !isHover && zIndex === 8,
+          "z-[7]": !isHover && zIndex === 7,
+          "z-[6]": !isHover && zIndex === 6,
+          "z-[5]": !isHover && zIndex === 5,
+          "z-[4]": !isHover && zIndex === 4,
+          "z-[3]": !isHover && zIndex === 3,
+          "z-[2]": !isHover && zIndex === 2,
+          "z-[1]": !isHover && zIndex === 1,
           "z-[200]": isHover,
         }
       )}
@@ -48,7 +61,7 @@ export const Project: FC<Props> = ({ project, isActive, isHover, zIndex }) => {
                     "w-[50vw]": !isActive && (activeSlide || secondSlide),
                     "w-[calc(50vw-60px)]":
                       isActive && (activeSlide || secondSlide),
-                    "w-0": !activeSlide || !secondSlide,
+                    "w-0": isActive && (!activeSlide || !secondSlide),
                     "top-0": !isActive,
                     "top-10": isActive,
                     "left-0": !isActive,
