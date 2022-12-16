@@ -51,6 +51,12 @@ export default defineType({
     },
     {
       type: "array",
+      name: "content",
+      title: "Content",
+      of: [{ type: "image" }, { type: "mux.video" }],
+    },
+    {
+      type: "array",
       name: "blocks",
       title: "blocks",
       of: [

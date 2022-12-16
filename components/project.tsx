@@ -1,91 +1,86 @@
-"use client";
-
 import { useScroll, motion, useTransform } from "framer-motion";
 import Image from "next/image";
-import { FC, useRef } from "react";
+import { FC, useRef, useState } from "react";
 import { ProjectProps } from "../types";
 import { useWindowSize } from "../hooks/useWindowSize";
 import { Video } from "./video";
+import classNames from "classnames";
 
 interface Props {
   project: ProjectProps;
+  isActive: boolean;
+  isHover: boolean;
+  zIndex: number;
 }
 
-export const Project: FC<Props> = ({ project }) => {
-  const ref = useRef(null);
-  const { width } = useWindowSize();
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["end end", "start start"],
-  });
-
-  const colorBorder = useTransform(
-    scrollYProgress,
-    [1, 0.98],
-    ["#000", "#F3F2F3"]
-  );
-  const opacityText = useTransform(scrollYProgress, [1, 0.9], [0, 1]);
-  const opacityLine = useTransform(scrollYProgress, [1, 0.99], [0, 1]);
+export const Project: FC<Props> = ({ project, isActive, isHover, zIndex }) => {
+  const [slide, setSlide] = useState(0);
 
   return (
-    <div className="relative" ref={ref}>
-      <div id={project.slug} />
-      <motion.div
-        className="sticky top-0 bg-cream border-t border-black z-30"
-        style={{ borderColor: colorBorder }}
-      >
-        <motion.div
-          initial={{ opacity: 0 }}
-          className="w-full h-2 bg-cream absolute -top-1 left-0"
-          style={{ opacity: opacityLine }}
-        />
-        <div className="flex justify-between items-center py-2 bg-cream">
-          <div className="text-base">{project.published_at.slice(0, 4)}</div>
-          {width && width > 768 && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              className="text-base"
-              style={{ opacity: opacityText }}
-            >
-              {project.client} - {project.name}
-            </motion.div>
-          )}
-          <div className="uppercase text-sm">{project.type}</div>
-        </div>
-      </motion.div>
-      <div className="pb-8 origin-top-left text-2xl sm:text-3xl">
-        {project.client} - {project.name}
-      </div>
-      <div className="max-w-6xl mb-12">{project.description}</div>
-      {project.blocks?.map((block) => (
-        <div key={block._key} className="mb-8 flex flex-row gap-8">
-          {block.assets?.map((asset) => {
-            if (asset.type === "image") {
-              return (
-                <div key={asset._key}>
-                  {asset.url && (
-                    <Image
-                      src={`${asset.url}?w=1800`}
-                      width={asset.width}
-                      height={asset.height}
-                      alt="Image"
-                    />
-                  )}
-                </div>
-              );
-            }
-            if (asset.type === "mux") {
-              return <Video asset={asset} key={asset._key} />;
-            }
-            return null;
-          })}
-        </div>
-      ))}
-      {project.blocks === null && (
-        <div className="w-full h-[800px] bg-white rounded-md" />
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8, ease: [0.16, 0.6, 0.4, 1] }}
+      className={classNames(
+        "fixed h-screen top-0 transition-all duration-1000 bg-cream",
+        {
+          "left-0": isActive,
+          "left-[50vw]": !isActive,
+          "w-full": isActive,
+          "w-1/2": !isActive,
+          [`z-[${zIndex}]`]: !isHover,
+          "z-[200]": isHover,
+        }
       )}
-      <div className="w-full h-[100px] bg-cream" />
-    </div>
+    >
+      {project?.content &&
+        project.content.map((block, index) => {
+          const activeSlide = slide === index;
+          const secondSlide = slide === index - 1;
+
+          if (project.content)
+            return (
+              <div
+                key={block._key}
+                className={classNames(
+                  "absolute overflow-hidden transition-all duration-1000 bg-red",
+                  {
+                    "w-[50vw]": !isActive && (activeSlide || secondSlide),
+                    "w-[calc(50vw-60px)]":
+                      isActive && (activeSlide || secondSlide),
+                    "w-0": !activeSlide || !secondSlide,
+                    "top-0": !isActive,
+                    "top-10": isActive,
+                    "left-0": !isActive,
+                    "left-10": isActive && activeSlide,
+                    "left-[calc(50vw+20px)]": isActive && secondSlide,
+                    "bottom-0": !isActive,
+                    "bottom-10": isActive,
+                    "rounded-lg": isActive,
+                    "z-[0]": project.content.length - index === 0,
+                    "z-[1]": project.content.length - index === 1,
+                    "z-[2]": project.content.length - index === 2,
+                    "z-[3]": project.content.length - index === 3,
+                  }
+                )}
+              >
+                {block.type === "image" && (
+                  <Image
+                    key={block._key}
+                    src={`${block.url}?w=1800`}
+                    alt="Project"
+                    className="object-cover"
+                    priority
+                    fill
+                    quality={100}
+                    sizes="(max-width: 500px) 100vw, (max-width: 500px) 100vw, 100vw"
+                  />
+                )}
+              </div>
+            );
+
+          return null;
+        })}
+    </motion.div>
   );
 };

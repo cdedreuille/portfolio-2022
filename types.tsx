@@ -4,6 +4,7 @@ export interface ProjectProps {
   client: string;
   type: string;
   published_at: string;
+  content?: AssetProps[];
   blocks?: {
     _key: string;
     _type: string;

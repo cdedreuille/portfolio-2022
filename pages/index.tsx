@@ -24,6 +24,21 @@ export async function getStaticProps() {
           ...,
           "slug": slug.current,
           "client": client->name,
+          "content": content[]{
+            ...,
+            _type == 'image' => {
+              _key,
+              "type": 'image',
+              "url": @.asset->url,
+              "width": @.asset->metadata.dimensions.width,
+              "height": @.asset->metadata.dimensions.height
+            },
+            _type == 'mux.video' => {
+              _key,
+              "type": 'mux',
+              "playbackId": @.asset->playbackId
+            },
+          },
           "blocks": blocks[]{
             ...,
             "assets": assets[]{
