@@ -9,7 +9,6 @@ export default function Portfolio({ data }: { data: ProjectProps[] }) {
   return (
     <div id="top">
       <Cursor />
-      <p className="bg-red">hello</p>
       <HomeDesktop data={data} />
       <HomeMobile data={data} />
     </div>
