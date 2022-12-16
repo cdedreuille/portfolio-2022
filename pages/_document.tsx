@@ -1,25 +1,14 @@
-import "./globals.css";
-import { Inter } from "@next/font/google";
-import { AnalyticsWrapper } from "./components/analytics";
+import { Html, Head, Main, NextScript } from "next/document";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  axes: ["slnt"],
-});
+const title = "Charles de Dreuille";
+const description =
+  "Product + Design + Engineering == 🖤 Connect design and engineering for humans of this world. Ex Meta, Christian Louboutin, Deliveroo, Soho House and a handful of entrepreneurs.";
+const image = "https://charlesdedreuille.com/preview.jpg";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const title = "Charles de Dreuille";
-  const description =
-    "Product + Design + Engineering == 🖤 Connect design and engineering for humans of this world. Ex Meta, Christian Louboutin, Deliveroo, Soho House and a handful of entrepreneurs.";
-  const image = "https://charlesdedreuille.com/preview.jpg";
-
+export default function Document() {
   return (
-    <html lang="en" className={`${inter.variable} scroll-smooth`}>
+    <Html>
+      <Head />
       <head>
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -65,10 +54,10 @@ export default function RootLayout({
         <meta name="twitter:site" content="@cdedreuille" />
         <meta name="twitter:image" content={image} />
       </head>
-      <body className="bg-black sm:bg-red cursor-none font-sans">
-        {children}
-        {process.env.NODE_ENV === "production" && <AnalyticsWrapper />}
+      <body>
+        <Main />
+        <NextScript />
       </body>
-    </html>
+    </Html>
   );
 }

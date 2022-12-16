@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 import { useRef } from "react";
-import useMousePosition from "../../hooks/useMousePosition";
-import { useWindowSize } from "../../hooks/useWindowSize";
+import useMousePosition from "../hooks/useMousePosition";
+import { useWindowSize } from "../hooks/useWindowSize";
 
 export const Cursor = () => {
   const positionRef = useRef(null);

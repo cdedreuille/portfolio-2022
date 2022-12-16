@@ -1,13 +1,10 @@
-"use client";
-
 import Image from "next/image";
 import { FC } from "react";
-import profilePic from "../../public/charles-dedreuille.jpg";
 import { linkLinkedIn, linkMail, linkTwitter, name, text } from "../content";
 import { motion, useScroll, useTransform } from "framer-motion";
 import AnimatedName from "./animate-name";
 import AnimatedDescription from "./animated-description";
-import { ProjectProps } from "../../types";
+import { ProjectProps } from "../types";
 import { Button } from "./button";
 import { ProjectLine } from "./project-line";
 import { Project } from "./project";
@@ -35,33 +32,6 @@ export const HomeDesktop: FC<Props> = ({ data }) => {
         >
           <AnimatedName>{name}</AnimatedName>
         </motion.div>
-        {/* <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.4, ease: [0.16, 0.6, 0.4, 1], delay: 1 }}
-        >
-          <motion.div className="text-2xl mb-8">
-            Want to work together?
-          </motion.div>
-          <div className="flex flex-row items-center justify-between gap-8">
-            <div className="flex gap-4">
-              <Button href={linkMail}>Mail</Button>
-              <Button href={linkLinkedIn}>LinkedIn</Button>
-              <Button href={linkTwitter}>Twitter</Button>
-            </div>
-            <div className="flex flex-row items-center gap-4">
-              Work
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="14"
-                height="10"
-                fill="none"
-              >
-                <path fill="#000" d="M7 10 .072.25h13.856L7 10Z" />
-              </svg>
-            </div>
-          </div>
-        </motion.div> */}
         <div className="pt-[50vh] pb-24">
           <div className="flex-1">
             {data.map((project) => (
@@ -80,8 +50,13 @@ export const HomeDesktop: FC<Props> = ({ data }) => {
           className="absolute bg-red w-full h-full z-50 opacity-0 pointer-events-none"
           style={{ opacity: opacityImage }}
         />
+        <div className="flex absolute gap-4 bottom-10 right-10">
+          <Button href={linkMail}>Mail</Button>
+          <Button href={linkLinkedIn}>LinkedIn</Button>
+          <Button href={linkTwitter}>Twitter</Button>
+        </div>
         <Image
-          src={profilePic}
+          src="/charles-dedreuille.jpg"
           alt={name}
           fill
           className="object-cover"

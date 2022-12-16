@@ -1,7 +1,11 @@
 import Image from "next/image";
 import { FC } from "react";
-import profilePic from "../../public/charles-dedreuille.jpg";
+import { ProjectProps } from "../types";
 import { linkLinkedIn, linkMail, linkTwitter, name, text } from "../content";
+
+interface Props {
+  data: ProjectProps[];
+}
 
 const Button: FC<{ children: string; href: string }> = ({ children, href }) => {
   return (
@@ -16,12 +20,12 @@ const Button: FC<{ children: string; href: string }> = ({ children, href }) => {
   );
 };
 
-export const HomeMobile = () => {
+export const HomeMobile: FC<Props> = ({ data }) => {
   return (
     <div className="bg-black w-full sm:hidden">
       <div className="relative h-[400px]">
         <Image
-          src={profilePic}
+          src="/charles-dedreuille.jpg"
           fill
           alt={name}
           priority
