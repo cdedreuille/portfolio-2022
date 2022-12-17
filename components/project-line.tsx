@@ -24,7 +24,7 @@ export const ProjectLine: FC<Props> = ({
       <Link
         href={`/?project=${project.slug}`}
         as={`/${project.slug}`}
-        className="border-b border-black gap-8 py-2 flex justify-between sm:hover:pl-4 sm:transition-all sm:duration-500 items-center"
+        className="border-b border-black gap-8 py-2 px-8 flex justify-between sm:hover:pl-12 sm:transition-all sm:duration-500 items-center"
       >
         <div className="text-xs sm:text-base">
           {project.client} - {project.name}

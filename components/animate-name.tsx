@@ -48,7 +48,7 @@ const AnimatedName: FC<Props> = ({ children }) => {
     >
       {letters.map((letter, index) => (
         <div key={index} className="overflow-hidden">
-          <motion.div variants={child} className="inline-block text-white">
+          <motion.div variants={child} className="inline-block text-black">
             {letter === " " ? "\u00A0" : letter}
           </motion.div>
         </div>

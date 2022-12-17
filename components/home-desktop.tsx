@@ -34,32 +34,35 @@ export const HomeDesktop: FC<Props> = ({ data }) => {
           }
         )}
       >
-        <div className="absolute left-0 top-0 p-12 h-screen w-[50vw] overflow-scroll">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              duration: 1.4,
-              ease: [0.16, 0.6, 0.4, 1],
-              delay: 0.6,
-            }}
-            className="font-sans text-2xl"
-          >
-            <AnimatedName>{name}</AnimatedName>
-          </motion.div>
-          <div className="pt-[50vh] pb-4">
-            <div className="flex-1">
-              {data.map((project) => (
-                <ProjectLine
-                  key={project._id}
-                  project={project}
-                  setProjectHover={setProjectHover}
-                  setProjectActive={setProjectActive}
-                  isActive={isActive}
-                />
-              ))}
-            </div>
-          </div>
+        {/* Top Name */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            duration: 1.4,
+            ease: [0.16, 0.6, 0.4, 1],
+            delay: 0.6,
+          }}
+          className="font-sans text-2xl fixed top-0 left-0 pt-8 pl-8 z-20"
+        >
+          <AnimatedName>{name}</AnimatedName>
+        </motion.div>
+
+        {/* Overlays */}
+        <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-red via-red to-transparent z-10 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-red to-transparent z-10 pointer-events-none" />
+
+        {/* Project Lines */}
+        <div className="absolute left-0 top-0 h-screen w-[50vw] overflow-scroll pt-[50vh] pb-24">
+          {data.map((project) => (
+            <ProjectLine
+              key={project._id}
+              project={project}
+              setProjectHover={setProjectHover}
+              setProjectActive={setProjectActive}
+              isActive={isActive}
+            />
+          ))}
         </div>
       </div>
 
