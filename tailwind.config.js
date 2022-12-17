@@ -36,7 +36,6 @@ module.exports = {
     },
     fontFamily: {
       sans: ["var(--font-inter)", ...fontFamily.sans],
-      serif: ["var(--font-redaction)", ...fontFamily.serif],
     },
   },
   plugins: [],
