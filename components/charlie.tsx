@@ -17,7 +17,7 @@ export const Charlie: FC<Props> = ({ isActive }) => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 0.6, 0.4, 1] }}
       className={classNames(
-        "fixed h-screen top-0 transition-all duration-1000 bg-cream",
+        "fixed h-screen top-0 transition-all duration-500 bg-cream",
         {
           "left-0": isActive,
           "left-[50vw]": !isActive,
@@ -29,7 +29,7 @@ export const Charlie: FC<Props> = ({ isActive }) => {
     >
       <div
         className={classNames(
-          "absolute w-[50vw] overflow-hidden transition-all duration-1000",
+          "absolute w-[50vw] overflow-hidden transition-all duration-500",
           {
             "top-0": !isActive,
             "top-10": isActive,

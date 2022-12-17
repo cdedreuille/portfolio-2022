@@ -29,7 +29,7 @@ export const Project: FC<Props> = ({
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 0.6, 0.4, 1] }}
       className={classNames(
-        "fixed h-screen top-0 transition-[left,width] duration-1000 bg-cream",
+        "fixed h-screen top-0 transition-[left,width,height] duration-500 bg-cream",
         {
           "left-0": isActive,
           "left-[50vw]": !isActive,
@@ -64,7 +64,7 @@ export const Project: FC<Props> = ({
               <div
                 key={block._key}
                 className={classNames(
-                  "absolute overflow-hidden transition-all duration-1000 bg-red",
+                  "absolute overflow-hidden transition-all duration-500 bg-red",
                   {
                     "w-[50vw]": !isActive && (activeSlide || secondSlide),
                     "w-[calc(50vw-60px)]":

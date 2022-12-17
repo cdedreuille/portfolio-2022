@@ -28,7 +28,7 @@ export const HomeDesktop: FC<Props> = ({ data }) => {
       {/* Left Panel */}
       <div
         className={classNames(
-          "fixed h-screen w-1/2 bg-red overflow-hidden transition-all duration-1000",
+          "fixed h-screen w-1/2 bg-red overflow-hidden transition-all duration-500",
           {
             "w-0": isActive,
           }
