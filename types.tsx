@@ -5,13 +5,9 @@ export interface ProjectProps {
   type: string;
   published_at: string;
   content?: AssetProps[];
-  blocks?: {
-    _key: string;
-    _type: string;
-    assets?: AssetProps[];
-  }[];
   description?: string;
   slug: string;
+  tags?: TagProps[];
 }
 
 export interface AssetProps {
@@ -26,4 +22,10 @@ export interface AssetProps {
 export interface ClientProps {
   _id: string;
   name: string;
+}
+
+export interface TagProps {
+  _id: string;
+  name: string;
+  slug: string;
 }

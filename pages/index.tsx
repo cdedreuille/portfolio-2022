@@ -23,6 +23,10 @@ export async function getStaticProps() {
         projects[]->{
           ...,
           "slug": slug.current,
+          "tags": tags[]->{
+            ...,
+            "slug": slug.current
+          },
           "client": client->name,
           "content": content[]{
             ...,
@@ -38,23 +42,6 @@ export async function getStaticProps() {
               "type": 'mux',
               "playbackId": @.asset->playbackId
             },
-          },
-          "blocks": blocks[]{
-            ...,
-            "assets": assets[]{
-              _type == 'image' => {
-                _key,
-                "type": 'image',
-                "url": @.asset->url,
-                "width": @.asset->metadata.dimensions.width,
-                "height": @.asset->metadata.dimensions.height
-              },
-              _type == 'mux.video' => {
-                _key,
-                "type": 'mux',
-                "playbackId": @.asset->playbackId
-              },
-            }
           }
         }
       }.projects`

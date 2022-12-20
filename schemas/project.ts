@@ -28,7 +28,7 @@ export default defineType({
     {
       type: "string",
       name: "type",
-      title: "Project Type",
+      title: "Project Type (DEPRECATED)",
       options: {
         list: [
           { title: "Product", value: "product" },
@@ -38,6 +38,13 @@ export default defineType({
           { title: "Production", value: "production" },
         ],
       },
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: "tags",
+      title: "Tags",
+      type: "array",
+      of: [{ type: "reference", to: [{ type: "tag" }] }],
       validation: (Rule) => Rule.required(),
     },
     {
@@ -58,7 +65,7 @@ export default defineType({
     {
       type: "array",
       name: "blocks",
-      title: "blocks",
+      title: "Blocks (DEPRECATED)",
       of: [
         {
           type: "document",

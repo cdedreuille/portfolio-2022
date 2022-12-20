@@ -82,6 +82,15 @@ export const Project: FC<Props> = ({
                     "z-[1]": project.content.length - index === 1,
                     "z-[2]": project.content.length - index === 2,
                     "z-[3]": project.content.length - index === 3,
+                    "z-[4]": project.content.length - index === 4,
+                    "z-[5]": project.content.length - index === 5,
+                    "z-[6]": project.content.length - index === 6,
+                    "z-[7]": project.content.length - index === 7,
+                    "z-[8]": project.content.length - index === 8,
+                    "z-[9]": project.content.length - index === 9,
+                    "z-[10]": project.content.length - index === 10,
+                    "z-[11]": project.content.length - index === 11,
+                    "z-[12]": project.content.length - index === 12,
                   }
                 )}
               >

@@ -29,7 +29,9 @@ export const ProjectLine: FC<Props> = ({
         <div className="text-xs sm:text-base">
           {project.client} - {project.name}
         </div>
-        <div className="uppercase text-xs sm:text-sm">{project.type}</div>
+        <div className="uppercase text-xs sm:text-sm">
+          {project.tags && project.tags[0].name}
+        </div>
       </Link>
     </div>
   );
