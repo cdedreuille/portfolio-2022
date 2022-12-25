@@ -58,7 +58,7 @@ export const Project: FC<Props> = ({ project }) => {
         {project.client} - {project.name}
       </div>
       <div className="max-w-6xl mb-12">{project.description}</div>
-      {project.blocks?.map((block) => (
+      {/* {project.blocks?.map((block) => (
         <div key={block._key} className="mb-8 flex flex-row gap-8">
           {block.assets?.map((asset) => {
             if (asset.type === "image") {
@@ -84,7 +84,7 @@ export const Project: FC<Props> = ({ project }) => {
       ))}
       {project.blocks === null && (
         <div className="w-full h-[800px] bg-white rounded-md" />
-      )}
+      )} */}
       <div className="w-full h-[100px] bg-cream" />
     </div>
   );
