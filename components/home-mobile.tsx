@@ -30,6 +30,7 @@ export const HomeMobile: FC<Props> = ({ data }) => {
           alt={name}
           priority
           className="object-cover"
+          sizes="(max-width: 500px) 100vw, (max-width: 500px) 100vw, 100vw"
         />
       </div>
       <div className="text-base font-medium text-gray p-6 -mt-10 relative z-10">

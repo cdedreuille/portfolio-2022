@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import classNames from "classnames";
 import { Charlie } from "./charlie";
 import { name } from "../content";
+import { HomeVideo } from "./home-video.tsx";
 
 interface Props {
   data: ProjectProps[];
@@ -17,6 +18,9 @@ export const HomeDesktop: FC<Props> = ({ data }) => {
   const router = useRouter();
   const [projectHover, setProjectHover] = useState<null | string>(null);
   const [projectActive, setProjectActive] = useState<null | string>(null);
+  const [aboutState, setAboutState] = useState<"closed" | "hover" | "active">(
+    "closed"
+  );
   const isActive = useMemo(() => !!projectActive, [projectActive]);
 
   useEffect(() => {
@@ -53,10 +57,18 @@ export const HomeDesktop: FC<Props> = ({ data }) => {
         <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-red to-transparent z-10 pointer-events-none" />
 
         {/* Project Lines */}
-        <div className="absolute left-0 top-0 h-screen w-[50vw] overflow-scroll pt-[40vh] pb-24">
-          <div className="mb-32 flex flex-row items-center gap-4">
-            <div className="w-4 h-px bg-black" />
-            About
+        <div className="absolute left-0 top-0 h-screen w-[50vw] overflow-scroll pt-[32vh] pb-24">
+          <div className="flex justify-end">
+            <div
+              className="mb-[28vh] border-b border-black h-12 w-1/2 cursor-pointer flex items-center"
+              onMouseEnter={() => setAboutState("hover")}
+              onMouseLeave={() => {
+                if (aboutState !== "active") setAboutState("closed");
+              }}
+              onClick={() => setAboutState("active")}
+            >
+              About
+            </div>
           </div>
           {data.map((project) => (
             <ProjectLine
@@ -71,7 +83,8 @@ export const HomeDesktop: FC<Props> = ({ data }) => {
       </div>
 
       {/* Right Panel */}
-      <Charlie isActive={isActive} />
+      <HomeVideo aboutState={aboutState} />
+      <Charlie />
       {data.map((project, index) => (
         <Project
           key={project._id}
