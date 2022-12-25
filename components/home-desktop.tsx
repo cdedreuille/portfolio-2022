@@ -1,5 +1,5 @@
 import { FC, useEffect, useMemo, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import AnimatedName from "./animate-name";
 import { ProjectProps } from "../types";
 import { ProjectLine } from "./project-line";
@@ -53,7 +53,11 @@ export const HomeDesktop: FC<Props> = ({ data }) => {
         <div className="absolute bottom-0 left-0 w-full h-48 bg-gradient-to-t from-red to-transparent z-10 pointer-events-none" />
 
         {/* Project Lines */}
-        <div className="absolute left-0 top-0 h-screen w-[50vw] overflow-scroll pt-[50vh] pb-24">
+        <div className="absolute left-0 top-0 h-screen w-[50vw] overflow-scroll pt-[40vh] pb-24">
+          <div className="mb-32 flex flex-row items-center gap-4">
+            <div className="w-4 h-px bg-black" />
+            About
+          </div>
           {data.map((project) => (
             <ProjectLine
               key={project._id}
