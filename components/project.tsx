@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { FC, KeyboardEvent, useEffect, useRef, useState } from "react";
 import { ProjectProps } from "../types";
-import { useWindowSize } from "../hooks/useWindowSize";
-import { Video } from "./video";
 import classNames from "classnames";
+import { Slide } from "./slide";
+import Image from "next/image";
 
 interface Props {
   project: ProjectProps;
@@ -13,36 +12,6 @@ interface Props {
   zIndex: number;
   projectActive: string | null;
 }
-
-const variants = {
-  firstClosed: { width: "50vw", left: 0 },
-  first: {
-    width: "calc(50vw - 60px)",
-    left: 40,
-  },
-  second: {
-    width: "calc(50vw - 60px)",
-    left: "calc(50vw + 20px)",
-  },
-  before: {
-    width: 0,
-    left: 0,
-  },
-  after: {
-    width: 0,
-    left: "100vw",
-  },
-  inactive: {
-    top: 0,
-    bottom: 0,
-    borderRadius: 0,
-  },
-  active: {
-    top: 40,
-    bottom: 40,
-    borderRadius: 8,
-  },
-};
 
 export const Project: FC<Props> = ({
   project,
@@ -57,7 +26,7 @@ export const Project: FC<Props> = ({
   const handleKeyboardEvent = (e: KeyboardEvent<HTMLImageElement>) => {
     if (shouldNext) {
       if (e.code === "ArrowRight") {
-        if (project.content && slide === project.content.length - 1) return;
+        if (project.content && slide === project.content.length - 2) return;
         setSlide((slide) => slide + 1);
       }
       if (e.code === "ArrowLeft") {
@@ -102,67 +71,76 @@ export const Project: FC<Props> = ({
         }
       )}
     >
-      {project?.content &&
-        project.content.map((block, index) => {
-          const beforeSlide = index < slide;
-          const activeSlide = slide === index;
-          const secondSlide = slide === index - 1;
-          const afterSlide = index > slide + 1;
-
-          const theVariant = () => {
-            if (isActive) {
-              if (beforeSlide) return ["before", "active"];
-              if (activeSlide) return ["first", "active"];
-              if (secondSlide) return ["second", "active"];
-              if (afterSlide) return ["after", "active"];
-            }
-            if (beforeSlide) return ["before", "inactive"];
-            if (activeSlide) return ["firstClosed", "inactive"];
-            if (secondSlide) return ["second", "inactive"];
-            if (afterSlide) return ["after", "inactive"];
-          };
-
-          if (project.content)
-            return (
-              <motion.div
-                key={block._key}
-                initial={false}
-                animate={theVariant()}
-                transition={{ duration: 0.6 }}
-                variants={variants}
-                className={classNames("absolute overflow-hidden bg-red", {
-                  "z-[0]": project.content.length - index === 0,
-                  "z-[1]": project.content.length - index === 1,
-                  "z-[2]": project.content.length - index === 2,
-                  "z-[3]": project.content.length - index === 3,
-                  "z-[4]": project.content.length - index === 4,
-                  "z-[5]": project.content.length - index === 5,
-                  "z-[6]": project.content.length - index === 6,
-                  "z-[7]": project.content.length - index === 7,
-                  "z-[8]": project.content.length - index === 8,
-                  "z-[9]": project.content.length - index === 9,
-                  "z-[10]": project.content.length - index === 10,
-                  "z-[11]": project.content.length - index === 11,
-                  "z-[12]": project.content.length - index === 12,
-                })}
-              >
-                {block.type === "image" && (
-                  <Image
-                    key={block._key}
-                    src={`${block.url}?w=1800`}
-                    alt="Project"
-                    className="object-cover"
-                    priority
-                    fill
-                    quality={100}
-                    sizes="(max-width: 500px) 100vw, (max-width: 500px) 100vw, 100vw"
-                  />
-                )}
-              </motion.div>
-            );
-
-          return null;
-        })}
+      {project?.content && (
+        <>
+          {project.content.slice(0, 1).map((block, index) => (
+            <Slide
+              key={block._key}
+              project={project}
+              isActive={isActive}
+              slide={slide}
+              index={index}
+            >
+              {block.type === "image" && (
+                <Image
+                  key={block._key}
+                  src={`${block.url}?w=1800`}
+                  alt="Project"
+                  className="object-cover"
+                  priority
+                  fill
+                  quality={100}
+                  sizes="(max-width: 500px) 100vw, (max-width: 500px) 100vw, 100vw"
+                />
+              )}
+            </Slide>
+          ))}
+          <Slide project={project} isActive={isActive} slide={slide} index={1}>
+            <div className="justify-center h-full w-[calc(50vw-60px)] bg-white p-10">
+              <div className="text-xs sm:text-base">{project.client}</div>
+              <div className="text-2xl sm:text-4xl font-bold mt-2">
+                {project.name}
+              </div>
+              <div className="flex flex-row gap-4 mt-8">
+                {project.tags &&
+                  project.tags.map((tag) => (
+                    <div
+                      key={tag._id}
+                      className="text-sm border border-black rounded-full px-4 py-2"
+                    >
+                      {tag.name}
+                    </div>
+                  ))}
+              </div>
+              <div className="text-md mt-8 max-w-2xl">
+                {project.description}
+              </div>
+            </div>
+          </Slide>
+          {project.content.slice(1).map((block, index) => (
+            <Slide
+              key={block._key}
+              project={project}
+              isActive={isActive}
+              slide={slide}
+              index={index + 2}
+            >
+              {block.type === "image" && (
+                <Image
+                  key={block._key}
+                  src={`${block.url}?w=1800`}
+                  alt="Project"
+                  className="object-cover"
+                  priority
+                  fill
+                  quality={100}
+                  sizes="(max-width: 500px) 100vw, (max-width: 500px) 100vw, 100vw"
+                />
+              )}
+            </Slide>
+          ))}
+        </>
+      )}
     </motion.div>
   );
 };

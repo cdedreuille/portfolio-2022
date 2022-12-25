@@ -32,6 +32,10 @@ export async function getStaticProps(context: { params: { slug: any } }) {
       groq`*[_type == "project" && slug.current == $slug][0]{
         ...,
         "slug": slug.current,
+        "tags": tags[]->{
+          ...,
+          "slug": slug.current
+        },
         "client": client->name,
         "content": content[]{
           ...,
