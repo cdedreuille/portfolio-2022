@@ -1,5 +1,4 @@
 import { FC, useEffect, useMemo, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import AnimatedName from "./animate-name";
 import { ProjectProps } from "../types";
 import { ProjectLine } from "./project-line";
@@ -10,6 +9,7 @@ import { Charlie } from "./charlie";
 import { name } from "../content";
 import { HomeVideo } from "./home-video.tsx";
 import { Biography } from "./biography";
+import { CloseBiography } from "./close-biography";
 
 interface Props {
   data: ProjectProps[];
@@ -43,28 +43,7 @@ export const HomeDesktop: FC<Props> = ({ data }) => {
         <AnimatedName aboutState={aboutState}>{name}</AnimatedName>
 
         {/* Close Biography */}
-        <AnimatePresence>
-          {aboutState === "active" && (
-            <motion.div
-              key="about"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.4 }}
-              className="absolute top-11 right-11 z-30"
-              onClick={() => setAboutState("closed")}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="27"
-                height="26"
-                fill="none"
-              >
-                <path stroke="#fff" d="m.646 25.646 25-25M1.354.646l25 25" />
-              </svg>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <CloseBiography aboutState={aboutState} setAboutState={setAboutState} />
 
         {/* Biography */}
         <Biography aboutState={aboutState} setAboutState={setAboutState} />
