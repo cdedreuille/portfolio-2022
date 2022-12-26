@@ -10,7 +10,7 @@ export const Button: FC<{ children: string; href: string }> = ({
         href={href}
         target="_blank"
         rel="noreferrer"
-        className="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:bg-black border border-white text-white px-8 py-2 rounded-full text-base block cursor-pointer transition-all duration-300 ease-in-out"
+        className="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:bg-black border border-white text-white px-8 py-2 rounded-full text-base block transition-all duration-300 ease-in-out"
       >
         {children}
       </a>
