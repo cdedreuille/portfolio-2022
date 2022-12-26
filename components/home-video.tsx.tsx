@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { FC } from "react";
 import classNames from "classnames";
+import { Button } from "./button";
+import { linkLinkedIn, linkMail, linkTwitter } from "../content";
 
 interface Props {
   aboutState: "closed" | "hover" | "active";
@@ -9,15 +11,18 @@ interface Props {
 export const HomeVideo: FC<Props> = ({ aboutState }) => {
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
       className={classNames("fixed h-screen top-0 bg-cream left-[50vw] w-1/2", {
         "z-[90]": aboutState === "hover" || aboutState === "active",
         "z-[110]": aboutState === "closed",
       })}
     >
       <div className="absolute w-[50vw] overflow-hidden top-0 left-0 bottom-0">
+        <div className="flex absolute gap-4 bottom-10 right-10">
+          <Button href={linkMail}>Mail</Button>
+          <Button href={linkLinkedIn}>LinkedIn</Button>
+          <Button href={linkTwitter}>Twitter</Button>
+        </div>
+        <div className="absolute bottom-0 left-0 w-full h-96 bg-gradient-to-t from-black to-transparent pointer-events-none" />
         <video
           src="/rocks.mp4"
           autoPlay

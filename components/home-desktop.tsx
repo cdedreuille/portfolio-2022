@@ -78,9 +78,11 @@ export const HomeDesktop: FC<Props> = ({ data }) => {
         </div>
       </div>
 
-      {/* Right Panel */}
+      {/* Right Panels */}
       <HomeVideo aboutState={aboutState} />
       <Charlie />
+
+      {/* Projects */}
       {data.map((project, index) => (
         <Project
           key={project._id}

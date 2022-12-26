@@ -14,7 +14,7 @@ export const Button: FC<{ children: string; href: string }> = ({
       >
         {children}
       </a>
-      <div className="bg-black w-full h-full absolute top-0 z-0 rounded-full" />
+      <div className="group-hover:bg-black w-full h-full absolute top-0 z-0 rounded-full transition-all duration-300" />
     </div>
   );
 };
