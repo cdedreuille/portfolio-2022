@@ -11,7 +11,7 @@ interface Props {
 export const HomeVideo: FC<Props> = ({ aboutState }) => {
   return (
     <motion.div
-      className={classNames("fixed h-screen top-0 bg-cream left-[50vw] w-1/2", {
+      className={classNames("Video absolute h-full w-full bg-cream", {
         "z-[90]": aboutState === "hover" || aboutState === "active",
         "z-[110]": aboutState === "closed",
       })}

@@ -2,7 +2,7 @@ import { groq } from "next-sanity";
 import { getClient } from "../lib/sanity.server";
 import { ProjectProps } from "../types";
 import { Cursor } from "../components/cursor";
-import { Project } from "../components/project";
+import { Project } from "../components/project2";
 import { FC } from "react";
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
 
 const Portfolio: FC<Props> = ({ project }) => {
   return (
-    <div id="top">
+    <>
       <Cursor />
       <Project
         project={project}
@@ -20,7 +20,7 @@ const Portfolio: FC<Props> = ({ project }) => {
         isHover={true}
         zIndex={1}
       />
-    </div>
+    </>
   );
 };
 

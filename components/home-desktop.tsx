@@ -2,14 +2,15 @@ import { FC, useEffect, useMemo, useState } from "react";
 import AnimatedName from "./animate-name";
 import { ProjectProps } from "../types";
 import { ProjectLine } from "./project-line";
-import { Project } from "./project";
+import { Project } from "./project2";
 import { useRouter } from "next/router";
 import classNames from "classnames";
-import { Charlie } from "./charlie";
+import { Charlie } from "./home-charlie";
 import { name } from "../content";
 import { HomeVideo } from "./home-video.tsx";
 import { Biography } from "./biography";
 import { CloseBiography } from "./close-biography";
+import { motion } from "framer-motion";
 
 interface Props {
   data: ProjectProps[];
@@ -31,14 +32,7 @@ export const HomeDesktop: FC<Props> = ({ data }) => {
   return (
     <div className="bg-red h-screen fixed z-0 top-0 left-0 w-full hidden sm:flex cursor-none">
       {/* Left Panel */}
-      <div
-        className={classNames(
-          "fixed h-screen w-1/2 bg-red overflow-hidden transition-all duration-500",
-          {
-            "w-0": isActive,
-          }
-        )}
-      >
+      <motion.div className="LeftSide fixed h-screen w-1/2 bg-red overflow-hidden">
         {/* Top Name */}
         <AnimatedName aboutState={aboutState}>{name}</AnimatedName>
 
@@ -76,23 +70,33 @@ export const HomeDesktop: FC<Props> = ({ data }) => {
             />
           ))}
         </div>
-      </div>
+      </motion.div>
 
       {/* Right Panels */}
-      <HomeVideo aboutState={aboutState} />
-      <Charlie />
+      <motion.div
+        initial={{ x: 0 }}
+        animate={{ x: isActive ? "-50vw" : 0 }}
+        transition={{ duration: 0.8, ease: [0.5, 0.15, 0.15, 1] }}
+        className="RightSide fixed h-screen top-0 left-[50vw] bg-cyan-600"
+      >
+        {/* Video */}
+        <HomeVideo aboutState={aboutState} />
 
-      {/* Projects */}
-      {data.map((project, index) => (
-        <Project
-          key={project._id}
-          project={project}
-          isActive={isActive}
-          projectActive={projectActive}
-          isHover={projectHover === project._id}
-          zIndex={data.length - index}
-        />
-      ))}
+        {/* Portrait */}
+        <Charlie />
+
+        {/* Projects */}
+        {data.map((project, index) => (
+          <Project
+            key={project._id}
+            project={project}
+            isActive={isActive}
+            projectActive={projectActive}
+            isHover={projectHover === project._id}
+            zIndex={data.length - index}
+          />
+        ))}
+      </motion.div>
     </div>
   );
 };

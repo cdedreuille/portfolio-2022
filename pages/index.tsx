@@ -7,11 +7,11 @@ import { Cursor } from "../components/cursor";
 
 export default function Portfolio({ data }: { data: ProjectProps[] }) {
   return (
-    <div id="top">
+    <>
       <Cursor />
       <HomeDesktop data={data} />
       <HomeMobile data={data} />
-    </div>
+    </>
   );
 }
 
