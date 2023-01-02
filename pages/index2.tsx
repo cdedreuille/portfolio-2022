@@ -1,14 +1,16 @@
 import { groq } from "next-sanity";
 import { getClient } from "../lib/sanity.server";
 import { ProjectProps } from "../types";
+import { HomeDesktop } from "../components/home-desktop";
+import { HomeMobile } from "../components/home-mobile";
 import { Cursor } from "../components/cursor";
-import { List } from "../components2/list";
 
 export default function Portfolio({ data }: { data: ProjectProps[] }) {
   return (
     <>
       <Cursor />
-      <List data={data} />
+      <HomeDesktop data={data} />
+      <HomeMobile data={data} />
     </>
   );
 }
