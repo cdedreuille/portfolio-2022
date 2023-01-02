@@ -6,6 +6,7 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx}", // Note the addition of the `app` directory.
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
+    "./components2/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     fontSize: {
@@ -32,11 +33,9 @@ module.exports = {
     extend: {
       colors: {
         red: "#F52D11",
-        cream: "#F3F2F3",
+        cream: "#FBF7F2",
         white: "#FFFFFF",
         black: "#000000",
-        gray: "#595959",
-        gray2: "#D4D4D4",
       },
       zIndex: {
         1: "1",

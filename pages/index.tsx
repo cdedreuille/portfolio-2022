@@ -3,12 +3,18 @@ import { getClient } from "../lib/sanity.server";
 import { ProjectProps } from "../types";
 import { Cursor } from "../components/cursor";
 import { List } from "../components2/list";
+import { IntroDesktop } from "../components2/intro-desktop";
+import { Ellipse } from "../components2/ellipse";
 
 export default function Portfolio({ data }: { data: ProjectProps[] }) {
   return (
     <>
       <Cursor />
-      <List data={data} />
+      <div className="relative z-10">
+        <IntroDesktop />
+        <List data={data} />
+      </div>
+      <Ellipse />
     </>
   );
 }
