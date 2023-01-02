@@ -33,7 +33,7 @@ function Item({ project, color }: { project: ProjectProps; color: string }) {
     [0, 0, 1, 1, 0, 0]
   );
 
-  const superWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  // const superWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
     <Link
@@ -43,9 +43,9 @@ function Item({ project, color }: { project: ProjectProps; color: string }) {
       ref={ref}
     >
       <div className="relative z-10 flex justify-between items-center gap-8 py-2 px-12">
-        <div className="h-1 w-10 absolute top-0 right-0 bg-black">
+        {/* <div className="h-1 w-10 absolute top-0 right-0 bg-black">
           <motion.div className="h-full bg-red" style={{ width: superWidth }} />
-        </div>
+        </div> */}
         <div className="text-xs sm:text-base">
           {project.client} - {project.name}
         </div>
