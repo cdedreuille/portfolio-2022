@@ -16,6 +16,7 @@ export default function Portfolio({ data }: { data: ProjectProps[] }) {
         <IntroDesktop />
         <List data={data} />
       </div>
+      <footer className="h-[600px]"></footer>
       <Ellipse />
     </>
   );

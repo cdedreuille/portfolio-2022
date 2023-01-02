@@ -1,9 +1,16 @@
 import { FC } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export const Ellipse: FC = () => {
+  const { scrollYProgress } = useScroll({});
+  const newOpacity = useTransform(scrollYProgress, [0, 0.2, 1], [1, 0, 0]);
+  const newRotate = useTransform(scrollYProgress, [0, 1], [0, -180]);
+
   return (
-    <div className="fixed top-0 left-0 h-screen w-screen justify-center items-center flex z-0">
+    <motion.div
+      className="fixed top-0 left-0 h-screen w-screen justify-center items-center flex z-0"
+      style={{ opacity: newOpacity, rotate: newRotate }}
+    >
       <svg
         viewBox="0 0 900 900"
         xmlns="http://www.w3.org/2000/svg"
@@ -40,6 +47,6 @@ export const Ellipse: FC = () => {
           mask="url(#mask)"
         />
       </svg>
-    </div>
+    </motion.div>
   );
 };
