@@ -43,7 +43,7 @@ const AnimatedName: FC<Props> = ({ children }) => {
       variants={container}
       initial="hidden"
       animate="visible"
-      className="inline-flex flex-row mr-2 flex-wrap font-sans text-2xl pt-8 pl-8"
+      className="inline-flex flex-row mr-2 flex-wrap font-serif text-title"
     >
       {letters.map((letter, index) => (
         <div key={index} className="overflow-hidden">

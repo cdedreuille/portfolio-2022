@@ -17,6 +17,7 @@ module.exports = {
       xl: ["24px", "36px"],
       "2xl": ["32px", "44px"],
       "3xl": ["48px", "56px"],
+      title: ["64px", "72px"],
     },
     fontWeight: {
       thin: 100,
@@ -29,6 +30,7 @@ module.exports = {
     },
     fontFamily: {
       sans: ["var(--font-inter)", ...fontFamily.sans],
+      serif: ["var(--font-romie)", ...fontFamily.sans],
     },
     extend: {
       colors: {

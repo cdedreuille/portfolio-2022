@@ -1,10 +1,7 @@
 import { FC } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
-interface Props {}
-
-export const Ellipse: FC<Props> = () => {
+export const Ellipse: FC = () => {
   return (
     <div className="fixed top-0 left-0 h-screen w-screen justify-center items-center flex z-0">
       <svg
@@ -43,33 +40,6 @@ export const Ellipse: FC<Props> = () => {
           mask="url(#mask)"
         />
       </svg>
-      {/* <motion.div
-        className="w-full h-full bg-emerald-300 absolute top-0 left-0 z-0"
-        animate={{ rotate: 360 }}
-        transition={{
-          repeat: Infinity,
-          repeatType: "loop",
-          duration: 10,
-          ease: "linear",
-        }}
-      >
-        <Image alt="Holo" src="/gradiant.jpg" fill />
-      </motion.div> */}
-      {/* <motion.image
-        animate={{ rotate: 360 }}
-        transition={{
-          repeat: Infinity,
-          repeatType: "loop",
-          duration: 10,
-          ease: "linear",
-        }}
-        mask="url(#mask)"
-        xlinkHref="https://img.freepik.com/free-vector/abstract-hologram-gradient-background_1048-10069.jpg?w=360"
-        x="0"
-        y="0"
-        width="100%"
-        height="100%"
-      ></motion.image> */}
     </div>
   );
 };

@@ -5,11 +5,13 @@ import { Cursor } from "../components/cursor";
 import { List } from "../components2/list";
 import { IntroDesktop } from "../components2/intro-desktop";
 import { Ellipse } from "../components2/ellipse";
+import { MainHead } from "../components2/head";
 
 export default function Portfolio({ data }: { data: ProjectProps[] }) {
   return (
     <>
       <Cursor />
+      <MainHead />
       <div className="relative z-10">
         <IntroDesktop />
         <List data={data} />
