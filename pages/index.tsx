@@ -1,7 +1,7 @@
 import { groq } from "next-sanity";
 import { getClient } from "../lib/sanity.server";
 import { ProjectProps } from "../types";
-import { Cursor } from "../components/cursor";
+import { Cursor } from "../components2/cursor";
 import { List } from "../components2/list";
 import { IntroDesktop } from "../components2/intro-desktop";
 import { Ellipse } from "../components2/ellipse";
