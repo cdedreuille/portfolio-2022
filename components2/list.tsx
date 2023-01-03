@@ -8,6 +8,15 @@ interface Props {
   data: ProjectProps[];
 }
 
+interface ItemProps {
+  project: ProjectProps;
+  color: string;
+  activeProject: string | null;
+  setActiveProject: (project: string | null) => void;
+  isFirst: boolean;
+  isLast: boolean;
+}
+
 const variants = {
   visible: {
     opacity: 1,
@@ -21,7 +30,7 @@ const variants = {
 
 const colorVariants = {
   visible: {
-    color: "#fff",
+    color: "#000",
     transition: { duration: 0 },
   },
   hidden: {
@@ -30,20 +39,31 @@ const colorVariants = {
   },
 };
 
-interface ItemProps {
-  project: ProjectProps;
-  color: string;
-  activeProject: string | null;
-  setActiveProject: (project: string | null) => void;
-}
+const colors = [
+  "#FFEB84",
+  "#FFDD8D",
+  "#FFD194",
+  "#FEC59C",
+  "#F8BAB0",
+  "#F0AEC6",
+  "#E9A2DC",
+  "#E1A9E6",
+  "#DABDE7",
+  "#D2D1E9",
+  "#C8E2EB",
+  "#99C5F1",
+  "#6BA8F7",
+  "#448EEF",
+];
 
 const Item: FC<ItemProps> = ({
   project,
   color,
   activeProject,
   setActiveProject,
+  isFirst,
+  isLast,
 }) => {
-  // const [isActive, setIsActive] = useState(false);
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -53,13 +73,12 @@ const Item: FC<ItemProps> = ({
   useEffect(() => {
     return scrollYProgress.on("change", (latest) => {
       if (latest > 0.46 && latest < 0.54) {
-        // setIsActive(true);
         setActiveProject(project._id);
-      } else {
-        // setIsActive(false);
       }
+      if (isFirst && latest < 0.46) setActiveProject(null);
+      if (isLast && latest > 0.54) setActiveProject(null);
     });
-  }, [project._id, scrollYProgress, setActiveProject]);
+  }, [isFirst, isLast, project._id, scrollYProgress, setActiveProject]);
 
   const isActive = activeProject === project._id;
 
@@ -69,7 +88,7 @@ const Item: FC<ItemProps> = ({
       <motion.div
         animate={{ opacity: isActive ? 1 : 0 }}
         transition={{ duration: 0, ease: "easeInOut" }}
-        className="fixed top-1/2 -translate-y-1/2 right-6 w-[460px] h-[520px] bg-emerald-200 z-30 rounded-2xl overflow-hidden"
+        className="fixed top-1/2 -translate-y-1/2 right-24 w-[460px] h-[520px] bg-emerald-200 z-30 rounded-2xl overflow-hidden"
         style={{ backgroundColor: color }}
       >
         {project.content && (
@@ -92,19 +111,13 @@ const Item: FC<ItemProps> = ({
         className="block h-20 relative mb-2 mx-12 rounded-lg overflow-hidden"
         ref={ref}
       >
-        <div className="relative z-10 flex justify-between items-center gap-8 py-2 px-8 h-full">
-          <motion.div
-            variants={colorVariants}
-            animate={isActive ? "visible" : "hidden"}
-            initial="hidden"
-            transition={{ duration: 0, ease: "easeInOut" }}
-            className="text-xs sm:text-base"
-          >
-            {project.client} - {project.name}
-          </motion.div>
-          <div className="uppercase text-xs sm:text-sm">
+        <div className="relative z-10 flex items-center gap-8 py-2 px-8 h-full">
+          <div className="text-md">2022</div>
+          <div className="text-md w-[132px]">
             {project.tags && project.tags[0].name}
           </div>
+          <div className="text-md w-[168px]">{project.client}</div>
+          <div className="text-md">{project.name}</div>
         </div>
         <motion.div
           variants={variants}
@@ -121,27 +134,14 @@ const Item: FC<ItemProps> = ({
 
 export const List: FC<Props> = ({ data }) => {
   const [activeProject, setActiveProject] = useState<string | null>(null);
-  const colors = [
-    "#FEA8BD",
-    "#E99CBF",
-    "#D791C1",
-    "#CA8AC2",
-    "#B980C3",
-    "#A977C4",
-    "#9A6EC6",
-    "#8A65C7",
-    "#7A5CC8",
-    "#6A52CA",
-    "#5A4ACB",
-    "#4C41CC",
-    "#3B38CD",
-    "#272CCF",
-  ];
+
   return (
     <div>
       {data.map((project, index) => (
         <Item
           key={project._id}
+          isFirst={index === 0}
+          isLast={index === data.length - 1}
           project={project}
           color={colors[index]}
           activeProject={activeProject}
