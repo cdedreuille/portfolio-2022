@@ -1,86 +1,121 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
-import { FC, useRef } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { ProjectProps } from "../types";
 
 interface Props {
   data: ProjectProps[];
 }
 
+const variants = {
+  visible: {
+    opacity: 1,
+    transition: { duration: 0 },
+  },
+  hidden: {
+    opacity: 0,
+    transition: { duration: 0.6, ease: "easeInOut" },
+  },
+};
+
+const colorVariants = {
+  visible: {
+    color: "#fff",
+    transition: { duration: 0 },
+  },
+  hidden: {
+    color: "#000",
+    transition: { duration: 0.6, ease: "easeInOut" },
+  },
+};
+
 function Item({ project, color }: { project: ProjectProps; color: string }) {
+  const [isActive, setIsActive] = useState(false);
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["1 1", "0 0"],
   });
 
-  const backgroundColor = useTransform(
-    scrollYProgress,
-    [0, 0.4, 0.45, 0.55, 0.6, 1],
-    [
-      "#FBF7F2",
-      "#FBF7F2",
-      color || "#FBF7F2",
-      color || "#FBF7F2",
-      "#FBF7F2",
-      "#FBF7F2",
-    ]
-  );
-
-  const newOpacity = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.45, 0.55, 0.7, 1],
-    [0, 0, 1, 1, 0, 0]
-  );
-
-  // const superWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  useEffect(() => {
+    return scrollYProgress.on("change", (latest) => {
+      if (latest > 0.46 && latest < 0.54) {
+        setIsActive(true);
+      } else {
+        setIsActive(false);
+      }
+    });
+  }, [scrollYProgress]);
 
   return (
-    <Link
-      href={`/?project=${project.slug}`}
-      as={`/${project.slug}`}
-      className="block h-20 relative"
-      ref={ref}
-    >
-      <div className="relative z-10 flex justify-between items-center gap-8 py-2 px-12">
-        {/* <div className="h-1 w-10 absolute top-0 right-0 bg-black">
-          <motion.div className="h-full bg-red" style={{ width: superWidth }} />
-        </div> */}
-        <div className="text-xs sm:text-base">
-          {project.client} - {project.name}
-        </div>
-        <div className="uppercase text-xs sm:text-sm">
-          {project.tags && project.tags[0].name}
-        </div>
-      </div>
+    <>
       <motion.div
-        className="absolute w-full h-full top-0 left-0 bg-emerald-200"
-        style={{ backgroundColor: color, opacity: newOpacity }}
-      />
-    </Link>
+        animate={{ opacity: isActive ? 1 : 0 }}
+        transition={{ duration: 0, ease: "easeInOut" }}
+        className="fixed top-1/2 -translate-y-1/2 right-6 w-[460px] h-[520px] bg-emerald-200 z-30 rounded-2xl overflow-hidden"
+        style={{ backgroundColor: color }}
+      >
+        {project.content && (
+          <Image
+            src={`${project.content[0].url}?w=1800`}
+            alt="Project"
+            className="object-cover"
+            priority
+            fill
+            quality={100}
+            sizes="(max-width: 500px) 100vw, (max-width: 500px) 100vw, 100vw"
+          />
+        )}
+      </motion.div>
+      <Link
+        href={`/?project=${project.slug}`}
+        as={`/${project.slug}`}
+        className="block h-20 relative"
+        ref={ref}
+      >
+        <div className="relative z-10 flex justify-between items-center gap-8 py-2 px-12 h-full">
+          <motion.div
+            variants={colorVariants}
+            animate={isActive ? "visible" : "hidden"}
+            initial="hidden"
+            transition={{ duration: 0, ease: "easeInOut" }}
+            className="text-xs sm:text-base"
+          >
+            {project.client} - {project.name}
+          </motion.div>
+          <div className="uppercase text-xs sm:text-sm">
+            {project.tags && project.tags[0].name}
+          </div>
+        </div>
+        <motion.div
+          variants={variants}
+          animate={isActive ? "visible" : "hidden"}
+          initial="hidden"
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+          className="absolute w-full h-full top-0 left-0 bg-emerald-200"
+          style={{ backgroundColor: color }}
+        />
+      </Link>
+    </>
   );
 }
 
 export const List: FC<Props> = ({ data }) => {
   const colors = [
     "#FEA8BD",
-    "#F1A0BE",
-    "#E69ABF",
-    "#DB93C0",
-    "#CF8CC1",
-    "#C587C2",
+    "#E99CBF",
+    "#D791C1",
+    "#CA8AC2",
     "#B980C3",
-    "#AE7AC4",
-    "#A373C5",
-    "#976DC6",
-    "#8C66C7",
-    "#8160C8",
-    "#7559C9",
-    "#6A53CA",
-    "#5446CB",
-    "#4A40CC",
-    "#3F3ACD",
-    "#3434CE",
+    "#A977C4",
+    "#9A6EC6",
+    "#8A65C7",
+    "#7A5CC8",
+    "#6A52CA",
+    "#5A4ACB",
+    "#4C41CC",
+    "#3B38CD",
     "#272CCF",
   ];
   return (
