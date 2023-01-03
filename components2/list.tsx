@@ -30,8 +30,20 @@ const colorVariants = {
   },
 };
 
-function Item({ project, color }: { project: ProjectProps; color: string }) {
-  const [isActive, setIsActive] = useState(false);
+interface ItemProps {
+  project: ProjectProps;
+  color: string;
+  activeProject: string | null;
+  setActiveProject: (project: string | null) => void;
+}
+
+const Item: FC<ItemProps> = ({
+  project,
+  color,
+  activeProject,
+  setActiveProject,
+}) => {
+  // const [isActive, setIsActive] = useState(false);
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -41,15 +53,19 @@ function Item({ project, color }: { project: ProjectProps; color: string }) {
   useEffect(() => {
     return scrollYProgress.on("change", (latest) => {
       if (latest > 0.46 && latest < 0.54) {
-        setIsActive(true);
+        // setIsActive(true);
+        setActiveProject(project._id);
       } else {
-        setIsActive(false);
+        // setIsActive(false);
       }
     });
-  }, [scrollYProgress]);
+  }, [project._id, scrollYProgress, setActiveProject]);
+
+  const isActive = activeProject === project._id;
 
   return (
     <>
+      {/* Preview */}
       <motion.div
         animate={{ opacity: isActive ? 1 : 0 }}
         transition={{ duration: 0, ease: "easeInOut" }}
@@ -68,13 +84,15 @@ function Item({ project, color }: { project: ProjectProps; color: string }) {
           />
         )}
       </motion.div>
+
+      {/* Coloured line */}
       <Link
         href={`/?project=${project.slug}`}
         as={`/${project.slug}`}
-        className="block h-20 relative"
+        className="block h-20 relative mb-2 mx-12 rounded-lg overflow-hidden"
         ref={ref}
       >
-        <div className="relative z-10 flex justify-between items-center gap-8 py-2 px-12 h-full">
+        <div className="relative z-10 flex justify-between items-center gap-8 py-2 px-8 h-full">
           <motion.div
             variants={colorVariants}
             animate={isActive ? "visible" : "hidden"}
@@ -99,9 +117,10 @@ function Item({ project, color }: { project: ProjectProps; color: string }) {
       </Link>
     </>
   );
-}
+};
 
 export const List: FC<Props> = ({ data }) => {
+  const [activeProject, setActiveProject] = useState<string | null>(null);
   const colors = [
     "#FEA8BD",
     "#E99CBF",
@@ -121,7 +140,13 @@ export const List: FC<Props> = ({ data }) => {
   return (
     <div>
       {data.map((project, index) => (
-        <Item key={project._id} project={project} color={colors[index]} />
+        <Item
+          key={project._id}
+          project={project}
+          color={colors[index]}
+          activeProject={activeProject}
+          setActiveProject={setActiveProject}
+        />
       ))}
     </div>
   );
