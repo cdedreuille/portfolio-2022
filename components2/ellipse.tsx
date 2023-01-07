@@ -21,7 +21,7 @@ export const Ellipse: FC = () => {
           <rect x="0" y="0" width="100%" height="100%" fill="white" />
           <path
             fill="#000"
-            d="M870.288 599.246A446 446 0 0 1 227.41 836.484 446.004 446.004 0 0 1 7.198 396.688a445.998 445.998 0 0 1 318.306-374.96 445.998 445.998 0 0 1 256.784 2.343l-.661 2.13A443.772 443.772 0 0 0 53.194 648.686a443.767 443.767 0 0 0 424.082 244.244A443.773 443.773 0 0 0 868.186 598.5l2.102.746Z"
+            d="M855.542 641.893c.674.319.961 1.124.64 1.797a449.993 449.993 0 0 1-403.9 256.304A449.996 449.996 0 0 1 97.745 169.971 449.996 449.996 0 0 1 548.918 11.007a1.347 1.347 0 0 1 1.016 1.614 1.353 1.353 0 0 1-1.618 1.018 447.3 447.3 0 1 0 305.426 628.896 1.354 1.354 0 0 1 1.8-.642Z"
           />
         </mask>
         <motion.image
@@ -29,10 +29,52 @@ export const Ellipse: FC = () => {
           transition={{
             repeat: Infinity,
             repeatType: "loop",
-            duration: 10,
+            duration: 4,
             ease: "linear",
           }}
           xlinkHref="/holo.png"
+          x="0"
+          y="0"
+          width="100%"
+          height="100%"
+        ></motion.image>
+        <motion.image
+          animate={{ rotate: 360 }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "loop",
+            duration: 4,
+            ease: "linear",
+          }}
+          xlinkHref="/circle-1.png"
+          x="0"
+          y="0"
+          width="100%"
+          height="100%"
+        ></motion.image>
+        <motion.image
+          animate={{ rotate: -360 }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "loop",
+            duration: 3,
+            ease: "linear",
+          }}
+          xlinkHref="/circle-1.png"
+          x="0"
+          y="0"
+          width="100%"
+          height="100%"
+        ></motion.image>
+        <motion.image
+          animate={{ rotate: -360 }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "loop",
+            duration: 6,
+            ease: "linear",
+          }}
+          xlinkHref="/circle-1.png"
           x="0"
           y="0"
           width="100%"
