@@ -6,7 +6,8 @@ import project from "./schemas/project";
 import client from "./schemas/client";
 import projectList from "./schemas/projectList";
 import tag from "./schemas/tag";
-import { UserIcon, TagIcon } from "@sanity/icons";
+import { colorInput } from "@sanity/color-input";
+import { FiLayout, FiTag, FiUsers } from "react-icons/fi";
 
 export default defineConfig({
   basePath: "/studio",
@@ -22,24 +23,29 @@ export default defineConfig({
         return S.list()
           .title("Content")
           .items([
-            S.listItem().title("Projects").child(S.documentTypeList("project")),
+            S.listItem()
+              .title("Projects")
+              .icon(FiLayout)
+              .child(S.documentTypeList("project")),
             S.listItem()
               .title("Clients")
-              .icon(UserIcon)
+              .icon(FiUsers)
               .child(S.documentTypeList("client")),
             S.listItem()
               .title("Project List")
+              .icon(FiLayout)
               .child(
                 S.document().schemaType("projectList").documentId("projectList")
               ),
             S.listItem()
               .title("Tags")
-              .icon(TagIcon)
+              .icon(FiTag)
               .child(S.documentTypeList("tag")),
           ]);
       },
     }),
     visionTool(),
     muxInput({ mp4_support: "standard" }),
+    colorInput(),
   ],
 });

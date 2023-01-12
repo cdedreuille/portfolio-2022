@@ -1,12 +1,18 @@
-import { ThListIcon } from "@sanity/icons";
+import { FiList } from "react-icons/fi";
 import { defineType } from "sanity";
 
 export default defineType({
   name: "projectList",
   title: "Project List",
-  icon: ThListIcon,
+  icon: FiList,
   type: "document",
   fields: [
+    {
+      type: "string",
+      name: "title",
+      title: "Title",
+      hidden: true,
+    },
     {
       type: "array",
       name: "projects",

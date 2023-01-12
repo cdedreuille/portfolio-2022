@@ -1,13 +1,26 @@
 export interface ProjectProps {
   _id: string;
   name: string;
-  client: string;
+  client: ClientProps;
   type: string;
   published_at: string;
   content?: AssetProps[];
   description?: string;
   slug: string;
   tags?: TagProps[];
+  backgroundColor?: ColorProps;
+  primaryColor?: ColorProps;
+  secondaryColor?: ColorProps;
+  preview?: {
+    type?: "image" | "video";
+    image?: AssetProps;
+    video?: AssetProps;
+  };
+}
+
+export interface ColorProps {
+  _id: string;
+  hex: string;
 }
 
 export interface AssetProps {
@@ -22,6 +35,7 @@ export interface AssetProps {
 export interface ClientProps {
   _id: string;
   name: string;
+  logo?: AssetProps;
 }
 
 export interface TagProps {

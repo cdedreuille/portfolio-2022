@@ -15,7 +15,7 @@ import { Project } from "components2/project";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function Portfolio({ data }: { data: ProjectProps[] }) {
-  const { width } = useWindowSize();
+  const { width, height } = useWindowSize();
   const router = useRouter();
   const [activeProject, setActiveProject] = useState<string | null>(null);
 
@@ -26,20 +26,24 @@ export default function Portfolio({ data }: { data: ProjectProps[] }) {
 
   if (!width) return null;
 
+  const project = activeProject
+    ? data.find((p) => p.slug === activeProject)
+    : null;
+
   return (
     <>
       <Cursor />
       <MainHead />
-
       <AnimatePresence>
-        {activeProject && (
+        {activeProject && project && (
           <motion.div
-            initial={{ opacity: 0, y: 200 }}
+            initial={{ opacity: 1, y: height }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 200 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
             className="fixed top-0 left-0 right-0 bottom-0 z-[999] w-full overflow-scroll"
           >
-            <Project />
+            <Project project={project} />
           </motion.div>
         )}
       </AnimatePresence>
@@ -66,7 +70,28 @@ export async function getStaticProps() {
             ...,
             "slug": slug.current
           },
-          "client": client->name,
+          "client": client->{
+            name,
+            "image": image.asset->{
+              "type": 'image',
+              url,
+              "width": metadata.dimensions.width,
+              "height": metadata.dimensions.height
+            }
+          },
+          "preview": preview{
+            ...,
+            "image": image.asset->{
+              "type": 'image',
+              url,
+              "width": metadata.dimensions.width,
+              "height": metadata.dimensions.height
+            },
+            "video": video.asset->{
+              "type": 'mux',
+              playbackId
+            }
+          },
           "content": content[]{
             ...,
             _type == 'image' => {

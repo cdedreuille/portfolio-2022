@@ -1,10 +1,12 @@
-import { DocumentIcon, DocumentVideoIcon } from "@sanity/icons";
+import { DocumentVideoIcon } from "@sanity/icons";
+import { FiLayout } from "react-icons/fi";
 import { defineType } from "sanity";
 
 export default defineType({
   name: "project",
   title: "Projects",
   type: "document",
+  icon: FiLayout,
   fields: [
     {
       type: "string",
@@ -55,6 +57,37 @@ export default defineType({
         dateFormat: "DD MMMM YYYY",
       },
       validation: (Rule) => Rule.required(),
+    },
+    {
+      name: "preview",
+      title: "Preview",
+      type: "document",
+      fields: [
+        {
+          type: "string",
+          name: "type",
+          title: "Type",
+          initialValue: "image",
+          options: {
+            list: [
+              { title: "Image", value: "image" },
+              { title: "Video", value: "video" },
+            ],
+          },
+        },
+        {
+          type: "image",
+          name: "image",
+          title: "Image",
+          hidden: ({ parent }) => parent?.type !== "image",
+        },
+        {
+          type: "mux.video",
+          name: "video",
+          title: "Video",
+          hidden: ({ parent }) => parent?.type !== "video",
+        },
+      ],
     },
     {
       type: "array",
@@ -116,6 +149,21 @@ export default defineType({
       name: "description",
       title: "Description",
     },
+    {
+      type: "color",
+      name: "backgroundColor",
+      title: "Background Color",
+    },
+    {
+      type: "color",
+      name: "primaryColor",
+      title: "Primary Color",
+    },
+    {
+      type: "color",
+      name: "secondaryColor",
+      title: "Secondary Color",
+    },
   ],
   preview: {
     select: {
@@ -126,7 +174,6 @@ export default defineType({
       return {
         title: name,
         subtitle: client,
-        media: DocumentIcon,
       };
     },
   },
