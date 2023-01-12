@@ -97,7 +97,9 @@ export const Project: FC<Props> = ({
             <div className="p-10 ml-[50vw] flex flex-row">
               {/* Description */}
               <div className="w-[calc(50vw-80px)] mr-10 bg-white p-10">
-                <div className="text-xs sm:text-base">{project.client}</div>
+                <div className="text-xs sm:text-base">
+                  {project.client.name}
+                </div>
                 <div className="text-2xl sm:text-4xl font-bold mt-2">
                   {project.name}
                 </div>

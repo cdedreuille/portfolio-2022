@@ -97,7 +97,7 @@ export const Project: FC<Props> = ({
           ))}
           <Slide project={project} isActive={isActive} slide={slide} index={1}>
             <div className="justify-center h-full w-[calc(50vw-60px)] bg-white p-10">
-              <div className="text-xs sm:text-base">{project.client}</div>
+              <div className="text-xs sm:text-base">{project.client.name}</div>
               <div className="text-2xl sm:text-4xl font-bold mt-2">
                 {project.name}
               </div>
