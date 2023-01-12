@@ -88,7 +88,7 @@ const Item: FC<ItemProps> = ({
       <motion.div
         animate={{ opacity: isActive ? 1 : 0 }}
         transition={{ duration: 0, ease: "easeInOut" }}
-        className="fixed top-1/2 -translate-y-1/2 right-2 md:right-24 w-40 h-64 md:w-[460px] md:h-[520px] bg-emerald-200 z-30 rounded-2xl overflow-hidden"
+        className="fixed top-1/2 -translate-y-1/2 right-2 md:right-[8vw] w-40 h-64 md:w-[40vw] md:h-[60vh] bg-emerald-200 z-30 rounded-2xl overflow-hidden"
         style={{ backgroundColor: color }}
       >
         {project.content && (
@@ -108,7 +108,7 @@ const Item: FC<ItemProps> = ({
       <Link
         href={`/?project=${project.slug}`}
         as={`/${project.slug}`}
-        className="block h-20 relative mb-2 sm:mx-4 md:mx-12 sm:rounded-lg overflow-hidden"
+        className="group block h-20 relative mb-2 sm:mx-4 md:mx-12 sm:rounded-full overflow-hidden"
         ref={ref}
       >
         <div className="relative z-10 flex items-center gap-8 py-2 px-6 sm:px-8 h-full">
@@ -136,8 +136,12 @@ const Item: FC<ItemProps> = ({
           animate={isActive ? "visible" : "hidden"}
           initial="hidden"
           transition={{ duration: 0.6, ease: "easeInOut" }}
-          className="absolute w-full h-full top-0 left-0 bg-emerald-200"
-          style={{ backgroundColor: color }}
+          className="absolute w-full h-full top-0 left-0 hover:border-2 border-emerald-400"
+          style={{ backgroundColor: color, borderColor: color }}
+        />
+        <div
+          className="absolute w-full h-full top-0 left-0 group-hover:border-2 rounded-full"
+          style={{ borderColor: "#000" }}
         />
       </Link>
     </>

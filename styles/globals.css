@@ -6,4 +6,9 @@ html,
 body {
   background-color: #fbf7f2;
   color: #000;
+  cursor: none;
+}
+
+a {
+  cursor: none;
 }
