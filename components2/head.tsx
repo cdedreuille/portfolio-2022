@@ -11,7 +11,6 @@ export const MainHead = () => {
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta name="theme-color" content="#fbf7f2" />
       <link
         rel="apple-touch-icon"
         sizes="180x180"
@@ -37,7 +36,7 @@ export const MainHead = () => {
       />
 
       <meta name="msapplication-TileColor" content="#da532c" />
-      <meta name="theme-color" content="#000000" />
+      <meta name="theme-color" content="#fbf7f2" />
       <meta name="title" property="og:title" content={title}></meta>
       <meta
         name="description"
