@@ -117,7 +117,8 @@ const Item: FC<ItemProps> = ({
 
       {/* Coloured line */}
       <Link
-        href={`/?project=${project.slug}`}
+        href={`?project=${project.slug}`}
+        scroll={false}
         as={`/${project.slug}`}
         className="group block h-20 relative mb-2 sm:mx-4 md:mx-12 sm:rounded-full overflow-hidden"
         ref={ref}

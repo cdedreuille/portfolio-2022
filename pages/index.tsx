@@ -8,9 +8,21 @@ import { Ellipse } from "../components2/ellipse";
 import { MainHead } from "../components2/head";
 import { useWindowSize } from "../hooks/useWindowSize";
 import { IntroMobile } from "../components2/intro-mobile";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import { useEffect } from "react";
+import { Project } from "components2/project";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Portfolio({ data }: { data: ProjectProps[] }) {
   const { width } = useWindowSize();
+  const router = useRouter();
+  const [activeProject, setActiveProject] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (router.query.project) setActiveProject(router.query.project as string);
+    else setActiveProject(null);
+  }, [router.query.project]);
 
   if (!width) return null;
 
@@ -18,6 +30,19 @@ export default function Portfolio({ data }: { data: ProjectProps[] }) {
     <>
       <Cursor />
       <MainHead />
+
+      <AnimatePresence>
+        {activeProject && (
+          <motion.div
+            initial={{ opacity: 0, y: 200 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 200 }}
+            className="fixed top-0 left-0 right-0 bottom-0 z-[999] w-full overflow-scroll"
+          >
+            <Project />
+          </motion.div>
+        )}
+      </AnimatePresence>
       <div className="relative z-10">
         {width > 768 && <IntroDesktop />}
         {width <= 768 && <IntroMobile />}

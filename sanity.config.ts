@@ -9,7 +9,7 @@ import tag from "./schemas/tag";
 import { UserIcon, TagIcon } from "@sanity/icons";
 
 export default defineConfig({
-  basePath: "/admin",
+  basePath: "/studio",
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "",
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "",
   title: process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || "Portfolio",

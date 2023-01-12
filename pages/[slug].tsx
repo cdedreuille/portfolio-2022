@@ -2,24 +2,26 @@ import { groq } from "next-sanity";
 import { getClient } from "../lib/sanity.server";
 import { ProjectProps } from "../types";
 import { Cursor } from "../components/cursor";
-import { Project } from "../components/project2";
+import { Project } from "../components2/project";
 import { FC } from "react";
 
 interface Props {
   project: ProjectProps;
 }
 
+const themes = {
+  dark: {
+    background: "#222222",
+    primaryColor: "#fff",
+    secondaryColor: "#8D8D8D",
+  },
+};
+
 const Portfolio: FC<Props> = ({ project }) => {
   return (
     <>
       <Cursor />
-      <Project
-        project={project}
-        isActive={true}
-        projectActive={project._id}
-        isHover={true}
-        zIndex={1}
-      />
+      <Project project={project} />
     </>
   );
 };
