@@ -28,7 +28,7 @@ export const Project: FC<Props> = ({ project }) => {
   const opacityText = useTransform(scrollYProgress, [1, 0.9], [0, 1]);
   const opacityLine = useTransform(scrollYProgress, [1, 0.99], [0, 1]);
 
-  return <></>
+  return <></>;
 
   // return (
   //   <div className="relative" ref={ref}>
@@ -89,5 +89,5 @@ export const Project: FC<Props> = ({ project }) => {
   //     )} */}
   //     <div className="w-full h-[100px] bg-cream" />
   //   </div>
-  );
+  // );
 };
