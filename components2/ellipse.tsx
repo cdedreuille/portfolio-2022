@@ -8,14 +8,14 @@ export const Ellipse: FC = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 h-screen w-screen justify-center items-center flex z-0"
+      className="fixed -top-[480px] left-12 md:top-0 md:left-0 w-[1000px] h-[1000px] md:h-screen md:w-screen md:justify-center md:items-center flex z-0 bg-red"
       style={{ opacity: newOpacity, rotate: newRotate }}
     >
       <svg
         viewBox="0 0 900 900"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
-        className="h-[calc(100vh-80px)] w-[calc(100vw-80px)]"
+        className="md:h-[calc(100vh-80px)] md:w-[calc(100vw-80px)]"
       >
         <mask id="mask">
           <rect x="0" y="0" width="100%" height="100%" fill="white" />
