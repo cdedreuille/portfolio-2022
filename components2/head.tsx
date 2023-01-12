@@ -11,6 +11,7 @@ export const MainHead = () => {
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="theme-color" content="#fbf7f2" />
       <link
         rel="apple-touch-icon"
         sizes="180x180"

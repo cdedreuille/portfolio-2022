@@ -8,7 +8,7 @@ export const Ellipse: FC = () => {
 
   return (
     <motion.div
-      className="fixed -top-[480px] left-12 md:top-0 md:left-0 w-[1000px] h-[1000px] md:h-screen md:w-screen md:justify-center md:items-center flex z-0 bg-red"
+      className="fixed -top-[480px] left-12 md:top-0 md:left-0 w-[1000px] h-[1000px] md:h-screen md:w-screen md:justify-center md:items-center flex z-0"
       style={{ opacity: newOpacity, rotate: newRotate }}
     >
       <svg
