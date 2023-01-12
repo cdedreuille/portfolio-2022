@@ -129,10 +129,10 @@ const Item: FC<ItemProps> = ({
             {project.tags && project.tags[0].name}
           </div>
           <div className="text-md w-[168px] hidden sm:block">
-            {project.client}
+            {project.client.name}
           </div>
           <div className="text-md flex flex-col">
-            <div className="sm:hidden">{project.client}</div>
+            <div className="sm:hidden">{project.client.name}</div>
             <motion.div
               variants={colorVariants}
               animate={isActive ? "visible" : "hidden"}
