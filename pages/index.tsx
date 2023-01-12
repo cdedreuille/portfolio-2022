@@ -6,14 +6,21 @@ import { List } from "../components2/list";
 import { IntroDesktop } from "../components2/intro-desktop";
 import { Ellipse } from "../components2/ellipse";
 import { MainHead } from "../components2/head";
+import { useWindowSize } from "../hooks/useWindowSize";
+import { IntroMobile } from "../components2/intro-mobile";
 
 export default function Portfolio({ data }: { data: ProjectProps[] }) {
+  const { width } = useWindowSize();
+
+  if (!width) return null;
+
   return (
     <>
       <Cursor />
       <MainHead />
       <div className="relative z-10">
-        <IntroDesktop />
+        {width > 768 && <IntroDesktop />}
+        {width <= 768 && <IntroMobile />}
         <List data={data} />
       </div>
       <footer className="h-[600px]"></footer>

@@ -34,7 +34,7 @@ const colorVariants = {
     transition: { duration: 0 },
   },
   hidden: {
-    color: "#000",
+    color: "rgba(0, 0, 0, 0.4)",
     transition: { duration: 0.6, ease: "easeInOut" },
   },
 };
@@ -88,7 +88,7 @@ const Item: FC<ItemProps> = ({
       <motion.div
         animate={{ opacity: isActive ? 1 : 0 }}
         transition={{ duration: 0, ease: "easeInOut" }}
-        className="fixed top-1/2 -translate-y-1/2 right-24 w-[460px] h-[520px] bg-emerald-200 z-30 rounded-2xl overflow-hidden"
+        className="fixed top-1/2 -translate-y-1/2 right-2 md:right-24 w-40 h-64 md:w-[460px] md:h-[520px] bg-emerald-200 z-30 rounded-2xl overflow-hidden"
         style={{ backgroundColor: color }}
       >
         {project.content && (
@@ -108,16 +108,28 @@ const Item: FC<ItemProps> = ({
       <Link
         href={`/?project=${project.slug}`}
         as={`/${project.slug}`}
-        className="block h-20 relative mb-2 mx-12 rounded-lg overflow-hidden"
+        className="block h-20 relative mb-2 sm:mx-4 md:mx-12 sm:rounded-lg overflow-hidden"
         ref={ref}
       >
-        <div className="relative z-10 flex items-center gap-8 py-2 px-8 h-full">
-          <div className="text-md">2022</div>
-          <div className="text-md w-[132px]">
+        <div className="relative z-10 flex items-center gap-8 py-2 px-6 sm:px-8 h-full">
+          <div className="text-md hidden md:block">2022</div>
+          <div className="text-md w-[132px] hidden sm:block">
             {project.tags && project.tags[0].name}
           </div>
-          <div className="text-md w-[168px]">{project.client}</div>
-          <div className="text-md">{project.name}</div>
+          <div className="text-md w-[168px] hidden sm:block">
+            {project.client}
+          </div>
+          <div className="text-md flex flex-col">
+            <div className="sm:hidden">{project.client}</div>
+            <motion.div
+              variants={colorVariants}
+              animate={isActive ? "visible" : "hidden"}
+              initial="hidden"
+              className="text-gray-500 sm:text-black"
+            >
+              {project.name}
+            </motion.div>
+          </div>
         </div>
         <motion.div
           variants={variants}
