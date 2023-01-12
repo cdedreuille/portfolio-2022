@@ -1,8 +1,8 @@
 import { groq } from "next-sanity";
 import { getClient } from "lib/sanity.server";
 import { ProjectProps } from "types";
-import { Cursor } from "components2/cursor";
-import { Project } from "components2/project";
+import { Cursor } from "components/cursor";
+import { Project } from "components/project";
 import { FC } from "react";
 
 interface Props {

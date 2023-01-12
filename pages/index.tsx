@@ -1,17 +1,17 @@
 import { groq } from "next-sanity";
 import { getClient } from "../lib/sanity.server";
 import { ProjectProps } from "../types";
-import { Cursor } from "../components2/cursor";
-import { List } from "../components2/list";
-import { IntroDesktop } from "../components2/intro-desktop";
-import { Ellipse } from "../components2/ellipse";
-import { MainHead } from "../components2/head";
+import { Cursor } from "../components/cursor";
+import { List } from "../components/list";
+import { IntroDesktop } from "../components/intro-desktop";
+import { Ellipse } from "../components/ellipse";
+import { MainHead } from "../components/head";
 import { useWindowSize } from "../hooks/useWindowSize";
-import { IntroMobile } from "../components2/intro-mobile";
+import { IntroMobile } from "../components/intro-mobile";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Project } from "components2/project";
+import { Project } from "components/project";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function Portfolio({ data }: { data: ProjectProps[] }) {
