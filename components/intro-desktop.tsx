@@ -30,7 +30,7 @@ export const IntroDesktop: FC = () => {
           <div className="relative z-10 mt-20 mb-12 2xl:mb-20">
             <AnimatedName>{name}</AnimatedName>
           </div>
-          <div className="relative z-10 flex flex-col items-center font-mono text-xl">
+          <div className="relative z-10 flex flex-col items-center font-mono text-lg xl:text-xl">
             <div className="">Designer & Creative Technologist</div>
             <div className="">Maker of Useful and Delightful Interfaces</div>
             <div className="italic flex gap-4">
