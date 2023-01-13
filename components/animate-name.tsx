@@ -13,13 +13,12 @@ const AnimatedName: FC<Props> = ({ children }) => {
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
       opacity: 1,
-      transition: { staggerChildren: 0.04, delayChildren: 1 * i },
+      transition: { staggerChildren: 0.04, delayChildren: 0.4 },
     }),
   };
 
   const child = {
     visible: {
-      opacity: 1,
       y: 0,
       transition: {
         type: "spring",
@@ -28,8 +27,7 @@ const AnimatedName: FC<Props> = ({ children }) => {
       },
     },
     hidden: {
-      opacity: 0,
-      y: 20,
+      y: 180,
       transition: {
         type: "spring",
         damping: 12,
@@ -43,7 +41,7 @@ const AnimatedName: FC<Props> = ({ children }) => {
       variants={container}
       initial="hidden"
       animate="visible"
-      className="flex flex-row mr-2 flex-wrap font-serif text-3xl md:text-title"
+      className="flex flex-row mr-2 flex-wrap font-serif text-titleSm xl:text-titleLg 2xl:text-titleXl 3xl:text-title2Xl md:text-title"
     >
       {letters.map((letter, index) => (
         <div key={index} className="overflow-hidden">

@@ -155,7 +155,7 @@ const Item: FC<ItemProps> = ({
           variants={borderVariants}
           whileHover="hover"
           initial="default"
-          className="absolute w-full h-full top-0 left-0 border-2 rounded-full z-20"
+          className="absolute w-full h-full top-0 left-0 sm:border-2 rounded-full z-20"
           style={{ borderColor: color }}
         />
       </Link>

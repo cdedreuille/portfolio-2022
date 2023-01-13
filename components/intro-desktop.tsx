@@ -26,14 +26,17 @@ export const IntroDesktop: FC = () => {
 
       {/* Intro */}
       <div className="w-screen h-screen flex flex-col">
-        <div className="relative flex-1 flex flex-col items-center justify-center bg-yellow-400">
-          <div className="relative z-10 mb-12">
+        <div className="relative flex-1 flex flex-col items-center justify-center">
+          <div className="relative z-10 mt-20 mb-12 2xl:mb-20">
             <AnimatedName>{name}</AnimatedName>
           </div>
-          <div className="relative z-10 max-w-lg text-center">
-            <p>Designer & Creative Technologist</p>
-            <p>Maker of Useful and Delightful Interfaces</p>
-            <p>✶ Forever Curious ✶</p>
+          <div className="relative z-10 flex flex-col items-center font-mono text-xl">
+            <div className="">Designer & Creative Technologist</div>
+            <div className="">Maker of Useful and Delightful Interfaces</div>
+            <div className="italic flex gap-4">
+              <div className="not-italic">✶</div> Forever Curious{" "}
+              <div className="not-italic">✶</div>
+            </div>
           </div>
           <Ellipse />
         </div>
