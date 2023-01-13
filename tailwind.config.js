@@ -3,8 +3,10 @@ const { fontFamily } = require("tailwindcss/defaultTheme");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
+    "./app/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
+    "!./node_modules", // 👈 https://stackoverflow.com/questions/74457600/tailwind-requires-refresh-to-apply-changes-in-next-js-13
   ],
   theme: {
     fontSize: {
@@ -15,7 +17,8 @@ module.exports = {
       xl: ["24px", "36px"],
       "2xl": ["32px", "44px"],
       "3xl": ["48px", "56px"],
-      title: ["64px", "72px"],
+      title: ["120px", "144px"],
+      title2: ["140px", "168px"],
     },
     fontWeight: {
       thin: 100,

@@ -4,7 +4,6 @@ import { ProjectProps } from "../types";
 import { Cursor } from "../components/cursor";
 import { List } from "../components/list";
 import { IntroDesktop } from "../components/intro-desktop";
-import { Ellipse } from "../components/ellipse";
 import { MainHead } from "../components/head";
 import { useWindowSize } from "../hooks/useWindowSize";
 import { IntroMobile } from "../components/intro-mobile";
@@ -54,7 +53,6 @@ export default function Portfolio({ data }: { data: ProjectProps[] }) {
         <List data={data} />
       </div>
       <footer className="h-[600px]"></footer>
-      <Ellipse />
     </>
   );
 }
