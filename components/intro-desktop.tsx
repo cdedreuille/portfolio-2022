@@ -42,7 +42,6 @@ export const IntroDesktop: FC = () => {
         </div>
         <div className="flex justify-center gap-8 items-center h-[160px] px-12">
           <div className="flex gap-4">
-            <Button>All Projects</Button>
             <Button>Product Design</Button>
             <Button>Branding</Button>
             <Button>Visual Design</Button>

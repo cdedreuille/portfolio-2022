@@ -102,9 +102,9 @@ const Item: FC<ItemProps> = ({
         className="fixed top-1/2 -translate-y-1/2 right-2 md:right-[8vw] w-40 h-64 md:w-[40vw] md:h-[60vh] bg-emerald-200 z-30 rounded-2xl overflow-hidden"
         style={{ backgroundColor: color }}
       >
-        {project.content && (
+        {project.preview?.type === "image" && project.preview.image?.url && (
           <Image
-            src={`${project.content[0].url}?w=1800`}
+            src={`${project.preview.image.url}?w=1800`}
             alt="Project"
             className="object-cover"
             priority

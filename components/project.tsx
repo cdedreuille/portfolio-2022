@@ -13,7 +13,7 @@ export const Project: FC<Props> = ({ project }) => {
   return (
     <div
       className={classnames(
-        "h-[4000px] w-full p-8 sm:p-12 flex justify-center",
+        "min-h-screen w-full p-8 sm:p-12 flex flex-col items-center gap-12",
         {
           "bg-cream": !project.backgroundColor,
           "text-black": !project.primaryColor,
@@ -88,6 +88,20 @@ export const Project: FC<Props> = ({ project }) => {
               )}
           </div>
         </div>
+      </div>
+      <div className="flex flex-col gap-12 max-w-[1600px] w-full">
+        {project.content?.map((content) => (
+          <div key={content._key}>
+            {content._type === "imageBlock" && content.image?.url && (
+              <Image
+                src={content.image?.url}
+                width={content.image?.width}
+                height={content.image?.height}
+                alt={content.title || ""}
+              />
+            )}
+          </div>
+        ))}
       </div>
     </div>
   );

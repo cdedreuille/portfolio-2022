@@ -4,7 +4,12 @@ export interface ProjectProps {
   client: ClientProps;
   type: string;
   published_at: string;
-  content?: AssetProps[];
+  content?: {
+    _key: string;
+    _type: "imageBlock";
+    title?: string;
+    image?: ImageProps;
+  }[];
   description?: string;
   slug: string;
   tags?: TagProps[];
@@ -21,6 +26,14 @@ export interface ProjectProps {
 export interface ColorProps {
   _id: string;
   hex: string;
+}
+
+export interface ImageProps {
+  _type: "image";
+  url?: string;
+  width?: number;
+  height?: number;
+  extension?: string;
 }
 
 export interface AssetProps {

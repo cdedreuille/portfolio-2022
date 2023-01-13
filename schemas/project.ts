@@ -93,7 +93,28 @@ export default defineType({
       type: "array",
       name: "content",
       title: "Content",
-      of: [{ type: "image" }, { type: "mux.video" }],
+      of: [
+        { type: "image" },
+        { type: "mux.video" },
+        {
+          type: "document",
+          name: "imageBlock",
+          title: "Image Block",
+          fields: [
+            {
+              type: "string",
+              name: "title",
+              title: "Title",
+              initialValue: "Image",
+            },
+            {
+              type: "image",
+              name: "image",
+              title: "Image",
+            },
+          ],
+        },
+      ],
     },
     {
       type: "array",
