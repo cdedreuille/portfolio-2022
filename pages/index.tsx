@@ -13,6 +13,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Project } from "components/project";
 import { AnimatePresence, motion } from "framer-motion";
+import { projectQuery } from "lib/queries";
 
 export default function Portfolio({ data }: { data: ProjectProps[] }) {
   const { width, height } = useWindowSize();
@@ -63,51 +64,7 @@ export async function getStaticProps() {
     const projects = await getClient().fetch(
       groq`*[_type == "projectList" && _id == "projectList"][0]{
         ...,
-        projects[]->{
-          ...,
-          "slug": slug.current,
-          "tags": tags[]->{
-            ...,
-            "slug": slug.current
-          },
-          "client": client->{
-            name,
-            "image": image.asset->{
-              "type": 'image',
-              url,
-              "width": metadata.dimensions.width,
-              "height": metadata.dimensions.height
-            }
-          },
-          "preview": preview{
-            ...,
-            "image": image.asset->{
-              "type": 'image',
-              url,
-              "width": metadata.dimensions.width,
-              "height": metadata.dimensions.height
-            },
-            "video": video.asset->{
-              "type": 'mux',
-              playbackId
-            }
-          },
-          "content": content[]{
-            ...,
-            _type == 'image' => {
-              _key,
-              "type": 'image',
-              "url": @.asset->url,
-              "width": @.asset->metadata.dimensions.width,
-              "height": @.asset->metadata.dimensions.height
-            },
-            _type == 'mux.video' => {
-              _key,
-              "type": 'mux',
-              "playbackId": @.asset->playbackId
-            },
-          }
-        }
+        projects[]->${projectQuery}
       }.projects`
     );
     return projects;
