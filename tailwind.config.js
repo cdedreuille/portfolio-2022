@@ -42,6 +42,7 @@ module.exports = {
         cream: "#FBF7F2",
         white: "#FFFFFF",
         black: "#000000",
+        footer: "#222222",
       },
       screens: {
         "3xl": "1920px",

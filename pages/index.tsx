@@ -13,6 +13,7 @@ import { useEffect } from "react";
 import { Project } from "components/project";
 import { AnimatePresence, motion } from "framer-motion";
 import { projectQuery } from "lib/queries";
+import Footer from "components/footer";
 
 export default function Portfolio({ data }: { data: ProjectProps[] }) {
   const { width, height } = useWindowSize();
@@ -47,12 +48,12 @@ export default function Portfolio({ data }: { data: ProjectProps[] }) {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="relative z-10">
+      <div className="relative z-10 mb-40">
         {width > 768 && <IntroDesktop />}
         {width <= 768 && <IntroMobile />}
         <List data={data} />
       </div>
-      <footer className="h-[600px]"></footer>
+      <Footer />
     </>
   );
 }
