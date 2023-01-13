@@ -17,6 +17,18 @@ export default defineType({
       name: "logo",
       title: "Client logo",
     }),
+    defineField({
+      type: "number",
+      name: "logoWidth",
+      title: "Logo Width",
+      initialValue: 120,
+    }),
+    defineField({
+      type: "number",
+      name: "logoHeight",
+      title: "Logo Height",
+      initialValue: 40,
+    }),
   ],
   preview: {
     select: {

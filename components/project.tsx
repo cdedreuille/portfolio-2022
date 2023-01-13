@@ -16,6 +16,7 @@ export const Project: FC<Props> = ({ project }) => {
         "h-[4000px] w-full p-8 sm:p-12 flex justify-center",
         {
           "bg-cream": !project.backgroundColor,
+          "text-black": !project.primaryColor,
         }
       )}
       style={{
@@ -26,7 +27,13 @@ export const Project: FC<Props> = ({ project }) => {
       <div className="max-w-[1600px] w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-row-6 gap-12">
           <div className="col-span-1">
-            <div className="w-64 h-4 relative mb-12">
+            <div
+              className="relative mb-12"
+              style={{
+                width: project.client.logoWidth || 120,
+                height: project.client.logoHeight || 40,
+              }}
+            >
               {project.client?.logo?.url && (
                 <Image
                   src={project.client?.logo?.url}
@@ -38,14 +45,31 @@ export const Project: FC<Props> = ({ project }) => {
             </div>
             <div className="text-2xl mb-12">{project.name}</div>
             <div className="flex items-center gap-8">
-              <div className="border border-cream text-white px-6 h-10 flex items-center rounded-full text-md transition-all duration-300 ease-in-out">
+              <div
+                className={classnames(
+                  "border px-6 h-10 flex items-center rounded-full text-md transition-all duration-300 ease-in-out",
+                  {
+                    "border-black": !project.primaryColor,
+                    "text-black": !project.primaryColor,
+                  }
+                )}
+                style={{
+                  borderColor: project.primaryColor?.hex,
+                  color: project.primaryColor?.hex,
+                }}
+              >
                 Product
               </div>
               <div className="">2021</div>
             </div>
           </div>
           <div
-            className="col-span-1 col-start-1 row-start-3 sm:row-start-2 max-w-2xl"
+            className={classnames(
+              "col-span-1 col-start-1 row-start-3 sm:row-start-2 max-w-2xl",
+              {
+                "text-black": !project.secondaryColor,
+              }
+            )}
             style={{
               color: project.secondaryColor?.hex,
             }}
