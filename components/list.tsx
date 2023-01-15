@@ -88,7 +88,7 @@ const Item: FC<ItemProps> = ({
       <motion.div
         animate={{ opacity: isActive ? 1 : 0 }}
         transition={{ duration: 0, ease: "easeInOut" }}
-        className="fixed top-1/2 -translate-y-1/2 right-2 md:right-[8vw] w-40 h-64 md:w-[40vw] md:h-[60vh] bg-emerald-200 z-30 rounded-2xl overflow-hidden"
+        className="fixed bottom-2 right-2 md:top-1/2 md:-translate-y-1/2 md:right-[8vw] w-40 h-64 md:w-[40vw] md:h-[60vh] bg-emerald-200 z-30 rounded-2xl overflow-hidden"
         style={{ backgroundColor: color }}
       >
         {project.preview?.type === "image" && project.preview.image?.url && (
