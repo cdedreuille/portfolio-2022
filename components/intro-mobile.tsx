@@ -32,7 +32,7 @@ const item = {
 export const IntroMobile: FC = () => {
   return (
     <>
-      <div className="mb-12 mx-6 pt-32">
+      <div className="mb-12 mx-6 pt-24">
         <div className="mb-6">
           <AnimatedName />
         </div>
