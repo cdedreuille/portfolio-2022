@@ -36,7 +36,7 @@ export const MainHead = () => {
       />
 
       <meta name="msapplication-TileColor" content="#da532c" />
-      <meta name="theme-color" content="#fbf7f2" />
+      <meta name="theme-color" content="#f5f7fb" />
       <meta name="title" property="og:title" content={title}></meta>
       <meta
         name="description"

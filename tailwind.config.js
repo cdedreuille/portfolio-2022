@@ -17,10 +17,13 @@ module.exports = {
       xl: ["24px", "42px"],
       "2xl": ["32px", "52px"],
       "3xl": ["48px", "56px"],
-      titleSm: ["80px", "96px"],
-      titleLg: ["118px", "142px"],
-      titleXl: ["132px", "154px"],
-      title2Xl: ["148px", "180px"],
+      titleXxs: ["24px", "38px"],
+      titleXs: ["32px", "38px"],
+      titleXsPlus: ["40px", "56px"],
+      titleSm: ["88px", "120px"],
+      titleLg: ["96px", "120px"],
+      titleXl: ["112px", "130px"],
+      title2Xl: ["124px", "140px"],
     },
     fontWeight: {
       thin: 100,
@@ -34,12 +37,11 @@ module.exports = {
     fontFamily: {
       sans: ["var(--font-inter)", ...fontFamily.sans],
       serif: ["var(--font-romie)", ...fontFamily.serif],
-      mono: ["var(--font-redaction)", ...fontFamily.mono],
     },
     extend: {
       colors: {
         red: "#F52D11",
-        cream: "#FBF7F2",
+        cream: "#F4F6FA",
         white: "#FFFFFF",
         black: "#000000",
         footer: "#222222",

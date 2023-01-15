@@ -39,17 +39,6 @@ const colorVariants = {
   },
 };
 
-const borderVariants = {
-  hover: {
-    opacity: 1,
-    transition: { duration: 0 },
-  },
-  default: {
-    opacity: 0,
-    transition: { duration: 0.6, ease: "easeInOut" },
-  },
-};
-
 const colors = [
   "#FFEB84",
   "#FFDD8D",
@@ -150,13 +139,6 @@ const Item: FC<ItemProps> = ({
           transition={{ duration: 0.6, ease: "easeInOut" }}
           className="absolute w-full h-full top-0 left-0 hover:border-2 border-emerald-400"
           style={{ backgroundColor: color }}
-        />
-        <motion.div
-          variants={borderVariants}
-          whileHover="hover"
-          initial="default"
-          className="absolute w-full h-full top-0 left-0 sm:border-2 rounded-full z-20"
-          style={{ borderColor: color }}
         />
       </Link>
     </>
