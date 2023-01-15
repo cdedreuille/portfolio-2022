@@ -48,7 +48,7 @@ export default function Portfolio({ data }: { data: ProjectProps[] }) {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="relative z-10 mb-40">
+      <div className="relative z-10 mb-16 md:mb-40">
         {width > 768 && <IntroDesktop />}
         {width <= 768 && <IntroMobile />}
         <List data={data} />
