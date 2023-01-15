@@ -1,20 +1,55 @@
 import { FC } from "react";
 import AnimatedName from "./animate-name";
-import { linkLinkedIn, linkMail, linkTwitter, name, text } from "../content";
+import { linkLinkedIn, linkMail, linkTwitter } from "../content";
 import { Button } from "./button";
 import { IconInstagram } from "./icon-instagram";
 import { IconLinkedin } from "./icon-linkedin";
 import { Line } from "./line";
+import { motion } from "framer-motion";
+
+const container = {
+  hidden: { opacity: 0 },
+  show: (i = 1) => ({
+    opacity: 1,
+    transition: { staggerChildren: 0.2, delayChildren: 1.2 },
+  }),
+};
+
+const item = {
+  hidden: {
+    y: 180,
+  },
+  show: {
+    y: 0,
+    transition: {
+      type: "spring",
+      damping: 20,
+      stiffness: 100,
+    },
+  },
+};
 
 export const IntroMobile: FC = () => {
   return (
     <>
       <div className="mb-12 mx-6 pt-32">
         <div className="mb-6">
-          <AnimatedName>Charles</AnimatedName>
-          <AnimatedName>de Dreuille</AnimatedName>
+          <AnimatedName />
         </div>
-        <div className="col-span-4 mb-12">{text}</div>
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="relative z-10 flex flex-col font-serif text-md mb-16 gap-2"
+        >
+          <div className="overflow-hidden max-w-sm">
+            <motion.div variants={item}>
+              <div className="inline-block">✶</div> Designer & Creative
+              Technologist. Maker of Useful and Delightful Interfaces. Forever
+              Curious <div className="inline-block">✶</div>
+            </motion.div>
+          </div>
+        </motion.div>
         <div className="flex gap-4">
           <Button>About</Button>
           <Button href={linkMail}>Mail</Button>

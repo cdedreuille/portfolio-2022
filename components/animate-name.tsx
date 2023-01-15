@@ -38,7 +38,7 @@ const AnimatedName: FC = () => {
       variants={container}
       initial="hidden"
       animate="visible"
-      className="flex flex-row mr-2 flex-wrap font-serif text-titleSm xl:text-titleLg 2xl:text-titleXl 3xl:text-title2Xl md:text-title text-black uppercase"
+      className="flex flex-row mr-2 flex-wrap font-serif text-[48px] md:text-[72px] lg:text-titleSm xl:text-titleLg 2xl:text-titleXl 3xl:text-title2Xl md:text-title text-black uppercase"
       style={{ fontFeatureSettings: '"dlig" 1,"kern" 1' }}
     >
       {lettersF.map((letter, index) => (
@@ -53,8 +53,9 @@ const AnimatedName: FC = () => {
           </motion.div>
         </div>
       ))}
+      <div className="basis-full md:hidden" />
       {lettersL.map((letter, index) => (
-        <div key={index} className="overflow-hidden mt-20">
+        <div key={index} className="overflow-hidden md:mt-20">
           <motion.div
             variants={child}
             className={classNames(
