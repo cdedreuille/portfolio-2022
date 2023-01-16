@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FC, useEffect, useRef, useState } from "react";
 import { ProjectProps } from "../types";
+import Gradient from "javascript-color-gradient";
 
 interface Props {
   data: ProjectProps[];
@@ -38,23 +39,6 @@ const colorVariants = {
     transition: { duration: 0.6, ease: "easeInOut" },
   },
 };
-
-const colors = [
-  "#FFEB84",
-  "#FFDD8D",
-  "#FFD194",
-  "#FEC59C",
-  "#F8BAB0",
-  "#F0AEC6",
-  "#E9A2DC",
-  "#E1A9E6",
-  "#DABDE7",
-  "#D2D1E9",
-  "#C8E2EB",
-  "#99C5F1",
-  "#6BA8F7",
-  "#448EEF",
-];
 
 const Item: FC<ItemProps> = ({
   project,
@@ -109,7 +93,7 @@ const Item: FC<ItemProps> = ({
         href={`?project=${project.slug}`}
         scroll={false}
         as={`/${project.slug}`}
-        className="group block h-20 relative mb-2 sm:mx-4 md:mx-12 sm:rounded-full overflow-hidden"
+        className="group block h-20 relative mb-2 sm:mx-4 md:mx-12 sm:rounded-lg overflow-hidden"
         ref={ref}
       >
         <div className="relative z-10 flex items-center gap-8 py-2 px-6 sm:px-8 h-full">
@@ -147,6 +131,10 @@ const Item: FC<ItemProps> = ({
 
 export const List: FC<Props> = ({ data }) => {
   const [activeProject, setActiveProject] = useState<string | null>(null);
+  const colorArr = new Gradient()
+    .setColorGradient("#FFEB84", "#FFC799", "#E59DE5", "#CBE4EA", "#448EEF")
+    .setMidpoint(data.length)
+    .getColors();
 
   return (
     <div className="md:mt-20">
@@ -156,7 +144,7 @@ export const List: FC<Props> = ({ data }) => {
           isFirst={index === 0}
           isLast={index === data.length - 1}
           project={project}
-          color={colors[index]}
+          color={colorArr[index]}
           activeProject={activeProject}
           setActiveProject={setActiveProject}
         />

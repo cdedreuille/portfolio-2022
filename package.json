@@ -24,6 +24,7 @@
     "eslint-config-next": "13.0.1",
     "framer-motion": "^8.0.2",
     "gsap": "^3.11.4",
+    "javascript-color-gradient": "^2.4.4",
     "nanoid": "^4.0.0",
     "next": "^13.1.1",
     "next-sanity": "^4.0.4",
@@ -37,6 +38,7 @@
     "typescript": "4.8.4"
   },
   "devDependencies": {
+    "@types/javascript-color-gradient": "^2.4.0",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.4"
