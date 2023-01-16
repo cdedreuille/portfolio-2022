@@ -25,11 +25,6 @@ const AnimatedName: FC = () => {
     },
     hidden: {
       y: 200,
-      transition: {
-        type: "spring",
-        damping: 12,
-        stiffness: 100,
-      },
     },
   };
 
