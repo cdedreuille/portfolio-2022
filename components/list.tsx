@@ -149,7 +149,7 @@ export const List: FC<Props> = ({ data }) => {
   const [activeProject, setActiveProject] = useState<string | null>(null);
 
   return (
-    <div>
+    <div className="md:mt-20">
       {data.map((project, index) => (
         <Item
           key={project._id}

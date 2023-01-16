@@ -1,12 +1,13 @@
 import { FC } from "react";
 import AnimatedName from "./animate-name";
-import { linkLinkedIn, linkMail, linkTwitter } from "../content";
+import { linkInstagram, linkLinkedIn, linkMail, linkTwitter } from "../content";
 import { Button } from "./button";
 import { IconInstagram } from "./icon-instagram";
 import { IconLinkedin } from "./icon-linkedin";
 import { ZigZag } from "./zigzag";
 import { Ellipse } from "./ellipse";
 import { motion } from "framer-motion";
+import { IconTwitter } from "./icon-twitter";
 
 const container = {
   hidden: { opacity: 0 },
@@ -35,12 +36,14 @@ export const IntroDesktop: FC = () => {
     <>
       {/* Contact buttons */}
       <div className="absolute top-8 z-[9999] right-8 flex justify-end gap-4">
-        <Button>About</Button>
         <Button href={linkMail}>Mail</Button>
+        <Button href={linkTwitter} isCircle>
+          <IconTwitter />
+        </Button>
         <Button href={linkLinkedIn} isCircle>
           <IconLinkedin />
         </Button>
-        <Button href={linkTwitter} isCircle>
+        <Button href={linkInstagram} isCircle>
           <IconInstagram />
         </Button>
       </div>

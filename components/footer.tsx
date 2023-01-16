@@ -38,9 +38,9 @@ const Footer: FC = () => {
 
   return (
     <footer className="p-4 md:p-12 pb-20 md:pb-48 relative md:z-50">
-      <div className="w-full h-[2px] overflow-hidden relative mb-16 md:mb-48">
+      {/* <div className="w-full h-[2px] overflow-hidden relative mb-16 md:mb-48">
         <Image src="/holo.png" alt="holo" fill className="object-cover" />
-      </div>
+      </div> */}
       <motion.div
         variants={container}
         initial="hidden"
