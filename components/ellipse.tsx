@@ -15,7 +15,7 @@ export const Ellipse: FC = () => {
         viewBox="0 0 900 900"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
-        className="md:h-[calc(100vh-200px)] md:w-[calc(100vw-200px)]"
+        className="md:h-[calc(100vh-80px)] md:w-[calc(100vw-80px)]"
       >
         <mask id="mask">
           <rect x="0" y="0" width="100%" height="100%" fill="white" />

@@ -5,6 +5,7 @@ import { FC, useEffect, useRef, useState } from "react";
 import { ProjectProps } from "../types";
 import Gradient from "javascript-color-gradient";
 import useSound from "use-sound";
+import MuxVideo from "@mux/mux-video-react";
 
 interface Props {
   data: ProjectProps[];
@@ -74,6 +75,17 @@ const Item: FC<ItemProps> = ({
             fill
             quality={100}
             sizes="(max-width: 500px) 100vw, (max-width: 500px) 100vw, 100vw"
+          />
+        )}
+        {project.preview?.type === "video" && (
+          <MuxVideo
+            style={{ height: "100%", width: "100%", objectFit: "cover" }}
+            playbackId={project.preview.video?.playbackId}
+            streamType="on-demand"
+            controls={false}
+            autoPlay
+            muted
+            loop
           />
         )}
       </motion.div>

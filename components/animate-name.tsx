@@ -29,39 +29,41 @@ const AnimatedName: FC = () => {
   };
 
   return (
-    <motion.div
-      variants={container}
-      initial="hidden"
-      animate="visible"
-      className="flex flex-row mr-2 flex-wrap font-serif text-[48px] md:text-[72px] lg:text-titleSm xl:text-titleLg 2xl:text-titleXl 3xl:text-title2Xl md:text-title text-black uppercase"
-      style={{ fontFeatureSettings: '"dlig" 1,"kern" 1' }}
-    >
-      {lettersF.map((letter, index) => (
-        <div key={index} className="overflow-hidden">
-          <motion.div
-            variants={child}
-            className={classNames(
-              "inline-block transition-colors duration-300"
-            )}
-          >
-            {letter === " " ? "\u00A0" : letter}
-          </motion.div>
-        </div>
-      ))}
-      <div className="basis-full md:hidden" />
-      {lettersL.map((letter, index) => (
-        <div key={index} className="overflow-hidden md:mt-20">
-          <motion.div
-            variants={child}
-            className={classNames(
-              "inline-block transition-colors duration-300"
-            )}
-          >
-            {letter === " " ? "\u00A0" : letter}
-          </motion.div>
-        </div>
-      ))}
-    </motion.div>
+    <div className="relative z-10 mt-20 mb-12">
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="visible"
+        className="flex flex-row mr-2 flex-wrap font-serif text-[48px] md:text-[72px] lg:text-titleSm xl:text-titleLg 2xl:text-titleXl 3xl:text-title2Xl md:text-title text-black uppercase"
+        style={{ fontFeatureSettings: '"dlig" 1,"kern" 1' }}
+      >
+        {lettersF.map((letter, index) => (
+          <div key={index} className="overflow-hidden">
+            <motion.div
+              variants={child}
+              className={classNames(
+                "inline-block transition-colors duration-300"
+              )}
+            >
+              {letter === " " ? "\u00A0" : letter}
+            </motion.div>
+          </div>
+        ))}
+        <div className="basis-full md:hidden" />
+        {lettersL.map((letter, index) => (
+          <div key={index} className="overflow-hidden md:mt-20">
+            <motion.div
+              variants={child}
+              className={classNames(
+                "inline-block transition-colors duration-300"
+              )}
+            >
+              {letter === " " ? "\u00A0" : letter}
+            </motion.div>
+          </div>
+        ))}
+      </motion.div>
+    </div>
   );
 };
 
