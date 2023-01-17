@@ -35,7 +35,8 @@
     "sanity-plugin-mux-input": "^2.0.2",
     "split-type": "^0.3.3",
     "tailwind-scrollbar-hide": "^1.1.7",
-    "typescript": "4.8.4"
+    "typescript": "4.8.4",
+    "use-sound": "^4.0.1"
   },
   "devDependencies": {
     "@types/javascript-color-gradient": "^2.4.0",
