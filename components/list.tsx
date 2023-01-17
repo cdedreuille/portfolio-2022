@@ -83,7 +83,7 @@ const Item: FC<ItemProps> = ({
         href={`?project=${project.slug}`}
         scroll={false}
         as={`/${project.slug}`}
-        className="group block h-28 relative overflow-hidden mx-12 mb-2 rounded-lg"
+        className="group block h-28 relative overflow-hidden sm:mx-12 mb-2 rounded-lg"
         ref={ref}
       >
         <div className="relative z-10 flex items-center gap-8 py-2 px-6 sm:px-8 h-full">
@@ -156,53 +156,6 @@ const Item: FC<ItemProps> = ({
 export const List: FC<Props> = ({ data }) => {
   const [activeProject, setActiveProject] = useState<string | null>(null);
   const colorArr = new Gradient()
-    .setColorGradient("#FFEB84", "#FFC799", "#E59DE5", "#CBE4EA", "#448EEF")
-    .setMidpoint(data.length)
-    .getColors();
-  const colorArr2 = new Gradient()
-    .setColorGradient("#0000ff", "#ff3300")
-    .setMidpoint(data.length)
-    .getColors();
-  const colorArr3 = new Gradient()
-    .setColorGradient("#FEC462", "#FE2D20")
-    .setMidpoint(data.length)
-    .getColors();
-  const colorArr4 = new Gradient()
-    .setColorGradient(
-      "#1c5acd",
-      "#1ccdbb",
-      "#f7b518",
-      "#f7b518",
-      "#ec881d",
-      "#fd3300"
-    )
-    .setMidpoint(data.length)
-    .getColors();
-
-  const colorArr5 = new Gradient()
-    .setColorGradient(
-      "#fcc5e4",
-      "#fda34b",
-      "#ff7882",
-      "#c8699e",
-      "#7046aa",
-      "#0c1db8",
-      "#020f75"
-    )
-    .setMidpoint(data.length)
-    .getColors();
-
-  const colorArr6 = new Gradient()
-    .setColorGradient("#ffc320", "#fe1f1f")
-    .setMidpoint(data.length)
-    .getColors();
-
-  const colorArr7 = new Gradient()
-    .setColorGradient("#0004ff", "#fe1f1f", "#fe1f1f", "#fee81f")
-    .setMidpoint(data.length)
-    .getColors();
-
-  const colorArr8 = new Gradient()
     .setColorGradient("#EBEEF3", "#EBEEF3")
     .setMidpoint(data.length)
     .getColors();
@@ -214,14 +167,14 @@ export const List: FC<Props> = ({ data }) => {
   }, [activeProject, play]);
 
   return (
-    <div className="md:mt-20 mb-40">
+    <div className="md:mt-20 mb-20 sm:mb-40">
       {data.map((project, index) => (
         <Item
           key={project._id}
           isFirst={index === 0}
           isLast={index === data.length - 1}
           project={project}
-          color={colorArr8[index]}
+          color={colorArr[index]}
           activeProject={activeProject}
           setActiveProject={setActiveProject}
         />
