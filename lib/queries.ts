@@ -15,12 +15,8 @@ export const projectQuery = `{
   },
   "client": client->{
     ...,
-    "logo": logo.asset->{
-      "type": 'image',
-      url,
-      "width": metadata.dimensions.width,
-      "height": metadata.dimensions.height
-    }
+    logo ${imageQuery}
+    logoList ${imageQuery}
   },
   "preview": preview{
     ...,

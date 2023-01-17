@@ -6,10 +6,10 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
-    "!./node_modules", // 👈 https://stackoverflow.com/questions/74457600/tailwind-requires-refresh-to-apply-changes-in-next-js-13
   ],
   theme: {
     fontSize: {
+      xxs: ["11px", "14px"],
       xs: ["12px", "16px"],
       sm: ["14px", "20px"],
       base: ["17px", "32px"],
@@ -37,6 +37,7 @@ module.exports = {
     fontFamily: {
       sans: ["var(--font-inter)", ...fontFamily.sans],
       serif: ["var(--font-romie)", ...fontFamily.serif],
+      mono: ["var(--font-ibm-plex-mono)", ...fontFamily.mono],
     },
     extend: {
       colors: {

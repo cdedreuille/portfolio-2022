@@ -1,4 +1,4 @@
-import { motion, useScroll } from "framer-motion";
+import { AnimatePresence, motion, useScroll } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { FC, useEffect, useRef, useState } from "react";
@@ -26,17 +26,6 @@ const variants = {
   },
   hidden: {
     opacity: 0,
-    transition: { duration: 0.6, ease: "easeInOut" },
-  },
-};
-
-const colorVariants = {
-  visible: {
-    color: "#000",
-    transition: { duration: 0 },
-  },
-  hidden: {
-    color: "rgba(0, 0, 0, 0.4)",
     transition: { duration: 0.6, ease: "easeInOut" },
   },
 };
@@ -98,23 +87,57 @@ const Item: FC<ItemProps> = ({
         ref={ref}
       >
         <div className="relative z-10 flex items-center gap-8 py-2 px-6 sm:px-8 h-full">
-          <div className="text-md hidden md:block">2022</div>
-          <div className="text-md w-[132px] hidden sm:block">
-            {project.tags && project.tags[0].name}
-          </div>
-          <div className="text-md w-[168px] hidden sm:block">
-            {project.client.name}
+          <div className="text-md w-[220px] hidden sm:flex font-mono uppercase h-full items-center relative">
+            <AnimatePresence>
+              {(!isActive || (isActive && !project.client.logoList?.url)) && (
+                <motion.div
+                  initial={{ opacity: 0, y: -80 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -80 }}
+                >
+                  {project.client.name}
+                </motion.div>
+              )}
+            </AnimatePresence>
+            <AnimatePresence>
+              {isActive && project.client.logoList?.url && (
+                <motion.div
+                  initial={{ opacity: 0, y: 80 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 80 }}
+                  className="absolute"
+                  style={{
+                    width: project.client.logoWidthList,
+                    height: project.client.logoHeightList,
+                  }}
+                >
+                  <Image
+                    src={project.client.logoList?.url}
+                    alt={project.client.name}
+                    fill
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
           <div className="text-md flex flex-col">
-            <div className="sm:hidden">{project.client.name}</div>
-            <motion.div
-              variants={colorVariants}
-              animate={isActive ? "visible" : "hidden"}
-              initial="hidden"
-              className="text-gray-500 sm:text-black"
-            >
+            <div className="sm:hidden font-mono uppercase">
+              {project.client.name}
+            </div>
+            <div className="text-gray-500 sm:text-black font-mono uppercase">
               {project.name}
-            </motion.div>
+            </div>
+          </div>
+          <div className="hidden sm:flex gap-4">
+            {project.tags &&
+              project.tags.map((tag) => (
+                <div
+                  key={tag._id}
+                  className="font-mono uppercase text-sm border border-gray-400 text-gray-400 rounded-full px-4 py-1"
+                >
+                  {tag.name}
+                </div>
+              ))}
           </div>
         </div>
         <motion.div
@@ -122,7 +145,7 @@ const Item: FC<ItemProps> = ({
           animate={isActive ? "visible" : "hidden"}
           initial="hidden"
           transition={{ duration: 0.6, ease: "easeInOut" }}
-          className="absolute w-full h-full top-0 left-0 hover:border-2 border-emerald-400"
+          className="absolute w-full h-full top-0 left-0"
           style={{ backgroundColor: color }}
         />
       </Link>
@@ -180,7 +203,7 @@ export const List: FC<Props> = ({ data }) => {
     .getColors();
 
   const colorArr8 = new Gradient()
-    .setColorGradient("#E4E6ED", "#E4E6ED")
+    .setColorGradient("#EBEEF3", "#EBEEF3")
     .setMidpoint(data.length)
     .getColors();
 

@@ -48,9 +48,12 @@ export interface AssetProps {
 export interface ClientProps {
   _id: string;
   name: string;
-  logo?: AssetProps;
+  logo?: ImageProps;
+  logoList?: ImageProps;
   logoWidth?: number;
   logoHeight?: number;
+  logoWidthList?: number;
+  logoHeightList?: number;
 }
 
 export interface TagProps {

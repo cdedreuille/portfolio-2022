@@ -18,6 +18,11 @@ export default defineType({
       title: "Client logo",
     }),
     defineField({
+      type: "image",
+      name: "logoList",
+      title: "Client logo List",
+    }),
+    defineField({
       type: "number",
       name: "logoWidth",
       title: "Logo Width",
@@ -27,6 +32,18 @@ export default defineType({
       type: "number",
       name: "logoHeight",
       title: "Logo Height",
+      initialValue: 40,
+    }),
+    defineField({
+      type: "number",
+      name: "logoWidthList",
+      title: "Logo Width List",
+      initialValue: 120,
+    }),
+    defineField({
+      type: "number",
+      name: "logoHeightList",
+      title: "Logo Height List",
       initialValue: 40,
     }),
   ],
