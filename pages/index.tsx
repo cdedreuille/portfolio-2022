@@ -54,7 +54,7 @@ export default function Portfolio({ data }: { data: ProjectProps[] }) {
         {width <= 768 && <IntroMobile />}
         <List data={data} />
       </div>
-      <Biography />
+      {width > 768 && <Biography />}
       <Footer />
     </>
   );
