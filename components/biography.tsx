@@ -12,7 +12,7 @@ export const Biography: FC = () => {
   const textContainer = useRef<HTMLDivElement | null>(null);
   const text1 = useRef(null);
   const container = useRef(null);
-  const { height } = useWindowSize();
+  const { width, height } = useWindowSize();
   const containerHeight = textContainer.current?.clientHeight;
   const bottomOffset = height ? height / 6 : 0;
   const transY = useMemo(() => {
@@ -74,6 +74,44 @@ export const Biography: FC = () => {
       return () => ctx.revert();
     }
   }, [transY]);
+
+  if (width && width < 768)
+    return (
+      <div>
+        <div className="relative w-full h-80">
+          <Image
+            src="/charles-dedreuille.jpg"
+            fill
+            alt="Charles de Dreuille"
+            style={{ objectFit: "cover" }}
+          />
+        </div>
+        <div className="px-6 pt-12">
+          <div id="text1" className="text-black text-sm mb-8" ref={text1}>
+            I’ve started coding since I’m 14 years old, building computers and
+            creating little games for my friends. It’s only when a couple years
+            later that I started to be introduced to design and typography.
+            Since then, I’ve always merged design and engineering to create
+            digital experiences.
+          </div>
+          <div id="text2" className="text-black text-sm mb-8" ref={text1}>
+            First part of my career was focus on creating delightful digital
+            experiences to promote brands and their products on marketing
+            websites or e-commerce. This was a way to use both design and
+            engineering to tell the best stories. I had the chance to
+            collaborate with brands like Christian Louboutin, Deliveroo,
+            Coca-Cola with the design studio I co-created in London, La Moulade.
+          </div>
+          <div id="text3" className="text-black text-sm" ref={text1}>
+            Since 2016, I explored working directly with incredibly talented
+            product teams, solving people’s problems by creating interfaces that
+            could improve their daily lives. I worked with teams at Deliveroo,
+            Meta, Soho House and many other start ups always by bringing design
+            and engineering together.
+          </div>
+        </div>
+      </div>
+    );
 
   return (
     <div ref={container}>

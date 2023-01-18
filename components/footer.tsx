@@ -52,7 +52,7 @@ const Footer: FC = () => {
   }, [isInView]);
 
   return (
-    <footer className="p-4 md:p-12 py-20 md:py-48 relative md:z-50">
+    <footer className="p-6 md:p-12 py-20 md:py-48 relative md:z-50">
       <motion.div
         variants={container}
         initial="hidden"

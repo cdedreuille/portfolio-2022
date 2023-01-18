@@ -40,13 +40,12 @@ export const IntroMobile: FC = () => {
           variants={container}
           initial="hidden"
           animate="show"
-          className="relative z-10 flex flex-col font-serif text-md mb-16 gap-2"
+          className="relative z-10 flex flex-col font-serif text-lg mb-16 gap-2"
         >
           <div className="overflow-hidden max-w-sm">
             <motion.div variants={item}>
-              <div className="inline-block">✶</div> Designer & Creative
-              Technologist. Maker of Useful and Delightful Interfaces. Forever
-              Curious <div className="inline-block">✶</div>
+              Designer & Creative Technologist. Maker of Useful and Delightful
+              Interfaces. Forever Curious.
             </motion.div>
           </div>
         </motion.div>

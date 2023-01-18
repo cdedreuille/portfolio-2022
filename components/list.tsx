@@ -103,13 +103,10 @@ const Item: FC<ItemProps> = ({
           )}
       </motion.div>
 
-      {/* Coloured line */}
+      {/* Line */}
       <div
-        // href={`?project=${project.slug}`}
-        // scroll={false}
-        // as={`/${project.slug}`}
         onClick={onClick}
-        className="group block h-28 relative overflow-hidden sm:mx-12 mb-2 rounded-lg"
+        className="group block h-20 sn:h-28 relative overflow-hidden sm:mx-12 mb-2 rounded-lg"
         ref={ref}
       >
         <div className="relative z-10 flex items-center gap-8 py-2 px-6 sm:px-8 h-full">
@@ -146,7 +143,7 @@ const Item: FC<ItemProps> = ({
               )}
             </AnimatePresence>
           </div>
-          <div className="text-md flex flex-col">
+          <div className="text-sm sm:text-md flex flex-col">
             <div className="sm:hidden font-mono uppercase">
               {project.client.name}
             </div>
@@ -193,7 +190,7 @@ export const List: FC<Props> = ({ data, setActiveProject }) => {
   }, [activeLine, play]);
 
   return (
-    <div className="md:mt-20 mb-20 sm:mb-40">
+    <div className="md:mt-20 mb-12 sm:mb-40">
       {data.map((project, index) => (
         <Item
           key={project._id}
