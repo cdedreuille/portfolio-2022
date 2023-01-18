@@ -77,17 +77,18 @@ const Item: FC<ItemProps> = ({
             sizes="(max-width: 500px) 100vw, (max-width: 500px) 100vw, 100vw"
           />
         )}
-        {project.preview?.type === "video" && (
-          <MuxVideo
-            style={{ height: "100%", width: "100%", objectFit: "cover" }}
-            playbackId={project.preview.video?.playbackId}
-            streamType="on-demand"
-            controls={false}
-            autoPlay
-            muted
-            loop
-          />
-        )}
+        {project.preview?.type === "video" &&
+          project.preview.video?.playbackId && (
+            <MuxVideo
+              style={{ height: "100%", width: "100%", objectFit: "cover" }}
+              playbackId={project.preview.video.playbackId}
+              streamType="on-demand"
+              controls={false}
+              autoPlay
+              muted
+              loop
+            />
+          )}
       </motion.div>
 
       {/* Coloured line */}
