@@ -186,7 +186,7 @@ export const List: FC<Props> = ({ data, setActiveProject }) => {
   const [play] = useSound("/click-21156.mp3");
 
   useEffect(() => {
-    play();
+    if (activeLine) play();
   }, [activeLine, play]);
 
   return (

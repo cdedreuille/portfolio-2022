@@ -87,14 +87,14 @@ export const Biography: FC = () => {
           />
         </div>
         <div className="px-6 pt-12">
-          <div id="text1" className="text-black text-sm mb-8" ref={text1}>
+          <div id="text1" className="text-black text-sm mb-8">
             I’ve started coding since I’m 14 years old, building computers and
             creating little games for my friends. It’s only when a couple years
             later that I started to be introduced to design and typography.
             Since then, I’ve always merged design and engineering to create
             digital experiences.
           </div>
-          <div id="text2" className="text-black text-sm mb-8" ref={text1}>
+          <div id="text2" className="text-black text-sm mb-8">
             First part of my career was focus on creating delightful digital
             experiences to promote brands and their products on marketing
             websites or e-commerce. This was a way to use both design and
@@ -102,7 +102,7 @@ export const Biography: FC = () => {
             collaborate with brands like Christian Louboutin, Deliveroo,
             Coca-Cola with the design studio I co-created in London, La Moulade.
           </div>
-          <div id="text3" className="text-black text-sm" ref={text1}>
+          <div id="text3" className="text-black text-sm">
             Since 2016, I explored working directly with incredibly talented
             product teams, solving people’s problems by creating interfaces that
             could improve their daily lives. I worked with teams at Deliveroo,
