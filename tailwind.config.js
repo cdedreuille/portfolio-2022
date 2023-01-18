@@ -20,6 +20,7 @@ module.exports = {
       titleXxs: ["24px", "38px"],
       titleXs: ["32px", "38px"],
       titleXsPlus: ["40px", "56px"],
+      titleSmSm: ["64px", "80px"],
       titleSm: ["88px", "120px"],
       titleLg: ["96px", "120px"],
       titleXl: ["112px", "130px"],

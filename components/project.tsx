@@ -8,8 +8,6 @@ interface Props {
 }
 
 export const Project: FC<Props> = ({ project }) => {
-  console.log(project);
-
   return (
     <div
       className={classnames(

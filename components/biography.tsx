@@ -84,28 +84,26 @@ export const Biography: FC = () => {
           ref={textContainer}
         >
           <div id="text1" className="text-white text-lg mb-12" ref={text1}>
-            Tobias’ journey is a little different than most. He started his
-            career by dropping out of high school at 15 with grand plans of
-            becoming a software engineer. After realizing he, quite frankly,
-            sucked at it, Tobias began teaching himself design at the age of 16.
-            Fast forward a few years and he is now a designer, founder, speaker,
-            mentor and maker.
+            I’ve started coding since I’m 14 years old, building computers and
+            creating little games for my friends. It’s only when a couple years
+            later that I started to be introduced to design and typography.
+            Since then, I’ve always merged design and engineering to create
+            digital experiences.
           </div>
           <div id="text2" className="text-white text-lg mb-12" ref={text1}>
-            Tobias’ journey is a little different than most. He started his
-            career by dropping out of high school at 15 with grand plans of
-            becoming a software engineer. After realizing he, quite frankly,
-            sucked at it, Tobias began teaching himself design at the age of 16.
-            Fast forward a few years and he is now a designer, founder, speaker,
-            mentor and maker.
+            First part of my career was focus on creating delightful digital
+            experiences to promote brands and their products on marketing
+            websites or e-commerce. This was a way to use both design and
+            engineering to tell the best stories. I had the chance to
+            collaborate with brands like Christian Louboutin, Deliveroo,
+            Coca-Cola with the design studio I co-created in London, La Moulade.
           </div>
           <div id="text3" className="text-white text-lg" ref={text1}>
-            Tobias’ journey is a little different than most. He started his
-            career by dropping out of high school at 15 with grand plans of
-            becoming a software engineer. After realizing he, quite frankly,
-            sucked at it, Tobias began teaching himself design at the age of 16.
-            Fast forward a few years and he is now a designer, founder, speaker,
-            mentor and maker.
+            Since 2016, I explored working directly with incredibly talented
+            product teams, solving people’s problems by creating interfaces that
+            could improve their daily lives. I worked with teams at Deliveroo,
+            Meta, Soho House and many other start ups always by bringing design
+            and engineering together.
           </div>
         </div>
         <Image

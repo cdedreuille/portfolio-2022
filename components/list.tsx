@@ -6,18 +6,21 @@ import { ProjectProps } from "../types";
 import Gradient from "javascript-color-gradient";
 import useSound from "use-sound";
 import MuxVideo from "@mux/mux-video-react";
+import { useRouter } from "next/router";
 
 interface Props {
   data: ProjectProps[];
+  setActiveProject: (project: string | null) => void;
 }
 
 interface ItemProps {
   project: ProjectProps;
   color: string;
-  activeProject: string | null;
-  setActiveProject: (project: string | null) => void;
+  activeLine: string | null;
+  setActiveLine: (project: string | null) => void;
   isFirst: boolean;
   isLast: boolean;
+  setActiveProject: (project: string | null) => void;
 }
 
 const variants = {
@@ -34,11 +37,13 @@ const variants = {
 const Item: FC<ItemProps> = ({
   project,
   color,
-  activeProject,
-  setActiveProject,
+  activeLine,
+  setActiveLine,
   isFirst,
   isLast,
+  setActiveProject,
 }) => {
+  const router = useRouter();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -48,14 +53,21 @@ const Item: FC<ItemProps> = ({
   useEffect(() => {
     return scrollYProgress.on("change", (latest) => {
       if (latest > 0.46 && latest < 0.54) {
-        setActiveProject(project._id);
+        setActiveLine(project._id);
       }
-      if (isFirst && latest < 0.46) setActiveProject(null);
-      if (isLast && latest > 0.54) setActiveProject(null);
+      if (isFirst && latest < 0.46) setActiveLine(null);
+      if (isLast && latest > 0.54) setActiveLine(null);
     });
-  }, [isFirst, isLast, project._id, scrollYProgress, setActiveProject]);
+  }, [isFirst, isLast, project._id, scrollYProgress, setActiveLine]);
 
-  const isActive = activeProject === project._id;
+  const isActive = activeLine === project._id;
+
+  const onClick = () => {
+    setActiveProject(project.slug);
+    router.push(`/?project=${project.slug}`, `/${project.slug}`, {
+      shallow: true,
+    });
+  };
 
   return (
     <>
@@ -92,10 +104,11 @@ const Item: FC<ItemProps> = ({
       </motion.div>
 
       {/* Coloured line */}
-      <Link
-        href={`?project=${project.slug}`}
-        scroll={false}
-        as={`/${project.slug}`}
+      <div
+        // href={`?project=${project.slug}`}
+        // scroll={false}
+        // as={`/${project.slug}`}
+        onClick={onClick}
         className="group block h-28 relative overflow-hidden sm:mx-12 mb-2 rounded-lg"
         ref={ref}
       >
@@ -161,13 +174,13 @@ const Item: FC<ItemProps> = ({
           className="absolute w-full h-full top-0 left-0"
           style={{ backgroundColor: color }}
         />
-      </Link>
+      </div>
     </>
   );
 };
 
-export const List: FC<Props> = ({ data }) => {
-  const [activeProject, setActiveProject] = useState<string | null>(null);
+export const List: FC<Props> = ({ data, setActiveProject }) => {
+  const [activeLine, setActiveLine] = useState<string | null>(null);
   const colorArr = new Gradient()
     .setColorGradient("#EBEEF3", "#EBEEF3")
     .setMidpoint(data.length)
@@ -177,7 +190,7 @@ export const List: FC<Props> = ({ data }) => {
 
   useEffect(() => {
     play();
-  }, [activeProject, play]);
+  }, [activeLine, play]);
 
   return (
     <div className="md:mt-20 mb-20 sm:mb-40">
@@ -188,7 +201,8 @@ export const List: FC<Props> = ({ data }) => {
           isLast={index === data.length - 1}
           project={project}
           color={colorArr[index]}
-          activeProject={activeProject}
+          activeLine={activeLine}
+          setActiveLine={setActiveLine}
           setActiveProject={setActiveProject}
         />
       ))}

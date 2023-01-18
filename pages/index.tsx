@@ -10,11 +10,10 @@ import { IntroMobile } from "../components/intro-mobile";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Project } from "components/project";
-import { AnimatePresence, motion } from "framer-motion";
 import { projectQuery } from "lib/queries";
 import Footer from "components/footer";
 import { Biography } from "components/biography";
+import { ProjectIntro } from "components/project-intro";
 
 export default function Portfolio({ data }: { data: ProjectProps[] }) {
   const { width, height } = useWindowSize();
@@ -22,8 +21,7 @@ export default function Portfolio({ data }: { data: ProjectProps[] }) {
   const [activeProject, setActiveProject] = useState<string | null>(null);
 
   useEffect(() => {
-    if (router.query.project) setActiveProject(router.query.project as string);
-    else setActiveProject(null);
+    if (!router.query.project) setActiveProject(null);
   }, [router.query.project]);
 
   if (!width) return null;
@@ -36,23 +34,15 @@ export default function Portfolio({ data }: { data: ProjectProps[] }) {
     <>
       <Cursor />
       <MainHead />
-      <AnimatePresence>
-        {activeProject && project && (
-          <motion.div
-            initial={{ opacity: 1, y: height }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.6 }}
-            className="fixed top-0 left-0 right-0 bottom-0 z-[999] w-full overflow-scroll"
-          >
-            <Project project={project} />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <ProjectIntro
+        activeProject={activeProject}
+        project={project}
+        height={height}
+      />
       <div className="relative z-10">
         {width > 768 && <IntroDesktop />}
         {width <= 768 && <IntroMobile />}
-        <List data={data} />
+        <List data={data} setActiveProject={setActiveProject} />
       </div>
       {width > 768 && <Biography />}
       <Footer />
