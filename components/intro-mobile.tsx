@@ -6,6 +6,7 @@ import { IconInstagram } from "./icon-instagram";
 import { IconLinkedin } from "./icon-linkedin";
 import { Line } from "./line";
 import { motion } from "framer-motion";
+import { IconTwitter } from "./icon-twitter";
 
 const container = {
   hidden: { opacity: 0 },
@@ -50,8 +51,10 @@ export const IntroMobile: FC = () => {
           </div>
         </motion.div>
         <div className="flex gap-4">
-          <Button>About</Button>
           <Button href={linkMail}>Mail</Button>
+          <Button href={linkTwitter} isCircle>
+            <IconTwitter />
+          </Button>
           <Button href={linkLinkedIn} isCircle>
             <IconLinkedin />
           </Button>

@@ -12,11 +12,11 @@ interface Props {
 const container = {
   hidden: {
     opacity: 0,
-    transition: { staggerChildren: 0.04, delayChildren: 0.8 },
+    transition: { staggerChildren: 0.04, delayChildren: 0.4 },
   },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.04, delayChildren: 0.8 },
+    transition: { staggerChildren: 0.04, delayChildren: 0.4 },
   },
 };
 
@@ -85,7 +85,7 @@ export const ProjectIntro: FC<Props> = ({ activeProject, project, height }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.6 }}
             className="fixed top-0 left-0 right-0 bottom-0 z-[999] w-full overflow-scroll"
           >
             <Project project={project} />
@@ -97,27 +97,18 @@ export const ProjectIntro: FC<Props> = ({ activeProject, project, height }) => {
           <motion.div
             className="fixed z-[990] overflow-hidden"
             initial={{
-              opacity: 1,
-              scale: 0,
-              borderRadius: 0,
-              width: 10,
-              height: 10,
-              top: "50vh",
-              left: "50vw",
+              width: "100vw",
+              height: 0,
+              bottom: 0,
+              left: 0,
             }}
             animate={{
-              opacity: 1,
-              scale: 1,
-              borderRadius: 0,
-              width: "100vw",
               height: "100vh",
-              top: 0,
-              left: 0,
             }}
             exit={{
               opacity: 0,
             }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.6 }}
             style={{
               backgroundColor: project.backgroundColor?.hex || "#F4F6FA",
             }}
