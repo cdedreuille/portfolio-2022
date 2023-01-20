@@ -4,7 +4,12 @@ export const imageQuery = `{
   "width": @.asset->metadata.dimensions.width,
   "height": @.asset->metadata.dimensions.height,
   "extension": @.asset->extension,
-},`;
+}`;
+
+export const videoQuery = `{
+  _type,
+  "playbackId": @.asset->playbackId,
+}`;
 
 export const projectQuery = `{
   ...,
@@ -15,21 +20,18 @@ export const projectQuery = `{
   },
   "client": client->{
     ...,
-    logo ${imageQuery}
+    logo ${imageQuery},
     logoList ${imageQuery}
   },
   "preview": preview{
     ...,
-    "image": image.asset->{
-      "type": 'image',
-      url,
-      "width": metadata.dimensions.width,
-      "height": metadata.dimensions.height
-    },
-    "video": video.asset->{
-      "type": 'mux',
-      playbackId
-    }
+    image ${imageQuery},
+    video ${videoQuery}
+  },
+  "cover": cover{
+    ...,
+    image ${imageQuery},
+    video ${videoQuery}
   },
   "content": content[]{
     ...,

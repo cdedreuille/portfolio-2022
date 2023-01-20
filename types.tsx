@@ -9,6 +9,8 @@ export interface ProjectProps {
     _type: "imageBlock";
     title?: string;
     image?: ImageProps;
+    start?: number;
+    width?: number;
   }[];
   description?: string;
   slug: string;
@@ -18,8 +20,13 @@ export interface ProjectProps {
   secondaryColor?: ColorProps;
   preview?: {
     type?: "image" | "video";
-    image?: AssetProps;
-    video?: AssetProps;
+    image?: ImageProps;
+    video?: VideoProps;
+  };
+  cover?: {
+    type?: "image" | "video";
+    image?: ImageProps;
+    video?: VideoProps;
   };
 }
 
@@ -36,12 +43,8 @@ export interface ImageProps {
   extension?: string;
 }
 
-export interface AssetProps {
-  _key: string;
-  type: "image" | "mux";
-  url?: string;
-  width?: number;
-  height?: number;
+export interface VideoProps {
+  _type: "mux.video";
   playbackId?: string;
 }
 

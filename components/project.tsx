@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import classnames from "classnames";
 import Image from "next/image";
 import { FC } from "react";
@@ -10,93 +11,103 @@ interface Props {
 export const Project: FC<Props> = ({ project }) => {
   return (
     <div
-      className={classnames(
-        "min-h-screen w-full p-8 sm:p-12 flex flex-col items-center gap-12",
-        {
-          "bg-cream": !project.backgroundColor,
-          "text-black": !project.primaryColor,
-        }
-      )}
+      className={classnames("min-h-screen w-full pb-48", {
+        "bg-cream": !project.backgroundColor,
+        "text-black": !project.primaryColor,
+      })}
       style={{
         backgroundColor: project.backgroundColor?.hex,
         color: project.primaryColor?.hex,
       }}
     >
-      <div className="max-w-[1600px] w-full">
-        <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-row-6 gap-12">
-          <div className="col-span-1">
-            <div
-              className="relative mb-12"
-              style={{
-                width: project.client.logoWidth || 120,
-                height: project.client.logoHeight || 40,
-              }}
-            >
-              {project.client?.logo?.url && (
-                <Image
-                  src={project.client?.logo?.url}
-                  fill
-                  alt={project.client.name}
-                  style={{ objectFit: "contain", objectPosition: "left" }}
-                />
-              )}
-            </div>
-            <div className="text-2xl mb-12">{project.name}</div>
-            <div className="flex items-center gap-8">
-              <div
-                className={classnames(
-                  "border px-6 h-10 flex items-center rounded-full text-md transition-all duration-300 ease-in-out",
-                  {
-                    "border-black": !project.primaryColor,
-                    "text-black": !project.primaryColor,
-                  }
-                )}
-                style={{
-                  borderColor: project.primaryColor?.hex,
-                  color: project.primaryColor?.hex,
-                }}
-              >
-                Product
-              </div>
-              <div className="">2021</div>
-            </div>
+      <div className="flex flex-col w-screen h-screen px-12 pt-12 mb-24">
+        <div className="flex-1 relative rounded-xl overflow-hidden">
+          <div className="absolute bottom-14 left-14 z-20 text-titleXsPlus">
+            {project.name}
           </div>
+          <div className="absolute w-full h-40 z-10 left-0 bottom-0 bg-gradient-to-t from-black to-transparent" />
+          {project.cover?.type === "image" && project.cover?.image?.url && (
+            <Image
+              src={project.cover.image.url}
+              fill
+              alt={project.client.name}
+              style={{ objectFit: "cover" }}
+            />
+          )}
+        </div>
+        <div className="flex py-12 w-full">
           <div
-            className={classnames(
-              "col-span-1 col-start-1 row-start-3 sm:row-start-2 max-w-2xl",
-              {
-                "text-black": !project.secondaryColor,
-              }
-            )}
+            className="relative mr-24"
             style={{
-              color: project.secondaryColor?.hex,
+              width: project.client.logoWidth || 120,
+              height: project.client.logoHeight || 40,
             }}
           >
-            {project.description}
+            {project.client?.logo?.url && (
+              <Image
+                src={project.client?.logo?.url}
+                fill
+                alt={project.client.name}
+                style={{ objectFit: "contain", objectPosition: "left" }}
+              />
+            )}
           </div>
-          <div className="col-span-1 sm:col-start-2 row-start-2 sm:row-start-1 sm:row-span-6 relative rounded-lg overflow-hidden h-64 sm:h-[600px]">
-            {project.preview?.type === "image" &&
-              project.preview.image?.url && (
-                <Image
-                  src={project.preview.image?.url}
-                  fill
-                  alt={project.client.name}
-                  style={{ objectFit: "cover" }}
-                />
-              )}
+          <div className="flex flex-col gap-4 w-40">
+            <div style={{ color: project.secondaryColor?.hex }}>Year</div>
+            <div style={{ color: project.primaryColor?.hex }}>2021</div>
+          </div>
+          <div className="flex flex-col gap-4">
+            <div style={{ color: project.secondaryColor?.hex }}>Roles</div>
+            <div
+              className="flex gap-6"
+              style={{ color: project.primaryColor?.hex }}
+            >
+              {project.tags?.map((tag) => (
+                <div key={tag._id}>{tag.name}</div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-12 max-w-[1600px] w-full">
+      <div className="flex flex-col gap-20 max-w-[1600px] mx-12">
         {project.content?.map((content) => (
-          <div key={content._key}>
+          <div key={content._key} className="grid grid-cols-12">
             {content._type === "imageBlock" && content.image?.url && (
-              <Image
-                src={content.image?.url}
-                width={content.image?.width}
-                height={content.image?.height}
-                alt={content.title || ""}
-              />
+              <div
+                className={classNames("rounded-xl overflow-hidden", {
+                  "col-span-1": content.width === 1,
+                  "col-span-2": content.width === 2,
+                  "col-span-3": content.width === 3,
+                  "col-span-4": content.width === 4,
+                  "col-span-5": content.width === 5,
+                  "col-span-6": content.width === 6,
+                  "col-span-7": content.width === 7,
+                  "col-span-8": content.width === 8,
+                  "col-span-9": content.width === 9,
+                  "col-span-10": content.width === 10,
+                  "col-span-11": content.width === 11,
+                  "col-span-12": content.width === 12 || !content.width,
+                  "col-start-1": content.start === 1 || !content.start,
+                  "col-start-2": content.start === 2,
+                  "col-start-3": content.start === 3,
+                  "col-start-4": content.start === 4,
+                  "col-start-5": content.start === 5,
+                  "col-start-6": content.start === 6,
+                  "col-start-7": content.start === 7,
+                  "col-start-8": content.start === 8,
+                  "col-start-9": content.start === 9,
+                  "col-start-10": content.start === 10,
+                  "col-start-11": content.start === 11,
+                  "col-start-12": content.start === 12,
+                })}
+              >
+                <Image
+                  src={content.image?.url}
+                  width={content.image?.width}
+                  height={content.image?.height}
+                  alt={content.title || ""}
+                />
+              </div>
             )}
           </div>
         ))}

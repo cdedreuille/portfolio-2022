@@ -90,29 +90,120 @@ export default defineType({
       ],
     },
     {
+      name: "cover",
+      title: "Cover",
+      type: "document",
+      fields: [
+        {
+          type: "string",
+          name: "type",
+          title: "Type",
+          initialValue: "image",
+          options: {
+            list: [
+              { title: "Image", value: "image" },
+              { title: "Video", value: "video" },
+            ],
+          },
+        },
+        {
+          type: "image",
+          name: "image",
+          title: "Image",
+          hidden: ({ parent }) => parent?.type !== "image",
+        },
+        {
+          type: "mux.video",
+          name: "video",
+          title: "Video",
+          hidden: ({ parent }) => parent?.type !== "video",
+        },
+      ],
+    },
+    {
       type: "array",
       name: "content",
       title: "Content",
       of: [
-        { type: "image" },
-        { type: "mux.video" },
         {
           type: "document",
           name: "imageBlock",
-          title: "Image Block",
+          title: "Image",
           fields: [
-            {
-              type: "string",
-              name: "title",
-              title: "Title",
-              initialValue: "Image",
-            },
             {
               type: "image",
               name: "image",
               title: "Image",
             },
+            {
+              type: "string",
+              name: "caption",
+              title: "Caption",
+            },
+            {
+              type: "number",
+              name: "start",
+              title: "Start",
+            },
+            {
+              type: "number",
+              name: "width",
+              title: "Width",
+            },
           ],
+          preview: {
+            select: {
+              image: "image",
+              caption: "caption",
+            },
+            prepare(selection) {
+              const { image, caption } = selection;
+              return {
+                title: caption || "Image",
+                media: image,
+              };
+            },
+          },
+        },
+        {
+          type: "document",
+          name: "videoBlock",
+          title: "Video",
+          fields: [
+            {
+              type: "mux.video",
+              name: "video",
+              title: "Video",
+            },
+            {
+              type: "string",
+              name: "caption",
+              title: "Caption",
+            },
+            {
+              type: "number",
+              name: "start",
+              title: "Start",
+            },
+            {
+              type: "number",
+              name: "width",
+              title: "Width",
+            },
+          ],
+          preview: {
+            select: {
+              video: "video",
+              caption: "caption",
+            },
+            prepare(selection) {
+              const { video, caption } = selection;
+              return {
+                title: caption || "Video",
+                media: video,
+              };
+            },
+          },
         },
       ],
     },

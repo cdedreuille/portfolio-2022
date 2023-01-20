@@ -1,12 +1,10 @@
-"use client";
-
 import { FC } from "react";
-import { AssetProps } from "../types";
+import { VideoProps } from "../types";
 import MuxPlayer from "@mux/mux-player-react";
 import useIsMounted from "../hooks/useIsMounted";
 
 interface Props {
-  asset: AssetProps;
+  asset: VideoProps;
 }
 
 export const Video: FC<Props> = ({ asset }) => {
