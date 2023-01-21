@@ -25,7 +25,7 @@ export default async function Page() {
   return (
     <>
       <Cursor />
-      <ProjectIntro activeProject={null} project={null} />
+      <ProjectIntro projects={data} />
       <div className="h-screen">
         <Intro />
       </div>
