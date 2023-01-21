@@ -5,12 +5,15 @@ import classnames from "classnames";
 import Image from "next/image";
 import { FC } from "react";
 import { ProjectProps } from "types";
+import { Button } from "./button";
+import { useGlobal } from "./global-provider";
 
 interface Props {
   project: ProjectProps;
 }
 
 export const Project: FC<Props> = ({ project }) => {
+  const { activeProject, setActiveProject } = useGlobal();
   return (
     <div
       className={classnames("min-h-screen w-full pb-48", {
@@ -22,6 +25,12 @@ export const Project: FC<Props> = ({ project }) => {
         color: project.primaryColor?.hex,
       }}
     >
+      <div
+        className="fixed bottom-12 right-12 z-30"
+        onClick={() => setActiveProject(null)}
+      >
+        <Button>Close</Button>
+      </div>
       <div className="flex flex-col w-screen h-screen px-12 pt-12 mb-24">
         <div className="flex-1 relative rounded-xl overflow-hidden">
           <div className="absolute bottom-14 left-14 z-20 text-titleXsPlus">
