@@ -6,7 +6,7 @@ import { List } from "./components/list";
 import { projectQuery } from "lib/queries";
 import Footer from "./components/footer";
 import { Biography } from "./components/biography";
-import { ProjectIntro } from "components/project-intro";
+import { ProjectIntro } from "./components/project-intro";
 import { Intro } from "./components/intro";
 
 async function getData() {
@@ -27,6 +27,7 @@ export default async function Page() {
   return (
     <>
       <Cursor />
+      <ProjectIntro activeProject={null} project={null} />
       <div className="h-screen">
         <Intro />
       </div>

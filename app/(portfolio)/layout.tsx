@@ -1,5 +1,6 @@
 import { IBM_Plex_Mono, Inter } from "@next/font/google";
 import localFont from "@next/font/local";
+import { GlobalProvider } from "./components/global-provider";
 import "./global.css";
 
 const inter = Inter({
@@ -29,7 +30,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${romie.variable} ${ibmPlexMono.variable} font-sans`}
       >
-        {children}
+        <GlobalProvider>{children}</GlobalProvider>
       </body>
     </html>
   );
