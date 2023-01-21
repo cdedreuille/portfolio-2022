@@ -22,8 +22,6 @@ async function getData() {
 export default async function Page() {
   const data: ProjectProps[] = await getData();
 
-  console.log(data);
-
   return (
     <>
       <Cursor />
