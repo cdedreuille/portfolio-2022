@@ -32,7 +32,7 @@ export const Ellipse: FC = () => {
             duration: 4,
             ease: "linear",
           }}
-          xlinkHref="/holo.png"
+          xlinkHref="/holo.jpg"
           x="0"
           y="0"
           width="100%"
