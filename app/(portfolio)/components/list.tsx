@@ -32,8 +32,6 @@ export const List: FC<Props> = ({ data }) => {
           isLast={index === data.length - 1}
           project={project}
           color={colorArr[index]}
-          activeLine={activeLine}
-          setActiveLine={setActiveLine}
         />
       ))}
     </div>
