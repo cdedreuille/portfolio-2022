@@ -32,7 +32,12 @@ export const Project: FC<Props> = ({ project }) => {
       }}
     >
       <div className="fixed bottom-12 left-12 z-30" onClick={close}>
-        <Button2>Close</Button2>
+        <Button2
+          backgroundColor={project.backgroundColor?.hex}
+          primaryColor={project.primaryColor?.hex}
+        >
+          Close
+        </Button2>
       </div>
       <div className="flex flex-col w-screen h-screen px-12 pt-12 mb-24">
         <div className="flex-1 relative rounded-xl overflow-hidden">
