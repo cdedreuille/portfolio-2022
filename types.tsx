@@ -1,17 +1,17 @@
+import { PortableTextBlock } from "sanity";
+
 export interface ProjectProps {
   _id: string;
   name: string;
   client: ClientProps;
   type: string;
   published_at: string;
-  content?: {
-    _key: string;
-    _type: "imageBlock";
-    title?: string;
-    image?: ImageProps;
-    start?: number;
-    width?: number;
-  }[];
+  content?: (
+    | ImageBlockProps
+    | VideoBlockProps
+    | TitleBlockProps
+    | ParagraphBlockProps
+  )[];
   description?: string;
   slug: string;
   tags?: TagProps[];
@@ -28,6 +28,40 @@ export interface ProjectProps {
     image?: ImageProps;
     video?: VideoProps;
   };
+}
+
+export interface ImageBlockProps {
+  _key: string;
+  _type: "imageBlock";
+  title?: string;
+  image?: ImageProps;
+  start?: number;
+  width?: number;
+}
+
+export interface VideoBlockProps {
+  _key: string;
+  _type: "videoBlock";
+  title?: string;
+  video?: VideoProps;
+  start?: number;
+  width?: number;
+}
+
+export interface TitleBlockProps {
+  _key: string;
+  _type: "titleBlock";
+  text?: string;
+  start?: number;
+  width?: number;
+}
+
+export interface ParagraphBlockProps {
+  _key: string;
+  _type: "paragraphBlock";
+  text?: PortableTextBlock;
+  start?: number;
+  width?: number;
 }
 
 export interface ColorProps {

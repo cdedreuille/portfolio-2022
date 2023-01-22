@@ -1,6 +1,6 @@
 import { FC } from "react";
 import AnimatedName from "./animate-name";
-import { linkLinkedIn, linkMail, linkTwitter } from "../content";
+import { linkLinkedIn, linkMail, linkTwitter } from "content";
 import { Button } from "./button";
 import { IconInstagram } from "./icon-instagram";
 import { IconLinkedin } from "./icon-linkedin";

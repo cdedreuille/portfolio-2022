@@ -144,11 +144,13 @@ export default defineType({
               type: "number",
               name: "start",
               title: "Start",
+              initialValue: 1,
             },
             {
               type: "number",
               name: "width",
               title: "Width",
+              initialValue: 12,
             },
           ],
           preview: {
@@ -184,11 +186,13 @@ export default defineType({
               type: "number",
               name: "start",
               title: "Start",
+              initialValue: 1,
             },
             {
               type: "number",
               name: "width",
               title: "Width",
+              initialValue: 12,
             },
           ],
           preview: {
@@ -201,6 +205,80 @@ export default defineType({
               return {
                 title: caption || "Video",
                 media: video,
+              };
+            },
+          },
+        },
+        {
+          type: "document",
+          name: "titleBlock",
+          title: "Title",
+          fields: [
+            {
+              type: "string",
+              name: "text",
+              title: "Text",
+            },
+            {
+              type: "number",
+              name: "start",
+              title: "Start",
+              initialValue: 1,
+            },
+            {
+              type: "number",
+              name: "width",
+              title: "Width",
+              initialValue: 12,
+            },
+          ],
+          preview: {
+            select: {
+              text: "text",
+              start: "start",
+              width: "width",
+            },
+            prepare({ text, start, width }) {
+              return {
+                title: text,
+                subtitle: `Start: ${start}, Width: ${width}`,
+              };
+            },
+          },
+        },
+        {
+          type: "document",
+          name: "paragraphBlock",
+          title: "Paragraph",
+          fields: [
+            {
+              type: "array",
+              name: "text",
+              title: "Text",
+              of: [{ type: "block" }],
+            },
+            {
+              type: "number",
+              name: "start",
+              title: "Start",
+              initialValue: 1,
+            },
+            {
+              type: "number",
+              name: "width",
+              title: "Width",
+              initialValue: 12,
+            },
+          ],
+          preview: {
+            select: {
+              start: "start",
+              width: "width",
+            },
+            prepare({ start, width }) {
+              return {
+                title: "Paragraph",
+                subtitle: `Start: ${start}, Width: ${width}`,
               };
             },
           },

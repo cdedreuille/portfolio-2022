@@ -36,7 +36,7 @@ module.exports = {
       bold: 700,
     },
     fontFamily: {
-      sans: ["var(--font-inter)", ...fontFamily.sans],
+      sans: ["var(--font-union)", ...fontFamily.sans],
       serif: ["var(--font-romie)", ...fontFamily.serif],
       mono: ["var(--font-ibm-plex-mono)", ...fontFamily.mono],
     },

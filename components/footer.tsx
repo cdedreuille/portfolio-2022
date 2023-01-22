@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useRef, useState } from "react";
-import { linkInstagram, linkLinkedIn, linkMail, linkTwitter } from "content";
+import { linkLinkedIn, linkMail, linkTwitter } from "content";
 import { useInView, motion } from "framer-motion";
 import classNames from "classnames";
 import { useWindowSize } from "hooks/useWindowSize";
@@ -104,16 +104,6 @@ const Footer: FC = () => {
           </div>
         </a>
         <a
-          href={linkTwitter}
-          target="_blank"
-          rel="noreferrer"
-          className="group"
-        >
-          <div className="border-b border-black group-hover:-translate-y-2 transition-all">
-            Twitter
-          </div>
-        </a>
-        <a
           href={linkLinkedIn}
           target="_blank"
           rel="noreferrer"
@@ -124,13 +114,13 @@ const Footer: FC = () => {
           </div>
         </a>
         <a
-          href={linkInstagram}
+          href={linkTwitter}
           target="_blank"
           rel="noreferrer"
           className="group"
         >
           <div className="border-b border-black group-hover:-translate-y-2 transition-all">
-            Instagram
+            Twitter
           </div>
         </a>
       </div>

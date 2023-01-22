@@ -1,5 +1,3 @@
-"use client";
-
 import { useWindowSize } from "hooks/useWindowSize";
 import { FC, useState } from "react";
 import { IntroDesktop } from "./intro-desktop";

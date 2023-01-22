@@ -1,12 +1,11 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { FC, useEffect, useState } from "react";
 import { ProjectProps } from "types";
+import { useGlobal } from "./global-provider";
 import { Project } from "./project";
 
 interface Props {
-  activeProject: string | null;
-  project: ProjectProps | null | undefined;
-  height: number | undefined;
+  projects: ProjectProps[] | null;
 }
 
 const container = {
@@ -39,8 +38,10 @@ const child = {
   },
 };
 
-export const ProjectIntro: FC<Props> = ({ activeProject, project, height }) => {
+export const ProjectIntro: FC<Props> = ({ projects }) => {
+  const { activeProject } = useGlobal();
   const [isDone, setIsDone] = useState(false);
+  const project = projects?.find((p) => p.slug === activeProject);
 
   const letters = () => {
     let letters: string[] | null = null;
