@@ -87,7 +87,7 @@ export const ProjectIntro: FC<Props> = ({ projects }) => {
         transition={{ duration: 0.6 }}
         className="fixed z-[990] overflow-hidden"
         style={{
-          backgroundColor: project.backgroundColor?.hex || "#F4F6FA",
+          backgroundColor: project?.backgroundColor?.hex || "#F4F6FA",
         }}
       >
         <motion.div
