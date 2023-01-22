@@ -1,21 +1,57 @@
 import { groq } from "next-sanity";
 import { getClient } from "lib/sanity.server";
 import { ProjectProps } from "types";
-import { Cursor } from "components/cursor";
 import { Project } from "components/project";
 import { FC } from "react";
 import { projectQuery } from "lib/queries";
+import { motion } from "framer-motion";
+import classNames from "classnames";
 
 interface Props {
   project: ProjectProps;
 }
 
+const variants = {
+  visible: { opacity: 1 },
+  hidden: { opacity: 1 },
+};
+
+const variant2 = {
+  visible: { opacity: 1 },
+  hidden: { opacity: 0 },
+};
+
 const Portfolio: FC<Props> = ({ project }) => {
   return (
-    <>
-      <Cursor />
-      <Project project={project} />
-    </>
+    <motion.div
+      variants={variants}
+      initial="hidden"
+      animate="visible"
+      exit="hidden"
+      className={classNames("min-h-screen w-full pb-48", {
+        "bg-cream": !project.backgroundColor,
+        "text-black": !project.primaryColor,
+      })}
+      style={{
+        backgroundColor: project.backgroundColor?.hex,
+        color: project.primaryColor?.hex,
+      }}
+    >
+      <motion.div
+        variants={variant2}
+        transition={{ duration: 2 }}
+        className={classNames("min-h-screen w-full pb-48", {
+          "bg-cream": !project.backgroundColor,
+          "text-black": !project.primaryColor,
+        })}
+        style={{
+          backgroundColor: project.backgroundColor?.hex,
+          color: project.primaryColor?.hex,
+        }}
+      >
+        <Project project={project} />
+      </motion.div>
+    </motion.div>
   );
 };
 

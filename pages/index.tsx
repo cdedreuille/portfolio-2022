@@ -1,7 +1,6 @@
 import { groq } from "next-sanity";
 import { getClient } from "../lib/sanity.server";
 import { ProjectProps } from "../types";
-import { Cursor } from "../components/cursor";
 import { List } from "../components/list";
 import { MainHead } from "../components/head";
 import { useWindowSize } from "../hooks/useWindowSize";
@@ -14,6 +13,13 @@ import Footer from "components/footer";
 import { Biography } from "components/biography";
 import { ProjectIntro } from "components/project-intro";
 import { Preview } from "components/preview";
+import { motion } from "framer-motion";
+import Link from "next/link";
+
+const variants = {
+  visible: { opacity: 1 },
+  hidden: { opacity: 1 },
+};
 
 export default function Portfolio({ projects }: { projects: ProjectProps[] }) {
   const { width, height } = useWindowSize();
@@ -26,13 +32,14 @@ export default function Portfolio({ projects }: { projects: ProjectProps[] }) {
 
   if (!width) return null;
 
-  const project = activeProject
-    ? projects.find((p) => p.slug === activeProject)
-    : null;
-
   return (
-    <>
-      <Cursor />
+    <motion.div
+      variants={variants}
+      initial="hidden"
+      animate="visible"
+      exit="hidden"
+      transition={{ duration: 2 }}
+    >
       <MainHead />
       <ProjectIntro projects={projects} />
       <div className="h-screen">
@@ -42,7 +49,7 @@ export default function Portfolio({ projects }: { projects: ProjectProps[] }) {
       <List data={projects} />
       <Biography />
       <Footer />
-    </>
+    </motion.div>
   );
 }
 

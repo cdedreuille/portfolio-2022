@@ -6,6 +6,7 @@ import Image from "next/image";
 import { FC, useEffect, useRef } from "react";
 import { ProjectProps } from "types";
 import { useGlobal } from "./global-provider";
+import { useRouter } from "next/router";
 
 interface ItemProps {
   project: ProjectProps;
@@ -29,6 +30,7 @@ export const Item: FC<ItemProps> = ({ project, color, isFirst, isLast }) => {
   const { setActiveProject, setActivePreview, activePreview, setLocked } =
     useGlobal();
   const ref = useRef(null);
+  const router = useRouter();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["1 1", "0 0"],
@@ -47,8 +49,9 @@ export const Item: FC<ItemProps> = ({ project, color, isFirst, isLast }) => {
   const isActive = activePreview === project._id;
 
   const onClick = () => {
-    setLocked(true);
+    // setLocked(true);
     setActiveProject(project.slug);
+    router.push(`/${project.slug}`, `/${project.slug}`, { scroll: false });
   };
 
   return (

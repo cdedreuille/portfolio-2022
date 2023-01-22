@@ -1,6 +1,8 @@
 import { IBM_Plex_Mono } from "@next/font/google";
 import localFont from "@next/font/local";
+import { Cursor } from "components/cursor";
 import { GlobalProvider } from "components/global-provider";
+import { AnimatePresence } from "framer-motion";
 import "../styles/globals.css";
 
 const ibmPlexMono = IBM_Plex_Mono({
@@ -33,16 +35,21 @@ const union = localFont({
 export default function MyApp({
   Component,
   pageProps,
+  router,
 }: {
   Component: any;
   pageProps: any;
+  router: any;
 }) {
   return (
     <main
       className={`${romie.variable} ${ibmPlexMono.variable} ${union.variable} font-sans`}
     >
       <GlobalProvider>
-        <Component {...pageProps} />
+        <Cursor />
+        <AnimatePresence>
+          <Component {...pageProps} key={router.asPath} />
+        </AnimatePresence>
       </GlobalProvider>
     </main>
   );

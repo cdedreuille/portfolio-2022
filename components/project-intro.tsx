@@ -1,26 +1,25 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { FC, useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { FC } from "react";
 import { ProjectProps } from "types";
 import { useGlobal } from "./global-provider";
-import { Project } from "./project";
 
 interface Props {
   projects: ProjectProps[] | null;
 }
 
 const container = {
-  hidden: {
+  visible: {
     opacity: 0,
     transition: { staggerChildren: 0.04, delayChildren: 0.4 },
   },
-  visible: {
+  hidden: {
     opacity: 1,
     transition: { staggerChildren: 0.04, delayChildren: 0.4 },
   },
 };
 
 const child = {
-  visible: {
+  hidden: {
     y: 0,
     transition: {
       type: "spring",
@@ -28,7 +27,7 @@ const child = {
       stiffness: 100,
     },
   },
-  hidden: {
+  visible: {
     y: 200,
     transition: {
       type: "spring",
@@ -38,10 +37,19 @@ const child = {
   },
 };
 
+const variants2 = {
+  visible: { width: "100vw", height: 0, bottom: 0, left: 0 },
+  hidden: { height: "100vh" },
+};
+
 export const ProjectIntro: FC<Props> = ({ projects }) => {
   const { activeProject } = useGlobal();
-  const [isDone, setIsDone] = useState(false);
-  const project = projects?.find((p) => p.slug === activeProject);
+  // const project = projects?.find((p) => p.slug === activeProject);
+  const project = projects[0];
+
+  console.log(activeProject);
+
+  console.log(projects);
 
   const letters = () => {
     let letters: string[] | null = null;
@@ -74,13 +82,41 @@ export const ProjectIntro: FC<Props> = ({ projects }) => {
     return letters || ["P", "Ro", "J", "E", "C", "T"];
   };
 
-  useEffect(() => {
-    if (!activeProject) setIsDone(false);
-  }, [activeProject]);
-
   return (
     <>
-      <AnimatePresence>
+      <motion.div
+        variants={variants2}
+        initial="visible"
+        animate="visible"
+        exit="hidden"
+        transition={{ duration: 0.6 }}
+        className="fixed z-[990] overflow-hidden"
+        style={{
+          backgroundColor: project.backgroundColor?.hex || "#F4F6FA",
+        }}
+      >
+        <motion.div
+          variants={container}
+          initial="visible"
+          animate="visible"
+          exit="hidden"
+          className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center sm:justify-center font-serif uppercase text-titleSmSm mb-16 md:mb-24"
+          style={{ fontFeatureSettings: '"dlig" 1,"kern" 1' }}
+        >
+          {letters().map((letter, index) => (
+            <div key={index} className="overflow-hidden">
+              <motion.div
+                variants={child}
+                className="inline-block"
+                style={{ color: project?.primaryColor?.hex || "#000000" }}
+              >
+                {letter === " " ? "\u00A0" : letter}
+              </motion.div>
+            </div>
+          ))}
+        </motion.div>
+      </motion.div>
+      {/* <AnimatePresence>
         {activeProject && project && isDone && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -92,8 +128,8 @@ export const ProjectIntro: FC<Props> = ({ projects }) => {
             <Project project={project} />
           </motion.div>
         )}
-      </AnimatePresence>
-      <AnimatePresence>
+      </AnimatePresence> */}
+      {/* <AnimatePresence>
         {activeProject && project && (
           <motion.div
             className="fixed z-[990] overflow-hidden"
@@ -140,7 +176,7 @@ export const ProjectIntro: FC<Props> = ({ projects }) => {
             </motion.div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
     </>
   );
 };
