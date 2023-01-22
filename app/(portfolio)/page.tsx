@@ -8,28 +8,30 @@ import Footer from "./components/footer";
 import { Biography } from "./components/biography";
 import { ProjectIntro } from "./components/project-intro";
 import { Intro } from "./components/intro";
+import { Preview } from "./components/preview";
 
-async function getData() {
-  const projects = await getClient().fetch(
+async function getProjects() {
+  const result = await getClient().fetch(
     groq`*[_type == "projectList" && _id == "projectList"][0]{
       ...,
       projects[]->${projectQuery}
     }.projects`
   );
-  return projects;
+  return result;
 }
 
 export default async function Page() {
-  const data: ProjectProps[] = await getData();
+  const projects: ProjectProps[] = await getProjects();
 
   return (
     <>
       <Cursor />
-      <ProjectIntro projects={data} />
+      <ProjectIntro projects={projects} />
       <div className="h-screen">
         <Intro />
       </div>
-      <List data={data} />
+      <Preview projects={projects} />
+      <List data={projects} />
       <Biography />
       <Footer />
     </>
