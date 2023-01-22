@@ -44,12 +44,7 @@ const variants2 = {
 
 export const ProjectIntro: FC<Props> = ({ projects }) => {
   const { activeProject } = useGlobal();
-  // const project = projects?.find((p) => p.slug === activeProject);
-  const project = projects[0];
-
-  console.log(activeProject);
-
-  console.log(projects);
+  const project = projects?.find((p) => p.slug === activeProject);
 
   const letters = () => {
     let letters: string[] | null = null;
