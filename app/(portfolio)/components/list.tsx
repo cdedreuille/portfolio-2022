@@ -5,13 +5,14 @@ import { ProjectProps } from "types";
 import Gradient from "javascript-color-gradient";
 import useSound from "use-sound";
 import { Item } from "./list-item";
+import { useGlobal } from "./global-provider";
 
 interface Props {
   data: ProjectProps[];
 }
 
 export const List: FC<Props> = ({ data }) => {
-  const [activeLine, setActiveLine] = useState<string | null>(null);
+  const { activePreview } = useGlobal();
   const colorArr = new Gradient()
     .setColorGradient("#EBEEF3", "#EBEEF3")
     .setMidpoint(data.length)
@@ -20,8 +21,8 @@ export const List: FC<Props> = ({ data }) => {
   const [play] = useSound("/sounds/list.mp4");
 
   useEffect(() => {
-    if (activeLine) play();
-  }, [activeLine, play]);
+    if (activePreview) play();
+  }, [activePreview, play]);
 
   return (
     <div className="md:mt-20 mb-12 sm:mb-40">

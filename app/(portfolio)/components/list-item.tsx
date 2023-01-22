@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion, useScroll } from "framer-motion";
+import useLockedBody from "hooks/useLockedBody";
 import Image from "next/image";
 import { FC, useEffect, useRef } from "react";
 import { ProjectProps } from "types";
@@ -25,7 +26,8 @@ const variants = {
 };
 
 export const Item: FC<ItemProps> = ({ project, color, isFirst, isLast }) => {
-  const { setActiveProject, setActivePreview, activePreview } = useGlobal();
+  const { setActiveProject, setActivePreview, activePreview, setLocked } =
+    useGlobal();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -45,6 +47,7 @@ export const Item: FC<ItemProps> = ({ project, color, isFirst, isLast }) => {
   const isActive = activePreview === project._id;
 
   const onClick = () => {
+    setLocked(true);
     setActiveProject(project.slug);
   };
 
@@ -92,8 +95,9 @@ export const Item: FC<ItemProps> = ({ project, color, isFirst, isLast }) => {
           <div className="sm:hidden font-mono uppercase">
             {project.client.name}
           </div>
-          <div className="text-gray-500 sm:text-black font-mono uppercase">
+          <div className="text-gray-500 sm:text-black font-mono uppercase relative">
             {project.name}
+            <div className="absolute w-0 h-px -bottom-1 left-0 bg-black group-hover:w-full transition-all duration-300" />
           </div>
         </div>
         <div className="hidden sm:flex gap-4">

@@ -5,7 +5,7 @@ import classnames from "classnames";
 import Image from "next/image";
 import { FC } from "react";
 import { ProjectProps } from "types";
-import { Button } from "./button";
+import { Button2 } from "./button2";
 import { useGlobal } from "./global-provider";
 
 interface Props {
@@ -13,7 +13,13 @@ interface Props {
 }
 
 export const Project: FC<Props> = ({ project }) => {
-  const { activeProject, setActiveProject } = useGlobal();
+  const { setActiveProject, setLocked } = useGlobal();
+
+  const close = () => {
+    setLocked(false);
+    setActiveProject(null);
+  };
+
   return (
     <div
       className={classnames("min-h-screen w-full pb-48", {
@@ -25,11 +31,8 @@ export const Project: FC<Props> = ({ project }) => {
         color: project.primaryColor?.hex,
       }}
     >
-      <div
-        className="fixed bottom-12 right-12 z-30"
-        onClick={() => setActiveProject(null)}
-      >
-        <Button>Close</Button>
+      <div className="fixed bottom-12 left-12 z-30" onClick={close}>
+        <Button2>Close</Button2>
       </div>
       <div className="flex flex-col w-screen h-screen px-12 pt-12 mb-24">
         <div className="flex-1 relative rounded-xl overflow-hidden">
@@ -46,7 +49,7 @@ export const Project: FC<Props> = ({ project }) => {
             />
           )}
         </div>
-        <div className="flex py-12 w-full">
+        <div className="flex py-12 pl-40 w-full justify-between items-center">
           <div
             className="relative mr-24"
             style={{
@@ -63,19 +66,21 @@ export const Project: FC<Props> = ({ project }) => {
               />
             )}
           </div>
-          <div className="flex flex-col gap-4 w-40">
-            <div style={{ color: project.secondaryColor?.hex }}>Year</div>
-            <div style={{ color: project.primaryColor?.hex }}>2021</div>
-          </div>
-          <div className="flex flex-col gap-4">
-            <div style={{ color: project.secondaryColor?.hex }}>Roles</div>
-            <div
-              className="flex gap-6"
-              style={{ color: project.primaryColor?.hex }}
-            >
-              {project.tags?.map((tag) => (
-                <div key={tag._id}>{tag.name}</div>
-              ))}
+          <div className="flex gap-20">
+            <div className="flex flex-col gap-4 items-end">
+              <div style={{ color: project.secondaryColor?.hex }}>Roles</div>
+              <div
+                className="flex gap-6"
+                style={{ color: project.primaryColor?.hex }}
+              >
+                {project.tags?.map((tag) => (
+                  <div key={tag._id}>{tag.name}</div>
+                ))}
+              </div>
+            </div>
+            <div className="flex flex-col gap-4 items-end">
+              <div style={{ color: project.secondaryColor?.hex }}>Year</div>
+              <div style={{ color: project.primaryColor?.hex }}>2021</div>
             </div>
           </div>
         </div>

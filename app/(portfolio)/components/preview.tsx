@@ -18,12 +18,6 @@ export const Preview: FC<ItemProps> = ({ projects }) => {
     (project) => project._id === activePreview
   );
 
-  console.log(activePreview);
-
-  // if (!activePreview) return null;
-
-  console.log(activePreview);
-
   return (
     <motion.div
       initial={{ opacity: 0, x: 800, y: "-50%" }}
@@ -39,7 +33,7 @@ export const Preview: FC<ItemProps> = ({ projects }) => {
         >
           {project?.preview?.type === "image" && project.preview.image?.url && (
             <Image
-              src={`${project.preview.image.url}?w=960`}
+              src={`${project.preview.image.url}?w=1200`}
               alt="Project"
               className="object-cover"
               priority
