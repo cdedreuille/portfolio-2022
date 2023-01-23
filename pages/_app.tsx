@@ -47,7 +47,10 @@ export default function MyApp({
     >
       <GlobalProvider>
         <Cursor />
-        <AnimatePresence mode="wait">
+        <AnimatePresence
+          mode="wait"
+          onExitComplete={() => window.scrollTo(0, 0)}
+        >
           <Component {...pageProps} key={router.asPath} />
         </AnimatePresence>
       </GlobalProvider>

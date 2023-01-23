@@ -12,12 +12,12 @@ interface Props {
   project: ProjectProps;
 }
 
-const variants = {
+const container = {
   visible: {},
   hidden: {},
 };
 
-const variant2 = {
+const wrapper = {
   visible: { opacity: 1 },
   hidden: { opacity: 0 },
 };
@@ -31,10 +31,9 @@ const Portfolio: FC<Props> = ({ project }) => {
 
   return (
     <motion.div
-      variants={variants}
+      variants={container}
       initial="hidden"
       animate="visible"
-      exit="hidden"
       className={classNames("min-h-screen w-full pb-48", {
         "bg-cream": !project.backgroundColor,
         "text-black": !project.primaryColor,
@@ -45,7 +44,7 @@ const Portfolio: FC<Props> = ({ project }) => {
       }}
     >
       <motion.div
-        variants={variant2}
+        variants={wrapper}
         transition={{ duration: 0.6 }}
         className={classNames("min-h-screen w-full pb-48", {
           "bg-cream": !project.backgroundColor,

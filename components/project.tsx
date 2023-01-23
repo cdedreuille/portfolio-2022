@@ -10,7 +10,6 @@ import {
   TitleBlockProps,
   VideoBlockProps,
 } from "types";
-import { Button2 } from "./button2";
 import { useGlobal } from "./global-provider";
 
 interface Props {
@@ -86,14 +85,6 @@ export const Project: FC<Props> = ({ project }) => {
         color: project.primaryColor?.hex,
       }}
     >
-      <div className="fixed bottom-8 left-12 z-30" onClick={close}>
-        <Button2
-          backgroundColor={project.backgroundColor?.hex}
-          primaryColor={project.primaryColor?.hex}
-        >
-          Close
-        </Button2>
-      </div>
       <div className="flex flex-col w-screen h-screen px-12 pt-12 mb-24">
         <div className="flex-1 relative rounded-xl overflow-hidden">
           {project.cover?.type === "image" && project.cover?.image?.url && (
@@ -105,7 +96,7 @@ export const Project: FC<Props> = ({ project }) => {
             />
           )}
         </div>
-        <div className="flex py-12 pl-40 w-full justify-between items-center">
+        <div className="flex py-12 w-full justify-between items-center">
           <div
             className="relative mr-24"
             style={{

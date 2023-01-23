@@ -8,6 +8,11 @@ interface Props {
 }
 
 const container = {
+  visible: { width: "100vw", height: 0, bottom: 0, left: 0 },
+  hidden: { height: "100vh" },
+};
+
+const textWrapper = {
   visible: {
     opacity: 0,
     transition: { staggerChildren: 0.04, delayChildren: 0.4 },
@@ -18,7 +23,7 @@ const container = {
   },
 };
 
-const child = {
+const letter = {
   hidden: {
     y: 0,
     transition: {
@@ -35,11 +40,6 @@ const child = {
       stiffness: 100,
     },
   },
-};
-
-const variants2 = {
-  visible: { width: "100vw", height: 0, bottom: 0, left: 0 },
-  hidden: { height: "100vh" },
 };
 
 export const ProjectIntro: FC<Props> = ({ projects }) => {
@@ -78,100 +78,37 @@ export const ProjectIntro: FC<Props> = ({ projects }) => {
   };
 
   return (
-    <>
+    <motion.div
+      variants={container}
+      initial="visible"
+      animate="visible"
+      exit="hidden"
+      transition={{ duration: 0.6 }}
+      className="fixed z-[990] overflow-hidden"
+      style={{
+        backgroundColor: project?.backgroundColor?.hex || "#F4F6FA",
+      }}
+    >
       <motion.div
-        variants={variants2}
+        variants={textWrapper}
         initial="visible"
         animate="visible"
         exit="hidden"
-        transition={{ duration: 0.6 }}
-        className="fixed z-[990] overflow-hidden"
-        style={{
-          backgroundColor: project?.backgroundColor?.hex || "#F4F6FA",
-        }}
+        className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center sm:justify-center font-serif uppercase text-titleSmSm mb-16 md:mb-24"
+        style={{ fontFeatureSettings: '"dlig" 1,"kern" 1' }}
       >
-        <motion.div
-          variants={container}
-          initial="visible"
-          animate="visible"
-          exit="hidden"
-          className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center sm:justify-center font-serif uppercase text-titleSmSm mb-16 md:mb-24"
-          style={{ fontFeatureSettings: '"dlig" 1,"kern" 1' }}
-        >
-          {letters().map((letter, index) => (
-            <div key={index} className="overflow-hidden">
-              <motion.div
-                variants={child}
-                className="inline-block"
-                style={{ color: project?.primaryColor?.hex || "#000000" }}
-              >
-                {letter === " " ? "\u00A0" : letter}
-              </motion.div>
-            </div>
-          ))}
-        </motion.div>
-      </motion.div>
-      {/* <AnimatePresence>
-        {activeProject && project && isDone && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.6 }}
-            className="fixed top-0 left-0 right-0 bottom-0 z-[999] w-full overflow-scroll"
-          >
-            <Project project={project} />
-          </motion.div>
-        )}
-      </AnimatePresence> */}
-      {/* <AnimatePresence>
-        {activeProject && project && (
-          <motion.div
-            className="fixed z-[990] overflow-hidden"
-            initial={{
-              width: "100vw",
-              height: 0,
-              bottom: 0,
-              left: 0,
-            }}
-            animate={{
-              height: "100vh",
-            }}
-            exit={{
-              opacity: 0,
-            }}
-            transition={{ duration: 0.6 }}
-            style={{
-              backgroundColor: project.backgroundColor?.hex || "#F4F6FA",
-            }}
-          >
+        {letters().map((item, index) => (
+          <div key={index} className="overflow-hidden">
             <motion.div
-              variants={container}
-              initial="hidden"
-              animate={
-                activeProject && project && !isDone ? "visible" : "hidden"
-              }
-              className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center sm:justify-center font-serif uppercase text-titleSmSm mb-16 md:mb-24"
-              style={{ fontFeatureSettings: '"dlig" 1,"kern" 1' }}
+              variants={letter}
+              className="inline-block"
+              style={{ color: project?.primaryColor?.hex || "#000000" }}
             >
-              {letters().map((letter, index) => (
-                <div key={index} className="overflow-hidden">
-                  <motion.div
-                    variants={child}
-                    className="inline-block"
-                    style={{ color: project.primaryColor?.hex || "#000000" }}
-                    onAnimationComplete={() =>
-                      index === letters().length - 1 && setIsDone(true)
-                    }
-                  >
-                    {letter === " " ? "\u00A0" : letter}
-                  </motion.div>
-                </div>
-              ))}
+              {item === " " ? "\u00A0" : item}
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence> */}
-    </>
+          </div>
+        ))}
+      </motion.div>
+    </motion.div>
   );
 };

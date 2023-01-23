@@ -19,6 +19,11 @@ const variants = {
   hidden: {},
 };
 
+const variant2 = {
+  visible: { opacity: 1 },
+  hidden: { opacity: 0 },
+};
+
 export default function Portfolio({ projects }: { projects: ProjectProps[] }) {
   const { width } = useWindowSize();
   const { setActivePreview } = useGlobal();
@@ -36,15 +41,17 @@ export default function Portfolio({ projects }: { projects: ProjectProps[] }) {
       animate="visible"
       exit="hidden"
     >
-      <MainHead />
       <ProjectIntro projects={projects} />
-      <div className="h-screen">
-        <Intro />
-      </div>
-      <Preview projects={projects} />
-      <List data={projects} />
-      <Biography />
-      <Footer />
+      <motion.div variants={variant2} transition={{ duration: 0.6 }}>
+        <MainHead />
+        <div className="h-screen">
+          <Intro />
+        </div>
+        <Preview projects={projects} />
+        <List data={projects} />
+        <Biography />
+        <Footer />
+      </motion.div>
     </motion.div>
   );
 }
