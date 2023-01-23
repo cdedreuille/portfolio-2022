@@ -113,7 +113,7 @@ const Layout: FC<Props> = ({ children, project }) => {
           variants={textWrapper}
           initial="hidden"
           animate="visible"
-          className="absolute z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center sm:justify-center font-serif uppercase text-titleSmSm mb-16 md:mb-24"
+          className="absolute z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center sm:justify-center font-serif uppercase text-titleXs md:text-titleSmSm mb-16 md:mb-24"
           style={{ fontFeatureSettings: '"dlig" 1,"kern" 1' }}
         >
           {letters().map((item, index) => (

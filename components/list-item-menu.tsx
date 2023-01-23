@@ -39,10 +39,10 @@ export const Item: FC<ItemProps> = ({ project, setActivePreview }) => {
           {project.client.name}
         </div>
         <div className="text-sm sm:text-md flex flex-col">
-          <div className="sm:hidden font-mono uppercase">
+          <div className="sm:hidden font-mono uppercase text-black">
             {project.client.name}
           </div>
-          <div className="text-gray-500 sm:text-black font-mono uppercase relative">
+          <div className="text-gray-400 sm:text-black font-mono uppercase relative">
             {project.name}
             <div className="absolute w-0 h-px -bottom-1 left-0 bg-black group-hover:w-full transition-all duration-300" />
           </div>
