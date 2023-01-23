@@ -28,6 +28,34 @@ const flow = {
   hidden: { x: -100 },
 };
 
+const textWrapper = {
+  visible: {
+    transition: { staggerChildren: 0.04 },
+  },
+  hidden: {
+    transition: { staggerChildren: 0.04 },
+  },
+};
+
+const letter = {
+  visible: {
+    y: 0,
+    transition: {
+      type: "spring",
+      damping: 18,
+      stiffness: 100,
+    },
+  },
+  hidden: {
+    y: 200,
+    transition: {
+      type: "spring",
+      damping: 18,
+      stiffness: 100,
+    },
+  },
+};
+
 const Layout: FC<Props> = ({ children, project }) => {
   const { activeProject } = useGlobal();
 
@@ -62,7 +90,7 @@ const Layout: FC<Props> = ({ children, project }) => {
     return letters || ["P", "Ro", "J", "E", "C", "T"];
   };
 
-  const duration = 0.8;
+  const duration = 1;
 
   return (
     <motion.div
@@ -75,12 +103,32 @@ const Layout: FC<Props> = ({ children, project }) => {
         variants={enter}
         initial="hidden"
         animate="visible"
-        transition={{ duration, ease: "easeInOut" }}
-        className="fixed z-10 h-screen top-0 left-0 bottom-0"
+        transition={{ duration, ease: "easeInOut", delay: 2 }}
+        className="fixed z-10 h-screen top-0 left-0 bottom-0 overflow-hidden"
         style={{
           backgroundColor: activeProject?.backgroundColor?.hex || "#000",
         }}
-      />
+      >
+        <motion.div
+          variants={textWrapper}
+          initial="hidden"
+          animate="visible"
+          className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center sm:justify-center font-serif uppercase text-titleSmSm mb-16 md:mb-24"
+          style={{ fontFeatureSettings: '"dlig" 1,"kern" 1' }}
+        >
+          {letters().map((item, index) => (
+            <div key={index} className="overflow-hidden">
+              <motion.div
+                variants={letter}
+                className="inline-block"
+                style={{ color: project?.primaryColor?.hex || "#000000" }}
+              >
+                {item === " " ? "\u00A0" : item}
+              </motion.div>
+            </div>
+          ))}
+        </motion.div>
+      </motion.div>
       <motion.div
         variants={exit}
         initial="visible"

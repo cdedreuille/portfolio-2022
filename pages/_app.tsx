@@ -1,8 +1,9 @@
 import { IBM_Plex_Mono } from "@next/font/google";
 import localFont from "@next/font/local";
 import { Cursor } from "components/cursor";
-import { GlobalProvider } from "components/global-provider";
+import { GlobalProvider, useGlobal } from "components/global-provider";
 import { AnimatePresence } from "framer-motion";
+import { useRouter } from "next/router";
 import "../styles/globals.css";
 
 const ibmPlexMono = IBM_Plex_Mono({
@@ -35,11 +36,9 @@ const union = localFont({
 export default function MyApp({
   Component,
   pageProps,
-  router,
 }: {
   Component: any;
   pageProps: any;
-  router: any;
 }) {
   return (
     <main
@@ -47,14 +46,28 @@ export default function MyApp({
     >
       <GlobalProvider>
         <Cursor />
-        <AnimatePresence
-          mode="wait"
-          onExitComplete={() => window.scrollTo(0, 0)}
-          initial={false}
-        >
-          <Component {...pageProps} key={router.asPath} />
-        </AnimatePresence>
+        <AppWithProviders Component={Component} pageProps={pageProps} />
       </GlobalProvider>
     </main>
   );
 }
+
+const AppWithProviders = ({
+  Component,
+  pageProps,
+}: {
+  Component: any;
+  pageProps: any;
+}) => {
+  const router = useRouter();
+
+  const exit = () => {
+    window.scrollTo(0, 0);
+  };
+
+  return (
+    <AnimatePresence mode="wait" onExitComplete={exit} initial={false}>
+      <Component {...pageProps} key={router.asPath} />
+    </AnimatePresence>
+  );
+};

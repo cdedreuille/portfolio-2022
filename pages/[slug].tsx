@@ -50,7 +50,7 @@ const Project: FC<Props> = ({ project }) => {
         <motion.div
           variants={wrapper}
           transition={{ duration: 0.6 }}
-          className={classNames("min-h-screen w-full pb-48", {
+          className={classNames("min-h-screen w-full", {
             "bg-cream": !project.backgroundColor,
             "text-black": !project.primaryColor,
           })}
@@ -60,7 +60,7 @@ const Project: FC<Props> = ({ project }) => {
           }}
         >
           <div
-            className={classNames("min-h-screen w-full pb-48", {
+            className={classNames("min-h-screen w-full", {
               "bg-cream": !project.backgroundColor,
               "text-black": !project.primaryColor,
             })}
