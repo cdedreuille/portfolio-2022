@@ -10,6 +10,7 @@ import { groq } from "next-sanity";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 import { ProjectProps } from "types";
+import { useGlobal } from "./global-provider";
 import { Item } from "./list-item-menu";
 
 export const Menu: FC = () => {
@@ -18,6 +19,7 @@ export const Menu: FC = () => {
   const { scrollYProgress } = useScroll();
   const position = useTransform(scrollYProgress, [0, 0.06, 1], [64, 48, 48]);
   const router = useRouter();
+  const { setActiveProject } = useGlobal();
 
   useEffect(() => {
     (async () => {
@@ -32,6 +34,7 @@ export const Menu: FC = () => {
   }, []);
 
   const backHome = () => {
+    setActiveProject(null);
     router.push("/");
   };
 

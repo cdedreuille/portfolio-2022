@@ -10,7 +10,7 @@ import { PortableText, PortableTextComponents } from "@portabletext/react";
 import Image from "next/image";
 import { Section } from "components/section";
 import { Menu } from "components/menu";
-import Layout from "components/layout-home";
+import Layout from "components/layout-project";
 
 interface Props {
   project: ProjectProps;
@@ -35,7 +35,7 @@ const Project: FC<Props> = ({ project }) => {
   }, [router]);
 
   return (
-    <Layout>
+    <Layout project={project}>
       <div
         className={classNames("min-h-screen w-full pb-48", {
           "bg-cream": !project.backgroundColor,

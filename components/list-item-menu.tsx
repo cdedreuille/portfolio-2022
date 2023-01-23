@@ -9,16 +9,13 @@ interface ItemProps {
   setIsMenuOpen: (value: boolean) => void;
 }
 
-export const Item: FC<ItemProps> = ({ project, setIsMenuOpen }) => {
-  const { setActiveProject, activePreview, setLocked } = useGlobal();
+export const Item: FC<ItemProps> = ({ project }) => {
+  const { setActiveProject } = useGlobal();
   const router = useRouter();
 
-  const isActive = activePreview === project._id;
-
   const onClick = () => {
-    // setLocked(true);
-    // setIsMenuOpen(false);
-    // setActiveProject(project.slug);
+    console.log("clicked", project.name);
+    setActiveProject(project);
     router.push(`/${project.slug}`, undefined, { scroll: false });
   };
 

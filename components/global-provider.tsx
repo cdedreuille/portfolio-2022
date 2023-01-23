@@ -1,13 +1,12 @@
-"use client";
-
 import useLockedBody from "hooks/useLockedBody";
 import { createContext, useContext, useState } from "react";
+import { ProjectProps } from "types";
 
 interface Props {
-  activePreview: string | null;
-  setActivePreview: (project: string | null) => void;
-  activeProject: string | null;
-  setActiveProject: (project: string | null) => void;
+  activePreview: ProjectProps | null;
+  setActivePreview: (project: ProjectProps | null) => void;
+  activeProject: ProjectProps | null;
+  setActiveProject: (project: ProjectProps | null) => void;
   locked: boolean;
   setLocked: (locked: boolean) => void;
 }
@@ -22,8 +21,8 @@ const globalContext = createContext<Props>({
 });
 
 export function GlobalProvider({ children }: { children: React.ReactNode }) {
-  const [activePreview, setActivePreview] = useState<string | null>(null);
-  const [activeProject, setActiveProject] = useState<string | null>(null);
+  const [activePreview, setActivePreview] = useState<ProjectProps | null>(null);
+  const [activeProject, setActiveProject] = useState<ProjectProps | null>(null);
   const [locked, setLocked] = useLockedBody(false, "root");
 
   const value = {

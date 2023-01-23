@@ -12,24 +12,18 @@ interface ItemProps {
 export const Preview: FC<ItemProps> = ({ projects }) => {
   const { activePreview } = useGlobal();
 
-  const activeProject = projects.find(
-    (project) => project._id === activePreview
-  );
-
-  console.log(activeProject);
-
   return (
     <motion.div
       initial={{ opacity: 0, x: 1200, y: "50%" }}
       animate={{ opacity: 1, x: activePreview ? 0 : 1200, y: "50%" }}
       className="fixed bottom-2 right-2 md:bottom-1/2 md:right-[8vw] w-40 h-64 md:w-[40vw] md:h-[60vh] z-30 rounded-2xl overflow-hidden"
-      style={{ backgroundColor: activeProject?.backgroundColor?.hex || "#fff" }}
+      style={{ backgroundColor: activePreview?.backgroundColor?.hex || "#fff" }}
     >
       {projects.map((project) => (
         <div
           key={project._id}
           className="absolute w-full h-full"
-          style={{ zIndex: activePreview === project._id ? 10 : 1 }}
+          style={{ zIndex: activePreview?._id === project._id ? 10 : 1 }}
         >
           {project?.preview?.type === "image" && project.preview.image?.url && (
             <Image

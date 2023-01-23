@@ -35,17 +35,17 @@ export const Item: FC<ItemProps> = ({ project, color, isFirst, isLast }) => {
   useEffect(() => {
     return scrollYProgress.on("change", (latest) => {
       if (latest > 0.46 && latest < 0.54) {
-        setActivePreview(project._id);
+        setActivePreview(project);
       }
       if (isFirst && latest < 0.46) setActivePreview(null);
       if (isLast && latest > 0.54) setActivePreview(null);
     });
-  }, [isFirst, isLast, project._id, scrollYProgress, setActivePreview]);
+  }, [isFirst, isLast, project, scrollYProgress, setActivePreview]);
 
-  const isActive = activePreview === project._id;
+  const isActive = activePreview?._id === project._id;
 
   const onClick = () => {
-    setActiveProject(project.slug);
+    setActiveProject(project);
     router.push(`/${project.slug}`, undefined, { scroll: false });
   };
 

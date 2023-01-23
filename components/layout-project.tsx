@@ -1,8 +1,11 @@
 import React, { FC } from "react";
 import { motion } from "framer-motion";
+import { ProjectProps } from "types";
+import { useGlobal } from "./global-provider";
 
 interface Props {
   children: React.ReactNode;
+  project?: ProjectProps;
 }
 
 const variants = {
@@ -25,38 +28,81 @@ const flow = {
   hidden: { x: -100 },
 };
 
-const Layout: FC<Props> = ({ children }) => (
-  <motion.div
-    variants={variants}
-    initial="hidden"
-    animate="visible"
-    exit="hidden"
-  >
+const Layout: FC<Props> = ({ children, project }) => {
+  const { activeProject } = useGlobal();
+
+  const letters = () => {
+    let letters: string[] | null = null;
+
+    if (project?.client.name === "Deliveroo")
+      letters = ["D", "E", "Li", "V", "E", "Ro", "O"];
+    if (project?.client.name === "Meta") letters = ["M", "E", "T", "A"];
+    if (project?.client.name === "Christian Louboutin") {
+      const first = ["C", "H", "Ri", "S", "T", "I", "A", "N"];
+      const second = ["Lo", "U", "Bo", "U", "T", "I", "N"];
+      letters = [...first, " ", ...second];
+    }
+    if (project?.client.name === "Daisie") letters = ["D", "Ai", "S", "I", "E"];
+    if (project?.client.name === "Docent") letters = ["D", "OC", "E", "N", "T"];
+    if (project?.client.name === "La Surprise")
+      letters = ["La", " ", "S", "U", "R", "P", "Ri", "S", "E"];
+    if (project?.client.name === "Floom") letters = ["F", "Lo", "O", "M"];
+    if (project?.client.name === "Coca-Cola")
+      letters = ["C", "O", "C", "A", "-", "C", "O", "L", "A"];
+    if (project?.client.name === "Institut des Mutations") {
+      const first = ["I", "N", "S", "T", "I", "T", "UT", " ", "D", "E", "S"];
+      const second = ["M", "U", "T", "A", "T", "I", "O", "N", "S"];
+      letters = [...first, " ", ...second];
+    }
+    if (project?.client.name === "CoutureLab")
+      letters = ["Co", "U", "T", "U", "R", "E", "LA", "B"];
+    if (project?.client.name === "Field.io")
+      letters = ["F", "I", "E", "LD", ".", "I", "O"];
+
+    return letters || ["P", "Ro", "J", "E", "C", "T"];
+  };
+
+  const duration = 0.8;
+
+  return (
     <motion.div
-      variants={enter}
+      variants={variants}
       initial="hidden"
       animate="visible"
-      transition={{ duration: 0.6 }}
-      className="fixed z-10 bg-black h-screen top-0 left-0 bottom-0"
-    />
-    <motion.div
-      variants={exit}
-      initial="visible"
-      animate="visible"
       exit="hidden"
-      transition={{ duration: 0.6 }}
-      className="fixed z-10 bg-black h-screen top-0 right-0 bottom-0"
-    />
-    <motion.div
-      variants={flow}
-      initial="visible"
-      animate="visible"
-      exit="hidden"
-      transition={{ duration: 0.6 }}
     >
-      {children}
+      <motion.div
+        variants={enter}
+        initial="hidden"
+        animate="visible"
+        transition={{ duration, ease: "easeInOut" }}
+        className="fixed z-10 h-screen top-0 left-0 bottom-0"
+        style={{
+          backgroundColor: activeProject?.backgroundColor?.hex || "#000",
+        }}
+      />
+      <motion.div
+        variants={exit}
+        initial="visible"
+        animate="visible"
+        exit="hidden"
+        transition={{ duration, ease: "easeInOut" }}
+        className="fixed z-10 h-screen top-0 right-0 bottom-0"
+        style={{
+          backgroundColor: activeProject?.backgroundColor?.hex || "#000",
+        }}
+      />
+      <motion.div
+        variants={flow}
+        initial="visible"
+        animate="visible"
+        exit="hidden"
+        transition={{ duration, ease: "easeInOut" }}
+      >
+        {children}
+      </motion.div>
     </motion.div>
-  </motion.div>
-);
+  );
+};
 
 export default Layout;
