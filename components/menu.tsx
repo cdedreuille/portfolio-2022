@@ -5,6 +5,7 @@ import {
   motion,
   AnimatePresence,
 } from "framer-motion";
+import { useWindowSize } from "hooks/useWindowSize";
 import { projectQuery } from "lib/queries";
 import { getClient } from "lib/sanity.server";
 import { groq } from "next-sanity";
@@ -20,9 +21,15 @@ export const Menu: FC = () => {
   const [activePreview, setActivePreview] = useState<ProjectProps | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { scrollYProgress } = useScroll();
+  const positionMobile = useTransform(
+    scrollYProgress,
+    [0, 0.06, 1],
+    [32, 20, 20]
+  );
   const position = useTransform(scrollYProgress, [0, 0.06, 1], [64, 48, 48]);
   const router = useRouter();
   const { setActiveProject } = useGlobal();
+  const { width } = useWindowSize();
 
   useEffect(() => {
     (async () => {
@@ -46,8 +53,12 @@ export const Menu: FC = () => {
       <Preview projects={projects} activePreview={activePreview} />
       <motion.div
         className="flex gap-8 fixed z-20"
-        style={{ left: position, top: position }}
+        style={{
+          left: width && width > 768 ? position : positionMobile,
+          top: width && width > 768 ? position : positionMobile,
+        }}
       >
+        {/* Button 1 */}
         <div
           className="relative group h-12"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -69,6 +80,8 @@ export const Menu: FC = () => {
           </div>
           <div className="w-[calc(100%-2px)] ml-px absolute top-0 z-0 rounded-full transition-all duration-300 h-12 bg-black" />
         </div>
+
+        {/*  Button 2 */}
         {isMenuOpen && (
           <div className="relative group h-12" onClick={backHome}>
             <div className="relative z-10 font-mono uppercase text-black px-6 h-12 flex items-center rounded-full text-sm transition-all duration-300 ease-in-out group-hover:translate-x-1 group-hover:-translate-y-1 bg-white border border-black">
