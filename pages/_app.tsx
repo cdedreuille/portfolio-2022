@@ -47,7 +47,7 @@ export default function MyApp({
     >
       <GlobalProvider>
         <Cursor />
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
           <Component {...pageProps} key={router.asPath} />
         </AnimatePresence>
       </GlobalProvider>

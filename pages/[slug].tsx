@@ -2,18 +2,19 @@ import { groq } from "next-sanity";
 import { getClient } from "lib/sanity.server";
 import { ProjectProps } from "types";
 import { Project } from "components/project";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { projectQuery } from "lib/queries";
 import { motion } from "framer-motion";
 import classNames from "classnames";
+import { useRouter } from "next/router";
 
 interface Props {
   project: ProjectProps;
 }
 
 const variants = {
-  visible: { opacity: 1 },
-  hidden: { opacity: 1 },
+  visible: {},
+  hidden: {},
 };
 
 const variant2 = {
@@ -22,6 +23,12 @@ const variant2 = {
 };
 
 const Portfolio: FC<Props> = ({ project }) => {
+  const router = useRouter();
+
+  useEffect(() => {
+    if (window) window.scrollTo(0, 0);
+  }, [router]);
+
   return (
     <motion.div
       variants={variants}
@@ -39,7 +46,7 @@ const Portfolio: FC<Props> = ({ project }) => {
     >
       <motion.div
         variants={variant2}
-        transition={{ duration: 2 }}
+        transition={{ duration: 0.6 }}
         className={classNames("min-h-screen w-full pb-48", {
           "bg-cream": !project.backgroundColor,
           "text-black": !project.primaryColor,

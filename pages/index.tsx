@@ -5,30 +5,27 @@ import { List } from "../components/list";
 import { MainHead } from "../components/head";
 import { useWindowSize } from "../hooks/useWindowSize";
 import { Intro } from "../components/intro";
-import { useRouter } from "next/router";
-import { useState } from "react";
-import { useEffect } from "react";
 import { projectQuery } from "lib/queries";
 import Footer from "components/footer";
 import { Biography } from "components/biography";
 import { ProjectIntro } from "components/project-intro";
 import { Preview } from "components/preview";
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { useEffect } from "react";
+import { useGlobal } from "components/global-provider";
 
 const variants = {
-  visible: { opacity: 1 },
-  hidden: { opacity: 1 },
+  visible: {},
+  hidden: {},
 };
 
 export default function Portfolio({ projects }: { projects: ProjectProps[] }) {
-  const { width, height } = useWindowSize();
-  const router = useRouter();
-  const [activeProject, setActiveProject] = useState<string | null>(null);
+  const { width } = useWindowSize();
+  const { setActivePreview } = useGlobal();
 
   useEffect(() => {
-    if (!router.query.project) setActiveProject(null);
-  }, [router.query.project]);
+    setActivePreview(null);
+  }, [setActivePreview]);
 
   if (!width) return null;
 
@@ -38,7 +35,6 @@ export default function Portfolio({ projects }: { projects: ProjectProps[] }) {
       initial="hidden"
       animate="visible"
       exit="hidden"
-      transition={{ duration: 2 }}
     >
       <MainHead />
       <ProjectIntro projects={projects} />
