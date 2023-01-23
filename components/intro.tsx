@@ -9,7 +9,7 @@ export const Intro: FC = () => {
   if (!width) return null;
 
   return (
-    <div className="relative z-10">
+    <div className="relative z-10 md:min-h-screen">
       {width > 768 && <IntroDesktop />}
       {width <= 768 && <IntroMobile />}
     </div>
