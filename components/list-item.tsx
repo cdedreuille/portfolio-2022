@@ -1,7 +1,4 @@
-"use client";
-
 import { AnimatePresence, motion, useScroll } from "framer-motion";
-import useLockedBody from "hooks/useLockedBody";
 import Image from "next/image";
 import { FC, useEffect, useRef } from "react";
 import { ProjectProps } from "types";
@@ -27,8 +24,7 @@ const variants = {
 };
 
 export const Item: FC<ItemProps> = ({ project, color, isFirst, isLast }) => {
-  const { setActiveProject, setActivePreview, activePreview, setLocked } =
-    useGlobal();
+  const { setActiveProject, setActivePreview, activePreview } = useGlobal();
   const ref = useRef(null);
   const router = useRouter();
   const { scrollYProgress } = useScroll({
@@ -49,9 +45,8 @@ export const Item: FC<ItemProps> = ({ project, color, isFirst, isLast }) => {
   const isActive = activePreview === project._id;
 
   const onClick = () => {
-    // setLocked(true);
     setActiveProject(project.slug);
-    router.push(`/${project.slug}`, `/${project.slug}`, { scroll: false });
+    router.push(`/${project.slug}`, undefined, { scroll: false });
   };
 
   return (

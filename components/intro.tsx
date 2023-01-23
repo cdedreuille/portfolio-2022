@@ -1,12 +1,10 @@
 import { useWindowSize } from "hooks/useWindowSize";
-import { FC, useState } from "react";
+import { FC } from "react";
 import { IntroDesktop } from "./intro-desktop";
 import { IntroMobile } from "./intro-mobile";
-import { List } from "./list";
 
 export const Intro: FC = () => {
   const { width } = useWindowSize();
-  const [activeProject, setActiveProject] = useState<string | null>(null);
 
   if (!width) return null;
 

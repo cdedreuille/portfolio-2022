@@ -50,6 +50,7 @@ export default function MyApp({
         <AnimatePresence
           mode="wait"
           onExitComplete={() => window.scrollTo(0, 0)}
+          initial={false}
         >
           <Component {...pageProps} key={router.asPath} />
         </AnimatePresence>

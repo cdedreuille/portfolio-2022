@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import { FC } from "react";
 import { ProjectProps } from "types";
@@ -12,17 +10,19 @@ interface ItemProps {
 }
 
 export const Preview: FC<ItemProps> = ({ projects }) => {
-  const { activePreview, setActivePreview } = useGlobal();
+  const { activePreview } = useGlobal();
 
   const activeProject = projects.find(
     (project) => project._id === activePreview
   );
 
+  console.log(activeProject);
+
   return (
     <motion.div
-      initial={{ opacity: 0, x: 800, y: "-50%" }}
-      animate={{ opacity: 1, x: activePreview ? 0 : 800 }}
-      className="fixed bottom-2 right-2 md:top-1/2 md:-translate-y-1/2 md:right-[8vw] w-40 h-64 md:w-[40vw] md:h-[60vh] z-30 rounded-2xl overflow-hidden"
+      initial={{ opacity: 0, x: 1200, y: "50%" }}
+      animate={{ opacity: 1, x: activePreview ? 0 : 1200, y: "50%" }}
+      className="fixed bottom-2 right-2 md:bottom-1/2 md:right-[8vw] w-40 h-64 md:w-[40vw] md:h-[60vh] z-30 rounded-2xl overflow-hidden"
       style={{ backgroundColor: activeProject?.backgroundColor?.hex || "#fff" }}
     >
       {projects.map((project) => (
@@ -56,30 +56,6 @@ export const Preview: FC<ItemProps> = ({ projects }) => {
             )}
         </div>
       ))}
-      {/* {activeProject?.preview?.type === "image" &&
-        activeProject.preview.image?.url && (
-          <Image
-            src={`${activeProject.preview.image.url}?w=1800`}
-            alt="Project"
-            className="object-cover"
-            priority
-            fill
-            quality={100}
-            sizes="(max-width: 500px) 100vw, (max-width: 500px) 100vw, 100vw"
-          />
-        )}
-      {activeProject?.preview?.type === "video" &&
-        activeProject.preview.video?.playbackId && (
-          <MuxVideo
-            style={{ height: "100%", width: "100%", objectFit: "cover" }}
-            playbackId={activeProject.preview.video.playbackId}
-            streamType="on-demand"
-            controls={false}
-            autoPlay
-            muted
-            loop
-          />
-        )} */}
     </motion.div>
   );
 };

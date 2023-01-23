@@ -8,21 +8,10 @@ import { Intro } from "../components/intro";
 import { projectQuery } from "lib/queries";
 import Footer from "components/footer";
 import { Biography } from "components/biography";
-import { ProjectIntro } from "components/project-intro";
 import { Preview } from "components/preview";
-import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { useGlobal } from "components/global-provider";
-
-const variants = {
-  visible: {},
-  hidden: {},
-};
-
-const variant2 = {
-  visible: { opacity: 1 },
-  hidden: { opacity: 0 },
-};
+import Layout from "components/layout-home";
 
 export default function Portfolio({ projects }: { projects: ProjectProps[] }) {
   const { width } = useWindowSize();
@@ -35,24 +24,19 @@ export default function Portfolio({ projects }: { projects: ProjectProps[] }) {
   if (!width) return null;
 
   return (
-    <motion.div
-      variants={variants}
-      initial="hidden"
-      animate="visible"
-      exit="hidden"
-    >
-      <ProjectIntro projects={projects} />
-      <motion.div variants={variant2} transition={{ duration: 0.6 }}>
+    <>
+      <Preview projects={projects} />
+      <Layout>
         <MainHead />
         <div className="h-screen">
           <Intro />
         </div>
-        <Preview projects={projects} />
-        <List data={projects} />
+
+        <List projects={projects} />
         <Biography />
         <Footer />
-      </motion.div>
-    </motion.div>
+      </Layout>
+    </>
   );
 }
 
