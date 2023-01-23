@@ -2,8 +2,8 @@ import Image from "next/image";
 import { FC } from "react";
 import { ProjectProps } from "types";
 import MuxVideo from "@mux/mux-video-react";
-import { useGlobal } from "./global-provider";
 import { motion } from "framer-motion";
+import { useWindowSize } from "hooks/useWindowSize";
 
 interface ItemProps {
   projects: ProjectProps[];
@@ -11,11 +11,20 @@ interface ItemProps {
 }
 
 export const Preview: FC<ItemProps> = ({ projects, activePreview }) => {
-  console.log(activePreview);
+  const { width } = useWindowSize();
+
   return (
     <motion.div
-      initial={{ opacity: 0, x: 1200, y: "50%" }}
-      animate={{ opacity: 1, x: activePreview ? 0 : 1200, y: "50%" }}
+      initial={{
+        opacity: 0,
+        x: width && width > 768 ? 1200 : 300,
+        y: width && width > 768 ? "50%" : 0,
+      }}
+      animate={{
+        opacity: 1,
+        x: activePreview ? 0 : width && width > 768 ? 1200 : 300,
+        y: width && width > 768 ? "50%" : 0,
+      }}
       className="fixed bottom-2 right-2 md:bottom-1/2 md:right-[8vw] w-40 h-64 md:w-[40vw] md:h-[60vh] z-[400] rounded-2xl overflow-hidden"
       style={{ backgroundColor: activePreview?.backgroundColor?.hex || "#fff" }}
     >

@@ -28,10 +28,7 @@ export default function Portfolio({ projects }: { projects: ProjectProps[] }) {
       <Preview projects={projects} activePreview={activePreview} />
       <Layout>
         <MainHead />
-        <div className="h-screen">
-          <Intro />
-        </div>
-
+        <Intro />
         <List projects={projects} />
         <Biography />
         <Footer />
