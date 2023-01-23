@@ -15,7 +15,7 @@ import Layout from "components/layout-home";
 
 export default function Portfolio({ projects }: { projects: ProjectProps[] }) {
   const { width } = useWindowSize();
-  const { setActivePreview } = useGlobal();
+  const { activePreview, setActivePreview } = useGlobal();
 
   useEffect(() => {
     setActivePreview(null);
@@ -25,7 +25,7 @@ export default function Portfolio({ projects }: { projects: ProjectProps[] }) {
 
   return (
     <>
-      <Preview projects={projects} />
+      <Preview projects={projects} activePreview={activePreview} />
       <Layout>
         <MainHead />
         <div className="h-screen">

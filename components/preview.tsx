@@ -7,16 +7,16 @@ import { motion } from "framer-motion";
 
 interface ItemProps {
   projects: ProjectProps[];
+  activePreview: ProjectProps | null;
 }
 
-export const Preview: FC<ItemProps> = ({ projects }) => {
-  const { activePreview } = useGlobal();
-
+export const Preview: FC<ItemProps> = ({ projects, activePreview }) => {
+  console.log(activePreview);
   return (
     <motion.div
       initial={{ opacity: 0, x: 1200, y: "50%" }}
       animate={{ opacity: 1, x: activePreview ? 0 : 1200, y: "50%" }}
-      className="fixed bottom-2 right-2 md:bottom-1/2 md:right-[8vw] w-40 h-64 md:w-[40vw] md:h-[60vh] z-30 rounded-2xl overflow-hidden"
+      className="fixed bottom-2 right-2 md:bottom-1/2 md:right-[8vw] w-40 h-64 md:w-[40vw] md:h-[60vh] z-[400] rounded-2xl overflow-hidden"
       style={{ backgroundColor: activePreview?.backgroundColor?.hex || "#fff" }}
     >
       {projects.map((project) => (

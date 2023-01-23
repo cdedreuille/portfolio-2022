@@ -7,14 +7,14 @@ import { useRouter } from "next/router";
 interface ItemProps {
   project: ProjectProps;
   setIsMenuOpen: (value: boolean) => void;
+  setActivePreview: (value: ProjectProps | null) => void;
 }
 
-export const Item: FC<ItemProps> = ({ project }) => {
+export const Item: FC<ItemProps> = ({ project, setActivePreview }) => {
   const { setActiveProject } = useGlobal();
   const router = useRouter();
 
   const onClick = () => {
-    console.log("clicked", project.name);
     setActiveProject(project);
     router.push(`/${project.slug}`, undefined, { scroll: false });
   };
@@ -22,7 +22,7 @@ export const Item: FC<ItemProps> = ({ project }) => {
   return (
     <motion.div
       onClick={onClick}
-      className="group block h-20 sm:h-28 relative overflow-hidden sm:mx-12 mb-2 rounded-lg"
+      className="group block h-20 sm:h-20 relative overflow-hidden sm:mx-12 rounded-lg"
       initial={{ backgroundColor: "#F4F6FA" }}
       whileHover={{
         backgroundColor: "#EBEEF3",
@@ -31,6 +31,8 @@ export const Item: FC<ItemProps> = ({ project }) => {
           ease: "linear",
         },
       }}
+      onHoverStart={() => setActivePreview(project)}
+      onHoverEnd={() => setActivePreview(null)}
     >
       <div className="relative z-10 flex items-center gap-8 py-2 px-6 sm:px-8 h-full">
         <div className="text-md w-[220px] text-black hidden sm:flex font-mono uppercase text-sm sm:text-md h-full items-center relative">

@@ -104,7 +104,7 @@ const Layout: FC<Props> = ({ children, project }) => {
         initial="hidden"
         animate="visible"
         transition={{ duration, ease: "easeInOut", delay: 2 }}
-        className="fixed z-10 h-screen top-0 left-0 bottom-0 overflow-hidden"
+        className="fixed z-50 h-screen top-0 left-0 bottom-0 overflow-hidden"
         style={{
           backgroundColor: activeProject?.backgroundColor?.hex || "#000",
         }}
@@ -113,7 +113,7 @@ const Layout: FC<Props> = ({ children, project }) => {
           variants={textWrapper}
           initial="hidden"
           animate="visible"
-          className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center sm:justify-center font-serif uppercase text-titleSmSm mb-16 md:mb-24"
+          className="absolute z-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center sm:justify-center font-serif uppercase text-titleSmSm mb-16 md:mb-24"
           style={{ fontFeatureSettings: '"dlig" 1,"kern" 1' }}
         >
           {letters().map((item, index) => (
@@ -135,7 +135,7 @@ const Layout: FC<Props> = ({ children, project }) => {
         animate="visible"
         exit="hidden"
         transition={{ duration, ease: "easeInOut" }}
-        className="fixed z-10 h-screen top-0 right-0 bottom-0"
+        className="fixed z-50 h-screen top-0 right-0 bottom-0"
         style={{
           backgroundColor: activeProject?.backgroundColor?.hex || "#000",
         }}
