@@ -12,6 +12,7 @@ import { Section } from "components/section";
 import { Menu } from "components/menu";
 import Layout from "components/layout-project";
 import { useWindowSize } from "hooks/useWindowSize";
+import { Video } from "components/video";
 
 interface Props {
   project: ProjectProps;
@@ -144,6 +145,13 @@ const Project: FC<Props> = ({ project }) => {
                           height={content.image?.height}
                           alt={content.title || ""}
                         />
+                      </div>
+                    </Section>
+                  )}
+                  {content._type === "videoBlock" && (
+                    <Section content={content}>
+                      <div className="rounded-xl overflow-hidden">
+                        {content.video && <Video asset={content.video} />}
                       </div>
                     </Section>
                   )}

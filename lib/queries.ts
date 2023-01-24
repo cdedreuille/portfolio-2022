@@ -35,21 +35,13 @@ export const projectQuery = `{
   },
   "content": content[]{
     ...,
-    _type == 'image' => {
-      _key,
-      "type": 'image',
-      "url": @.asset->url,
-      "width": @.asset->metadata.dimensions.width,
-      "height": @.asset->metadata.dimensions.height
-    },
     _type == 'imageBlock' => {
       _key,
       image ${imageQuery}
     },
-    _type == 'mux.video' => {
+    _type == 'videoBlock' => {
       _key,
-      "type": 'mux',
-      "playbackId": @.asset->playbackId
+      video ${videoQuery}
     },
   }
 }`;
