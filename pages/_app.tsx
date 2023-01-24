@@ -1,9 +1,10 @@
 import { IBM_Plex_Mono } from "@next/font/google";
 import localFont from "@next/font/local";
 import { Cursor } from "components/cursor";
-import { GlobalProvider, useGlobal } from "components/global-provider";
+import { GlobalProvider } from "components/global-provider";
 import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
+import { Analytics } from "@vercel/analytics/react";
 import "../styles/globals.css";
 
 const ibmPlexMono = IBM_Plex_Mono({
@@ -68,6 +69,7 @@ const AppWithProviders = ({
   return (
     <AnimatePresence mode="wait" onExitComplete={exit} initial={false}>
       <Component {...pageProps} key={router.asPath} />
+      <Analytics />
     </AnimatePresence>
   );
 };
