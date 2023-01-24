@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  background-color: #f5f7fb;
+  color: #000;
+  cursor: none;
+}
+
+a {
+  cursor: none;
+}

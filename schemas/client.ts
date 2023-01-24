@@ -1,16 +1,51 @@
-import { UserIcon } from "@sanity/icons";
-import { defineType } from "sanity";
+import { FiUser } from "react-icons/fi";
+import { defineField, defineType } from "sanity";
 
 export default defineType({
   name: "client",
   title: "Clients",
   type: "document",
+  icon: FiUser,
   fields: [
-    {
+    defineField({
       type: "string",
       name: "name",
       title: "Client name",
-    },
+    }),
+    defineField({
+      type: "image",
+      name: "logo",
+      title: "Client logo",
+    }),
+    defineField({
+      type: "image",
+      name: "logoList",
+      title: "Client logo List",
+    }),
+    defineField({
+      type: "number",
+      name: "logoWidth",
+      title: "Logo Width",
+      initialValue: 120,
+    }),
+    defineField({
+      type: "number",
+      name: "logoHeight",
+      title: "Logo Height",
+      initialValue: 40,
+    }),
+    defineField({
+      type: "number",
+      name: "logoWidthList",
+      title: "Logo Width List",
+      initialValue: 120,
+    }),
+    defineField({
+      type: "number",
+      name: "logoHeightList",
+      title: "Logo Height List",
+      initialValue: 40,
+    }),
   ],
   preview: {
     select: {
@@ -19,7 +54,6 @@ export default defineType({
     prepare({ name }) {
       return {
         title: name,
-        media: UserIcon,
       };
     },
   },

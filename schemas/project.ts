@@ -1,10 +1,12 @@
-import { DocumentIcon, DocumentVideoIcon } from "@sanity/icons";
+import { DocumentVideoIcon } from "@sanity/icons";
+import { FiLayout } from "react-icons/fi";
 import { defineType } from "sanity";
 
 export default defineType({
   name: "project",
   title: "Projects",
   type: "document",
+  icon: FiLayout,
   fields: [
     {
       type: "string",
@@ -28,7 +30,7 @@ export default defineType({
     {
       type: "string",
       name: "type",
-      title: "Project Type",
+      title: "Project Type (DEPRECATED)",
       options: {
         list: [
           { title: "Product", value: "product" },
@@ -41,6 +43,13 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "tags",
+      title: "Tags",
+      type: "array",
+      of: [{ type: "reference", to: [{ type: "tag" }] }],
+      validation: (Rule) => Rule.required(),
+    },
+    {
       type: "date",
       name: "published_at",
       title: "Published Date",
@@ -50,9 +59,236 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "preview",
+      title: "Preview",
+      type: "document",
+      fields: [
+        {
+          type: "string",
+          name: "type",
+          title: "Type",
+          initialValue: "image",
+          options: {
+            list: [
+              { title: "Image", value: "image" },
+              { title: "Video", value: "video" },
+            ],
+          },
+        },
+        {
+          type: "image",
+          name: "image",
+          title: "Image",
+          hidden: ({ parent }) => parent?.type !== "image",
+        },
+        {
+          type: "mux.video",
+          name: "video",
+          title: "Video",
+          hidden: ({ parent }) => parent?.type !== "video",
+        },
+      ],
+    },
+    {
+      name: "cover",
+      title: "Cover",
+      type: "document",
+      fields: [
+        {
+          type: "string",
+          name: "type",
+          title: "Type",
+          initialValue: "image",
+          options: {
+            list: [
+              { title: "Image", value: "image" },
+              { title: "Video", value: "video" },
+            ],
+          },
+        },
+        {
+          type: "image",
+          name: "image",
+          title: "Image",
+          hidden: ({ parent }) => parent?.type !== "image",
+        },
+        {
+          type: "mux.video",
+          name: "video",
+          title: "Video",
+          hidden: ({ parent }) => parent?.type !== "video",
+        },
+      ],
+    },
+    {
+      type: "array",
+      name: "content",
+      title: "Content",
+      of: [
+        {
+          type: "document",
+          name: "imageBlock",
+          title: "Image",
+          fields: [
+            {
+              type: "image",
+              name: "image",
+              title: "Image",
+            },
+            {
+              type: "string",
+              name: "caption",
+              title: "Caption",
+            },
+            {
+              type: "number",
+              name: "start",
+              title: "Start",
+              initialValue: 1,
+            },
+            {
+              type: "number",
+              name: "width",
+              title: "Width",
+              initialValue: 12,
+            },
+          ],
+          preview: {
+            select: {
+              start: "start",
+              width: "width",
+              caption: "caption",
+            },
+            prepare({ start, width, caption }) {
+              return {
+                title: caption || "Image",
+                subtitle: `Start: ${start}, Width: ${width}`,
+              };
+            },
+          },
+        },
+        {
+          type: "document",
+          name: "videoBlock",
+          title: "Video",
+          fields: [
+            {
+              type: "mux.video",
+              name: "video",
+              title: "Video",
+            },
+            {
+              type: "string",
+              name: "caption",
+              title: "Caption",
+            },
+            {
+              type: "number",
+              name: "start",
+              title: "Start",
+              initialValue: 1,
+            },
+            {
+              type: "number",
+              name: "width",
+              title: "Width",
+              initialValue: 12,
+            },
+          ],
+          preview: {
+            select: {
+              start: "start",
+              width: "width",
+              caption: "caption",
+            },
+            prepare({ start, width, caption }) {
+              return {
+                title: caption || "Video",
+                subtitle: `Start: ${start}, Width: ${width}`,
+              };
+            },
+          },
+        },
+        {
+          type: "document",
+          name: "titleBlock",
+          title: "Title",
+          fields: [
+            {
+              type: "string",
+              name: "text",
+              title: "Text",
+            },
+            {
+              type: "number",
+              name: "start",
+              title: "Start",
+              initialValue: 1,
+            },
+            {
+              type: "number",
+              name: "width",
+              title: "Width",
+              initialValue: 12,
+            },
+          ],
+          preview: {
+            select: {
+              text: "text",
+              start: "start",
+              width: "width",
+            },
+            prepare({ text, start, width }) {
+              return {
+                title: text,
+                subtitle: `Start: ${start}, Width: ${width}`,
+              };
+            },
+          },
+        },
+        {
+          type: "document",
+          name: "paragraphBlock",
+          title: "Paragraph",
+          fields: [
+            {
+              type: "array",
+              name: "text",
+              title: "Text",
+              of: [{ type: "block" }],
+            },
+            {
+              type: "number",
+              name: "start",
+              title: "Start",
+              initialValue: 1,
+            },
+            {
+              type: "number",
+              name: "width",
+              title: "Width",
+              initialValue: 12,
+            },
+          ],
+          preview: {
+            select: {
+              start: "start",
+              width: "width",
+            },
+            prepare({ start, width }) {
+              return {
+                title: "Paragraph",
+                subtitle: `Start: ${start}, Width: ${width}`,
+              };
+            },
+          },
+        },
+      ],
+    },
+    {
       type: "array",
       name: "blocks",
-      title: "blocks",
+      title: "Blocks (DEPRECATED)",
       of: [
         {
           type: "document",
@@ -103,6 +339,21 @@ export default defineType({
       name: "description",
       title: "Description",
     },
+    {
+      type: "color",
+      name: "backgroundColor",
+      title: "Background Color",
+    },
+    {
+      type: "color",
+      name: "primaryColor",
+      title: "Primary Color",
+    },
+    {
+      type: "color",
+      name: "secondaryColor",
+      title: "Secondary Color",
+    },
   ],
   preview: {
     select: {
@@ -113,7 +364,6 @@ export default defineType({
       return {
         title: name,
         subtitle: client,
-        media: DocumentIcon,
       };
     },
   },
