@@ -85,6 +85,9 @@ const Project: FC<Props> = ({ project }) => {
                       style={{ objectFit: "cover" }}
                     />
                   )}
+                {project.cover?.type === "video" && project.cover?.video && (
+                  <Video asset={project.cover.video} />
+                )}
               </div>
               <div className="flex py-12 w-full justify-between items-center">
                 <div
