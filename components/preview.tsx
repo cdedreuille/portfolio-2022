@@ -13,19 +13,20 @@ interface ItemProps {
 export const Preview: FC<ItemProps> = ({ projects, activePreview }) => {
   const { width } = useWindowSize();
 
+  if (!width) return null;
+
   return (
     <motion.div
       initial={{
-        opacity: 0,
-        x: width && width > 768 ? 1200 : 300,
-        y: width && width > 768 ? "50%" : 0,
+        x: width < 768 ? 300 : 1200,
+        y: width < 768 ? 0 : "50%",
       }}
       animate={{
-        opacity: 1,
-        x: activePreview ? 0 : width && width > 768 ? 1200 : 300,
-        y: width && width > 768 ? "50%" : 0,
+        x: activePreview ? 0 : width > 768 ? 1200 : 300,
+        y: width > 768 ? "50%" : 0,
       }}
-      className="fixed bottom-2 right-2 md:bottom-1/2 md:right-[8vw] w-40 h-64 md:w-[40vw] md:h-[60vh] z-[400] rounded-2xl overflow-hidden"
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="fixed bottom-2 md:bottom-1/2 md:translate-y-1/2 translate-x[300px] md:translate-x-[1200px] md:right-[8vw] w-40 h-64 md:w-[40vw] md:h-[60vh] z-[400] rounded-2xl overflow-hidden"
       style={{ backgroundColor: activePreview?.backgroundColor?.hex || "#fff" }}
     >
       {projects.map((project) => (

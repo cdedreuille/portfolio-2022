@@ -8,6 +8,7 @@ import projectList from "./schemas/projectList";
 import tag from "./schemas/tag";
 import { colorInput } from "@sanity/color-input";
 import { FiLayout, FiTag, FiUsers } from "react-icons/fi";
+import { media } from "sanity-plugin-media";
 
 export default defineConfig({
   basePath: "/studio",
@@ -47,5 +48,6 @@ export default defineConfig({
     visionTool(),
     muxInput({ mp4_support: "standard" }),
     colorInput(),
+    media(),
   ],
 });
