@@ -155,14 +155,14 @@ export default defineType({
           ],
           preview: {
             select: {
-              image: "image",
+              start: "start",
+              width: "width",
               caption: "caption",
             },
-            prepare(selection) {
-              const { image, caption } = selection;
+            prepare({ start, width, caption }) {
               return {
                 title: caption || "Image",
-                media: image,
+                subtitle: `Start: ${start}, Width: ${width}`,
               };
             },
           },
@@ -197,14 +197,14 @@ export default defineType({
           ],
           preview: {
             select: {
-              video: "video",
+              start: "start",
+              width: "width",
               caption: "caption",
             },
-            prepare(selection) {
-              const { video, caption } = selection;
+            prepare({ start, width, caption }) {
               return {
                 title: caption || "Video",
-                media: video,
+                subtitle: `Start: ${start}, Width: ${width}`,
               };
             },
           },

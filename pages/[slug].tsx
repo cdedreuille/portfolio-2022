@@ -132,7 +132,7 @@ const Project: FC<Props> = ({ project }) => {
                 )}
               </div>
             </div>
-            <div className="flex flex-col gap-20 max-w-[1600px] mx-4 md:mx-12">
+            <div className="flex flex-col gap-20 mx-4 md:mx-12">
               {project.content?.map((content) => (
                 <div key={content._key} className="grid grid-cols-12">
                   {content._type === "imageBlock" && (
