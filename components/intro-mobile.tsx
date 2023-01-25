@@ -5,7 +5,7 @@ import { Button } from "./button";
 import { IconInstagram } from "./icon-instagram";
 import { IconLinkedin } from "./icon-linkedin";
 import { Line } from "./line";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { IconTwitter } from "./icon-twitter";
 
 const container = {
@@ -32,40 +32,42 @@ const item = {
 
 export const IntroMobile: FC = () => {
   return (
-    <>
-      <div className="mb-12 mx-6 pt-16">
-        <div className="mb-6">
-          <AnimatedName />
-        </div>
-        <motion.div
-          variants={container}
-          initial="hidden"
-          animate="show"
-          className="relative z-10 flex flex-col font-serif text-lg mb-16 gap-2"
-        >
-          <div className="overflow-hidden max-w-sm">
-            <motion.div variants={item}>
-              Designer & Creative Technologist. Maker of Useful and Delightful
-              Interfaces. Forever Curious.
-            </motion.div>
+    <AnimatePresence>
+      <>
+        <div className="mb-12 mx-6 pt-16">
+          <div className="mb-6">
+            <AnimatedName />
           </div>
-        </motion.div>
-        <div className="flex gap-4">
-          <Button href={linkMail}>Mail</Button>
-          <Button href={linkTwitter} isCircle>
-            <IconTwitter />
-          </Button>
-          <Button href={linkLinkedIn} isCircle>
-            <IconLinkedin />
-          </Button>
-          <Button href={linkTwitter} isCircle>
-            <IconInstagram />
-          </Button>
+          <motion.div
+            variants={container}
+            initial="hidden"
+            animate="show"
+            className="relative z-10 flex flex-col font-serif text-lg mb-16 gap-2"
+          >
+            <div className="overflow-hidden max-w-sm">
+              <motion.div variants={item}>
+                Designer & Creative Technologist. Maker of Useful and Delightful
+                Interfaces. Forever Curious.
+              </motion.div>
+            </div>
+          </motion.div>
+          <div className="flex gap-4">
+            <Button href={linkMail}>Mail</Button>
+            <Button href={linkTwitter} isCircle>
+              <IconTwitter />
+            </Button>
+            <Button href={linkLinkedIn} isCircle>
+              <IconLinkedin />
+            </Button>
+            <Button href={linkTwitter} isCircle>
+              <IconInstagram />
+            </Button>
+          </div>
         </div>
-      </div>
-      <div className="mb-12">
-        <Line />
-      </div>
-    </>
+        <div className="mb-12">
+          <Line />
+        </div>
+      </>
+    </AnimatePresence>
   );
 };
