@@ -74,7 +74,7 @@ const Project: FC<Props> = ({ project }) => {
               color: project.primaryColor?.hex,
             }}
           >
-            <div className="flex flex-col w-screen h-screen px-4 md:px-12 pt-4 md:pt-12 mb-12 md:mb-24">
+            <div className="flex flex-col w-screen h-[520px] md:h-screen px-4 md:px-12 pt-4 md:pt-12 mb-12 md:mb-24">
               <div className="flex-1 relative rounded-xl overflow-hidden">
                 {project.cover?.type === "image" &&
                   project.cover?.image?.url && (
