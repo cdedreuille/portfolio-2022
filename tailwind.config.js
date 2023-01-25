@@ -18,6 +18,7 @@ module.exports = {
       "2xl": ["32px", "52px"],
       "3xl": ["48px", "56px"],
       titleXxs: ["24px", "38px"],
+      titleStuff: ["28px", "42px"],
       titleXs: ["32px", "38px"],
       titleXsPlus: ["40px", "56px"],
       titleSmSm: ["64px", "80px"],

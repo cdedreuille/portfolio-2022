@@ -26,7 +26,7 @@ const wrapper = {
 const components: PortableTextComponents = {
   block: {
     normal: ({ children }) => (
-      <div className="text-lg md:text-[30px]">{children}</div>
+      <div className="text-lg md:text-titleStuff">{children}</div>
     ),
   },
 };
@@ -161,7 +161,7 @@ const Project: FC<Props> = ({ project }) => {
                   {content._type === "titleBlock" && (
                     <Section content={content}>
                       <div
-                        className="inline-flex text-lg md:text-[30px] border-b pb-2"
+                        className="inline-flex text-lg md:text-titleStuff border-b pb-2"
                         style={{ borderColor: project.primaryColor?.hex }}
                       >
                         {content.text}
@@ -170,12 +170,14 @@ const Project: FC<Props> = ({ project }) => {
                   )}
                   {content._type === "paragraphBlock" && (
                     <Section content={content}>
-                      {content.text && (
-                        <PortableText
-                          value={content.text}
-                          components={components}
-                        />
-                      )}
+                      <div className="flex flex-col gap-8">
+                        {content.text && (
+                          <PortableText
+                            value={content.text}
+                            components={components}
+                          />
+                        )}
+                      </div>
                     </Section>
                   )}
                 </div>
