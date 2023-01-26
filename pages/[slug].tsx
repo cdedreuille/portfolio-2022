@@ -94,6 +94,7 @@ const Project: FC<Props> = ({ project }) => {
                     autoPlay
                     loop
                     controls={false}
+                    playsInline
                     style={{
                       width: "100%",
                       height: "100%",
