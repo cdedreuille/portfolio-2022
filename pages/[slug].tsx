@@ -89,7 +89,6 @@ const Project: FC<Props> = ({ project }) => {
                 {project.cover?.type === "video" && project.cover?.video && (
                   <MuxVideo
                     playbackId={project.cover.video.playbackId}
-                    streamType="on-demand"
                     muted
                     autoPlay
                     loop
