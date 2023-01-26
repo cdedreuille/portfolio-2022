@@ -1,4 +1,3 @@
-import { DocumentVideoIcon } from "@sanity/icons";
 import { FiLayout } from "react-icons/fi";
 import { defineType } from "sanity";
 
@@ -25,21 +24,6 @@ export default defineType({
       name: "client",
       title: "Reference to client",
       to: [{ type: "client" }],
-      validation: (Rule) => Rule.required(),
-    },
-    {
-      type: "string",
-      name: "type",
-      title: "Project Type (DEPRECATED)",
-      options: {
-        list: [
-          { title: "Product", value: "product" },
-          { title: "Branding", value: "branding" },
-          { title: "Marketing", value: "marketing" },
-          { title: "Experiment", value: "experiment" },
-          { title: "Production", value: "production" },
-        ],
-      },
       validation: (Rule) => Rule.required(),
     },
     {
@@ -284,60 +268,6 @@ export default defineType({
           },
         },
       ],
-    },
-    {
-      type: "array",
-      name: "blocks",
-      title: "Blocks (DEPRECATED)",
-      of: [
-        {
-          type: "document",
-          name: "asset",
-          title: "Asset",
-          fields: [
-            {
-              type: "array",
-              name: "assets",
-              title: "Assets",
-              of: [{ type: "image" }, { type: "mux.video" }],
-            },
-          ],
-          preview: {
-            select: {
-              assets: "assets",
-            },
-            prepare(selection) {
-              const { assets } = selection;
-              const first = assets[0];
-
-              const newTitle = () => {
-                if (assets.length === 1 && first._type === "mux.video")
-                  return "Single Video";
-                if (assets.length === 1 && first._type === "image")
-                  return "Single Image";
-                if (assets.length === 2) return "Two Media";
-                if (assets.length === 3) return "Three Media";
-                return `${assets.length} Assets`;
-              };
-
-              return {
-                title: newTitle(),
-                media:
-                  assets && assets.length > 0
-                    ? first._type === "image"
-                      ? assets[0]
-                      : DocumentVideoIcon
-                    : null,
-              };
-            },
-          },
-        },
-      ],
-    },
-    {
-      type: "string",
-      name: "description",
-      title: "Description",
     },
     {
       type: "color",
