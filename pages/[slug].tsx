@@ -13,6 +13,7 @@ import { Menu } from "components/menu";
 import Layout from "components/layout-project";
 import { useWindowSize } from "hooks/useWindowSize";
 import { Video } from "components/video";
+import MuxVideo from "@mux/mux-video-react";
 
 interface Props {
   project: ProjectProps;
@@ -86,7 +87,19 @@ const Project: FC<Props> = ({ project }) => {
                     />
                   )}
                 {project.cover?.type === "video" && project.cover?.video && (
-                  <Video asset={project.cover.video} />
+                  <MuxVideo
+                    playbackId={project.cover.video.playbackId}
+                    streamType="on-demand"
+                    muted
+                    autoPlay
+                    loop
+                    controls={false}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
                 )}
               </div>
               <div className="flex py-12 w-full justify-between items-center">
@@ -213,13 +226,9 @@ export async function getStaticProps(context: { params: { slug: any } }) {
 export async function getStaticPaths() {
   async function getData() {
     const projects = await getClient().fetch(
-      groq`*[_type == "projectList" && _id == "projectList"][0]{
-        ...,
-        projects[]->{
-          ...,
-          "slug": slug.current
-        }
-      }.projects`
+      groq`*[_type == "project"]{
+        "slug": slug.current
+      }`
     );
     return projects;
   }
