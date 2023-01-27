@@ -47,6 +47,7 @@ export interface VideoBlockProps {
   video?: VideoProps;
   start?: number;
   width?: number;
+  controls?: boolean;
 }
 
 export interface TitleBlockProps {

@@ -178,6 +178,12 @@ export default defineType({
               title: "Width",
               initialValue: 12,
             },
+            {
+              type: "boolean",
+              name: "controls",
+              title: "Controls",
+              initialValue: false,
+            },
           ],
           preview: {
             select: {

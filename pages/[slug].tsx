@@ -152,6 +152,7 @@ const Project: FC<Props> = ({ project }) => {
             <div className="flex flex-col gap-20 mx-4 md:mx-12">
               {project.content?.map((content) => (
                 <div key={content._key} className="grid grid-cols-12">
+                  {/* Image Block */}
                   {content._type === "imageBlock" && (
                     <Section content={content}>
                       <div className="rounded-xl overflow-hidden">
@@ -164,13 +165,37 @@ const Project: FC<Props> = ({ project }) => {
                       </div>
                     </Section>
                   )}
+
+                  {/* Video Block */}
                   {content._type === "videoBlock" && (
                     <Section content={content}>
-                      <div className="rounded-xl overflow-hidden">
-                        {content.video && <Video asset={content.video} />}
+                      <div
+                        className="rounded-xl overflow-hidden"
+                        style={{
+                          backgroundColor: project.backgroundColor?.hex,
+                        }}
+                      >
+                        {content.video && (
+                          <MuxVideo
+                            playbackId={content.video.playbackId}
+                            muted
+                            autoPlay
+                            loop
+                            controls={content.controls || false}
+                            playsInline
+                            style={{
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "cover",
+                              backgroundColor: project.backgroundColor?.hex,
+                            }}
+                          />
+                        )}
                       </div>
                     </Section>
                   )}
+
+                  {/* Title Block */}
                   {content._type === "titleBlock" && (
                     <Section content={content}>
                       <div
@@ -181,6 +206,8 @@ const Project: FC<Props> = ({ project }) => {
                       </div>
                     </Section>
                   )}
+
+                  {/* Paragraph Block */}
                   {content._type === "paragraphBlock" && (
                     <Section content={content}>
                       <div className="flex flex-col gap-8">
