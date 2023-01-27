@@ -1,5 +1,5 @@
 import { FiLayout } from "react-icons/fi";
-import { defineType } from "sanity";
+import { defineField, defineType } from "sanity";
 
 export default defineType({
   name: "project",
@@ -284,6 +284,23 @@ export default defineType({
       name: "secondaryColor",
       title: "Secondary Color",
     },
+    defineField({
+      type: "image",
+      name: "logo",
+      title: "Client logo",
+    }),
+    defineField({
+      type: "number",
+      name: "logoWidth",
+      title: "Logo Width",
+      initialValue: 120,
+    }),
+    defineField({
+      type: "number",
+      name: "logoHeight",
+      title: "Logo Height",
+      initialValue: 40,
+    }),
   ],
   preview: {
     select: {

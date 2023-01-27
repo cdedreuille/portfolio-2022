@@ -4,7 +4,6 @@ export interface ProjectProps {
   _id: string;
   name: string;
   client: ClientProps;
-  type: string;
   published_at: string;
   content?: (
     | ImageBlockProps
@@ -12,7 +11,6 @@ export interface ProjectProps {
     | TitleBlockProps
     | ParagraphBlockProps
   )[];
-  description?: string;
   slug: string;
   tags?: TagProps[];
   backgroundColor?: ColorProps;
@@ -28,6 +26,9 @@ export interface ProjectProps {
     image?: ImageProps;
     video?: VideoProps;
   };
+  logo?: ImageProps;
+  logoWidth?: number;
+  logoHeight?: number;
 }
 
 export interface ImageBlockProps {
@@ -85,9 +86,6 @@ export interface VideoProps {
 export interface ClientProps {
   _id: string;
   name: string;
-  logo?: ImageProps;
-  logoList?: ImageProps;
-  logoWidth?: number;
   logoHeight?: number;
   logoWidthList?: number;
   logoHeightList?: number;

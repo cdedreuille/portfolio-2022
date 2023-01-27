@@ -43,5 +43,6 @@ export const projectQuery = `{
       _key,
       video ${videoQuery}
     },
-  }
+  },
+  logo ${imageQuery},
 }`;

@@ -106,13 +106,13 @@ const Project: FC<Props> = ({ project }) => {
                 <div
                   className="relative mr-24"
                   style={{
-                    width: project.client.logoWidth || 120,
-                    height: project.client.logoHeight || 40,
+                    width: project.logoWidth || 120,
+                    height: project.logoHeight || 40,
                   }}
                 >
-                  {project.client?.logo?.url && (
+                  {project.logo?.url && (
                     <Image
-                      src={project.client?.logo?.url}
+                      src={project.logo.url}
                       fill
                       alt={project.client.name}
                       style={{ objectFit: "contain", objectPosition: "left" }}
