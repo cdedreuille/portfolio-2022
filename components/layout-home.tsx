@@ -26,7 +26,7 @@ const flow = {
   hidden: { x: -100 },
 };
 
-const duration = 0.8;
+const duration = 0.6;
 
 const Layout: FC<Props> = ({ children }) => {
   const { activeProject } = useGlobal();

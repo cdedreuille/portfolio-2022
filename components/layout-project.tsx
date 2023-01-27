@@ -90,7 +90,7 @@ const Layout: FC<Props> = ({ children, project }) => {
     return letters || ["P", "Ro", "J", "E", "C", "T"];
   };
 
-  const duration = 1;
+  const duration = 0.6;
 
   return (
     <motion.div
