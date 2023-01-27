@@ -87,7 +87,7 @@ export interface VideoProps {
 export interface ClientProps {
   _id: string;
   name: string;
-  logoHeight?: number;
+  logoList?: ImageProps;
   logoWidthList?: number;
   logoHeightList?: number;
 }
