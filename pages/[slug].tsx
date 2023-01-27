@@ -12,8 +12,9 @@ import { Section } from "components/section";
 import { Menu } from "components/menu";
 import Layout from "components/layout-project";
 import { useWindowSize } from "hooks/useWindowSize";
-import { Video } from "components/video";
 import MuxVideo from "@mux/mux-video-react";
+import { MainHead } from "components/head";
+import Head from "next/head";
 
 interface Props {
   project: ProjectProps;
@@ -42,6 +43,12 @@ const Project: FC<Props> = ({ project }) => {
 
   return (
     <Layout project={project}>
+      <MainHead />
+      <Head>
+        <title>
+          {project.client.name} - {project.name}
+        </title>
+      </Head>
       <div
         className={classNames("min-h-screen w-full pb-48", {
           "bg-cream": !project.backgroundColor,
