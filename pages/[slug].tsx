@@ -46,7 +46,7 @@ const Project: FC<Props> = ({ project }) => {
       <MainHead />
       <Head>
         <title>
-          {project.client.name} - {project.name} - Test
+          {project.client.name} - {project.name}
         </title>
       </Head>
       <div
