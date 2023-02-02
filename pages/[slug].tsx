@@ -43,10 +43,10 @@ const Project: FC<Props> = ({ project }) => {
 
   return (
     <Layout project={project}>
-      {/* <MainHead /> */}
+      <MainHead />
       <Head>
         <title>
-          {project.client.name} - {project.name}
+          {project.client.name} - {project.name} - Test
         </title>
       </Head>
       <div
