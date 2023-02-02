@@ -43,7 +43,7 @@ const Project: FC<Props> = ({ project }) => {
 
   return (
     <Layout project={project}>
-      <MainHead />
+      {/* <MainHead /> */}
       <Head>
         <title>
           {project.client.name} - {project.name}
