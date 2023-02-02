@@ -51,7 +51,6 @@ export const Preview: FC<ItemProps> = ({ projects, activePreview }) => {
               <MuxVideo
                 style={{ height: "100%", width: "100%", objectFit: "cover" }}
                 playbackId={project.preview.video.playbackId}
-                streamType="on-demand"
                 controls={false}
                 autoPlay
                 muted

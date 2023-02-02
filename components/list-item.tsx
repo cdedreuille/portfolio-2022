@@ -4,6 +4,7 @@ import { FC, useEffect, useRef } from "react";
 import { ProjectProps } from "types";
 import { useGlobal } from "./global-provider";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 interface ItemProps {
   project: ProjectProps;
@@ -46,11 +47,13 @@ export const Item: FC<ItemProps> = ({ project, color, isFirst, isLast }) => {
 
   const onClick = () => {
     setActiveProject(project);
-    router.push(`/${project.slug}`, undefined, { scroll: false });
+    console.log("click");
   };
 
   return (
-    <div
+    <Link
+      href={`/${project.slug}`}
+      scroll={false}
       onClick={onClick}
       className="group block h-20 sn:h-28 relative overflow-hidden sm:mx-12 mb-2 rounded-lg"
       ref={ref}
@@ -118,6 +121,6 @@ export const Item: FC<ItemProps> = ({ project, color, isFirst, isLast }) => {
         className="absolute w-full h-full top-0 left-0"
         style={{ backgroundColor: color }}
       />
-    </div>
+    </Link>
   );
 };
