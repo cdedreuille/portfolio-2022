@@ -45,7 +45,7 @@ export default defineType({
     {
       name: "preview",
       title: "Preview",
-      type: "document",
+      type: "object",
       fields: [
         {
           type: "string",
@@ -76,7 +76,7 @@ export default defineType({
     {
       name: "cover",
       title: "Cover",
-      type: "document",
+      type: "object",
       fields: [
         {
           type: "string",
@@ -110,7 +110,7 @@ export default defineType({
       title: "Content",
       of: [
         {
-          type: "document",
+          type: "object",
           name: "imageBlock",
           title: "Image",
           fields: [
@@ -152,7 +152,7 @@ export default defineType({
           },
         },
         {
-          type: "document",
+          type: "object",
           name: "videoBlock",
           title: "Video",
           fields: [
@@ -200,7 +200,7 @@ export default defineType({
           },
         },
         {
-          type: "document",
+          type: "object",
           name: "titleBlock",
           title: "Title",
           fields: [
@@ -237,7 +237,7 @@ export default defineType({
           },
         },
         {
-          type: "document",
+          type: "object",
           name: "paragraphBlock",
           title: "Paragraph",
           fields: [

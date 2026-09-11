@@ -41,7 +41,7 @@ const letter = {
   visible: {
     y: 0,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       damping: 18,
       stiffness: 100,
     },
@@ -49,7 +49,7 @@ const letter = {
   hidden: {
     y: 200,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       damping: 18,
       stiffness: 100,
     },

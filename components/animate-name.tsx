@@ -18,7 +18,7 @@ const AnimatedName: FC = () => {
     visible: {
       y: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         damping: 12,
         stiffness: 100,
       },

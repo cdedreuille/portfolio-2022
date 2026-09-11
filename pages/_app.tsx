@@ -1,5 +1,5 @@
-import { IBM_Plex_Mono } from "@next/font/google";
-import localFont from "@next/font/local";
+import { IBM_Plex_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { Cursor } from "components/cursor";
 import { GlobalProvider } from "components/global-provider";
 import { AnimatePresence } from "framer-motion";
