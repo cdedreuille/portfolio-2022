@@ -20,13 +20,13 @@ const variants = {
   },
   hidden: {
     opacity: 0,
-    transition: { duration: 0.6, ease: "easeInOut" },
+    transition: { duration: 0.6, ease: "easeInOut" as const },
   },
 };
 
 export const Item: FC<ItemProps> = ({ project, color, isFirst, isLast }) => {
   const { setActiveProject, setActivePreview, activePreview } = useGlobal();
-  const ref = useRef(null);
+  const ref = useRef<HTMLAnchorElement>(null);
   const router = useRouter();
   const { scrollYProgress } = useScroll({
     target: ref,

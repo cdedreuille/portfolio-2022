@@ -1,4 +1,6 @@
-import { deskTool } from "sanity/desk";
+"use client";
+
+import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
 import { muxInput } from "sanity-plugin-mux-input";
 import { defineConfig } from "sanity";
@@ -19,7 +21,7 @@ export default defineConfig({
     types: [project, client, projectList, tag],
   },
   plugins: [
-    deskTool({
+    structureTool({
       structure: (S) => {
         return S.list()
           .title("Content")
@@ -46,7 +48,7 @@ export default defineConfig({
       },
     }),
     visionTool(),
-    muxInput({ mp4_support: "standard" }),
+    muxInput({ static_renditions: ["highest"] }),
     colorInput(),
     media(),
   ],

@@ -6,7 +6,7 @@ import useMousePosition from "../hooks/useMousePosition";
 import { useWindowSize } from "../hooks/useWindowSize";
 
 export const Cursor = () => {
-  const positionRef = useRef(null);
+  const positionRef = useRef<HTMLDivElement>(null);
   const { x, y } = useMousePosition();
   const { width } = useWindowSize();
 

@@ -24,7 +24,7 @@ const AnimatedDescription: FC<Props> = ({ children }) => {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         // duration: 0.4,
         damping: 12,
         stiffness: 100,

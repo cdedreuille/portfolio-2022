@@ -16,7 +16,7 @@ const child = {
   visible: {
     y: 0,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       damping: 18,
       stiffness: 100,
     },
@@ -27,7 +27,7 @@ const child = {
 };
 
 const Footer: FC = () => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref);
   const letters = [
     "Le",

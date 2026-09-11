@@ -1,14 +1,14 @@
+import type { Metadata } from "next";
 import "./global.css";
 
-export default function RootLayout({
+export const metadata: Metadata = {
+  title: "Portfolio Studio",
+};
+
+export default function StudioLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html>
-      <head />
-      <body>{children}</body>
-    </html>
-  );
+  return children;
 }
