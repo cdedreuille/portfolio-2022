@@ -1,0 +1,1940 @@
+[
+  {
+    "_id": "dfddaa21-cedc-49f1-86af-2a5b93810775",
+    "name": "Collector App",
+    "slug": "docent",
+    "published_at": "2022-11-02",
+    "logoWidth": 120,
+    "logoHeight": 30,
+    "client": {
+      "_id": "a959676a-9dfe-4a84-807e-1a9dfd61ce44",
+      "name": "Docent",
+      "logoWidthList": 86,
+      "logoHeightList": 21,
+      "logoList": {
+        "url": "/images/clients/a959676a-9dfe-4a84-807e-1a9dfd61ce44.png",
+        "width": 1905,
+        "height": 485
+      }
+    },
+    "tags": [
+      {
+        "_id": "a088450a-f94f-48ca-b342-3b49665568a6",
+        "name": "Product Design",
+        "slug": "product-design"
+      },
+      {
+        "_id": "74e24f29-f698-4274-8c17-a57d0b5c669a",
+        "name": "Visual Design",
+        "slug": "visual-design"
+      },
+      {
+        "_id": "c6bb1742-924f-41e9-8e84-568a6e975dc9",
+        "name": "User Research",
+        "slug": "user-research"
+      }
+    ],
+    "backgroundColor": {
+      "hex": "#1e1e1e"
+    },
+    "primaryColor": {
+      "hex": "#ffffff"
+    },
+    "secondaryColor": {
+      "hex": "#808080"
+    },
+    "logo": {
+      "url": "/images/docent/logo.png",
+      "width": 345,
+      "height": 88
+    },
+    "preview": {
+      "type": "video",
+      "video": {
+        "src": "https://yyfpsncahaff6kzv.public.blob.vercel-storage.com/videos/hCrQK66d8Cc8HLxD700dFtrBR00MpiyOEnfytHjLqA7Sk.mp4"
+      }
+    },
+    "cover": {
+      "type": "video",
+      "video": {
+        "src": "https://yyfpsncahaff6kzv.public.blob.vercel-storage.com/videos/hCrQK66d8Cc8HLxD700dFtrBR00MpiyOEnfytHjLqA7Sk.mp4"
+      }
+    },
+    "content": [
+      {
+        "_key": "0b218ebf0d9a",
+        "_type": "titleBlock",
+        "start": 4,
+        "width": 10,
+        "text": "React Native App for Art Collectors"
+      },
+      {
+        "_key": "2efde9549ca3",
+        "_type": "paragraphBlock",
+        "start": 4,
+        "width": 8,
+        "text": [
+          {
+            "_key": "28b519e2e2cb",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "0ce638a30f590",
+                "_type": "span",
+                "marks": [],
+                "text": "Docent is a radical new platform for art collectors to engage with contemporary art. Their mission is to bring a passionate expertise and a breadth of knowledge from across the contemporary art ecosystem together with the visionary research of leading scientists and thinkers in the realm of machine learning."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "7084df381910",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "2f542a58346a",
+                "_type": "span",
+                "marks": [],
+                "text": "As a consultant, I was leading the product and design team as well as overseeing the product development. In the past 2 years working on this project I built the design system and all the new product experience. I also had the chance to code a significant part of the new structure we built on Expo."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ]
+      },
+      {
+        "_key": "722d6c2f27af",
+        "_type": "titleBlock",
+        "start": 1,
+        "width": 12,
+        "text": "Tinder for contemporary art"
+      },
+      {
+        "_key": "ac6df8bfb99a",
+        "_type": "videoBlock",
+        "start": 1,
+        "width": 9,
+        "video": {
+          "src": "https://yyfpsncahaff6kzv.public.blob.vercel-storage.com/videos/9qY4zaDD4k3DnOij01MdcHiH8lcq6w2dtaqV00DzD6aAg.mp4"
+        },
+        "controls": true
+      },
+      {
+        "_key": "d582be7d55f0",
+        "_type": "paragraphBlock",
+        "start": 2,
+        "width": 6,
+        "text": [
+          {
+            "_key": "0656d9116f03",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "78fb2d29cbe7",
+                "_type": "span",
+                "marks": [],
+                "text": "We wanted to differentiate ourselves from existing competition by delivering a more immersive experience where you get the artwork in its biggest form. If you want to learn more, just swipe up."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ]
+      },
+      {
+        "_key": "9a56a3a7acaa",
+        "_type": "titleBlock",
+        "start": 5,
+        "width": 12,
+        "text": "Your daily summary powered by AI"
+      },
+      {
+        "_key": "0003ab700b37",
+        "_type": "videoBlock",
+        "start": 5,
+        "width": 12,
+        "video": {
+          "src": "https://yyfpsncahaff6kzv.public.blob.vercel-storage.com/videos/Yc9Ff02OloO008uWYH1KtTz01010001ScTmMQC7heSXWO00LTA.mp4"
+        },
+        "controls": true
+      },
+      {
+        "_key": "482460a8637d",
+        "_type": "titleBlock",
+        "start": 2,
+        "width": 12,
+        "text": "Get quick access to artists informations"
+      },
+      {
+        "_key": "75d5710dbc42",
+        "_type": "imageBlock",
+        "start": 2,
+        "width": 8,
+        "image": {
+          "url": "/images/docent/75d5710dbc42.jpg",
+          "width": 2874,
+          "height": 1974
+        }
+      },
+      {
+        "_key": "309f0a64bccf",
+        "_type": "imageBlock",
+        "start": 5,
+        "width": 12,
+        "image": {
+          "url": "/images/docent/309f0a64bccf.jpg",
+          "width": 2874,
+          "height": 1974
+        }
+      },
+      {
+        "_key": "b33b55277b37",
+        "_type": "titleBlock",
+        "start": 1,
+        "width": 12,
+        "text": "Marketing site"
+      },
+      {
+        "_key": "a37d9fb10555",
+        "_type": "paragraphBlock",
+        "start": 8,
+        "width": 12,
+        "text": [
+          {
+            "_key": "d4e8381fda12",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "9250a3fd3d97",
+                "_type": "span",
+                "marks": [],
+                "text": "We collaborated with the talented team at Numbered to produced Docent's landing page. The goal was to express the key concept of the app while still being true to our target audience."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ]
+      },
+      {
+        "_key": "2cfd99e9ecc6",
+        "_type": "videoBlock",
+        "start": 1,
+        "width": 12,
+        "video": {
+          "src": "https://yyfpsncahaff6kzv.public.blob.vercel-storage.com/videos/y01RMncPsdHiphE4ao7q8TqavwPMw2UQd9DbW59eiz01w.mp4"
+        },
+        "controls": true
+      }
+    ]
+  },
+  {
+    "_id": "7d107935-0225-41f7-b792-eb8bc3118105",
+    "name": "Insights for Workplace",
+    "slug": "meta-insights",
+    "published_at": "2019-10-10",
+    "logoWidth": 200,
+    "logoHeight": 24,
+    "client": {
+      "_id": "3e649741-eee7-4402-b6c4-de18b5fe7ec3",
+      "name": "Meta",
+      "logoWidthList": 90,
+      "logoHeightList": 18,
+      "logoList": {
+        "url": "/images/clients/3e649741-eee7-4402-b6c4-de18b5fe7ec3.png",
+        "width": 272,
+        "height": 58
+      }
+    },
+    "tags": [
+      {
+        "_id": "a088450a-f94f-48ca-b342-3b49665568a6",
+        "name": "Product Design",
+        "slug": "product-design"
+      },
+      {
+        "_id": "c6bb1742-924f-41e9-8e84-568a6e975dc9",
+        "name": "User Research",
+        "slug": "user-research"
+      }
+    ],
+    "backgroundColor": {
+      "hex": "#1f2fbd"
+    },
+    "primaryColor": {
+      "hex": "#ffffff"
+    },
+    "secondaryColor": {
+      "hex": "#5c69e3"
+    },
+    "logo": {
+      "url": "/images/meta-insights/logo.png",
+      "width": 473,
+      "height": 96
+    },
+    "preview": {
+      "type": "image",
+      "image": {
+        "url": "/images/meta-insights/preview.png",
+        "width": 4096,
+        "height": 3072
+      }
+    },
+    "cover": {
+      "type": "image",
+      "image": {
+        "url": "/images/meta-insights/cover.png",
+        "width": 4096,
+        "height": 3072
+      }
+    },
+    "content": [
+      {
+        "_key": "e48ae5bf701e",
+        "_type": "titleBlock",
+        "start": 4,
+        "width": 12,
+        "text": "Insights for Workplace"
+      },
+      {
+        "_key": "ed5fb0391159",
+        "_type": "paragraphBlock",
+        "start": 4,
+        "width": 8,
+        "text": [
+          {
+            "_key": "536f9ff48ea3",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "92d48e0427980",
+                "_type": "span",
+                "marks": [],
+                "text": "Workplace is the all-in-one business communication platform from Meta. Think Facebook, but for your company. As part of a global improvement of the admin panel, I collaborated with researches, engineers and data scientist to create a new insights sections to help you understand your team better."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ]
+      },
+      {
+        "_key": "b083a1981f4d",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 9,
+        "image": {
+          "url": "/images/meta-insights/b083a1981f4d.jpg",
+          "width": 2162,
+          "height": 1485
+        }
+      },
+      {
+        "_key": "9c24d45c1ba7",
+        "_type": "paragraphBlock",
+        "start": 2,
+        "width": 6,
+        "text": [
+          {
+            "_key": "a11bdfa8d1c0",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "19bcd2ef1bc50",
+                "_type": "span",
+                "marks": [],
+                "text": "I worked directly with companies like Virgin, Heineken or RBS to test and improve our solutions. As a result, our new design was presented at the annual F8 conference."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ]
+      },
+      {
+        "_key": "c9e144d4ed55",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/meta-insights/c9e144d4ed55.png",
+          "width": 2156,
+          "height": 362
+        },
+        "caption": "Logos"
+      },
+      {
+        "_key": "be4855e52cf4",
+        "_type": "imageBlock",
+        "start": 4,
+        "width": 12,
+        "image": {
+          "url": "/images/meta-insights/be4855e52cf4.jpg",
+          "width": 2162,
+          "height": 1485
+        }
+      },
+      {
+        "_key": "7edf8e515e51",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 9,
+        "image": {
+          "url": "/images/meta-insights/7edf8e515e51.jpg",
+          "width": 2162,
+          "height": 1485
+        }
+      }
+    ]
+  },
+  {
+    "_id": "1c2abf71-b981-4cc4-9199-06ef28f56e29",
+    "name": "Workplace Marketing Site",
+    "slug": "workplace-marketing-site",
+    "published_at": "2023-01-25",
+    "logoWidth": 200,
+    "logoHeight": 24,
+    "client": {
+      "_id": "3e649741-eee7-4402-b6c4-de18b5fe7ec3",
+      "name": "Meta",
+      "logoWidthList": 90,
+      "logoHeightList": 18,
+      "logoList": {
+        "url": "/images/clients/3e649741-eee7-4402-b6c4-de18b5fe7ec3.png",
+        "width": 272,
+        "height": 58
+      }
+    },
+    "tags": [
+      {
+        "_id": "ebd107cc-0c7c-484e-a753-55fb777bb539",
+        "name": "Marketing",
+        "slug": "marketing"
+      },
+      {
+        "_id": "74e24f29-f698-4274-8c17-a57d0b5c669a",
+        "name": "Visual Design",
+        "slug": "visual-design"
+      }
+    ],
+    "backgroundColor": {
+      "hex": "#ffffff"
+    },
+    "primaryColor": {
+      "hex": "#000000"
+    },
+    "secondaryColor": {
+      "hex": "#9f9f9f"
+    },
+    "logo": {
+      "url": "/images/workplace-marketing-site/logo.png",
+      "width": 272,
+      "height": 58
+    },
+    "preview": {
+      "type": "image",
+      "image": {
+        "url": "/images/workplace-marketing-site/preview.jpg",
+        "width": 1548,
+        "height": 1664
+      }
+    },
+    "cover": {
+      "type": "image",
+      "image": {
+        "url": "/images/workplace-marketing-site/cover.jpg",
+        "width": 2978,
+        "height": 1664
+      }
+    },
+    "content": [
+      {
+        "_key": "2f9bb2ed058b",
+        "_type": "titleBlock",
+        "start": 5,
+        "width": 12,
+        "text": "Marketing Site for Workplace"
+      },
+      {
+        "_key": "f5e2bd9b1ad2",
+        "_type": "paragraphBlock",
+        "start": 5,
+        "width": 12,
+        "text": [
+          {
+            "_key": "71f771ad283c",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "c9035a973714",
+                "_type": "span",
+                "marks": [],
+                "text": "I was part of the growth team at Workplace, leading the design for the new marketing site. The previous version was not in sync with the brand and modifications were very slow to come to life. To succeed, I had to align numerous different teams internally from brand, marketing, product and research. We also partnered with teams from conversion.com to help us validate some of our insights."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ]
+      },
+      {
+        "_key": "3ec67d5b55ec",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/workplace-marketing-site/3ec67d5b55ec.jpg",
+          "width": 2048,
+          "height": 556
+        }
+      },
+      {
+        "_key": "d249ea5476b7",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 9,
+        "image": {
+          "url": "/images/workplace-marketing-site/d249ea5476b7.jpg",
+          "width": 2874,
+          "height": 1974
+        }
+      },
+      {
+        "_key": "8693ea1f2f7a",
+        "_type": "imageBlock",
+        "start": 5,
+        "width": 12,
+        "image": {
+          "url": "/images/workplace-marketing-site/8693ea1f2f7a.jpg",
+          "width": 2874,
+          "height": 1974
+        }
+      },
+      {
+        "_key": "cbc89fe09ba9",
+        "_type": "titleBlock",
+        "start": 3,
+        "width": 12,
+        "text": "Building a flexible visual system"
+      },
+      {
+        "_key": "c5f505dd6fb4",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 9,
+        "image": {
+          "url": "/images/workplace-marketing-site/c5f505dd6fb4.png",
+          "width": 2045,
+          "height": 1572
+        }
+      },
+      {
+        "_key": "0d2534336ed7",
+        "_type": "paragraphBlock",
+        "start": 4,
+        "width": 6,
+        "text": [
+          {
+            "_key": "5a9b5af158be",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "ede0de4f2cc0",
+                "_type": "span",
+                "marks": [],
+                "text": "To target SMBs we imagined a visual structure that would mix both product elements and photography where people from our target could identify with. Some of these visuals were animated with videos in the background and moving UI elements."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ]
+      },
+      {
+        "_key": "7776997d9e1e",
+        "_type": "imageBlock",
+        "start": 4,
+        "width": 12,
+        "image": {
+          "url": "/images/workplace-marketing-site/7776997d9e1e.png",
+          "width": 2045,
+          "height": 1049
+        }
+      },
+      {
+        "_key": "ba0735a45c2f",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/workplace-marketing-site/ba0735a45c2f.png",
+          "width": 2664,
+          "height": 1260
+        }
+      },
+      {
+        "_key": "3ac0d090ea22",
+        "_type": "titleBlock",
+        "start": 1,
+        "width": 12,
+        "text": "Landing Pages Templating System"
+      },
+      {
+        "_key": "99a1f8571bc6",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 9,
+        "image": {
+          "url": "/images/workplace-marketing-site/99a1f8571bc6.jpg",
+          "width": 2874,
+          "height": 1974
+        }
+      },
+      {
+        "_key": "333b07ca45b9",
+        "_type": "videoBlock",
+        "start": 1,
+        "width": 12,
+        "video": {
+          "src": "https://yyfpsncahaff6kzv.public.blob.vercel-storage.com/videos/ip3AWjyNU7tJDAsdpYo3imWpCBzlnz00Jeq5WE02UiSnk.mp4"
+        },
+        "controls": true
+      }
+    ]
+  },
+  {
+    "_id": "de6ae72e-5f43-48bf-9b27-1f68cfbc27fe",
+    "name": "Daisie",
+    "slug": "daisie",
+    "published_at": "2022-12-06",
+    "logoWidth": 112,
+    "logoHeight": 33,
+    "client": {
+      "_id": "472129c7-db83-40d3-b7a9-b58f79bdad88",
+      "name": "Daisie",
+      "logoWidthList": 92,
+      "logoHeightList": 26,
+      "logoList": {
+        "url": "/images/clients/472129c7-db83-40d3-b7a9-b58f79bdad88.png",
+        "width": 451,
+        "height": 132
+      }
+    },
+    "tags": [
+      {
+        "_id": "a088450a-f94f-48ca-b342-3b49665568a6",
+        "name": "Product Design",
+        "slug": "product-design"
+      }
+    ],
+    "backgroundColor": {
+      "hex": "#000000"
+    },
+    "primaryColor": {
+      "hex": "#ffffff"
+    },
+    "secondaryColor": {
+      "hex": "#454545"
+    },
+    "logo": {
+      "url": "/images/daisie/logo.png",
+      "width": 451,
+      "height": 132
+    },
+    "preview": {
+      "type": "video",
+      "video": {
+        "src": "https://yyfpsncahaff6kzv.public.blob.vercel-storage.com/videos/AxoMzB01lZbmteHod007n01tcO00vFDe2g1P1xYAE8y1iT8.mp4"
+      }
+    },
+    "cover": {
+      "type": "image",
+      "image": {
+        "url": "/images/daisie/cover.jpg",
+        "width": 3250,
+        "height": 2250
+      }
+    },
+    "content": [
+      {
+        "_key": "7c82ebce6689",
+        "_type": "titleBlock",
+        "start": 4,
+        "width": 8,
+        "text": "Social Platform for early stage creators"
+      },
+      {
+        "_key": "95ea62b95880",
+        "_type": "paragraphBlock",
+        "start": 4,
+        "width": 8,
+        "text": [
+          {
+            "_key": "335bc4691502",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "3f511823ffa50",
+                "_type": "span",
+                "marks": [],
+                "text": "Daisie is a social platform to help young creators connect with each other and build projects together. It is focused around ideas and storytelling with tools to share inspirations, prototypes and discuss creative projects."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_key": "b01dbca1020e",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "b30cdd636632",
+                "_type": "span",
+                "marks": [],
+                "text": "I joined the team as the first designer, being responsible for the product design and research, from strategy to execution. We built the app and design system from the ground up for both mobile and web. This led to a launch with more than 22,000 sign ups on day one."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ]
+      },
+      {
+        "_key": "bf87e4f4914e",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/daisie/bf87e4f4914e.png",
+          "width": 4096,
+          "height": 1090
+        }
+      },
+      {
+        "_key": "3713498aca7e8603d34651593a4cb8b7",
+        "_type": "titleBlock",
+        "start": 1,
+        "width": 12,
+        "text": "Canvas - Building Blocks"
+      },
+      {
+        "_key": "f2a171d1c771",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 10,
+        "image": {
+          "url": "/images/daisie/f2a171d1c771.jpg",
+          "width": 2626,
+          "height": 1804
+        }
+      },
+      {
+        "_key": "7740aba02025",
+        "_type": "imageBlock",
+        "start": 3,
+        "width": 12,
+        "image": {
+          "url": "/images/daisie/7740aba02025.jpg",
+          "width": 2874,
+          "height": 1974
+        }
+      },
+      {
+        "_key": "a7d1d4b802ba",
+        "_type": "paragraphBlock",
+        "start": 6,
+        "width": 12,
+        "text": [
+          {
+            "_key": "8401cdba2b1f",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "30e8186dfe3b",
+                "_type": "span",
+                "marks": [],
+                "text": "We used inspiration boards as a place for creators to share ideas and promote their work in a structured way, helping focusing on the content itself. We wanted to contrast with portfolios where you have complete freedom. Daisie was a place for inspiration and collaborative expression."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ]
+      },
+      {
+        "_key": "dc2e5bfe50ce9eff2a2527276492dfbd",
+        "_type": "titleBlock",
+        "start": 1,
+        "width": 8,
+        "text": "Public Profiles"
+      },
+      {
+        "_key": "dd6d4e38da38",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 10,
+        "image": {
+          "url": "/images/daisie/dd6d4e38da38.jpg",
+          "width": 2874,
+          "height": 1974
+        }
+      },
+      {
+        "_key": "0e9dc2d8f46d",
+        "_type": "titleBlock",
+        "start": 8,
+        "width": 12,
+        "text": "Design System"
+      },
+      {
+        "_key": "06ec700cd0f4",
+        "_type": "videoBlock",
+        "start": 1,
+        "width": 12,
+        "video": {
+          "src": "https://yyfpsncahaff6kzv.public.blob.vercel-storage.com/videos/NuUWVITNtN84NJTt69y3MGJAFC016LryLSzC5EB7Mw02s.mp4"
+        }
+      },
+      {
+        "_key": "c35ea12b4796",
+        "_type": "titleBlock",
+        "start": 3,
+        "width": 12,
+        "text": "Messaging"
+      },
+      {
+        "_key": "d8f5d920483f",
+        "_type": "imageBlock",
+        "start": 3,
+        "width": 10,
+        "image": {
+          "url": "/images/daisie/d8f5d920483f.jpg",
+          "width": 2874,
+          "height": 1974
+        }
+      },
+      {
+        "_key": "bd2c5d309f4b",
+        "_type": "titleBlock",
+        "start": 1,
+        "width": 12,
+        "text": "Marketing site"
+      },
+      {
+        "_key": "e93eb81836c4",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/daisie/e93eb81836c4.jpg",
+          "width": 1500,
+          "height": 1125
+        }
+      },
+      {
+        "_key": "52304db19bf6",
+        "_type": "videoBlock",
+        "start": 3,
+        "width": 8,
+        "video": {
+          "src": "https://yyfpsncahaff6kzv.public.blob.vercel-storage.com/videos/AxoMzB01lZbmteHod007n01tcO00vFDe2g1P1xYAE8y1iT8.mp4"
+        }
+      }
+    ]
+  },
+  {
+    "_id": "47b4d496-fe09-4e20-a84a-dff50d3621b3",
+    "name": "Deliveroo for Business",
+    "slug": "deliveroo-business",
+    "published_at": "2023-01-25",
+    "logoWidth": 164,
+    "logoHeight": 44,
+    "client": {
+      "_id": "448881f4-83c4-40b9-8e16-09ee632be4bb",
+      "name": "Deliveroo",
+      "logoWidthList": 110,
+      "logoHeightList": 30,
+      "logoList": {
+        "url": "/images/clients/448881f4-83c4-40b9-8e16-09ee632be4bb.png",
+        "width": 250,
+        "height": 70
+      }
+    },
+    "tags": [
+      {
+        "_id": "a088450a-f94f-48ca-b342-3b49665568a6",
+        "name": "Product Design",
+        "slug": "product-design"
+      },
+      {
+        "_id": "74e24f29-f698-4274-8c17-a57d0b5c669a",
+        "name": "Visual Design",
+        "slug": "visual-design"
+      }
+    ],
+    "backgroundColor": {
+      "hex": "#00cabb"
+    },
+    "primaryColor": {
+      "hex": "#ffffff"
+    },
+    "secondaryColor": {
+      "hex": "#ffffff"
+    },
+    "logo": {
+      "url": "/images/deliveroo-business/logo.png",
+      "width": 359,
+      "height": 96
+    },
+    "preview": {
+      "type": "image",
+      "image": {
+        "url": "/images/deliveroo-business/preview.jpg",
+        "width": 1800,
+        "height": 1292
+      }
+    },
+    "cover": {
+      "type": "image",
+      "image": {
+        "url": "/images/deliveroo-business/cover.jpg",
+        "width": 2800,
+        "height": 1680
+      }
+    },
+    "content": [
+      {
+        "_key": "4330190ebfa6",
+        "_type": "titleBlock",
+        "start": 4,
+        "width": 8,
+        "text": "Deliveroo for Business"
+      },
+      {
+        "_key": "958ea7a4b194",
+        "_type": "paragraphBlock",
+        "start": 4,
+        "width": 8,
+        "text": [
+          {
+            "_key": "6e4261415724",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "cfcd26e90a98",
+                "_type": "span",
+                "marks": [],
+                "text": "From strategy and design to development, I was responsible for the creation of marketing digital products for the restaurant, growth and consumer teams."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ]
+      },
+      {
+        "_key": "b66af1814440",
+        "_type": "videoBlock",
+        "start": 1,
+        "width": 12,
+        "video": {
+          "src": "https://yyfpsncahaff6kzv.public.blob.vercel-storage.com/videos/nzJKNUo85ogBRcLPxw7uKSNdr91JD8H3iezcZwY2MrQ.mp4"
+        }
+      },
+      {
+        "_key": "ff6f9fb5c49f",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 8,
+        "image": {
+          "url": "/images/deliveroo-business/ff6f9fb5c49f.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      },
+      {
+        "_key": "649a5c1113d9",
+        "_type": "videoBlock",
+        "start": 1,
+        "width": 12,
+        "video": {
+          "src": "https://yyfpsncahaff6kzv.public.blob.vercel-storage.com/videos/GyOJi4028xzRcrUp8nBTzkCw01s8ZyQ00jzFzKdc0002Eyr4.mp4"
+        }
+      },
+      {
+        "_key": "32e25b121e9a",
+        "_type": "imageBlock",
+        "start": 6,
+        "width": 8,
+        "image": {
+          "url": "/images/deliveroo-business/32e25b121e9a.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      },
+      {
+        "_key": "ba37ba5dfbe5",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 8,
+        "image": {
+          "url": "/images/deliveroo-business/ba37ba5dfbe5.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      }
+    ]
+  },
+  {
+    "_id": "4a62c6cf-167d-47ef-870c-2057536563d7",
+    "name": "Selection of projects",
+    "slug": "louboutin-selection",
+    "published_at": "2022-11-02",
+    "logoWidth": 120,
+    "logoHeight": 120,
+    "client": {
+      "_id": "b1deef96-2b29-4ca5-aa96-a6eee7c439e8",
+      "name": "Christian Louboutin",
+      "logoWidthList": 82,
+      "logoHeightList": 64,
+      "logoList": {
+        "url": "/images/clients/b1deef96-2b29-4ca5-aa96-a6eee7c439e8.png",
+        "width": 408,
+        "height": 317
+      }
+    },
+    "tags": [
+      {
+        "_id": "74e24f29-f698-4274-8c17-a57d0b5c669a",
+        "name": "Visual Design",
+        "slug": "visual-design"
+      }
+    ],
+    "backgroundColor": {
+      "hex": "#dcdcdc"
+    },
+    "primaryColor": {
+      "hex": "#000000"
+    },
+    "secondaryColor": {
+      "hex": "#636363"
+    },
+    "logo": {
+      "url": "/images/louboutin-selection/logo.png",
+      "width": 408,
+      "height": 317
+    },
+    "preview": {
+      "type": "image",
+      "image": {
+        "url": "/images/louboutin-selection/preview.jpg",
+        "width": 2560,
+        "height": 1440
+      }
+    },
+    "cover": {
+      "type": "image",
+      "image": {
+        "url": "/images/louboutin-selection/cover.jpg",
+        "width": 2560,
+        "height": 1440
+      }
+    },
+    "content": [
+      {
+        "_key": "cbe672c36d35",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 8,
+        "image": {
+          "url": "/images/louboutin-selection/cbe672c36d35.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      },
+      {
+        "_key": "b65c0d5937cb",
+        "_type": "imageBlock",
+        "start": 5,
+        "width": 8,
+        "image": {
+          "url": "/images/louboutin-selection/b65c0d5937cb.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      },
+      {
+        "_key": "5ac9cf61ec3f",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 8,
+        "image": {
+          "url": "/images/louboutin-selection/5ac9cf61ec3f.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      }
+    ]
+  },
+  {
+    "_id": "93a88e7c-622b-4461-bfe5-2160535f47c8",
+    "name": "Kapture",
+    "slug": "kapture",
+    "published_at": "2022-11-10",
+    "logoWidth": null,
+    "logoHeight": null,
+    "client": {
+      "_id": "db8603ae-81ad-44f5-8177-165ae95d8263",
+      "name": "La Surprise",
+      "logoWidthList": null,
+      "logoHeightList": null
+    },
+    "tags": [
+      {
+        "_id": "b1fb374b-92ac-423a-8795-1644a0ab047b",
+        "name": "Experimentation",
+        "slug": "experimentation"
+      }
+    ],
+    "backgroundColor": {
+      "hex": "#1539cf"
+    },
+    "primaryColor": {
+      "hex": "#ffffff"
+    },
+    "secondaryColor": {
+      "hex": "#92a0d9"
+    },
+    "preview": {
+      "type": "image",
+      "image": {
+        "url": "/images/kapture/preview.jpg",
+        "width": 1800,
+        "height": 1800
+      }
+    },
+    "cover": {
+      "type": "image",
+      "image": {
+        "url": "/images/kapture/cover.jpg",
+        "width": 2560,
+        "height": 1440
+      }
+    },
+    "content": [
+      {
+        "_key": "dabc2d41cbe5",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 6,
+        "image": {
+          "url": "/images/kapture/dabc2d41cbe5.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      },
+      {
+        "_key": "eab964779d45",
+        "_type": "imageBlock",
+        "start": 5,
+        "width": 8,
+        "image": {
+          "url": "/images/kapture/eab964779d45.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      },
+      {
+        "_key": "b3b667f25de1",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/kapture/b3b667f25de1.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      },
+      {
+        "_key": "c11d7142d5f5",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 6,
+        "image": {
+          "url": "/images/kapture/c11d7142d5f5.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      },
+      {
+        "_key": "6beb132b7e41",
+        "_type": "imageBlock",
+        "start": 6,
+        "width": 12,
+        "image": {
+          "url": "/images/kapture/6beb132b7e41.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      },
+      {
+        "_key": "88e269d1d7a8",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/kapture/88e269d1d7a8.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      }
+    ]
+  },
+  {
+    "_id": "3fcac8de-f6cc-4350-9685-11e74a433513",
+    "name": "Marketplace",
+    "slug": "floom",
+    "published_at": "2022-11-11",
+    "logoWidth": null,
+    "logoHeight": null,
+    "client": {
+      "_id": "e91c8bc2-42e5-495e-bc8b-9ac969494210",
+      "name": "Floom",
+      "logoWidthList": null,
+      "logoHeightList": null
+    },
+    "tags": [
+      {
+        "_id": "6496f5a4-625f-4d3f-a532-d1f3145ee22c",
+        "name": "E-Commerce",
+        "slug": "ecommerce"
+      }
+    ],
+    "backgroundColor": {
+      "hex": "#ffd6c7"
+    },
+    "primaryColor": {
+      "hex": "#000000"
+    },
+    "secondaryColor": {
+      "hex": "#a3857a"
+    },
+    "preview": {
+      "type": "image",
+      "image": {
+        "url": "/images/floom/preview.jpg",
+        "width": 1800,
+        "height": 1800
+      }
+    },
+    "cover": {
+      "type": "image",
+      "image": {
+        "url": "/images/floom/cover.jpg",
+        "width": 1800,
+        "height": 1800
+      }
+    },
+    "content": [
+      {
+        "_key": "4549e252ddf5",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/floom/4549e252ddf5.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      },
+      {
+        "_key": "7602bd535875",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/floom/7602bd535875.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      },
+      {
+        "_key": "39a4d8326218",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/floom/39a4d8326218.jpg",
+          "width": 2560,
+          "height": 1591
+        }
+      },
+      {
+        "_key": "d0be340aef18",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/floom/d0be340aef18.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      }
+    ]
+  },
+  {
+    "_id": "99298f66-1e2e-4511-9d71-f130e2110269",
+    "name": "Juun",
+    "slug": "juun",
+    "published_at": "2022-11-03",
+    "logoWidth": null,
+    "logoHeight": null,
+    "client": {
+      "_id": "db8603ae-81ad-44f5-8177-165ae95d8263",
+      "name": "La Surprise",
+      "logoWidthList": null,
+      "logoHeightList": null
+    },
+    "tags": [
+      {
+        "_id": "b1fb374b-92ac-423a-8795-1644a0ab047b",
+        "name": "Experimentation",
+        "slug": "experimentation"
+      }
+    ],
+    "backgroundColor": {
+      "hex": "#ffffff"
+    },
+    "primaryColor": {
+      "hex": "#000000"
+    },
+    "secondaryColor": {
+      "hex": "#353535"
+    },
+    "preview": {
+      "type": "image",
+      "image": {
+        "url": "/images/juun/preview.jpg",
+        "width": 2560,
+        "height": 1440
+      }
+    },
+    "cover": {
+      "type": "image",
+      "image": {
+        "url": "/images/juun/cover.jpg",
+        "width": 2560,
+        "height": 1440
+      }
+    },
+    "content": [
+      {
+        "_key": "15482bb28274",
+        "_type": "videoBlock",
+        "start": 1,
+        "width": 12,
+        "video": {
+          "src": "https://yyfpsncahaff6kzv.public.blob.vercel-storage.com/videos/w49imEpsi8DokhDFSN5AeUi36y5Oq87Unkp027IDqsyU.mp4"
+        }
+      },
+      {
+        "_key": "b175cd825920",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/juun/b175cd825920.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      },
+      {
+        "_key": "81f1eabbff5d",
+        "_type": "videoBlock",
+        "start": 1,
+        "width": 12,
+        "video": {
+          "src": "https://yyfpsncahaff6kzv.public.blob.vercel-storage.com/videos/00vU00y00ZIxuPBLpgYnH7HwchOqGQvxRZv7DQEFQY5nTo.mp4"
+        }
+      },
+      {
+        "_key": "7dd1adeec889",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/juun/7dd1adeec889.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      }
+    ]
+  },
+  {
+    "_id": "032e50a1-7651-44b2-9ecb-709411efdf09",
+    "name": "Journey",
+    "slug": "coca-cola",
+    "published_at": "2022-11-10",
+    "logoWidth": 132,
+    "logoHeight": 43,
+    "client": {
+      "_id": "2f3ca9ee-8faa-48bc-b26a-a13362bec505",
+      "name": "Coca-Cola",
+      "logoWidthList": 96,
+      "logoHeightList": 32,
+      "logoList": {
+        "url": "/images/clients/2f3ca9ee-8faa-48bc-b26a-a13362bec505.png",
+        "width": 1025,
+        "height": 336
+      }
+    },
+    "tags": [
+      {
+        "_id": "b1fb374b-92ac-423a-8795-1644a0ab047b",
+        "name": "Experimentation",
+        "slug": "experimentation"
+      }
+    ],
+    "backgroundColor": {
+      "hex": "#ffffff"
+    },
+    "primaryColor": {
+      "hex": "#000000"
+    },
+    "secondaryColor": {
+      "hex": "#3d3d3d"
+    },
+    "logo": {
+      "url": "/images/coca-cola/logo.png",
+      "width": 1025,
+      "height": 336
+    },
+    "preview": {
+      "type": "image",
+      "image": {
+        "url": "/images/coca-cola/preview.jpg",
+        "width": 2560,
+        "height": 1630
+      }
+    },
+    "cover": {
+      "type": "image",
+      "image": {
+        "url": "/images/coca-cola/cover.jpg",
+        "width": 2560,
+        "height": 1630
+      }
+    },
+    "content": [
+      {
+        "_key": "a19610d6944f",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/coca-cola/a19610d6944f.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      },
+      {
+        "_key": "c38494359441",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/coca-cola/c38494359441.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      },
+      {
+        "_key": "39a996a75026",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/coca-cola/39a996a75026.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      },
+      {
+        "_key": "f328c42b1f76",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/coca-cola/f328c42b1f76.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      }
+    ]
+  },
+  {
+    "_id": "50b6ff08-5015-463c-a828-6c0a6b0b37d2",
+    "name": "Leather Goods",
+    "slug": "louboutin-leather-goods",
+    "published_at": "2022-11-10",
+    "logoWidth": 120,
+    "logoHeight": 120,
+    "client": {
+      "_id": "b1deef96-2b29-4ca5-aa96-a6eee7c439e8",
+      "name": "Christian Louboutin",
+      "logoWidthList": 82,
+      "logoHeightList": 64,
+      "logoList": {
+        "url": "/images/clients/b1deef96-2b29-4ca5-aa96-a6eee7c439e8.png",
+        "width": 408,
+        "height": 317
+      }
+    },
+    "tags": [
+      {
+        "_id": "74e24f29-f698-4274-8c17-a57d0b5c669a",
+        "name": "Visual Design",
+        "slug": "visual-design"
+      }
+    ],
+    "backgroundColor": {
+      "hex": "#cfcfcf"
+    },
+    "primaryColor": {
+      "hex": "#000000"
+    },
+    "secondaryColor": {
+      "hex": "#565656"
+    },
+    "logo": {
+      "url": "/images/louboutin-leather-goods/logo.png",
+      "width": 408,
+      "height": 317
+    },
+    "preview": {
+      "type": "image",
+      "image": {
+        "url": "/images/louboutin-leather-goods/preview.jpg",
+        "width": 1800,
+        "height": 1800
+      }
+    },
+    "cover": {
+      "type": "image",
+      "image": {
+        "url": "/images/louboutin-leather-goods/cover.jpg",
+        "width": 1800,
+        "height": 1800
+      }
+    },
+    "content": [
+      {
+        "_key": "dc22c648c5f0",
+        "_type": "videoBlock",
+        "start": 1,
+        "width": 12,
+        "video": {
+          "src": "https://yyfpsncahaff6kzv.public.blob.vercel-storage.com/videos/Da42YAthzujuAu602JmRvz004f2YGQmObfL5Yu4tp01rc4.mp4"
+        }
+      },
+      {
+        "_key": "5c1a37da7539",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 8,
+        "image": {
+          "url": "/images/louboutin-leather-goods/5c1a37da7539.jpg",
+          "width": 1800,
+          "height": 1800
+        }
+      },
+      {
+        "_key": "5393e82986c5",
+        "_type": "videoBlock",
+        "start": 1,
+        "width": 12,
+        "video": {
+          "src": "https://yyfpsncahaff6kzv.public.blob.vercel-storage.com/videos/bYu1fXkfPhiqfnDjk3RvuDbqzAzdGo7B008z3HCC00x14.mp4"
+        }
+      },
+      {
+        "_key": "54b01e1440d0",
+        "_type": "imageBlock",
+        "start": 5,
+        "width": 8,
+        "image": {
+          "url": "/images/louboutin-leather-goods/54b01e1440d0.jpg",
+          "width": 1800,
+          "height": 1800
+        }
+      },
+      {
+        "_key": "08e9da241ce4",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/louboutin-leather-goods/08e9da241ce4.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      }
+    ]
+  },
+  {
+    "_id": "2dff4604-7f50-4dce-b1a1-8dc157474010",
+    "name": "Branding",
+    "slug": "institut-des-mutations",
+    "published_at": "2022-11-16",
+    "logoWidth": null,
+    "logoHeight": null,
+    "client": {
+      "_id": "341682a8-a14b-48de-8e65-199a67003174",
+      "name": "Institut des Mutations",
+      "logoWidthList": null,
+      "logoHeightList": null
+    },
+    "tags": [
+      {
+        "_id": "cb34bc52-3356-49f7-8cb2-d0ec63b689df",
+        "name": "Branding",
+        "slug": "branding"
+      }
+    ],
+    "backgroundColor": {
+      "hex": "#ffffff"
+    },
+    "primaryColor": {
+      "hex": "#000000"
+    },
+    "secondaryColor": {
+      "hex": "#9c9c9c"
+    },
+    "preview": {
+      "type": "image",
+      "image": {
+        "url": "/images/institut-des-mutations/preview.jpg",
+        "width": 1440,
+        "height": 1440
+      }
+    },
+    "cover": {
+      "type": "image",
+      "image": {
+        "url": "/images/institut-des-mutations/cover.jpg",
+        "width": 2560,
+        "height": 1440
+      }
+    },
+    "content": [
+      {
+        "_key": "7ea2f5f9edd2",
+        "_type": "videoBlock",
+        "start": 1,
+        "width": 12,
+        "video": {
+          "src": "https://yyfpsncahaff6kzv.public.blob.vercel-storage.com/videos/81mVez5nYRVtc5aNc01HJ6Y5anQRE5SlhcXcwRZv2VUM.mp4"
+        }
+      },
+      {
+        "_key": "f0142fef3d7d",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/institut-des-mutations/f0142fef3d7d.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      },
+      {
+        "_key": "a1bc273ebc15",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/institut-des-mutations/a1bc273ebc15.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      }
+    ]
+  },
+  {
+    "_id": "55e0a333-1dc9-4816-9235-6504f9ff99c9",
+    "name": "Sporty Henri",
+    "slug": "sporty-henri",
+    "published_at": "2022-11-09",
+    "logoWidth": 120,
+    "logoHeight": 120,
+    "client": {
+      "_id": "b1deef96-2b29-4ca5-aa96-a6eee7c439e8",
+      "name": "Christian Louboutin",
+      "logoWidthList": 82,
+      "logoHeightList": 64,
+      "logoList": {
+        "url": "/images/clients/b1deef96-2b29-4ca5-aa96-a6eee7c439e8.png",
+        "width": 408,
+        "height": 317
+      }
+    },
+    "tags": [
+      {
+        "_id": "6496f5a4-625f-4d3f-a532-d1f3145ee22c",
+        "name": "E-Commerce",
+        "slug": "ecommerce"
+      }
+    ],
+    "backgroundColor": {
+      "hex": "#ffffff"
+    },
+    "primaryColor": {
+      "hex": "#000000"
+    },
+    "secondaryColor": {
+      "hex": "#565656"
+    },
+    "logo": {
+      "url": "/images/sporty-henri/logo.png",
+      "width": 408,
+      "height": 317
+    },
+    "preview": {
+      "type": "image",
+      "image": {
+        "url": "/images/sporty-henri/preview.jpg",
+        "width": 1800,
+        "height": 1800
+      }
+    },
+    "cover": {
+      "type": "image",
+      "image": {
+        "url": "/images/sporty-henri/cover.jpg",
+        "width": 2560,
+        "height": 1440
+      }
+    },
+    "content": [
+      {
+        "_key": "b419bd602880",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/sporty-henri/b419bd602880.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      },
+      {
+        "_key": "dde6c937f398",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 8,
+        "image": {
+          "url": "/images/sporty-henri/dde6c937f398.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      },
+      {
+        "_key": "c7713a88150f",
+        "_type": "imageBlock",
+        "start": 4,
+        "width": 8,
+        "image": {
+          "url": "/images/sporty-henri/c7713a88150f.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      },
+      {
+        "_key": "d3785cd11285",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/sporty-henri/d3785cd11285.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      },
+      {
+        "_key": "0cf773ac6761",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/sporty-henri/0cf773ac6761.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      },
+      {
+        "_key": "d3037b9b960e",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/sporty-henri/d3037b9b960e.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      }
+    ]
+  },
+  {
+    "_id": "eb1cf60a-64b5-43a2-a79d-d06ff2c5396d",
+    "name": "Marketplace",
+    "slug": "couturelab",
+    "published_at": "2022-11-17",
+    "logoWidth": null,
+    "logoHeight": null,
+    "client": {
+      "_id": "d336a81d-92c9-47d2-ae80-d86a19e14955",
+      "name": "CoutureLab",
+      "logoWidthList": null,
+      "logoHeightList": null
+    },
+    "tags": [
+      {
+        "_id": "6496f5a4-625f-4d3f-a532-d1f3145ee22c",
+        "name": "E-Commerce",
+        "slug": "ecommerce"
+      }
+    ],
+    "backgroundColor": {
+      "hex": "#ffffff"
+    },
+    "primaryColor": {
+      "hex": "#000000"
+    },
+    "secondaryColor": {
+      "hex": "#4d4d4d"
+    },
+    "preview": {
+      "type": "image",
+      "image": {
+        "url": "/images/couturelab/preview.jpg",
+        "width": 1800,
+        "height": 1800
+      }
+    },
+    "cover": {
+      "type": "image",
+      "image": {
+        "url": "/images/couturelab/cover.jpg",
+        "width": 1800,
+        "height": 1800
+      }
+    },
+    "content": [
+      {
+        "_key": "490eb285002a",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/couturelab/490eb285002a.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      },
+      {
+        "_key": "13537db82c09",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/couturelab/13537db82c09.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      }
+    ]
+  },
+  {
+    "_id": "670f2801-346d-4df8-b2ac-dfcb19723f6b",
+    "name": "Marketing site",
+    "slug": "field",
+    "published_at": "2022-11-10",
+    "logoWidth": null,
+    "logoHeight": null,
+    "client": {
+      "_id": "c4994ccb-481b-4979-a0b2-7c0bae8589bc",
+      "name": "Field.io",
+      "logoWidthList": null,
+      "logoHeightList": null
+    },
+    "tags": [
+      {
+        "_id": "ebd107cc-0c7c-484e-a753-55fb777bb539",
+        "name": "Marketing",
+        "slug": "marketing"
+      }
+    ],
+    "backgroundColor": {
+      "hex": "#ffffff"
+    },
+    "primaryColor": {
+      "hex": "#000000"
+    },
+    "secondaryColor": {
+      "hex": "#808080"
+    },
+    "preview": {
+      "type": "image",
+      "image": {
+        "url": "/images/field/preview.jpg",
+        "width": 1800,
+        "height": 1800
+      }
+    },
+    "cover": {
+      "type": "image",
+      "image": {
+        "url": "/images/field/cover.jpg",
+        "width": 1800,
+        "height": 1800
+      }
+    },
+    "content": [
+      {
+        "_key": "470c434b663e",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/field/470c434b663e.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      },
+      {
+        "_key": "11a8e9c724c6",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/field/11a8e9c724c6.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      },
+      {
+        "_key": "9372a9b8fe9c",
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 12,
+        "image": {
+          "url": "/images/field/9372a9b8fe9c.jpg",
+          "width": 2560,
+          "height": 1440
+        }
+      }
+    ]
+  }
+]

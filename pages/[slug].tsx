@@ -1,8 +1,5 @@
-import { groq } from "next-sanity";
-import { getClient } from "lib/sanity.server";
 import { ProjectProps } from "types";
 import { FC, useEffect } from "react";
-import { projectQuery } from "lib/queries";
 import { motion } from "framer-motion";
 import classNames from "classnames";
 import { useRouter } from "next/router";
@@ -12,9 +9,10 @@ import { Section } from "components/section";
 import { Menu } from "components/menu";
 import Layout from "components/layout-project";
 import { useWindowSize } from "hooks/useWindowSize";
-import MuxVideo from "@mux/mux-video-react";
 import { MainHead } from "components/head";
 import Head from "next/head";
+import { LocalVideo } from "components/local-video";
+import { getProjectBySlug, getProjectSlugs } from "lib/projects";
 
 interface Props {
   project: ProjectProps;
@@ -94,13 +92,8 @@ const Project: FC<Props> = ({ project }) => {
                     />
                   )}
                 {project.cover?.type === "video" && project.cover?.video && (
-                  <MuxVideo
-                    playbackId={project.cover.video.playbackId}
-                    muted
-                    autoPlay
-                    loop
-                    controls={false}
-                    playsInline
+                  <LocalVideo
+                    src={project.cover.video.src}
                     style={{
                       width: "100%",
                       height: "100%",
@@ -159,7 +152,6 @@ const Project: FC<Props> = ({ project }) => {
             <div className="flex flex-col gap-20 mx-4 md:mx-12">
               {project.content?.map((content) => (
                 <div key={content._key} className="grid grid-cols-12">
-                  {/* Image Block */}
                   {content._type === "imageBlock" && (
                     <Section content={content}>
                       <div className="rounded-xl overflow-hidden">
@@ -167,13 +159,12 @@ const Project: FC<Props> = ({ project }) => {
                           src={content.image?.url || ""}
                           width={content.image?.width}
                           height={content.image?.height}
-                          alt={content.title || ""}
+                          alt={content.caption || ""}
                         />
                       </div>
                     </Section>
                   )}
 
-                  {/* Video Block */}
                   {content._type === "videoBlock" && (
                     <Section content={content}>
                       <div
@@ -183,13 +174,9 @@ const Project: FC<Props> = ({ project }) => {
                         }}
                       >
                         {content.video && (
-                          <MuxVideo
-                            playbackId={content.video.playbackId}
-                            muted
-                            autoPlay
-                            loop
+                          <LocalVideo
+                            src={content.video.src}
                             controls={content.controls || false}
-                            playsInline
                             style={{
                               width: "100%",
                               height: "100%",
@@ -202,7 +189,6 @@ const Project: FC<Props> = ({ project }) => {
                     </Section>
                   )}
 
-                  {/* Title Block */}
                   {content._type === "titleBlock" && (
                     <Section content={content}>
                       <div
@@ -214,7 +200,6 @@ const Project: FC<Props> = ({ project }) => {
                     </Section>
                   )}
 
-                  {/* Paragraph Block */}
                   {content._type === "paragraphBlock" && (
                     <Section content={content}>
                       <div className="flex flex-col gap-8">
@@ -239,16 +224,12 @@ const Project: FC<Props> = ({ project }) => {
 
 export default Project;
 
-export async function getStaticProps(context: { params: { slug: any } }) {
-  async function getData() {
-    const projects = await getClient().fetch(
-      groq`*[_type == "project" && slug.current == $slug][0]${projectQuery}`,
-      { slug: context.params.slug }
-    );
-    return projects;
-  }
+export async function getStaticProps(context: { params: { slug: string } }) {
+  const project = getProjectBySlug(context.params.slug);
 
-  const project: ProjectProps[] = await getData();
+  if (!project) {
+    return { notFound: true };
+  }
 
   return {
     props: {
@@ -258,22 +239,8 @@ export async function getStaticProps(context: { params: { slug: any } }) {
 }
 
 export async function getStaticPaths() {
-  async function getData() {
-    const projects = await getClient().fetch(
-      groq`*[_type == "project"]{
-        "slug": slug.current
-      }`
-    );
-    return projects;
-  }
-
-  const data: ProjectProps[] = await getData();
-  const listOfPath = data.map((project) => ({
-    params: { slug: project.slug },
-  }));
-
   return {
-    paths: listOfPath,
-    fallback: false, // can also be true or 'blocking'
+    paths: getProjectSlugs().map((slug) => ({ params: { slug } })),
+    fallback: false,
   };
 }

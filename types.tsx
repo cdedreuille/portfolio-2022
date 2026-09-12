@@ -1,5 +1,3 @@
-import { PortableTextBlock } from "sanity";
-
 export interface ProjectProps {
   _id: string;
   name: string;
@@ -34,7 +32,7 @@ export interface ProjectProps {
 export interface ImageBlockProps {
   _key: string;
   _type: "imageBlock";
-  title?: string;
+  caption?: string;
   image?: ImageProps;
   start?: number;
   width?: number;
@@ -43,7 +41,7 @@ export interface ImageBlockProps {
 export interface VideoBlockProps {
   _key: string;
   _type: "videoBlock";
-  title?: string;
+  caption?: string;
   video?: VideoProps;
   start?: number;
   width?: number;
@@ -61,27 +59,40 @@ export interface TitleBlockProps {
 export interface ParagraphBlockProps {
   _key: string;
   _type: "paragraphBlock";
-  text?: PortableTextBlock;
+  text?: PortableTextValue;
   start?: number;
   width?: number;
 }
 
+export type PortableTextValue = PortableTextBlock[];
+
+export interface PortableTextSpan {
+  _key?: string;
+  _type: "span";
+  text?: string;
+  marks?: string[];
+}
+
+export interface PortableTextBlock {
+  _key?: string;
+  _type: "block";
+  children?: PortableTextSpan[];
+  markDefs?: { _key: string; _type: string }[];
+  style?: string;
+}
+
 export interface ColorProps {
-  _id: string;
   hex: string;
 }
 
 export interface ImageProps {
-  _type: "image";
   url?: string;
   width?: number;
   height?: number;
-  extension?: string;
 }
 
 export interface VideoProps {
-  _type: "mux.video";
-  playbackId?: string;
+  src?: string;
 }
 
 export interface ClientProps {
