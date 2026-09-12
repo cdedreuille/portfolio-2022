@@ -12,6 +12,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@next/third-parties": "^16.3.5",
     "@portabletext/react": "^8.0.1",
     "@vercel/analytics": "^2.0.1",
     "classnames": "^2.3.2",

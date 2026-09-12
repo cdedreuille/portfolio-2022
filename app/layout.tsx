@@ -1,8 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Mono } from "next/font/google";
 import localFont from "next/font/local";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Providers } from "./providers";
 import "../styles/globals.css";
+
+const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
 const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
@@ -105,6 +108,7 @@ export default function RootLayout({
         >
           <Providers>{children}</Providers>
         </main>
+        {gaId && <GoogleAnalytics gaId={gaId} />}
       </body>
     </html>
   );
