@@ -12,12 +12,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@mux/mux-player-react": "^3.13.2",
-    "@mux/mux-video-react": "^0.31.2",
     "@portabletext/react": "^8.0.1",
-    "@sanity/client": "^8.5.0",
-    "@sanity/color-input": "^6.1.4",
-    "@sanity/vision": "^6.12.0",
     "@vercel/analytics": "^2.0.1",
     "classnames": "^2.3.2",
     "eslint": "^9.39.5",
@@ -26,15 +21,10 @@
     "gsap": "^3.11.4",
     "javascript-color-gradient": "^2.4.4",
     "next": "^16.3.4",
-    "next-sanity": "^13.3.4",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-icons": "^5.7.0",
-    "sanity": "^6.12.0",
-    "sanity-plugin-media": "^6.1.8",
-    "sanity-plugin-mux-input": "^5.0.12",
     "split-type": "^0.3.3",
-    "styled-components": "^6.5.3",
     "tailwind-scrollbar-hide": "^1.1.7",
     "use-sound": "^4.0.1"
   },

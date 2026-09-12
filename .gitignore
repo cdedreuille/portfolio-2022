@@ -16,6 +16,9 @@
 /build
 /dist
 
+# local media exports (not committed)
+.media/
+
 # Sanity
 /.sanity/
 
@@ -38,3 +41,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.env*

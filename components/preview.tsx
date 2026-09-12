@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { FC } from "react";
 import { ProjectProps } from "types";
-import MuxVideo from "@mux/mux-video-react";
 import { motion } from "framer-motion";
 import { useWindowSize } from "hooks/useWindowSize";
+import { LocalVideo } from "./local-video";
 
 interface ItemProps {
   projects: ProjectProps[];
@@ -37,7 +37,7 @@ export const Preview: FC<ItemProps> = ({ projects, activePreview }) => {
         >
           {project?.preview?.type === "image" && project.preview.image?.url && (
             <Image
-              src={`${project.preview.image.url}?w=1200`}
+              src={project.preview.image.url}
               alt="Project"
               className="object-cover"
               priority
@@ -46,17 +46,12 @@ export const Preview: FC<ItemProps> = ({ projects, activePreview }) => {
               sizes="(max-width: 500px) 100vw, (max-width: 500px) 100vw, 100vw"
             />
           )}
-          {project?.preview?.type === "video" &&
-            project.preview.video?.playbackId && (
-              <MuxVideo
-                style={{ height: "100%", width: "100%", objectFit: "cover" }}
-                playbackId={project.preview.video.playbackId}
-                controls={false}
-                autoPlay
-                muted
-                loop
-              />
-            )}
+          {project?.preview?.type === "video" && project.preview.video?.src && (
+            <LocalVideo
+              src={project.preview.video.src}
+              style={{ height: "100%", width: "100%", objectFit: "cover" }}
+            />
+          )}
         </div>
       ))}
     </motion.div>

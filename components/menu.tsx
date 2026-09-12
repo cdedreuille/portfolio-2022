@@ -6,19 +6,18 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import { useWindowSize } from "hooks/useWindowSize";
-import { projectQuery } from "lib/queries";
-import { getClient } from "lib/sanity.server";
-import { groq } from "next-sanity";
+import { getProjects } from "lib/projects";
 import { useRouter } from "next/router";
-import { FC, useEffect, useState } from "react";
-import { ProjectProps } from "types";
+import { FC, useState } from "react";
 import { useGlobal } from "./global-provider";
 import { Item } from "./list-item-menu";
 import { Preview } from "./preview";
 
 export const Menu: FC = () => {
-  const [projects, setProjects] = useState<ProjectProps[]>([]);
-  const [activePreview, setActivePreview] = useState<ProjectProps | null>(null);
+  const projects = getProjects();
+  const [activePreview, setActivePreview] = useState<
+    (typeof projects)[number] | null
+  >(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { scrollYProgress } = useScroll();
   const positionMobile = useTransform(
@@ -30,18 +29,6 @@ export const Menu: FC = () => {
   const router = useRouter();
   const { setActiveProject } = useGlobal();
   const { width } = useWindowSize();
-
-  useEffect(() => {
-    (async () => {
-      const result = await getClient().fetch(
-        groq`*[_type == "projectList" && _id == "projectList"][0]{
-          ...,
-          projects[]->${projectQuery}
-        }.projects`
-      );
-      setProjects(result);
-    })();
-  }, []);
 
   const backHome = () => {
     setActiveProject(null);
