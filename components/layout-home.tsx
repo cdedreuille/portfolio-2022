@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { motion } from "framer-motion";
+import { useHasNavigated } from "hooks/useHasNavigated";
 import { useGlobal } from "./global-provider";
 
 interface Props {
@@ -35,6 +36,7 @@ const sweep = 0.8;
 
 const Layout: FC<Props> = ({ children }) => {
   const { activeProject } = useGlobal();
+  const hasNavigated = useHasNavigated();
 
   return (
     <motion.div
@@ -45,7 +47,7 @@ const Layout: FC<Props> = ({ children }) => {
     >
       <motion.div
         variants={enter}
-        initial="hidden"
+        initial={hasNavigated ? "hidden" : "visible"}
         animate="visible"
         transition={{ duration, ease: "easeInOut", delay: sweep }}
         className="fixed z-[999] bg-black h-screen top-0 left-0 bottom-0"

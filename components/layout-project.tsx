@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { motion } from "framer-motion";
 import { ProjectProps } from "types";
+import { useHasNavigated } from "hooks/useHasNavigated";
 import { useGlobal } from "./global-provider";
 
 interface Props {
@@ -62,6 +63,7 @@ const letter = {
 
 const Layout: FC<Props> = ({ children, project }) => {
   const { activeProject } = useGlobal();
+  const hasNavigated = useHasNavigated();
 
   const letters = () => {
     let letters: string[] | null = null;
@@ -105,7 +107,7 @@ const Layout: FC<Props> = ({ children, project }) => {
     >
       <motion.div
         variants={enter}
-        initial="hidden"
+        initial={hasNavigated ? "hidden" : "visible"}
         animate="visible"
         transition={{ duration, ease: "easeInOut", delay: sweep + 1.8 }}
         className="fixed z-50 h-screen top-0 left-0 bottom-0 overflow-hidden"

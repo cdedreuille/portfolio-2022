@@ -99,7 +99,7 @@ export const Item: FC<ItemProps> = ({ project, color, isFirst, isLast }) => {
             <div className="absolute w-0 h-px -bottom-1 left-0 bg-black group-hover:w-full transition-all duration-300" />
           </div>
         </div>
-        <div className="hidden sm:flex gap-4">
+        <div className="hidden md:flex gap-4">
           {project.tags &&
             project.tags.map((tag, index) => (
               <div
