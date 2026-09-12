@@ -28,9 +28,13 @@ const flow = {
   hidden: { x: -100 },
 };
 
+// Seconds the incoming colour takes to sweep across, matching --duration-sweep
+// in globals.css. The letters wait for the cover to be full before appearing.
+const sweep = 0.8;
+
 const textWrapper = {
   visible: {
-    transition: { staggerChildren: 0.04 },
+    transition: { staggerChildren: 0.04, delayChildren: sweep },
   },
   hidden: {
     transition: { staggerChildren: 0.04 },
@@ -103,7 +107,7 @@ const Layout: FC<Props> = ({ children, project }) => {
         variants={enter}
         initial="hidden"
         animate="visible"
-        transition={{ duration, ease: "easeInOut", delay: 2 }}
+        transition={{ duration, ease: "easeInOut", delay: sweep + 1.8 }}
         className="fixed z-50 h-screen top-0 left-0 bottom-0 overflow-hidden"
         style={{
           backgroundColor: activeProject?.backgroundColor?.hex || "#000",

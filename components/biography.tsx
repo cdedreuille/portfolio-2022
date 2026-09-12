@@ -1,6 +1,6 @@
 import { useIsomorphicLayoutEffect } from "framer-motion";
 import Image from "next/image";
-import { FC, useMemo, useRef } from "react";
+import { FC, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import SplitType from "split-type";
@@ -13,27 +13,22 @@ export const Biography: FC = () => {
   const text1 = useRef(null);
   const container = useRef(null);
   const { width, height } = useWindowSize();
-  const containerHeight = textContainer.current?.clientHeight;
-  const bottomOffset = height ? height / 6 : 0;
-  const transY = useMemo(() => {
-    if (containerHeight && height) {
-      if (containerHeight > height) {
-        return -(height / 2 + (containerHeight - height) + bottomOffset);
-      } else {
-        return -(height / 2 - (height - containerHeight - bottomOffset));
-      }
-    }
-    return null;
-  }, [bottomOffset, containerHeight, height]);
 
   useIsomorphicLayoutEffect(() => {
-    if (text1.current !== null && transY && containerHeight) {
+    const containerHeight = textContainer.current?.clientHeight;
+
+    if (text1.current !== null && height && containerHeight) {
+      const bottomOffset = height / 6;
+      const transY =
+        containerHeight > height
+          ? -(height / 2 + (containerHeight - height) + bottomOffset)
+          : -(height / 2 - (height - containerHeight - bottomOffset));
       const text1 = new SplitType("#text1");
       const text2 = new SplitType("#text2");
       const text3 = new SplitType("#text3");
 
       const ctx = gsap.context(() => {
-        let tl = gsap.timeline({
+        const tl = gsap.timeline({
           scrollTrigger: {
             trigger: ".timeline-top",
             pin: true,
@@ -60,7 +55,7 @@ export const Biography: FC = () => {
           { opacity: 1, rotate: 0, stagger: 0.4, duration: 1 }
         );
 
-        let tl2 = gsap.timeline({
+        const tl2 = gsap.timeline({
           scrollTrigger: {
             trigger: ".timeline-top",
             start: "top top",
@@ -73,7 +68,7 @@ export const Biography: FC = () => {
       }, container);
       return () => ctx.revert();
     }
-  }, [transY]);
+  }, [height]);
 
   if (width && width < 768)
     return (

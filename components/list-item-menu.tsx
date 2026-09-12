@@ -2,11 +2,10 @@ import { motion } from "framer-motion";
 import { FC } from "react";
 import { ProjectProps } from "types";
 import { useGlobal } from "./global-provider";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 interface ItemProps {
   project: ProjectProps;
-  setIsMenuOpen: (value: boolean) => void;
   setActivePreview: (value: ProjectProps | null) => void;
 }
 
@@ -14,9 +13,12 @@ export const Item: FC<ItemProps> = ({ project, setActivePreview }) => {
   const { setActiveProject } = useGlobal();
   const router = useRouter();
 
+  // The menu is deliberately left open: it has to stay untouched in the
+  // outgoing view transition snapshot. The destination remounts the segment,
+  // so it arrives with the menu closed anyway.
   const onClick = () => {
     setActiveProject(project);
-    router.push(`/${project.slug}`, undefined, { scroll: false });
+    router.push(`/${project.slug}`, { transitionTypes: ["nav-forward"] });
   };
 
   return (

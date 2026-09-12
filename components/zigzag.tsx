@@ -1,8 +1,6 @@
 import { FC } from "react";
 
-interface Props {}
-
-export const ZigZag: FC<Props> = () => {
+export const ZigZag: FC = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

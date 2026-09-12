@@ -1,3 +1,5 @@
+"use client";
+
 import useLockedBody from "hooks/useLockedBody";
 import { createContext, useContext, useState } from "react";
 import { ProjectProps } from "types";

@@ -12,3 +12,75 @@ body {
 a {
   cursor: none;
 }
+
+:root {
+  /* How long the incoming colour takes to sweep across the screen. The project
+     cover delays its letters by the same amount, in layout-project.tsx. */
+  --duration-sweep: 800ms;
+}
+
+@keyframes vt-slide {
+  from {
+    translate: var(--slide-offset);
+  }
+  to {
+    translate: 0;
+  }
+}
+
+/* The outgoing page holds still and the colour overlay travels over it, so the
+   old snapshot is left unanimated rather than sliding or fading out. */
+::view-transition-old(.nav-forward),
+::view-transition-old(.nav-back) {
+  animation: none;
+}
+
+/* Everything outside the page boundary is identical between routes, so skip the
+   default root cross-fade that would otherwise dim it mid-transition. */
+::view-transition-old(root) {
+  display: none;
+}
+
+::view-transition-new(root) {
+  animation: none;
+}
+
+/* A solid full-width sweep rather than a fade, so the colour reads as a single
+   sheet travelling across the screen and covering the page underneath. Both
+   directions sweep right to left; the two class names are still kept apart so
+   untyped navigations (browser back/forward, refresh) fall through to "none"
+   and stay still. */
+::view-transition-new(.nav-forward),
+::view-transition-new(.nav-back) {
+  --slide-offset: 100vw;
+  animation: var(--duration-sweep) ease-in-out both vt-slide;
+}
+
+/* The custom cursor persists across routes, so keep it out of the page
+   snapshot instead of letting a ghost copy slide away with the old page. */
+::view-transition-group(cursor-dot),
+::view-transition-group(cursor-ring) {
+  animation: none;
+  z-index: 200;
+}
+
+::view-transition-old(cursor-dot),
+::view-transition-new(cursor-dot),
+::view-transition-old(cursor-ring),
+::view-transition-new(cursor-ring) {
+  animation: none;
+}
+
+/* Keep the page clickable while snapshots are still moving. */
+::view-transition {
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}

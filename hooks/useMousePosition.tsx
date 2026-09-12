@@ -9,20 +9,22 @@ const useMousePosition = () => {
   });
 
   useEffect(() => {
-    const updateMousePosition = (ev: { clientX: any; clientY: any }) => {
+    const updateMousePosition = (ev: MouseEvent) => {
       setMousePosition({ x: ev.clientX, y: ev.clientY });
     };
 
     window.addEventListener("mousemove", updateMousePosition);
+    const frame = window.requestAnimationFrame(() => {
+      setMousePosition({
+        x: window.innerWidth / 2,
+        y: window.innerHeight / 2,
+      });
+    });
 
     return () => {
+      window.cancelAnimationFrame(frame);
       window.removeEventListener("mousemove", updateMousePosition);
     };
-  }, []);
-
-  useEffect(() => {
-    if (window.innerWidth && window.innerHeight)
-      setMousePosition({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
   }, []);
 
   return mousePosition;

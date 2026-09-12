@@ -56,7 +56,11 @@ export const IntroDesktop: FC = () => {
         </div>
 
         {/* Content */}
-        <div className="relative flex-1 flex flex-col items-center justify-center">
+        {/* The ellipse rotates as you scroll, and a rotated box's bounding box
+            is wider than its layout box, which would otherwise extend the page
+            horizontally. Clip rather than hide so this stays out of the scroll
+            container chain and the vertical axis is left visible. */}
+        <div className="relative flex-1 flex flex-col items-center justify-center overflow-x-clip">
           {/* Name */}
           <AnimatedName />
 

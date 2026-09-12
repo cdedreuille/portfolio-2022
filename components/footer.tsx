@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, { FC, useRef } from "react";
 import { linkLinkedIn, linkMail, linkTwitter } from "content";
 import { useInView, motion } from "framer-motion";
 import classNames from "classnames";
@@ -28,7 +28,7 @@ const child = {
 
 const Footer: FC = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref);
+  const isVisible = useInView(ref, { once: true });
   const letters = [
     "Le",
     "t'",
@@ -44,12 +44,7 @@ const Footer: FC = () => {
     "d",
     "s",
   ];
-  const [isVisible, setIsVisible] = useState(false);
   const { width } = useWindowSize();
-
-  useEffect(() => {
-    if (isInView) setIsVisible(true);
-  }, [isInView]);
 
   return (
     <footer className="p-6 md:p-12 py-20 md:py-48 relative md:z-50">

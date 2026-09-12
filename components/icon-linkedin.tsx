@@ -1,8 +1,6 @@
 import { FC } from "react";
 
-interface Props {}
-
-export const IconLinkedin: FC<Props> = () => {
+export const IconLinkedin: FC = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
       <path
