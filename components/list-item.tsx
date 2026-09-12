@@ -3,7 +3,6 @@ import Image from "next/image";
 import { FC, useEffect, useRef } from "react";
 import { ProjectProps } from "types";
 import { useGlobal } from "./global-provider";
-import { useRouter } from "next/router";
 import Link from "next/link";
 
 interface ItemProps {
@@ -27,7 +26,6 @@ const variants = {
 export const Item: FC<ItemProps> = ({ project, color, isFirst, isLast }) => {
   const { setActiveProject, setActivePreview, activePreview } = useGlobal();
   const ref = useRef<HTMLAnchorElement>(null);
-  const router = useRouter();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["1 1", "0 0"],
@@ -47,13 +45,12 @@ export const Item: FC<ItemProps> = ({ project, color, isFirst, isLast }) => {
 
   const onClick = () => {
     setActiveProject(project);
-    console.log("click");
   };
 
   return (
     <Link
       href={`/${project.slug}`}
-      scroll={false}
+      transitionTypes={["nav-forward"]}
       onClick={onClick}
       className="group block h-20 sn:h-28 relative overflow-hidden sm:mx-12 mb-2 rounded-lg"
       ref={ref}

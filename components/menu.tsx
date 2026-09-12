@@ -7,7 +7,7 @@ import {
 } from "framer-motion";
 import { useWindowSize } from "hooks/useWindowSize";
 import { getProjects } from "lib/projects";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { FC, useState } from "react";
 import { useGlobal } from "./global-provider";
 import { Item } from "./list-item-menu";
@@ -32,7 +32,7 @@ export const Menu: FC = () => {
 
   const backHome = () => {
     setActiveProject(null);
-    router.push("/");
+    router.push("/", { transitionTypes: ["nav-back"] });
   };
 
   return (
@@ -92,7 +92,6 @@ export const Menu: FC = () => {
                 <Item
                   key={project._id}
                   project={project}
-                  setIsMenuOpen={setIsMenuOpen}
                   setActivePreview={setActivePreview}
                 />
               ))}

@@ -1,18 +1,16 @@
+"use client";
+
 import { ProjectProps } from "types";
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import { motion } from "framer-motion";
 import classNames from "classnames";
-import { useRouter } from "next/router";
 import { PortableText, PortableTextComponents } from "@portabletext/react";
 import Image from "next/image";
 import { Section } from "components/section";
 import { Menu } from "components/menu";
 import Layout from "components/layout-project";
 import { useWindowSize } from "hooks/useWindowSize";
-import { MainHead } from "components/head";
-import Head from "next/head";
 import { LocalVideo } from "components/local-video";
-import { getProjectBySlug, getProjectSlugs } from "lib/projects";
 
 interface Props {
   project: ProjectProps;
@@ -32,21 +30,10 @@ const components: PortableTextComponents = {
 };
 
 const Project: FC<Props> = ({ project }) => {
-  const router = useRouter();
   const { width } = useWindowSize();
-
-  useEffect(() => {
-    if (window) window.scrollTo(0, 0);
-  }, [router]);
 
   return (
     <Layout project={project}>
-      <MainHead />
-      <Head>
-        <title>
-          {project.client.name} - {project.name}
-        </title>
-      </Head>
       <div
         className={classNames("min-h-screen w-full pb-48", {
           "bg-cream": !project.backgroundColor,
@@ -223,24 +210,3 @@ const Project: FC<Props> = ({ project }) => {
 };
 
 export default Project;
-
-export async function getStaticProps(context: { params: { slug: string } }) {
-  const project = getProjectBySlug(context.params.slug);
-
-  if (!project) {
-    return { notFound: true };
-  }
-
-  return {
-    props: {
-      project,
-    },
-  };
-}
-
-export async function getStaticPaths() {
-  return {
-    paths: getProjectSlugs().map((slug) => ({ params: { slug } })),
-    fallback: false,
-  };
-}

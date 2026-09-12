@@ -28,6 +28,11 @@ const flow = {
 
 const duration = 0.6;
 
+// Seconds the incoming colour takes to sweep across, matching --duration-sweep
+// in globals.css. The cover holds until the sweep is full so home is revealed
+// from behind a solid sheet rather than sliding in half-uncovered.
+const sweep = 0.8;
+
 const Layout: FC<Props> = ({ children }) => {
   const { activeProject } = useGlobal();
 
@@ -42,7 +47,7 @@ const Layout: FC<Props> = ({ children }) => {
         variants={enter}
         initial="hidden"
         animate="visible"
-        transition={{ duration, ease: "easeInOut" }}
+        transition={{ duration, ease: "easeInOut", delay: sweep }}
         className="fixed z-[999] bg-black h-screen top-0 left-0 bottom-0"
         style={{
           backgroundColor: activeProject?.backgroundColor?.hex || "#000",
