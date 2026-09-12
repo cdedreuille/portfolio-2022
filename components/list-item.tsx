@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { AnimatePresence, motion, useScroll } from "framer-motion";
 import Image from "next/image";
 import { FC, useEffect, useRef } from "react";
@@ -52,10 +53,10 @@ export const Item: FC<ItemProps> = ({ project, color, isFirst, isLast }) => {
       href={`/${project.slug}`}
       transitionTypes={["nav-forward"]}
       onClick={onClick}
-      className="group block h-20 sn:h-28 relative overflow-hidden sm:mx-12 mb-2 rounded-lg"
+      className="group block h-20 sn:h-28 relative overflow-hidden mx-4 sm:mx-12 mb-2 rounded-lg"
       ref={ref}
     >
-      <div className="relative z-10 flex items-center gap-8 py-2 px-6 sm:px-8 h-full">
+      <div className="relative z-10 flex items-center gap-8 py-2 pl-4 pr-2 sm:px-8 h-full">
         <div className="text-md w-[220px] hidden sm:flex font-mono uppercase text-sm sm:text-md h-full items-center relative">
           <AnimatePresence>
             {(!isActive || (isActive && !project.client.logoList?.url)) && (
@@ -100,10 +101,13 @@ export const Item: FC<ItemProps> = ({ project, color, isFirst, isLast }) => {
         </div>
         <div className="hidden sm:flex gap-4">
           {project.tags &&
-            project.tags.map((tag) => (
+            project.tags.map((tag, index) => (
               <div
                 key={tag._id}
-                className="font-mono uppercase text-sm border border-gray-400 text-gray-400 rounded-full px-4 py-1"
+                className={classNames(
+                  "font-mono uppercase text-sm border border-gray-400 text-gray-400 rounded-full px-4 py-1",
+                  index > 0 && "hidden lg:block"
+                )}
               >
                 {tag.name}
               </div>

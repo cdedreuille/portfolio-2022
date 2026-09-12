@@ -6,11 +6,6 @@ html,
 body {
   background-color: #f5f7fb;
   color: #000;
-  cursor: none;
-}
-
-a {
-  cursor: none;
 }
 
 :root {
@@ -54,21 +49,6 @@ a {
 ::view-transition-new(.nav-back) {
   --slide-offset: 100vw;
   animation: var(--duration-sweep) ease-in-out both vt-slide;
-}
-
-/* The custom cursor persists across routes, so keep it out of the page
-   snapshot instead of letting a ghost copy slide away with the old page. */
-::view-transition-group(cursor-dot),
-::view-transition-group(cursor-ring) {
-  animation: none;
-  z-index: 200;
-}
-
-::view-transition-old(cursor-dot),
-::view-transition-new(cursor-dot),
-::view-transition-old(cursor-ring),
-::view-transition-new(cursor-ring) {
-  animation: none;
 }
 
 /* Keep the page clickable while snapshots are still moving. */
