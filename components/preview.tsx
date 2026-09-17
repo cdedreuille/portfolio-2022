@@ -31,9 +31,9 @@ export const Preview: FC<ItemProps> = ({ projects, activePreview }) => {
     >
       {projects.map((project) => (
         <div
-          key={project._id}
+          key={project.slug}
           className="absolute w-full h-full"
-          style={{ zIndex: activePreview?._id === project._id ? 10 : 1 }}
+          style={{ zIndex: activePreview?.slug === project.slug ? 10 : 1 }}
         >
           {project?.preview?.type === "image" && project.preview.image?.url && (
             <Image

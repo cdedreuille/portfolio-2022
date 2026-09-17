@@ -1,5 +1,4 @@
 export interface ProjectProps {
-  _id: string;
   name: string;
   client: ClientProps;
   published_at: string;
@@ -32,7 +31,6 @@ export interface ProjectProps {
 }
 
 export interface ImageBlockProps {
-  _key: string;
   _type: "imageBlock";
   caption?: string;
   image?: ImageProps;
@@ -41,7 +39,6 @@ export interface ImageBlockProps {
 }
 
 export interface VideoBlockProps {
-  _key: string;
   _type: "videoBlock";
   caption?: string;
   video?: VideoProps;
@@ -51,7 +48,6 @@ export interface VideoBlockProps {
 }
 
 export interface TitleBlockProps {
-  _key: string;
   _type: "titleBlock";
   text?: string;
   start?: number;
@@ -59,7 +55,6 @@ export interface TitleBlockProps {
 }
 
 export interface ParagraphBlockProps {
-  _key: string;
   _type: "paragraphBlock";
   text?: PortableTextValue;
   start?: number;
@@ -69,17 +64,15 @@ export interface ParagraphBlockProps {
 export type PortableTextValue = PortableTextBlock[];
 
 export interface PortableTextSpan {
-  _key?: string;
   _type: "span";
   text?: string;
   marks?: string[];
 }
 
 export interface PortableTextBlock {
-  _key?: string;
   _type: "block";
   children?: PortableTextSpan[];
-  markDefs?: { _key: string; _type: string }[];
+  markDefs?: { _key?: string; _type: string }[];
   style?: string;
 }
 
@@ -98,7 +91,6 @@ export interface VideoProps {
 }
 
 export interface ClientProps {
-  _id: string;
   name: string;
   logoList?: ImageProps;
   logoWidthList?: number;
@@ -106,7 +98,6 @@ export interface ClientProps {
 }
 
 export interface TagProps {
-  _id: string;
   name: string;
   slug: string;
 }

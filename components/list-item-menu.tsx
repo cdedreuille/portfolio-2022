@@ -53,7 +53,7 @@ export const Item: FC<ItemProps> = ({ project, setActivePreview }) => {
           {project.tags &&
             project.tags.map((tag) => (
               <div
-                key={tag._id}
+                key={tag.slug}
                 className="font-mono uppercase text-sm border border-gray-400 text-gray-400 rounded-full px-4 py-1"
               >
                 {tag.name}

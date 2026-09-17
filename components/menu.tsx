@@ -93,7 +93,7 @@ export const Menu: FC<{ projects: ProjectProps[] }> = ({
             <div className="w-screen h-screen overflow-scroll pt-40 pb-20">
               {projects.map((project) => (
                 <Item
-                  key={project._id}
+                  key={project.slug}
                   project={project}
                   setActivePreview={setActivePreview}
                 />

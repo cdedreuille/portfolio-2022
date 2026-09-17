@@ -26,7 +26,7 @@ export const List: FC<Props> = ({ projects }) => {
     <div className="md:mt-20 mb-12 sm:mb-40">
       {projects.map((project, index) => (
         <Item
-          key={project._id}
+          key={project.slug}
           isFirst={index === 0}
           isLast={index === projects.length - 1}
           project={project}

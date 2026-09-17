@@ -93,7 +93,12 @@ const Layout: FC<Props> = ({ children, project }) => {
     if (project?.client.name === "Field.io")
       letters = ["F", "I", "E", "LD", ".", "I", "O"];
 
-    return letters || ["P", "Ro", "J", "E", "C", "T"];
+    // Clients without a hand-tuned ligature split spell out their own name
+    // rather than falling back to the generic "PROJECT".
+    return (
+      letters ??
+      project?.client.name.split("") ?? ["P", "Ro", "J", "E", "C", "T"]
+    );
   };
 
   const duration = 0.6;

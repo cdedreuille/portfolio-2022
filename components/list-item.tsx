@@ -42,7 +42,7 @@ export const Item: FC<ItemProps> = ({ project, color, isFirst, isLast }) => {
     });
   }, [isFirst, isLast, project, scrollYProgress, setActivePreview]);
 
-  const isActive = activePreview?._id === project._id;
+  const isActive = activePreview?.slug === project.slug;
 
   const onClick = () => {
     setActiveProject(project);
@@ -103,7 +103,7 @@ export const Item: FC<ItemProps> = ({ project, color, isFirst, isLast }) => {
           {project.tags &&
             project.tags.map((tag, index) => (
               <div
-                key={tag._id}
+                key={tag.slug}
                 className={classNames(
                   "font-mono uppercase text-sm border border-gray-400 text-gray-400 rounded-full px-4 py-1",
                   index > 0 && "hidden lg:block"

@@ -120,7 +120,7 @@ const Project: FC<Props> = ({ project, projects }) => {
                       >
                         {project.tags?.map((tag) => (
                           <div
-                            key={tag._id}
+                            key={tag.slug}
                             className="border px-4 py-1 rounded-full"
                             style={{ borderColor: project.primaryColor?.hex }}
                           >
@@ -142,8 +142,8 @@ const Project: FC<Props> = ({ project, projects }) => {
               </div>
             </div>
             <div className="flex flex-col gap-20 mx-4 md:mx-12">
-              {project.content?.map((content) => (
-                <div key={content._key} className="grid grid-cols-12">
+              {project.content?.map((content, index) => (
+                <div key={index} className="grid grid-cols-12">
                   {content._type === "imageBlock" && (
                     <Section content={content}>
                       <div className="rounded-xl overflow-hidden">
