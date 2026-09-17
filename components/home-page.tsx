@@ -10,10 +10,16 @@ import { Preview } from "components/preview";
 import { useEffect } from "react";
 import { useGlobal } from "components/global-provider";
 import Layout from "components/layout-home";
+import { useVisibleProjects } from "../hooks/useVisibleProjects";
 
-export default function Portfolio({ projects }: { projects: ProjectProps[] }) {
+export default function Portfolio({
+  projects: publicProjects,
+}: {
+  projects: ProjectProps[];
+}) {
   const { width } = useWindowSize();
   const { activePreview, setActivePreview } = useGlobal();
+  const projects = useVisibleProjects(publicProjects);
 
   useEffect(() => {
     setActivePreview(null);

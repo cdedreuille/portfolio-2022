@@ -1,5 +1,96 @@
 [
   {
+    "_id": "8d36168f-87c9-48d8-8c80-8489dc8cc7a6",
+    "name": "Spotify Technology",
+    "slug": "spotify-technology",
+    "published_at": "2026-09-17",
+    "private": true,
+    "logoWidth": 132,
+    "logoHeight": 36,
+    "client": {
+      "_id": "88a3cc00-8ac7-40c5-8cea-2d7ad475bebe",
+      "name": "Spotify"
+    },
+    "tags": [
+      {
+        "_id": "a088450a-f94f-48ca-b342-3b49665568a6",
+        "name": "Product Design",
+        "slug": "product-design"
+      },
+      {
+        "_id": "74e24f29-f698-4274-8c17-a57d0b5c669a",
+        "name": "Visual Design",
+        "slug": "visual-design"
+      },
+      {
+        "_id": "cb34bc52-3356-49f7-8cb2-d0ec63b689df",
+        "name": "Branding",
+        "slug": "branding"
+      }
+    ],
+    "backgroundColor": {
+      "hex": "#121212"
+    },
+    "primaryColor": {
+      "hex": "#ffffff"
+    },
+    "secondaryColor": {
+      "hex": "#7E7E7E"
+    },
+    "logo": {
+      "url": "/images/spotify-technology/logo.png",
+      "width": 460,
+      "height": 126
+    },
+    "preview": {
+      "type": "image",
+      "image": {
+        "url": "/images/spotify-technology/preview.jpg",
+        "width": 1800,
+        "height": 1800
+      }
+    },
+    "cover": {
+      "type": "image",
+      "image": {
+        "url": "/images/spotify-technology/cover.jpg",
+        "width": 2560,
+        "height": 1599
+      }
+    },
+    "content": [
+      {
+        "_key": "bff262036041",
+        "_type": "titleBlock",
+        "start": 4,
+        "width": 10,
+        "text": "Spotify Technology"
+      },
+      {
+        "_key": "302ae93863a2",
+        "_type": "paragraphBlock",
+        "start": 4,
+        "width": 8,
+        "text": [
+          {
+            "_key": "a26d27415b72",
+            "_type": "block",
+            "children": [
+              {
+                "_key": "12aef288339a",
+                "_type": "span",
+                "marks": [],
+                "text": "Add the project introduction here."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "_id": "dfddaa21-cedc-49f1-86af-2a5b93810775",
     "name": "Collector App",
     "slug": "docent",

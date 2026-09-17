@@ -14,6 +14,7 @@ import { LocalVideo } from "components/local-video";
 
 interface Props {
   project: ProjectProps;
+  projects: ProjectProps[];
 }
 
 const wrapper = {
@@ -29,7 +30,7 @@ const components: PortableTextComponents = {
   },
 };
 
-const Project: FC<Props> = ({ project }) => {
+const Project: FC<Props> = ({ project, projects }) => {
   const { width } = useWindowSize();
 
   return (
@@ -44,7 +45,7 @@ const Project: FC<Props> = ({ project }) => {
           color: project.primaryColor?.hex,
         }}
       >
-        <Menu />
+        <Menu projects={projects} />
         <motion.div
           variants={wrapper}
           transition={{ duration: 0.6 }}
@@ -74,6 +75,9 @@ const Project: FC<Props> = ({ project }) => {
                     <Image
                       src={project.cover.image.url}
                       fill
+                      priority
+                      quality={100}
+                      sizes="100vw"
                       alt={project.client.name}
                       style={{ objectFit: "cover" }}
                     />
@@ -101,6 +105,7 @@ const Project: FC<Props> = ({ project }) => {
                     <Image
                       src={project.logo.url}
                       fill
+                      sizes={`${project.logoWidth || 120}px`}
                       alt={project.client.name}
                       style={{ objectFit: "contain", objectPosition: "left" }}
                     />

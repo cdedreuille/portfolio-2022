@@ -1,11 +1,11 @@
 import { DirectionalTransition } from "components/directional-transition";
 import Portfolio from "components/home-page";
-import { getProjects } from "lib/projects";
+import { getPublicProjects } from "lib/projects";
 
 export default function HomePage() {
   return (
     <DirectionalTransition>
-      <Portfolio projects={getProjects()} />
+      <Portfolio projects={getPublicProjects()} />
     </DirectionalTransition>
   );
 }

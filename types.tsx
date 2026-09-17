@@ -27,6 +27,8 @@ export interface ProjectProps {
   logo?: ImageProps;
   logoWidth?: number;
   logoHeight?: number;
+  // Kept out of the public project list and behind the access gate in proxy.ts.
+  private?: boolean;
 }
 
 export interface ImageBlockProps {

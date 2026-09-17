@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { DirectionalTransition } from "components/directional-transition";
 import Project from "components/project-page";
-import { getProjectBySlug, getProjectSlugs } from "lib/projects";
+import {
+  getProjectBySlug,
+  getProjectSlugs,
+  getPublicProjects,
+} from "lib/projects";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
@@ -26,6 +30,7 @@ export async function generateMetadata({
 
   return {
     title: `${project.client.name} - ${project.name}`,
+    ...(project.private && { robots: { index: false, follow: false } }),
   };
 }
 
@@ -41,7 +46,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   // instead of updating in place, which replays the cover intro animation.
   return (
     <DirectionalTransition key={slug}>
-      <Project project={project} />
+      <Project project={project} projects={getPublicProjects()} />
     </DirectionalTransition>
   );
 }

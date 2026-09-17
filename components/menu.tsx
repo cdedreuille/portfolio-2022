@@ -5,19 +5,22 @@ import {
   motion,
   AnimatePresence,
 } from "framer-motion";
+import { useVisibleProjects } from "hooks/useVisibleProjects";
 import { useWindowSize } from "hooks/useWindowSize";
-import { getProjects } from "lib/projects";
 import { useRouter } from "next/navigation";
 import { FC, useState } from "react";
+import { ProjectProps } from "types";
 import { useGlobal } from "./global-provider";
 import { Item } from "./list-item-menu";
 import { Preview } from "./preview";
 
-export const Menu: FC = () => {
-  const projects = getProjects();
-  const [activePreview, setActivePreview] = useState<
-    (typeof projects)[number] | null
-  >(null);
+// The list arrives as a prop from the server so private projects never end up
+// in the client bundle; unlocked browsers get the full list at runtime.
+export const Menu: FC<{ projects: ProjectProps[] }> = ({
+  projects: publicProjects,
+}) => {
+  const projects = useVisibleProjects(publicProjects);
+  const [activePreview, setActivePreview] = useState<ProjectProps | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { scrollYProgress } = useScroll();
   const positionMobile = useTransform(
