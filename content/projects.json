@@ -110,9 +110,17 @@
         "text": "Building a new brand for Spotify"
       },
       {
-        "_type": "imageBlock",
+        "_type": "videoBlock",
         "start": 2,
         "width": 12,
+        "video": {
+          "src": "https://yyfpsncahaff6kzv.public.blob.vercel-storage.com/videos/soe-websites-KY3Ol3wYttbkaUfriasGUVIQr3wQFs.mp4"
+        }
+      },
+      {
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 10,
         "image": {
           "url": "/images/spotify-technology/maneken-FW2523.jpg",
           "width": 2560,
@@ -120,12 +128,35 @@
         }
       },
       {
-        "_type": "videoBlock",
-        "start": 2,
-        "width": 12,
-        "video": {
-          "src": "https://yyfpsncahaff6kzv.public.blob.vercel-storage.com/videos/soe-websites-KY3Ol3wYttbkaUfriasGUVIQr3wQFs.mp4"
-        }
+        "_type": "paragraphBlock",
+        "start": 3,
+        "width": 8,
+        "text": [
+          {
+            "_type": "block",
+            "children": [
+              {
+                "_type": "span",
+                "marks": [],
+                "text": "I helped shape the identity of Spotify Technology and the product brands that sit within it including Portal, Confidence, Backstage and Xirp."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_type": "block",
+            "children": [
+              {
+                "_type": "span",
+                "marks": [],
+                "text": "The challenge was to create products with enough personality to stand on their own while making them unmistakably part of Spotify. This meant developing a shared visual language that could stretch across very different audiences, products and use cases without turning everything into the same brand."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ]
       },
       {
         "_type": "imageGridBlock",
@@ -175,45 +206,14 @@
         ]
       },
       {
-        "_type": "paragraphBlock",
-        "start": 2,
-        "width": 8,
-        "text": [
-          {
-            "_type": "block",
-            "children": [
-              {
-                "_type": "span",
-                "marks": [],
-                "text": "I helped shape the identity of Spotify Technology and the product brands that sit within it including Portal, Confidence, Backstage and Xirp."
-              }
-            ],
-            "markDefs": [],
-            "style": "normal"
-          },
-          {
-            "_type": "block",
-            "children": [
-              {
-                "_type": "span",
-                "marks": [],
-                "text": "The challenge was to create products with enough personality to stand on their own while making them unmistakably part of Spotify. This meant developing a shared visual language that could stretch across very different audiences, products and use cases without turning everything into the same brand."
-              }
-            ],
-            "markDefs": [],
-            "style": "normal"
-          }
-        ]
-      },
-      {
         "_type": "titleBlock",
-        "start": 1,
+        "start": 3,
         "width": 12,
-        "text": "Design system"
+        "text": "A new design system for business tools"
       },
       {
         "_type": "paragraphBlock",
-        "start": 1,
+        "start": 3,
         "width": 8,
         "text": [
           {
@@ -232,7 +232,7 @@
       },
       {
         "_type": "imageBlock",
-        "start": 1,
+        "start": 3,
         "width": 10,
         "image": {
           "url": "/images/spotify-technology/ds.jpg",
@@ -276,6 +276,28 @@
             "style": "normal"
           }
         ]
+      },
+      {
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 10,
+        "caption": "Portal",
+        "image": {
+          "url": "/images/spotify-technology/app-portal.jpg",
+          "width": 2230,
+          "height": 1494
+        }
+      },
+      {
+        "_type": "imageBlock",
+        "start": 3,
+        "width": 10,
+        "caption": "Confidence",
+        "image": {
+          "url": "/images/spotify-technology/app-confidence.jpg",
+          "width": 2229,
+          "height": 1494
+        }
       }
     ]
   },
