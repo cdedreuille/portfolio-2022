@@ -71,13 +71,43 @@
               {
                 "_type": "span",
                 "marks": [],
-                "text": "Add the project introduction here."
+                "text": "For the past two years, I’ve helped shape Spotify Technology, a new expression of Spotify built around the technology the company creates, not just the media it delivers."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_type": "block",
+            "children": [
+              {
+                "_type": "span",
+                "marks": [],
+                "text": "Spotify has always been a technology company at its core. Spotify Technology turns that capability outward, creating a home for the products, platforms and tools originally built inside Spotify and now made available to other companies."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_type": "block",
+            "children": [
+              {
+                "_type": "span",
+                "marks": [],
+                "text": "My role spanned brand, product design and design systems, helping establish a coherent vision for what business software from Spotify could look and feel like."
               }
             ],
             "markDefs": [],
             "style": "normal"
           }
         ]
+      },
+      {
+        "_type": "titleBlock",
+        "start": 6,
+        "width": 12,
+        "text": "Building a new brand for Spotify"
       },
       {
         "_type": "imageBlock",
@@ -88,6 +118,117 @@
           "width": 2560,
           "height": 1920
         }
+      },
+      {
+        "_type": "videoBlock",
+        "start": 2,
+        "width": 12,
+        "video": {
+          "src": "https://yyfpsncahaff6kzv.public.blob.vercel-storage.com/videos/soe-websites.mp4"
+        }
+      },
+      {
+        "_type": "paragraphBlock",
+        "start": 2,
+        "width": 8,
+        "text": [
+          {
+            "_type": "block",
+            "children": [
+              {
+                "_type": "span",
+                "marks": [],
+                "text": "I helped shape the identity of Spotify Technology and the product brands that sit within it including Portal, Confidence, Backstage and Xirp."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_type": "block",
+            "children": [
+              {
+                "_type": "span",
+                "marks": [],
+                "text": "The challenge was to create products with enough personality to stand on their own while making them unmistakably part of Spotify. This meant developing a shared visual language that could stretch across very different audiences, products and use cases without turning everything into the same brand."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ]
+      },
+      {
+        "_type": "titleBlock",
+        "start": 1,
+        "width": 12,
+        "text": "Design system"
+      },
+      {
+        "_type": "paragraphBlock",
+        "start": 1,
+        "width": 8,
+        "text": [
+          {
+            "_type": "block",
+            "children": [
+              {
+                "_type": "span",
+                "marks": [],
+                "text": "A key part of that work was exploring what business software at Spotify should look like. I helped shape the design-system strategy across these products, establishing shared foundations, components and patterns while bringing them closer to Spotify’s broader design language. The goal wasn’t simply consistency: it was to create a system that could give Spotify Technology its own point of view on how modern developer and business tools should feel."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ]
+      },
+      {
+        "_type": "imageBlock",
+        "start": 1,
+        "width": 10,
+        "image": {
+          "url": "/images/spotify-technology/ds.jpg",
+          "width": 3319,
+          "height": 2411
+        }
+      },
+      {
+        "_type": "titleBlock",
+        "start": 6,
+        "width": 10,
+        "text": "Product design"
+      },
+      {
+        "_type": "paragraphBlock",
+        "start": 4,
+        "width": 8,
+        "text": [
+          {
+            "_type": "block",
+            "children": [
+              {
+                "_type": "span",
+                "marks": [],
+                "text": "Alongside the brand work, I worked across the products themselves to create a more consistent Spotify Technology product experience."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          },
+          {
+            "_type": "block",
+            "children": [
+              {
+                "_type": "span",
+                "marks": [],
+                "text": "Rather than treating Portal, Confidence, Backstage and Serp as isolated tools, we started defining the patterns, interactions and principles that could connect them  creating the foundations for a family of products that increasingly feels like one ecosystem."
+              }
+            ],
+            "markDefs": [],
+            "style": "normal"
+          }
+        ]
       }
     ]
   },
