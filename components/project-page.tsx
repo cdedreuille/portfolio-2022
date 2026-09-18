@@ -157,6 +157,25 @@ const Project: FC<Props> = ({ project, projects }) => {
                     </Section>
                   )}
 
+                  {content._type === "imageGridBlock" && (
+                    <Section content={content}>
+                      <div className="grid grid-cols-12 gap-4">
+                        {content.images?.map((item, imageIndex) => (
+                          <Section key={imageIndex} content={item}>
+                            <div className="rounded-xl overflow-hidden">
+                              <Image
+                                src={item.image?.url || ""}
+                                width={item.image?.width}
+                                height={item.image?.height}
+                                alt={item.caption || ""}
+                              />
+                            </div>
+                          </Section>
+                        ))}
+                      </div>
+                    </Section>
+                  )}
+
                   {content._type === "videoBlock" && (
                     <Section content={content}>
                       <div

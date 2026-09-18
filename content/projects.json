@@ -124,8 +124,55 @@
         "start": 2,
         "width": 12,
         "video": {
-          "src": "https://yyfpsncahaff6kzv.public.blob.vercel-storage.com/videos/soe-websites.mp4"
+          "src": "https://yyfpsncahaff6kzv.public.blob.vercel-storage.com/videos/soe-websites-KY3Ol3wYttbkaUfriasGUVIQr3wQFs.mp4"
         }
+      },
+      {
+        "_type": "imageGridBlock",
+        "start": 1,
+        "width": 12,
+        "images": [
+          {
+            "caption": "Logo",
+            "start": 3,
+            "width": 5,
+            "image": {
+              "url": "/images/spotify-technology/brand-logo.jpg",
+              "width": 2110,
+              "height": 1346
+            }
+          },
+          {
+            "caption": "Products",
+            "start": 8,
+            "width": 5,
+            "image": {
+              "url": "/images/spotify-technology/brand-products.jpg",
+              "width": 2110,
+              "height": 1346
+            }
+          },
+          {
+            "caption": "Shapes",
+            "start": 1,
+            "width": 5,
+            "image": {
+              "url": "/images/spotify-technology/brand-shapes.jpg",
+              "width": 2110,
+              "height": 1346
+            }
+          },
+          {
+            "caption": "Patterns",
+            "start": 6,
+            "width": 5,
+            "image": {
+              "url": "/images/spotify-technology/brand-patterns.jpg",
+              "width": 2110,
+              "height": 1346
+            }
+          }
+        ]
       },
       {
         "_type": "paragraphBlock",

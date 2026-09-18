@@ -4,6 +4,7 @@ export interface ProjectProps {
   published_at: string;
   content?: (
     | ImageBlockProps
+    | ImageGridBlockProps
     | VideoBlockProps
     | TitleBlockProps
     | ParagraphBlockProps
@@ -32,6 +33,22 @@ export interface ProjectProps {
 
 export interface ImageBlockProps {
   _type: "imageBlock";
+  caption?: string;
+  image?: ImageProps;
+  start?: number;
+  width?: number;
+}
+
+export interface ImageGridBlockProps {
+  _type: "imageGridBlock";
+  // Each image places itself on the block's own 12 column grid, so rows can be
+  // offset from one another rather than sitting in fixed columns.
+  images?: ImageGridItemProps[];
+  start?: number;
+  width?: number;
+}
+
+export interface ImageGridItemProps {
   caption?: string;
   image?: ImageProps;
   start?: number;

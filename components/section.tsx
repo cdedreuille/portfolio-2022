@@ -1,19 +1,9 @@
 import classNames from "classnames";
 import { useWindowSize } from "hooks/useWindowSize";
 import { FC } from "react";
-import {
-  ImageBlockProps,
-  ParagraphBlockProps,
-  TitleBlockProps,
-  VideoBlockProps,
-} from "types";
 
 interface SectionProps {
-  content:
-    | ImageBlockProps
-    | VideoBlockProps
-    | TitleBlockProps
-    | ParagraphBlockProps;
+  content: { start?: number; width?: number };
   children: React.ReactNode;
 }
 
